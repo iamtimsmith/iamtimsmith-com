@@ -1,0 +1,53 @@
+html {
+	font-size: 18px;
+}
+
+body {
+	font-size: 1rem;
+	font-family: sans-serif;
+	line-height: 1.5;
+}
+
+main {
+	max-width: 750px;
+	margin: 0 auto;
+}
+
+figure {
+	margin: 10px 0;
+}
+
+figure video {
+	display: block;
+	margin: 0 auto;
+	max-width: 600px;
+}
+
+figcaption {
+	max-width: 600px;
+	margin: 0 auto;
+	text-align: center;
+	color: rgba(0, 0, 0, 0.5);
+	font-size: 0.8rem;
+	font-style: italic;
+}
+
+.header {
+	padding: 10px;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.header a {
+	margin: 10px;
+	text-decoration: none;
+	color: inherit;
+}
+
+.signup {
+	max-width: 600px;
+	padding: 20px 10px;
+	margin: 10px auto;
+	background: rgba(0, 0, 0, 0.05);
+	border-radius: 3px;
+	text-align: center;
+}
