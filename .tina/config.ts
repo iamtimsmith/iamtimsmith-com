@@ -39,6 +39,14 @@ export default defineConfig({
 						label: "Date",
 					},
 					{
+						type: "string",
+						name: 'tags',
+						label: 'Tags',
+						ui: {
+							component: 'tags'
+						}
+					},
+					{
 						type: "rich-text",
 						name: "body",
 						label: "Body",
@@ -48,6 +56,16 @@ export default defineConfig({
 							SignupSchema
 						]
 					},
+					{
+						type: 'image',
+						name: 'SeoImage',
+						label: 'SEO Image',
+					},
+					{
+						type: 'string',
+						name: 'SeoDescription',
+						label: 'SEO Description',
+					}
 				],
 				ui: {
 					// This is an DEMO router. You can remove this to fit your site

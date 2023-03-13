@@ -32,6 +32,11 @@ figcaption {
 	font-style: italic;
 }
 
+pre,
+code {
+	font-size: 0.8rem;
+}
+
 .header {
 	padding: 10px;
 	border-bottom: 1px solid rgba(0, 0, 0, 0.1);

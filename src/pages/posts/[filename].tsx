@@ -3,6 +3,7 @@ import { TinaMarkdown } from 'tinacms/dist/rich-text'
 import client from '../../../.tina/__generated__/client'
 import { Gif } from '../../components/gif'
 import { EmailSignup } from '../../components/signup'
+import { Code } from '../../components/code'
 
 const BlogPage = (props) => {
 	const { data } = useTina({
@@ -14,7 +15,7 @@ const BlogPage = (props) => {
 	return (
 		<>
 			<h1>{data.post.title}</h1>
-			<TinaMarkdown content={data.post.body} components={{ Gif, EmailSignup }} />
+			<TinaMarkdown content={data.post.body} components={{ Gif, EmailSignup, code_block: Code }} />
 		</>
 	)
 }
