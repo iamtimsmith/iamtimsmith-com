@@ -1,6 +1,6 @@
 ---
 title: Web Designer? Web Developer? Website Builder?
-date: '2017-06-16T05:00:00.000Z'
+date: '2017-06-07T05:00:00.000Z'
 ---
 
 Building a website, especially for the first time, can be a pretty overwhelming task. A lot of terms are thrown around including Web Designer, Web Developer, and Website builder.
@@ -21,7 +21,7 @@ There are quite a few website builders out there including Wix, Squarespace, or 
 
 Working with a designer will mean that you are not in direct control of everything on the page, but your designer should be able to turn your ideas into a reality. Because of this, you will be able to customize your website more than you would be able to using a website builder. A designer will also be more familiar with best practices and can help with file uploads. It can also help to create a single point of contact instead of having to go through a larger company’s customer support.
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<EmailSignup title="Like this post? Join my mailing list!" />
 
 ## Hiring a Web Designer can have Other Benefits
 
@@ -31,7 +31,7 @@ As I mentioned before, there are other benefits to using a Web Designer. The fir
 
 I started in code by building applications for windows using c#. I then took an interested in website development and began learning code. Through practice I have become comfortable with HTML, CSS, JQuery, and I’m currently learning Ruby. After learning to code, I decided to dive into design. I consider myself to be both a web designer and a front-end web developer.
 
-## TL:DR;
+## TL\:DR;
 
 Although there are some different options when it comes to building your website, each option has pros and cons. Designers can save time and money but are not as hands on. Website builders allow you to drag and drop things into place, but can be expensive and more brittle. Web developers are the folks who handle the code behind the scenes and make a website work.
 

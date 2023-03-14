@@ -1,7 +1,10 @@
 ---
 title: Creating a better SEO component for Gatsby sites
-date: '2021-02-15T05:00:00.000Z'
-seoDescription: In this post, I'll show you how to build a better SEO component which is optimized for both search engines and social sharing to help your marketing strategy.
+date: '2021-02-15T06:00:00.000Z'
+seoDescription: >-
+  In this post, I'll show you how to build a better SEO component which is
+  optimized for both search engines and social sharing to help your marketing
+  strategy.
 published: true
 ---
 
@@ -246,13 +249,13 @@ export default SEO;
 
 Now when you refresh your page, you should see the favicon you selected in the browser tab you're using. If you open up the html on your site, you should also see the canonical url in the head section.
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<EmailSignup title="Like this post? Join my mailing list!" />
 
 ## Adding social sharing cards
 
 Have you ever shared a link on social media and felt disappointed when it didn't pop up with a photo, title, and excerpt? I know I have, so I want to make sure that doesn't happen when someone shares a page of mine. To do this, you need to add both twitter tags and OG tags.
 
-<Gif src='https://media.giphy.com/media/L1Byye4j6sBSkqJTul/giphy.mp4' />
+<Gif src="https://media.giphy.com/media/L1Byye4j6sBSkqJTul/giphy.mp4" />
 
 ### Adding Twitter cards
 
@@ -534,7 +537,7 @@ const BlogPost = () => {
 export default BlogPost;
 ```
 
-The example above is a very simple example as far as schemas go, but it illustrates [how you can use the JSON-LD format to markup your blog post](<[https://schema.org/BlogPosting](https://schema.org/BlogPosting)>) data using the SEO component.
+The example above is a very simple example as far as schemas go, but it illustrates [how you can use the JSON-LD format to markup your blog post]([https://schema.org/BlogPosting]\(https://schema.org/BlogPosting\)) data using the SEO component.
 
 ## Wrapping Up
 

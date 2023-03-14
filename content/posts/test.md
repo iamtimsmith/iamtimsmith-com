@@ -1,8 +1,0 @@
----
-title: Test
-date: '2017-06-16T05:00:00.000Z'
----
-
-HELLO THERE!
-
-GENERAL KENOBI!

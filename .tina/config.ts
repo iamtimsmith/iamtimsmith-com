@@ -63,12 +63,12 @@ export default defineConfig({
 					},
 					{
 						type: 'image',
-						name: 'SeoImage',
+						name: 'seoImage',
 						label: 'SEO Image',
 					},
 					{
 						type: 'string',
-						name: 'SeoDescription',
+						name: 'seoDescription',
 						label: 'SEO Description',
 					}
 				],

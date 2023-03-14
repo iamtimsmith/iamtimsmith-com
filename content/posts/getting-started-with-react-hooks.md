@@ -1,7 +1,9 @@
 ---
 title: Getting started with React Hooks
-date: '2017-06-16T05:00:00.000Z'
-seoDescription: Today I'll be showing you how to use some of the more common hooks provided by React as well as how to create your own custom hook.
+date: '2021-12-06T06:00:00.000Z'
+seoDescription: >-
+  Today I'll be showing you how to use some of the more common hooks provided by
+  React as well as how to create your own custom hook.
 published: true
 ---
 
@@ -9,14 +11,12 @@ A few years ago I wrote a post about [class components vs stateless functional c
 
 Back in "the old days", you'd have to use a class component if you wanted access to state or lifecycle methods. This led to either a lot of unnecessary class components just in case they ever needed state or a lot of time [converting stateless functional components over to class components](/blog/how-to-create-a-component/) because the requirements for the functional component changed and required something only a class component could offer.
 
-<Gif
-	src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.mp4"
-	caption="Nope. Don't like that."
-/>
+<Gif src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.mp4" caption="Nope. Don't like that." />
 
 Fortunately, the team behind React heard these complains and took action. With the release of React 16 came something called "hooks". These hooks allow you to use state, a lifecycle method, and much more from a functional component! Today I'll be showing you how to use some of the more common hooks as well as how to create your own custom hook.
 
 ## The useState hook
+
 Perhaps the most commonly used hook is the `useState` hook which is used to create a state item. From the hook, you get the data itself from state as well as a method to update the state. Below is an example of how to use the `useState` hook in a component:
 
 ```jsx
@@ -43,6 +43,7 @@ Once you have the state created, you can use the data variable (in our example i
 Congratulations! You just used your first hook!
 
 ### Using TypeScript with useState
+
 When using TypeScript in your project with strict set to `true` in your `tsconfig.json` file, you will likely get an error about not being able to use a variable with a possible `undefined` value. The solution to this is to set the expected type when calling the useState hook. The code below shows how to do this on the highlighted line.
 
 ```tsx{4}
@@ -63,12 +64,10 @@ const MyComponent = () => {
 ```
 
 ## The useEffect hook
+
 The second most used hook is likely the `useEffect` hook which gives us access to a lifecycle method. In a class component, there are a handful of lifecycle methods you can use to make things happen at various points during the component's "lifecycle". Among the most commonly used were `componentDidMount` and `componentDidUpdate` which would allow you to do something after the component had loaded and rendered.
 
-<Gif
-	src="https://media.giphy.com/media/XfDiixCqdH7OrEBg5z/giphy.mp4"
-	caption="The useEffect hook runs when the component is done rendering"
-/>
+<Gif src="https://media.giphy.com/media/XfDiixCqdH7OrEBg5z/giphy.mp4" caption="The useEffect hook runs when the component is done rendering" />
 
 The `useEffect` hook replaces these two lifecycle methods and allows you to do things after the component has rendered. It also allows us to pass in dependencies which determines when the hook will run which will help with performance. It's also worth mentioning that there can be more than one `useEffect` hook in a component to accomodate changes for different dependencies. The code below illustrates how to use the `useEffect` hook in a functional component:
 
@@ -93,6 +92,7 @@ const MyComponent = () => {
 In the code above, you can see the syntax to use for a `useEffect` hook. It is a function which accepts two arguments: another function with the logic you want to run and an array of dependencies. The hook will have access to any variables within the component, so scoping isn't a problem. Looking at the example, I have set a piece of state, `loading` to true. Once the page is finished rendering, the `useEffect` hook will be called where `setLoading` is called and changes the state to false. This is useful for showing loading spinners.
 
 ### Depedencies in the useEffect hook
+
 You may also notice I have passed an empty array as the second argument. By doing this, you can tell the `useEffect` hook you want it to run after the component is rendered but don't run again. If you wanted to make the hook listen for changes to re-run if necessary, you would just add the variable to watch in the array. I have updated the example below to contain a button which sets the `loading` state to true along with a dependency to watch so it runs each time the `loading` state is changed:
 
 ```jsx
@@ -115,6 +115,7 @@ const MyComponent = () => {
 ```
 
 ### Creating event listeners in your component
+
 In some cases, you may need to create an event listener in your component. I have used this to create keypress events and right click events. If you need to do this in your component, it should be done in the `useEffect` hook because you must wait for the component to be rendered to access the browser variables such as `document` or `window`. Below is an example to show how you can add an event to your component.
 
 ```jsx
@@ -165,6 +166,7 @@ const MyComponent = () => {
 ```
 
 ## The useContext hook
+
 I will mention another hook called `useContext`, but this will not be [a comprehensive post on React context](/blog/how-to-use-react-context). I will simply show you how to use the hook in the event that you need to. First, what is Context? Along with hooks, the team behind React added a feature which allowed for global state management and called it Context. By using this tool, you can keep items in state outside of a specific component and use it where needed.
 
 The example below assumes you have already created a context with an item called `food` in another file and already wrapped the app in the Context Provider. To use the `useContext` provider, you need the context itself. Once you've called the hook, you can use destructuring to get specific items within the context.
@@ -189,6 +191,7 @@ Using this hook, you can get any piece of state contained in the context and pas
 <EmailSignup />
 
 ## The useReducer hook
+
 What if you come from a Redux background or have a more complex application which requires you to track all of your state changes? For that, React provides a `useReducer` hook where you can use (you guessed it!) a reducer for your state.
 
 The `useReducer` hook accepts two arguments: the reducer and an initial state. From the hook, you can get an array which contains the current state for the reducer as well as a dispatch function which allows you to update the state. Because the dispatch function is always available, you don't have to use a `useEffect` hook to call it like you do with `useState`.
@@ -230,15 +233,14 @@ This is not so different from a simple Redux store with a reducer, so it should 
 
 In the example above, it is listening for the `TAKE_SLICE` action type to reduce the `slices` variable by one (to a minimum of 0) and the `PUT_BACK` action type to increase the `slices` variable by one (to a maximum of 8).
 
-<Gif
-	src="https://media.giphy.com/media/rVMwFhvflvxAc/giphy.mp4"
-	caption="Have you ever seen anything so wonderful in your entire life?"
-/>
+<Gif src="https://media.giphy.com/media/rVMwFhvflvxAc/giphy.mp4" caption="Have you ever seen anything so wonderful in your entire life?" />
 
 ## Are there more hooks?
+
 There are still more hooks which can be used for various purposes such as `useMemo`, `useRef`, `useCallback`, and others. If you're interested in reading more about those or you have a use case that doesn't fit with the hooks I have talked about, you can check the [React documentation for additional hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks). It talks about several additional hooks and provides examples and syntax for each one.
 
 ## Creating a custom hook
+
 You can also create custom hooks if none of the available hooks suit your needs. To do this, you can create a function (typically started with `use`) which handles any sort of logic needed for the hook to work. Below is an example of how you can do this:
 
 ```jsx
@@ -282,4 +284,5 @@ const MyComponent = () => {
 By creating a custom hook, you can extract logic from a plugin and turn it into a piece of reusable code so your components don't become a mile long and really repetitive. This certainly isn't something that needs to be used, but it is possible if it suits your use-case.
 
 ## Conclusion
-In this post, I've covered many of the popular hooks in React as well as how to create your own custom hooks. Hopefully you are able to see the benefit in using these hooks and you can add them to your development tool kit. As always, if you have any questions or comments, feel free to reach out to me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith)!
+
+In this post, I've covered many of the popular hooks in React as well as how to create your own custom hooks. Hopefully you are able to see the benefit in using these hooks and you can add them to your development tool kit. As always, if you have any questions or comments, feel free to reach out to me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith)!

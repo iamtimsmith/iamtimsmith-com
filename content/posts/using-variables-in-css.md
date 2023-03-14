@@ -1,7 +1,9 @@
 ---
 title: Using Variables in CSS
-date: '2017-06-16T05:00:00.000Z'
-seoDescription: In this article, I'll teach you how to use variables in your css files and what the limitations are.
+date: '2021-12-20T06:00:00.000Z'
+seoDescription: >-
+  In this article, I'll teach you how to use variables in your css files and
+  what the limitations are.
 published: true
 ---
 
@@ -12,6 +14,7 @@ When I was first starting to learn web development, I remember being annoyed wit
 Fortunately, we live in a golden age of technology for web development where smart and passionate people are pushing the boundaries of what our tooling can do. As such, engineers have been hard at work making improvements to plain old css. One such improvement is the ability to use variables within your `.css` files! In this article, I'll teach you how to use variables in your css files and what the limitations are.
 
 ## Why are CSS variables important?
+
 If you've been writing css for a while (or haven't), I'm sure you've encountered a file with the same color value peppered in throughout the code. Even worse is when you have the same value used across several files. Simply having them there isn't such a big deal, but what if you need to change them down the road? You'll have to find every instance of that color and change it manually. It also means that if you are going to do something like a light and dark theme, you'll havae to write duplicate code for each theme based on class. Consider the code below:
 
 ```css
@@ -40,7 +43,7 @@ body.dark button {
 }
 ```
 
-Obviously the code above wouldn't be _that_ big of a deal to change, but if this file continued on and on with these colors you can imagine why it would be useful to make a change in one place and have it update everywhere. The code below shows how this code can work with variables.
+Obviously the code above wouldn't be *that* big of a deal to change, but if this file continued on and on with these colors you can imagine why it would be useful to make a change in one place and have it update everywhere. The code below shows how this code can work with variables.
 
 ```css
 body {
@@ -59,6 +62,7 @@ button {
 You can see how concise the code is in the example. Because the values for variables can be reassigned, the `--primary` variable can be changed based on the body class rather than duplicating code with different values.
 
 ## How to set up variables in CSS
+
 To create a variable in your CSS, you need to decide what the scope of the variable will be. Variable creation is the same regardless of the scope, so the code below will apply anywhere although the selector may be different.
 
 ```css
@@ -93,6 +97,7 @@ By using CSS variables in this way, you don't have to add styles for both light 
 <EmailSignup />
 
 ## Once my variables are created, how do I use them?
+
 Using variables is very quick and easy. To call a variable, you use the `var()` function which is now built in to the CSS language. The first parameter is the name of the variable you'd like to use. For instance, the example below shows how to use a variable called `--text-color`.
 
 ```css
@@ -110,16 +115,17 @@ More often than not, you'll just see it used like this. There is, however, a sec
 ```
 
 ## Are there any limitations?
+
 Although css variables have solved a lot of problems for front-end developers, it is not without flaws. If you've spent time writing SCSS or something similar, you may have used variables and mixins to handle media queries. This cannot be done with CSS variables which is a bit of a bummer. In addition, CSS variables can't store a url. This would be useful if you had to reuse an image in different places, but it doesn't work.
 
-<Gif
-	src="https://media.giphy.com/media/hGUsHFdmERpc1VpoCA/giphy.mp4"
-/>
+<Gif src="https://media.giphy.com/media/hGUsHFdmERpc1VpoCA/giphy.mp4" />
 
 ### Browser Support
+
 Thanks to modern browers, you can use CSS variables with all browsers except IE11. That means if you have to support Interent Explorer 11 or older browsers in general, CSS variables may not be the right choice for your project. You can [learn more about which browsers are supported here](https://caniuse.com/css-variables).
 
 ## Conclusion
+
 Overall, CSS variables are a very cool innovation within your styles. They make it very easy to not only write reusable styles, but update them or expand on them further down the road. I highly recommend checking them out in your next project and seeing what you think about them.
 
-Have questions? You can find me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).
+Have questions? You can find me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).

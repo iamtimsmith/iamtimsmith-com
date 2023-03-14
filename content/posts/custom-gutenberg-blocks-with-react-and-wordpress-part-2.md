@@ -1,7 +1,9 @@
 ---
 title: Creating Custom Gutenberg Blocks with React and WordPress - Part 2
-date: '2017-06-16T05:00:00.000Z'
-seoDescription: I'll explain how to use JSX when building out custom Gutenberg blocks with react and WordPress.
+date: '2019-10-20T05:00:00.000Z'
+seoDescription: >-
+  I'll explain how to use JSX when building out custom Gutenberg blocks with
+  react and WordPress.
 published: true
 ---
 
@@ -13,10 +15,7 @@ In this post I'll explain how and why you should use Gulp to improve your workfl
 
 In a nutshell, Gulp is a build tool which allows you to use to coolest new stuff without sacrficing compatibility. I'm not going to talk a ton about what Gulp is, but if you're curious you [learn more about it in this blog post](/gulp-basics-modern-frontend-workflow). For the purposes of this article, I will be keeping it VERY simple. It will basically be the absolute bare minimum you will need to build custom blocks.
 
-<Gif
-  src='https://media.giphy.com/media/5vUTS3pfJAwAv2yUNM/giphy.mp4'
-  caption='NPH after doing the bare minimum.'
-/>
+<Gif src="https://media.giphy.com/media/5vUTS3pfJAwAv2yUNM/giphy.mp4" caption="NPH after doing the bare minimum." />
 
 ## Setting Up Gulp and a gulpfile
 
@@ -43,7 +42,7 @@ $ touch gulpfile.js && open $_
 
 Now that you have initialized a project, installed the Gulp library into your project, and created the configuraton file, you're ready to start setting up your project for custom Gutenberg block development!
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<EmailSignup title="Like this post? Join my mailing list!" />
 
 ## Concatenating blocks files
 
@@ -193,4 +192,4 @@ task('default', series('blocks'));
 
 Writing custom Gutenberg blocks can get pretty complicated, but this can become much easier with things like Gulp to help make your workflow better. By building a `gulpfile.js` file in this way, you are empowered to focus on building awesome blocks rather than worrying about errors, compatibility, and overly verbose code. In the next post in this series, I'll go over block creation so you can start building the blocks of your dreams!
 
-Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).
+Have thoughts or questions? You can reach me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).

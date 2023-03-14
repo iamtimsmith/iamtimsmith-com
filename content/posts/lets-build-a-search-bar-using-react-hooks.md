@@ -1,13 +1,16 @@
 ---
 title: Let's build a search bar using React Hooks
-date: '2017-06-16T05:00:00.000Z'
-seoDescription: In this post, I'll show you how to build a search bar component using React Hooks to make state management, lifecycle methods, and other things a piece of cake.
+date: '2021-02-22T06:00:00.000Z'
+seoDescription: >-
+  In this post, I'll show you how to build a search bar component using React
+  Hooks to make state management, lifecycle methods, and other things a piece of
+  cake.
 published: true
 ---
 
 A few years ago I wrote an article called [Let's build a search bar in React](/blog/lets-build-a-search-bar-in-react) where I showed readers (you guessed it!) how to build a search bar in React. When I wrote that article, React Hooks didn't exist so it is written using class components. Since publishing the post, I've gotten several requests to rewrite the post showing how to build a search bar using React Hooks. After taking a break from blogging to focus on my family and being swamped with work, I'm happy to report that this is that post!
 
-<Gif src='https://media.giphy.com/media/hZfm9Pj95F9Mk/giphy.mp4' width={300} />
+<Gif src="https://media.giphy.com/media/hZfm9Pj95F9Mk/giphy.mp4" width={300} />
 
 In this post, I will follow roughly the same structure as the original. In my last post I used Parcel to bundle all of my packages together and build my code. Parcel has made several improvements since that post, so I will stick with that build tool for this post.
 
@@ -31,10 +34,10 @@ mkdir app && touch .gitignore index.html app/app.jsx
 
 After entering the command above, your project structure should look like this:
 
-- app/
-  - app.jsx
-- .gitignore
-- index.html
+* app/
+  * app.jsx
+* .gitignore
+* index.html
 
 ### Installing packages for the project
 
@@ -58,11 +61,11 @@ npm install react react-dom bulma
 
 Let's briefly talk about what each of the packages you've added is for:
 
-- **React:** A library to speed up development (seems obvious for a React tutorial, right?) [Link](https://reactjs.org/)
-- **React-DOM:** A library which allows React to interact with the DOM in a browser.[Link](https://reactjs.org/docs/react-dom.html)
-- **Parcel:** A bundling library which requires no config. [Link](https://parceljs.org/)
-- **@babel/preset-react:** A library which tells Parcel how to handle JSX. [Link](https://babeljs.io/docs/en/babel-preset-react)
-- **Bulma:** A CSS framework that uses flexbox and is easy to use. [Link](https://bulma.io/)
+* **React:** A library to speed up development (seems obvious for a React tutorial, right?) [Link](https://reactjs.org/)
+* **React-DOM:** A library which allows React to interact with the DOM in a browser.[Link](https://reactjs.org/docs/react-dom.html)
+* **Parcel:** A bundling library which requires no config. [Link](https://parceljs.org/)
+* **@babel/preset-react:** A library which tells Parcel how to handle JSX. [Link](https://babeljs.io/docs/en/babel-preset-react)
+* **Bulma:** A CSS framework that uses flexbox and is easy to use. [Link](https://bulma.io/)
 
 ### Checking out package.json and adding scripts
 
@@ -149,9 +152,9 @@ If you've read my previous blog posts about [React Components](/blog/how-to-crea
 
 While there are several hooks you can use for various purposes, I will just be focusing on one in particular. That hook is the `useState` hook, which allows you to create a piece of data as well as modify it without setting up a constructor or having to fuss with a class component.
 
-<Gif src='https://media.giphy.com/media/9p8hgZoQjj9y8/giphy.mp4' />
+<Gif src="https://media.giphy.com/media/9p8hgZoQjj9y8/giphy.mp4" />
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<EmailSignup title="Like this post? Join my mailing list!" />
 
 ## Adding state to the App
 
@@ -385,4 +388,4 @@ The code above adds an input and a check to see if the search string is included
 
 Just like that, you have a search bar built using React Hooks. The whole component (including imports and ReactDOM) is 63 lines long. This is compared to the original class component version which totaled 135 lines. By switching to hooks, the component becomes more readable and cuts the amount of code in half! Your application is ready create, read, delete, and search items in a task list.
 
-Have questions? You can find me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).
+Have questions? You can find me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
