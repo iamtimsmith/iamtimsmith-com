@@ -27,6 +27,11 @@ export default defineConfig({
 				path: "content/posts",
 				fields: [
 					{
+						type: 'boolean',
+						name: 'published',
+						label: 'Published?',
+					},
+					{
 						type: "string",
 						name: "title",
 						label: "Title",

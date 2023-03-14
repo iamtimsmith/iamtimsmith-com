@@ -1,9 +1,9 @@
 import { Template } from "tinacms"
 
-export const EmailSignup = ({ hidden }: any) => {
+export const EmailSignup = ({ title }: any) => {
 	return (
 		<aside className='signup'>
-			<p>EMAIL SIGNUP BLOCK</p>
+			<p>{title || 'EMAIL SIGNUP BLOCK'}</p>
 		</aside>
 	)
 }
@@ -13,9 +13,8 @@ export const SignupSchema: Template = {
 	label: 'Email Signup',
 	fields: [
 		{
-			name: 'hidden',
-			label: 'Hidden',
-			description: 'There are currently no fields for this, but a field is required for use.',
+			name: 'title',
+			label: 'Title',
 			type: 'string',
 		}
 	]
