@@ -9,7 +9,7 @@ published: true
 
 I have recently started learning and playing around with [Material UI](https://mui.com/) for an upcoming project. In this post, I'll be talking about my first experiences with it and some of the benefits and challenges I've found while getting started.
 
-<Gif src="https://media.giphy.com/media/1zgOBEmZk2M8vSJxqD/giphy.mp4" />
+<Gif src="https://media.giphy.com/media/1zgOBEmZk2M8vSJxqD/giphy.mp4" width={300} />
 
 ## What is Material UI?
 
