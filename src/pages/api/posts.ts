@@ -1,4 +1,4 @@
-import client from "../../../.tina/__generated__/client"
+import client from "../../../.tina/__generated__/client";
 import { runMiddleware } from "../../utils/middleware";
 
 export default async (req, res) => {
@@ -7,14 +7,26 @@ export default async (req, res) => {
 	const args: any = {};
 
 	if (req.query?.sort) args.sort = req.query.sort;
-	if (req.query?.first) args.first = parseInt(req.query.first);
-	if (req.query?.last) args.last = parseInt(req.query.last);
-	if (req.query?.published === "true") args.filter = { ...args.filter, published: { eq: true } };
-
-	// Rest of the API logic
+	if (req.query?.published === "true")
+		args.filter = { ...args.filter, published: { eq: true } };
+	// Fetch posts
 	const page = await client.queries.postConnection(args);
+	let posts = page.data?.postConnection?.edges || [];
+	// Handle sort order
+	if (req.query?.order?.indexOf(/desc/i)) {
+		posts.reverse();
+	}
+	// Handle pagination
+	if (req.query?.skip) {
+		posts = posts.splice(req.query.skip);
+	}
+	// Handle limit to return
+	if (req.query?.limit) {
+		posts = posts.slice(0, parseInt(req.query.limit));
+	}
+
 	if (page) {
-		return res.status(200).json(page.data.postConnection.edges)
+		return res.status(200).json(posts);
 	}
 	return res.status(401);
-}
+};
