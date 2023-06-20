@@ -53,20 +53,20 @@ a {
 }
 
 figure {
-	margin: 10px 0;
+	margin: 1.5rem 0;
 }
 
 figure video {
 	display: block;
 	margin: 0 auto;
-	max-width: 600px;
+	width: 100%;
 }
 
 figcaption {
 	max-width: 600px;
 	margin: 0 auto;
 	text-align: center;
-	color: rgba(0, 0, 0, 0.5);
+	color: var(--color-grey--400);
 	font-size: 0.8rem;
 	font-style: italic;
 }
@@ -95,7 +95,12 @@ code {
 	max-width: 600px;
 	padding: 20px 10px;
 	margin: 10px auto;
-	background: rgba(0, 0, 0, 0.05);
+	background: var(--color-grey--700);
 	border-radius: 3px;
 	text-align: center;
+}
+
+.content img {
+	display: block;
+	margin: 1.5rem auto;
 }

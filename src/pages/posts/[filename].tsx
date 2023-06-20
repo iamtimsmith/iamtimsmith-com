@@ -15,14 +15,16 @@ const BlogPage = (props) => {
 	return (
 		<>
 			<h1>{data.post.title}</h1>
-			<TinaMarkdown
-				content={data.post.body}
-				components={{
-					gif: (props) => <Gif {...props} />,
-					email_signup: (props) => <EmailSignup {...props} />,
-					code_block: Code,
-				}}
-			/>
+			<div className="content">
+				<TinaMarkdown
+					content={data.post.body}
+					components={{
+						gif: (props) => <Gif {...props} />,
+						email_signup: (props) => <EmailSignup {...props} />,
+						code_block: Code,
+					}}
+				/>
+			</div>
 		</>
 	);
 };

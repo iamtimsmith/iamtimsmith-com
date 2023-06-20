@@ -8,14 +8,7 @@ export interface GifProps {
 
 export const Gif = ({ src, caption, maxWidth }: GifProps) => (
 	<figure style={{ maxWidth }}>
-		<video
-			src={src}
-			style={{ width: "100%" }}
-			loop
-			muted
-			playsInline
-			autoPlay
-		/>
+		<video src={src} loop muted playsInline autoPlay />
 		{caption && <figcaption>{caption}</figcaption>}
 	</figure>
 );
