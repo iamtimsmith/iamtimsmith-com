@@ -1,6 +1,6 @@
-import client from "../../../tina/__generated__/client";
+import client from "../../../../tina/__generated__/client";
 import type { NextApiRequest, NextApiResponse } from "next";
-import { runMiddleware } from "../../utils/middleware";
+import { runMiddleware } from "../../../utils/middleware";
 
 export default async (req, res) => {
 	// Run the middleware

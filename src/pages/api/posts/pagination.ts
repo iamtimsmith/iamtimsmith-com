@@ -1,5 +1,5 @@
-import client from "../../../tina/__generated__/client";
-import { runMiddleware } from "../../utils/middleware";
+import client from "../../../../tina/__generated__/client";
+import { runMiddleware } from "../../../utils/middleware";
 
 export default async (req, res) => {
 	// Run the middleware
