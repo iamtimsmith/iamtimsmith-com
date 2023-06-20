@@ -7,11 +7,11 @@ export default async (req, res) => {
 	await runMiddleware(req, res);
 
 	// Rest of the API logic
-	const page = await client.queries.post({
-		relativePath: `${req.query.path}.md`,
+	const global = await client.queries.global({
+		relativePath: `index.json`,
 	});
-	if (page) {
-		return res.status(200).json(page.data.post);
+	if (global) {
+		return res.status(200).json(global.data.global);
 	}
 	return res.status(401);
 };

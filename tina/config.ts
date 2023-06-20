@@ -126,6 +126,10 @@ export default defineConfig({
 				path: "content/global",
 				format: "json",
 				ui: {
+					allowedActions: {
+						create: false,
+						delete: false,
+					},
 					global: true,
 				},
 				fields: [
