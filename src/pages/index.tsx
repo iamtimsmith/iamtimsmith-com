@@ -27,9 +27,13 @@ export default () => {
 			<h2>Useful Links</h2>
 			<ul>
 				<li>
+					<Link href="/posts">Blog Posts</Link>
+				</li>
+				<li>
 					<a href="https://www.iamtimsmith.com">iamtimsmith.com</a>
 				</li>
 			</ul>
+			<h2>Pages</h2>
 		</div>
 	);
 };

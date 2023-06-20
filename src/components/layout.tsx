@@ -1,13 +1,14 @@
-import Link from "next/link"
+import Link from "next/link";
 
 export const Layout = ({ children }) => {
 	return (
 		<div>
-			<header className='header'>
-				<Link href='/' passHref>Readme</Link>
-				<Link href='/posts/hello-world' passHref>Hello World</Link>
+			<header className="header">
+				<Link href="/">Home</Link>
+				<Link href="/pages">Pages</Link>
+				<Link href="/posts">Posts</Link>
 			</header>
 			{children}
 		</div>
-	)
-}
+	);
+};
