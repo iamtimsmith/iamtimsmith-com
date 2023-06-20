@@ -18,8 +18,8 @@ const BlogPage = (props) => {
 			<TinaMarkdown
 				content={data.post.body}
 				components={{
-					Gif: (props) => <Gif {...props} />,
-					EmailSignup,
+					gif: (props) => <Gif {...props} />,
+					email_signup: (props) => <EmailSignup {...props} />,
 					code_block: Code,
 				}}
 			/>

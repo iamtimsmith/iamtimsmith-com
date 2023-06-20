@@ -14,7 +14,7 @@ export const Gif = ({ src, caption, maxWidth }: GifProps) => (
 );
 
 export const GifSchema: Template = {
-	name: "Gif",
+	name: "gif",
 	label: "Gif",
 	fields: [
 		{
