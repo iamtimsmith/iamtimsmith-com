@@ -4,6 +4,7 @@ date: 2023-03-13T05:00:00.000Z
 excerpt: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non lorem diam.'
 featuredImage: >-
   https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109224/iamtimsmith/timsmith_fyh0hq.jpg
+published: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut non lorem diam. Quisque vulputate nibh sodales eros pretium tincidunt. Aenean porttitor efficitur convallis. Nulla sagittis finibus convallis. Phasellus in fermentum quam, eu egestas tortor. Maecenas ac mollis leo. Integer maximus eu nisl vel sagittis.
