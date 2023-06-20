@@ -17,7 +17,11 @@ const PageTemplate = (props) => {
 			<h1>{data.page.title}</h1>
 			<TinaMarkdown
 				content={data.page.body}
-				components={{ Gif, EmailSignup, code_block: Code }}
+				components={{
+					Gif: (props) => <Gif {...props} />,
+					EmailSignup,
+					code_block: Code,
+				}}
 			/>
 		</>
 	);

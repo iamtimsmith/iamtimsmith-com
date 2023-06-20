@@ -1,7 +1,7 @@
 import { Template } from "tinacms";
 
 export interface GifProps {
-	src: string;
+	src?: string;
 	caption?: string;
 	maxWidth?: number;
 }
