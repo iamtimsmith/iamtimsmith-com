@@ -15,15 +15,13 @@ Back in "the old days", you'd have to use a class component if you wanted access
 
 <gif src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.mp4" caption="Nope. Don't like that." />
 
-<Gif src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.mp4" caption="Nope. Don't like that." />
-
 Fortunately, the team behind React heard these complains and took action. With the release of React 16 came something called "hooks". These hooks allow you to use state, a lifecycle method, and much more from a functional component! Today I'll be showing you how to use some of the more common hooks as well as how to create your own custom hook.
 
 ## The useState hook
 
 Perhaps the most commonly used hook is the `useState` hook which is used to create a state item. From the hook, you get the data itself from state as well as a method to update the state. Below is an example of how to use the `useState` hook in a component:
 
-```jsx
+```javascript
 import React, { useState } from "react";
 
 const MyComponent = () => {
@@ -48,7 +46,7 @@ Congratulations! You just used your first hook!
 
 When using TypeScript in your project with strict set to `true` in your `tsconfig.json` file, you will likely get an error about not being able to use a variable with a possible `undefined` value. The solution to this is to set the expected type when calling the useState hook. The code below shows how to do this on the highlighted line.
 
-```tsx
+```javascript
 import React, { useState } from "react";
 
 const MyComponent = () => {
@@ -67,11 +65,11 @@ const MyComponent = () => {
 
 The second most used hook is likely the `useEffect` hook which gives us access to a lifecycle method. In a class component, there are a handful of lifecycle methods you can use to make things happen at various points during the component's "lifecycle". Among the most commonly used were `componentDidMount` and `componentDidUpdate` which would allow you to do something after the component had loaded and rendered.
 
-<Gif src="https://media.giphy.com/media/XfDiixCqdH7OrEBg5z/giphy.mp4" caption="The useEffect hook runs when the component is done rendering" />
+<gif src="https://media.giphy.com/media/XfDiixCqdH7OrEBg5z/giphy.mp4" caption="The useEffect hook runs when the component is done rendering" />
 
 The `useEffect` hook replaces these two lifecycle methods and allows you to do things after the component has rendered. It also allows us to pass in dependencies which determines when the hook will run which will help with performance. It's also worth mentioning that there can be more than one `useEffect` hook in a component to accomodate changes for different dependencies. The code below illustrates how to use the `useEffect` hook in a functional component:
 
-```jsx
+```javascript
 import React, { useState, useEffect } from "react";
 
 const MyComponent = () => {
@@ -95,7 +93,7 @@ In the code above, you can see the syntax to use for a `useEffect` hook. It is a
 
 You may also notice I have passed an empty array as the second argument. By doing this, you can tell the `useEffect` hook you want it to run after the component is rendered but don't run again. If you wanted to make the hook listen for changes to re-run if necessary, you would just add the variable to watch in the array. I have updated the example below to contain a button which sets the `loading` state to true along with a dependency to watch so it runs each time the `loading` state is changed:
 
-```jsx
+```javascript
 import React, { useState, useEffect } from "react";
 
 const MyComponent = () => {
@@ -118,7 +116,7 @@ const MyComponent = () => {
 
 In some cases, you may need to create an event listener in your component. I have used this to create keypress events and right click events. If you need to do this in your component, it should be done in the `useEffect` hook because you must wait for the component to be rendered to access the browser variables such as `document` or `window`. Below is an example to show how you can add an event to your component.
 
-```jsx
+```javascript
 import React, { useEffect } from "react";
 
 const MyComponent = () => {
@@ -142,7 +140,7 @@ If you're doing anything with keypresses, I've found [https://keycode.info](http
 
 When the component unmounts, you'll see an ugly error in the console which tells you that you can't called on an unmounted component. To fix this, you can add a return function to the `useEffect` hook which will run when the component is unmounted. Added to the example above, this would look something like the highlighted lines:
 
-```jsx
+```javascript
 import React, { useEffect } from "react";
 
 const MyComponent = () => {
@@ -171,7 +169,7 @@ I will mention another hook called `useContext`, but this will not be [a compreh
 
 The example below assumes you have already created a context with an item called `food` in another file and already wrapped the app in the Context Provider. To use the `useContext` provider, you need the context itself. Once you've called the hook, you can use destructuring to get specific items within the context.
 
-```jsx
+```javascript
 import React, { useContext } from "react";
 import MyContext from "./MyContext";
 
@@ -188,7 +186,7 @@ const MyComponent = () => {
 
 Using this hook, you can get any piece of state contained in the context and passed into the provider. This makes it really easy to have a "single source of truth" in your project without any extra libraries and without a ton of unnecessary code.
 
-<EmailSignup />
+<email_signup />
 
 ## The useReducer hook
 
@@ -196,7 +194,7 @@ What if you come from a Redux background or have a more complex application whic
 
 The `useReducer` hook accepts two arguments: the reducer and an initial state. From the hook, you can get an array which contains the current state for the reducer as well as a dispatch function which allows you to update the state. Because the dispatch function is always available, you don't have to use a `useEffect` hook to call it like you do with `useState`.
 
-```jsx
+```javascript
 import React, { useReducer } from "react";
 
 const initState = {
@@ -237,7 +235,7 @@ This is not so different from a simple Redux store with a reducer, so it should 
 
 In the example above, it is listening for the `TAKE_SLICE` action type to reduce the `slices` variable by one (to a minimum of 0) and the `PUT_BACK` action type to increase the `slices` variable by one (to a maximum of 8).
 
-<Gif src="https://media.giphy.com/media/rVMwFhvflvxAc/giphy.mp4" caption="Have you ever seen anything so wonderful in your entire life?" />
+<gif src="https://media.giphy.com/media/rVMwFhvflvxAc/giphy.mp4" caption="Have you ever seen anything so wonderful in your entire life?" />
 
 ## Are there more hooks?
 
@@ -247,7 +245,7 @@ There are still more hooks which can be used for various purposes such as `useMe
 
 You can also create custom hooks if none of the available hooks suit your needs. To do this, you can create a function (typically started with `use`) which handles any sort of logic needed for the hook to work. Below is an example of how you can do this:
 
-```jsx
+```javascript
 import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
@@ -269,7 +267,7 @@ export const useFetch = (url) => {
 
 The code above is a pretty basic (and not ideal) hook for fetching data to illustrate how this can be done. It takes a url, fetches data when `useEffect` runs, then returns that data. In a component, calling this hook may look something like this:
 
-```jsx
+```javascript
 import React from "react";
 import { useFetch } from "./useFetch";
 
