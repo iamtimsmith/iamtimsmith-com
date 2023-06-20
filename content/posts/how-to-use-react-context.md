@@ -1,9 +1,9 @@
 ---
 title: How to use React Context
-date: '2021-12-13T06:00:00.000Z'
-seoDescription: >-
-  In this post, I'll show you how to set up and use React Context in your next
-  project
+date: "2021-12-13T06:00:00.000Z"
+excerpt: >-
+    In this post, I'll show you how to set up and use React Context in your next
+    project
 published: true
 ---
 
@@ -74,7 +74,7 @@ While this isn't a particularly realistic example, these sorts of things became 
 Creating a context is pretty simple. All you need to do is import the method and assign it to a variable. Just like that, you're done!
 
 ```jsx
-import {createContext} from 'react';
+import { createContext } from "react";
 
 const MyContext = createContext();
 ```
@@ -103,22 +103,22 @@ One of my favorite ways to do this is to include it as a component in the same f
 
 ```jsx
 // MyContext.jsx
-import React, {createContext, useState} from 'react';
+import React, { createContext, useState } from "react";
 
 export const MyContext = createContext({
 	count: 0,
 	setCount: () => {},
 });
 
-export const MyContextProvider = ({children}) => {
+export const MyContextProvider = ({ children }) => {
 	const [count, setCount] = useState(0);
 
 	return (
-		<MyContext.Provider value={{count, setCount}}>
+		<MyContext.Provider value={{ count, setCount }}>
 			{children}
 		</MyContext.Provider>
-	)
-}
+	);
+};
 ```
 
 Although this is how I do it, you could just as easily put a provider wherever you'd like. The only required prop for the provider is `value` which could be any type of data if you're only using 1 piece of data in your context. For more than one item in your context, you need to pass it as an object which should match the stuff in your context. For instance, in the example above, the `MyContext` object is expecting a count and a setCount key. The `value` in the provider has an object with the same count and setCount keys being set.
@@ -128,16 +128,12 @@ Although this is how I do it, you could just as easily put a provider wherever y
 The next step when using Context in your project is to wrap any components (and their children) in the provider. In the example below, I will assume that every component should have access to my context so I will put it in the `App.jsx` (topmost) file.
 
 ```jsx
-import React from 'react';
-import { MyContextProvider } from './MyContext';
+import React from "react";
+import { MyContextProvider } from "./MyContext";
 
 const App = ({ children }) => {
-	return (
-		<MyContextProvider>
-			{children}
-		</MyContextProvider>
-	);
-}
+	return <MyContextProvider>{children}</MyContextProvider>;
+};
 ```
 
 Now that the provider is wrapped around everything else in your app, all of the things in your app know about the context. You're ready to start using your context!
@@ -153,18 +149,16 @@ So you have your context created and your components inside the provider...now w
 The first way to do this is to use something called a consumer. This is created using the context and should wrap the comoponent you'd like to use the context in, which will give you access to the context variables. **Only this method will work inside of class components**. The code below shows how this will work with the context I set up in previous examples.
 
 ```jsx
-import React from 'react';
-import { MyContext } from './MyContext';
+import React from "react";
+import { MyContext } from "./MyContext";
 
 const MyComponentWithContext = () => {
 	return (
 		<MyContext.Consumer>
-			{(context) => (
-				<p>The current count is {context.count}</p>
-			)}
+			{(context) => <p>The current count is {context.count}</p>}
 		</MyContext.Consumer>
 	);
-}
+};
 ```
 
 If you'd prefer, you can also use destructuring inside the consumer to only get the stuff you actually want to use. The highlighted code below shows the code that would be different by doing this.
@@ -191,16 +185,14 @@ In my last post, I talked about [many of the different hooks that are available 
 When using the `useContext` hook, you still need to make sure you're inside the provider, but you don't have to mess around with consumers anymore. Like the consumer, you can use destructuring with the `useContext` hook to only get the variables you need. If I refactor the component from above to use the `useContext` hook, it looks like this:
 
 ```jsx
-import React, { useContext } from 'react';
-import { MyContext } from './MyContext';
+import React, { useContext } from "react";
+import { MyContext } from "./MyContext";
 
 const MyComponentWithContext = () => {
-	const {count} = useContext(MyContext);
+	const { count } = useContext(MyContext);
 
-	return (
-		<p>The current count is {context.count}</p>
-	);
-}
+	return <p>The current count is {context.count}</p>;
+};
 ```
 
 To use this hook, you import it from React, import the specific context you're getting data from, and tell it what data you want from the context. To me, this solution looks much cleaner and has better readability but it's totally personal preference when using functional components.
@@ -210,26 +202,24 @@ To use this hook, you import it from React, import the specific context you're g
 If you need more than one context, that's not a problem. You can have as many as you'd like. You will just need to wrap the providers around the components that need the data. This may look like the example below if you have more than one context:
 
 ```jsx
-import React from 'react';
-import { MyFirstContextProvider } from './MyFirstContext';
-import { MySecondContextProvider } from './MySecondContext';
-import { MyThirdContextProvider } from './MyThirdContext';
+import React from "react";
+import { MyFirstContextProvider } from "./MyFirstContext";
+import { MySecondContextProvider } from "./MySecondContext";
+import { MyThirdContextProvider } from "./MyThirdContext";
 
 const App = ({ children }) => {
 	return (
 		<MyFirstContextProvider>
 			<MySecondContextProvider>
-				<MyThirdContextProvider>
-					{children}
-				</MyThirdContextProvider>
+				<MyThirdContextProvider>{children}</MyThirdContextProvider>
 			</MySecondContextProvider>
 		</MyFirstContextProvider>
 	);
-}
+};
 ```
 
 Assuming that you've wrapped your whole app in the providers, you can now use the context from any of these providers in any component. The only other thing to watch out for is which context you're importing when using the consumer or hook. If you need to get data from `MySecondContext`, then you need to be sure and use that specific context when creating the consumer or calling the `useContext` hook.
 
 ## Conclusion
 
-React Context is a game-changer if you need to reuse the same data all over the application. It adds a ton of flexibility without adding additional libraries or lots of complexity. Try it out in your next project and let me know what you think! You can find me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+React Context is a game-changer if you need to reuse the same data all over the application. It adds a ton of flexibility without adding additional libraries or lots of complexity. Try it out in your next project and let me know what you think! You can find me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

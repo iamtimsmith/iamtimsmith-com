@@ -1,9 +1,9 @@
 ---
-title: 'React 101: The Basics'
-date: '2021-11-29T06:00:00.000Z'
-seoDescription: >-
-  Learn about the benefits of using React and the surrounding ecosystem for your
-  project.
+title: "React 101: The Basics"
+date: "2021-11-29T06:00:00.000Z"
+excerpt: >-
+    Learn about the benefits of using React and the surrounding ecosystem for your
+    project.
 published: true
 ---
 
@@ -45,7 +45,7 @@ Originally, Next was created for server-side rendering which means that all of t
 
 Another popular solution (and the one I've used for 4 years at the time of this post) is Gatsby. I've written [several posts about Gatsby](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-1) as well as [how to improve the default SEO component](/blog/creating-a-better-seo-component-for-gatsby) which comes with a default Gatsby project. Needless to say, I'm a big fan.
 
-So, what is Gatsby? I'm glad you asked. Gatsby is a Static Site Generator, or SSG, which means that you can create a site using React components and then build the site which creates static HTML pages from your React components. This means that sites are *blazing fast* when the browser renders a page because it doesn't have the extra bloat that comes along with tons of libraries which block rendering or slow down performance.
+So, what is Gatsby? I'm glad you asked. Gatsby is a Static Site Generator, or SSG, which means that you can create a site using React components and then build the site which creates static HTML pages from your React components. This means that sites are _blazing fast_ when the browser renders a page because it doesn't have the extra bloat that comes along with tons of libraries which block rendering or slow down performance.
 
 In addition to being crazy fast, Gatsby offers routing, graphql, and optimized images without any customization. Plus, if you do need something special added on like a CMS or other tool, [Gatsby offers tons of plugins](https://www.gatsbyjs.com/plugins) to assist with this. SSG also adds SEO benefits since the code is being compiled into HTML, so there's not much difference between Next and Gatsby in that regard.
 

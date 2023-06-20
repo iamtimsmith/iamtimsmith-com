@@ -1,7 +1,7 @@
 ---
 title: How To Build A Blog with Wordpress and Gatsby.js - Part 1
-date: '2019-03-24T05:00:00.000Z'
-seoDescription: Ever wondered how to use Gatsby js with WordPress? This post will cover everything you need to know about getting WordPress ready for a Gatsby site.
+date: "2019-03-24T05:00:00.000Z"
+excerpt: Ever wondered how to use Gatsby js with WordPress? This post will cover everything you need to know about getting WordPress ready for a Gatsby site.
 published: true
 ---
 

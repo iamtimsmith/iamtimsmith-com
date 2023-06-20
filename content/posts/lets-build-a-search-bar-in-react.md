@@ -1,7 +1,7 @@
 ---
 title: Let's build a search bar in React!
-date: '2018-09-11T05:00:00.000Z'
-seoDescription: We are going to build a task app that also filters the list based on a search query in real time. Sound complicated? It's not as complicated as you may think, so let's dig in!
+date: "2018-09-11T05:00:00.000Z"
+excerpt: We are going to build a task app that also filters the list based on a search query in real time. Sound complicated? It's not as complicated as you may think, so let's dig in!
 published: true
 ---
 
@@ -46,16 +46,16 @@ Next we need to open our `index.html` file for editing and put the code below in
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Search To-Do App</title>
-  </head>
-  <body>
-    <div id="app"></div>
-    <script src="./app.js"></script>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Search To-Do App</title>
+	</head>
+	<body>
+		<div id="app"></div>
+		<script src="./app.js"></script>
+	</body>
 </html>
 ```
 
@@ -80,12 +80,12 @@ yarn add react react-dom parcel babel-preset-env babel-preset-react bulma
 
 NPM and Yarn are package managers that allow you to add prewritten code into your project. This can speed up development time astronomically. Below you'll find a quick description of what each of these packages do.
 
-- React: A library to speed up development (seems obvious for a React tutorial, right?) [Link](https://reactjs.org/)
-- React-DOM: A library which allows React to interact with the DOM in a browser.[Link](https://reactjs.org/docs/react-dom.html)
-- Parcel: A bundling library which requires no config. [Link](https://parceljs.org/)
-- Babel-preset-env: A library which tells Parcel how to transform ES6 to work with many different browsers. [Link](https://babeljs.io/docs/en/babel-preset-env.html)
-- Babel-preset-react: A library which tells Parcel how to handle JSX. [Link](https://babeljs.io/docs/en/babel-preset-react)
-- Bulma: A CSS framework that uses flexbox and is easy to use. [Link](https://bulma.io/)
+-   React: A library to speed up development (seems obvious for a React tutorial, right?) [Link](https://reactjs.org/)
+-   React-DOM: A library which allows React to interact with the DOM in a browser.[Link](https://reactjs.org/docs/react-dom.html)
+-   Parcel: A bundling library which requires no config. [Link](https://parceljs.org/)
+-   Babel-preset-env: A library which tells Parcel how to transform ES6 to work with many different browsers. [Link](https://babeljs.io/docs/en/babel-preset-env.html)
+-   Babel-preset-react: A library which tells Parcel how to handle JSX. [Link](https://babeljs.io/docs/en/babel-preset-react)
+-   Bulma: A CSS framework that uses flexbox and is easy to use. [Link](https://bulma.io/)
 
 ## Set up package.json and .babelrc
 
@@ -111,9 +111,9 @@ Still with me? Great! The next step is to set up a component in our `app.js` fil
 
 ```jsx
 // app.js
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import 'bulma/bulma';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import "bulma/bulma";
 ```
 
 Then we can create an App component:
@@ -133,7 +133,7 @@ Then we need to make sure that our component is rendering to the DOM. We will us
 
 ```jsx
 // app.js
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 Now we can add in our constructor and state. We will create a 'list' array in state. To start with, we will populate it with a few items so we can see our list:
@@ -195,30 +195,30 @@ This will be pretty simple. First we need to add the code to render an input box
 
 ```jsx
 // app.js
-<div className='content'>
-  <div className='container'>
-    <section className='section'>
-      <ul>
-        {this.state.list.map(item => (
-          <li key={item}>{item}</li>
-        ))}
-      </ul>
-    </section>
-    <hr />
-    <section className='section'>
-      <form className='form' id='addItemForm'>
-        <input
-          type='text'
-          className='input'
-          id='addInput'
-          placeholder='Something that needs ot be done...'
-        />
-        <button className='button is-info' onClick={this.addItem}>
-          Add Item
-        </button>
-      </form>
-    </section>
-  </div>
+<div className="content">
+	<div className="container">
+		<section className="section">
+			<ul>
+				{this.state.list.map((item) => (
+					<li key={item}>{item}</li>
+				))}
+			</ul>
+		</section>
+		<hr />
+		<section className="section">
+			<form className="form" id="addItemForm">
+				<input
+					type="text"
+					className="input"
+					id="addInput"
+					placeholder="Something that needs ot be done..."
+				/>
+				<button className="button is-info" onClick={this.addItem}>
+					Add Item
+				</button>
+			</form>
+		</section>
+	</div>
 </div>
 ```
 
@@ -266,8 +266,8 @@ And we can add an onClick trigger to our button, so our button should look like 
 
 ```jsx
 // app.js
-<button className='button is-info' onClick={this.addItem}>
-  Add Item
+<button className="button is-info" onClick={this.addItem}>
+	Add Item
 </button>
 ```
 
@@ -345,9 +345,9 @@ Next we are going to turn our list into a component with it's own state and meth
 ```jsx
 // app.js
 class List extends React.Component {
-  render() {
-    return <div>...</div>;
-  }
+	render() {
+		return <div>...</div>;
+	}
 }
 ```
 
@@ -356,12 +356,12 @@ The code we want to render is just our list, so go back up to our App component 
 ```jsx
 // app.js
 <ul>
-  {this.state.list.map(item => (
-    <li key={item}>
-      {item} &nbsp;
-      <span className='delete' onClick={() => this.removeItem(item)} />
-    </li>
-  ))}
+	{this.state.list.map((item) => (
+		<li key={item}>
+			{item} &nbsp;
+			<span className="delete" onClick={() => this.removeItem(item)} />
+		</li>
+	))}
 </ul>
 ```
 
@@ -394,7 +394,7 @@ We don't have a method called `removeItem` within this component, so clicking th
 
 ```jsx
 // app.js
-<span className='delete' onClick={() => this.props.delete(item)} />
+<span className="delete" onClick={() => this.props.delete(item)} />
 ```
 
 So with a few adjustments, we now have a fully functioning list in a separate component. Now, onward to adding a search function.
@@ -408,12 +408,12 @@ First, we'll add state to our List component and give it an array called filtere
 ```jsx
 // app.js
 class List extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      filtered: [],
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			filtered: [],
+		};
+	}
 }
 ```
 
@@ -458,8 +458,8 @@ It seems to me that a good place to start with a search bar is...well...the sear
 ```jsx
 // app.js
 <div>
-  <input type='text' className='input' placeholder='Search...' />
-  <ul>...</ul>
+	<input type="text" className="input" placeholder="Search..." />
+	<ul>...</ul>
 </div>
 ```
 
@@ -532,10 +532,10 @@ Finally, we can add an event handler to the input item to call the method whenev
 ```jsx
 // app.js
 <input
-  type='text'
-  className='input'
-  onChange={this.handleChange}
-  placeholder='Search...'
+	type="text"
+	className="input"
+	onChange={this.handleChange}
+	placeholder="Search..."
 />
 ```
 

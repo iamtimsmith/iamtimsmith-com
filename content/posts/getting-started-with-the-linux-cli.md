@@ -1,7 +1,7 @@
 ---
 title: Getting Started with the Linux Command Line Interface
-date: '2019-06-10T05:00:00.000Z'
-seoDescription: By learning a few commands can open a new world of functionality as a developer. Today I'm going to cover some of those basic commands to get you going.
+date: "2019-06-10T05:00:00.000Z"
+excerpt: By learning a few commands can open a new world of functionality as a developer. Today I'm going to cover some of those basic commands to get you going.
 published: true
 ---
 
@@ -84,11 +84,11 @@ Tims-MacBook-Pro:styles timsmith$ mkdir directory4 directory4/sub1
 
 If we looked at our current directory, we should now see the following structure in addition to what was already there:
 
-- directory1/
-- directory2/
-- directory3/
-- directory4/
-  - sub1/
+-   directory1/
+-   directory2/
+-   directory3/
+-   directory4/
+    -   sub1/
 
 It's not hard to see how this can be a timesaving tool if lots of folders need to be created. Imagine how many mouse clicks it would take to create 10 folders as opposed to one line of code in the terminal!
 
@@ -109,15 +109,15 @@ Tims-MacBook-Pro:styles timsmith$ touch file3.txt file4.txt
 
 After adding the files above, my working directory structure looks something like this:
 
-- directory1/
-  - file2.txt
-- directory2/
-- directory3/
-- directory4/
-  - sub1/
-- file1.txt
-- file3.txt
-- file4.txt
+-   directory1/
+    -   file2.txt
+-   directory2/
+-   directory3/
+-   directory4/
+    -   sub1/
+-   file1.txt
+-   file3.txt
+-   file4.txt
 
 ### Delete a file or folder
 
@@ -134,11 +134,11 @@ Tims-MacBook-Pro:styles timsmith$ rm -r directory2
 
 After removing these files and folders, my current directory looks like this:
 
-- directory1/
-  - file2.txt
-- directory3/
-- directory4/
-  - sub1/
+-   directory1/
+    -   file2.txt
+-   directory3/
+-   directory4/
+    -   sub1/
 
 <EmailSignup title='Like this post? Join my mailing list!' />
 
@@ -155,13 +155,13 @@ Tims-MacBook-Pro:styles timsmith$ cp -r directory4/sub1 directory3/sub1
 
 My directory structure now looks like this:
 
-- directory1/
-  - file2.txt
-- directory3/
-  - sub1/
-  - file3.txt
-- directory4/
-  - sub1/
+-   directory1/
+    -   file2.txt
+-   directory3/
+    -   sub1/
+    -   file3.txt
+-   directory4/
+    -   sub1/
 
 ### Move a file or folder
 
@@ -176,13 +176,13 @@ Tims-MacBook-Pro:styles timsmith$ mv directory4/sub1 directory1/sub1
 
 The structure for my directory now looks like this:
 
-- directory1/
-  - sub1/
-- directory3/
-  - sub1/
-  - file3.txt
-- directory4/
-  - file2.txt
+-   directory1/
+    -   sub1/
+-   directory3/
+    -   sub1/
+    -   file3.txt
+-   directory4/
+    -   file2.txt
 
 ### Search files for some text
 
@@ -190,11 +190,11 @@ The final command I'd like to talk about today is one I've just started using in
 
 When I use grep, I use the flags `-Rnaio` which searches how I want and displays output how I want. This is actually 5 separate flags, but they can be combined into one, and yes... case does matter here. Let me break down what each of these does:
 
-- **R** - Searches recursively in directories, i.e. all directories inside of the current one
-- **n** - Adds line numbers to results to make finding the text in the file easier
-- **a** - Processes a binary file as if it were text. This is particularly useful to programmers who are editing said binary files.
-- **i** - Ignore case. This increases the search results because it doesn't care whether things are upper or lower cased.
-- **o** - Only show the part of the line that matches our input. This helps to prevent a wall of text for the results.
+-   **R** - Searches recursively in directories, i.e. all directories inside of the current one
+-   **n** - Adds line numbers to results to make finding the text in the file easier
+-   **a** - Processes a binary file as if it were text. This is particularly useful to programmers who are editing said binary files.
+-   **i** - Ignore case. This increases the search results because it doesn't care whether things are upper or lower cased.
+-   **o** - Only show the part of the line that matches our input. This helps to prevent a wall of text for the results.
 
 The example below contains the grep command, the aforementioned flags, and then a bunch of dots and the word demonstration. What? The dots immediately before and after the word are acting as wildcards to return the 5 characters before and after the word, which helps to provide a little context for me. If you look carefully, you'll notice that there's also a space and one more dot at the end. This is also acting as a wildcard which tells grep to search in all directories inside of the current one. If you only wanted to search a particular folder, you could change this final dot to the name of the folder you're interested in searching.
 

@@ -1,7 +1,7 @@
 ---
 title: Creating Custom Gutenberg Blocks with React and WordPress - Part 1
-date: '2019-10-02T05:00:00.000Z'
-seoDescription: Learn the basics of setting up and building Gutenberg blocks in WordPress
+date: "2019-10-02T05:00:00.000Z"
+excerpt: Learn the basics of setting up and building Gutenberg blocks in WordPress
 published: true
 ---
 

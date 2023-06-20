@@ -1,7 +1,7 @@
 ---
 title: Take Snapshots of Your Project with Git
-date: '2019-06-25T05:00:00.000Z'
-seoDescription: Git is a tool which allows you to take "snapshots" of your project. I'm going to show you how to get started with git so you can improve your worklow.
+date: "2019-06-25T05:00:00.000Z"
+excerpt: Git is a tool which allows you to take "snapshots" of your project. I'm going to show you how to get started with git so you can improve your worklow.
 published: true
 ---
 

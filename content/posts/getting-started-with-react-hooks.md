@@ -1,7 +1,7 @@
 ---
 title: Getting started with React Hooks
 date: "2021-12-06T06:00:00.000Z"
-seoDescription: >-
+excerpt: >-
     Today I'll be showing you how to use some of the more common hooks provided by
     React as well as how to create your own custom hook.
 published: true

@@ -1,7 +1,7 @@
 ---
 title: How To Build A Website In Less Than 10 Minutes
-date: '2017-06-16T05:00:00.000Z'
-seoDescription: I will teach you how to build a website in less than 10 minutes using WordPress so you can get your site up and running with a custom theme and plugins.
+date: "2017-06-16T05:00:00.000Z"
+excerpt: I will teach you how to build a website in less than 10 minutes using WordPress so you can get your site up and running with a custom theme and plugins.
 published: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Creating A Kanban Workflow As A Freelance Web Developer
-date: '2019-08-12T05:00:00.000Z'
-seoDescription: As a freelance developer, it can be hard to keep projects organized. In this post I'll talk about what Kanban is, tools you can use, and how it can help you.
+date: "2019-08-12T05:00:00.000Z"
+excerpt: As a freelance developer, it can be hard to keep projects organized. In this post I'll talk about what Kanban is, tools you can use, and how it can help you.
 published: true
 ---
 
@@ -56,10 +56,10 @@ Once you've selected the tool you'd like to use for your kanban, setting it up i
 
 Once your columns are created, you can begin creating items, or cards. Each of these cards will represent a different task which needs to be performed on the site and can be as granular as you like. Cards can be created for various reasons, but some common ones are:
 
-- **Research.** You need to research a library, method, design, etc before implementing. This card will help you remember and keep track of where you're at in that process.
-- **Feature.** A feature needs to be added to the project such as a header or footer, a signup page, or a call-to-action button.
-- **Bug fix.** Someone has found a bug on the site which needs to be addressed. These are usually not high impact so they aren't necessarily high priority.
-- **Hot fix.** These are the issues that are affecting customers and ultimately the bottom line. Hot fixes are things that need to be addressed immediately and should be at the top of the column.
+-   **Research.** You need to research a library, method, design, etc before implementing. This card will help you remember and keep track of where you're at in that process.
+-   **Feature.** A feature needs to be added to the project such as a header or footer, a signup page, or a call-to-action button.
+-   **Bug fix.** Someone has found a bug on the site which needs to be addressed. These are usually not high impact so they aren't necessarily high priority.
+-   **Hot fix.** These are the issues that are affecting customers and ultimately the bottom line. Hot fixes are things that need to be addressed immediately and should be at the top of the column.
 
 ### Labelling cards
 

@@ -1,7 +1,7 @@
 ---
 title: Finding a Job While Using a Kanban Workflow
-date: '2019-09-17T05:00:00.000Z'
-seoDescription: In this post, I'll teach you how using a kanban workflow when finding a job can help keep you organized throughout the application process.
+date: "2019-09-17T05:00:00.000Z"
+excerpt: In this post, I'll teach you how using a kanban workflow when finding a job can help keep you organized throughout the application process.
 published: true
 ---
 

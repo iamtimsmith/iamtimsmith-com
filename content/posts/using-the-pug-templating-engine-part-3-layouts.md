@@ -1,7 +1,7 @@
 ---
 title: Using the Pug Templating Engine  Part 3 - Layouts
-date: '2021-01-29T05:00:00.000Z'
-seoDescription: Pug allows you to use inheritance to create a layout for the frontend and then insert blocks of data into the layout, causing a better developer experience.
+date: "2021-01-29T05:00:00.000Z"
+excerpt: Pug allows you to use inheritance to create a layout for the frontend and then insert blocks of data into the layout, causing a better developer experience.
 published: true
 ---
 
@@ -76,20 +76,20 @@ Below the extends line, you can see a `block content` section just like in the l
 ```html
 <!-- output -->
 <html>
-  <head>
-    <title>My Site</title>
-  </head>
-  <body>
-    <header>
-      <a href="/">Home</a>
-    </header>
+	<head>
+		<title>My Site</title>
+	</head>
+	<body>
+		<header>
+			<a href="/">Home</a>
+		</header>
 
-    <h1>Hello, world!</h1>
+		<h1>Hello, world!</h1>
 
-    <footer>
-      <p>Site Footer</p>
-    </footer>
-  </body>
+		<footer>
+			<p>Site Footer</p>
+		</footer>
+	</body>
 </html>
 ```
 
@@ -108,20 +108,20 @@ The code above would create a second page on our website with the following mark
 ```html
 <!-- output -->
 <html>
-  <head>
-    <title>My Site</title>
-  </head>
-  <body>
-    <header>
-      <a href="/">Home</a>
-    </header>
+	<head>
+		<title>My Site</title>
+	</head>
+	<body>
+		<header>
+			<a href="/">Home</a>
+		</header>
 
-    <h1>This is the second page!</h1>
+		<h1>This is the second page!</h1>
 
-    <footer>
-      <p>Site Footer</p>
-    </footer>
-  </body>
+		<footer>
+			<p>Site Footer</p>
+		</footer>
+	</body>
 </html>
 ```
 

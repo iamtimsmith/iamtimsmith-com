@@ -1,7 +1,7 @@
 ---
 title: How to Use Sass and Styled Components in a React JS Application
-date: '2019-03-10T05:00:00.000Z'
-seoDescription: Today we will be covering a few popular methods to style our React JS applications such as Styled Components and Sass to explain the benefits of both.
+date: "2019-03-10T05:00:00.000Z"
+excerpt: Today we will be covering a few popular methods to style our React JS applications such as Styled Components and Sass to explain the benefits of both.
 published: true
 ---
 
@@ -38,34 +38,34 @@ The next step will be to [create a component](/blog/how-to-create-a-component/) 
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import Image from './images/300.jpg';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled, { ThemeProvider } from "styled-components";
+import Image from "./images/300.jpg";
 
 const Card = styled.div`
-  max-width: 350px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 30px auto;
+	max-width: 350px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	margin: 30px auto;
 `;
 
 const SocialCard = () => (
-  <Card>
-    {/* Image goes here */}
-    {/* Content goes here */}
-  </Card>
+	<Card>
+		{/* Image goes here */}
+		{/* Content goes here */}
+	</Card>
 );
 
 const App = () => (
-  <div>
-    <SocialCard />
-  </div>
+	<div>
+		<SocialCard />
+	</div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 Let's talk about the code above. You'll probably see some stuff that looks familiar if you're comfortable with CSS and you'll see some stuff that looks a bit weird. Styled Components lets us write styles just like we would in a CSS file, although some other CSS-in-JS libraries would require us to use Camel Casing because it's actually just creating a javascript object.
@@ -79,37 +79,37 @@ Inside of the Card variable, we can also drop in media queries to make things a 
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import Image from './images/300.jpg';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled, { ThemeProvider } from "styled-components";
+import Image from "./images/300.jpg";
 
 const Card = styled.div`
-  max-width: 350px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 30px auto;
-  @media (max-width: 1000px) {
-    background-color: red;
-  }
+	max-width: 350px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	margin: 30px auto;
+	@media (max-width: 1000px) {
+		background-color: red;
+	}
 `;
 
 const SocialCard = () => (
-  <Card>
-    {/* Image goes here */}
-    {/* Content goes here */}
-  </Card>
+	<Card>
+		{/* Image goes here */}
+		{/* Content goes here */}
+	</Card>
 );
 
 const App = () => (
-  <div>
-    <SocialCard />
-  </div>
+	<div>
+		<SocialCard />
+	</div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 We can also nest our styles inside of the styled component, which simplifies the code we're writing. If you have used sass or less, you are already familiar with this concept. The example below shows how we can do this to handle styles for the image in our card component:
@@ -117,37 +117,37 @@ We can also nest our styles inside of the styled component, which simplifies the
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import Image from './images/300.jpg';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled, { ThemeProvider } from "styled-components";
+import Image from "./images/300.jpg";
 
 const Card = styled.div`
-  max-width: 350px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 30px auto;
-  img {
-    max-width: 100%;
-  }
+	max-width: 350px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	margin: 30px auto;
+	img {
+		max-width: 100%;
+	}
 `;
 
 const SocialCard = () => (
-  <Card>
-    <img src={Image} alt='Sample image' />
-    {/* Content goes here */}
-  </Card>
+	<Card>
+		<img src={Image} alt="Sample image" />
+		{/* Content goes here */}
+	</Card>
 );
 
 const App = () => (
-  <div>
-    <SocialCard />
-  </div>
+	<div>
+		<SocialCard />
+	</div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 ### Using Javascript in Styles
@@ -157,39 +157,39 @@ Another benefit of using CSS-in-JS is that we can mix javascript with styles. I 
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import Image from './images/300.jpg';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled, { ThemeProvider } from "styled-components";
+import Image from "./images/300.jpg";
 
-const border = '5px solid red';
+const border = "5px solid red";
 
 const Card = styled.div`
-  max-width: 350px;
-  border: ${border};
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 30px auto;
-  img {
-    max-width: 100%;
-  }
+	max-width: 350px;
+	border: ${border};
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	margin: 30px auto;
+	img {
+		max-width: 100%;
+	}
 `;
 
 const SocialCard = () => (
-  <Card>
-    <img src={Image} alt='Sample image' />
-    {/* Content goes here */}
-  </Card>
+	<Card>
+		<img src={Image} alt="Sample image" />
+		{/* Content goes here */}
+	</Card>
 );
 
 const App = () => (
-  <div>
-    <SocialCard />
-  </div>
+	<div>
+		<SocialCard />
+	</div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 Using CSS-in-JS allows us to keep styles local instead of everything being global or having to add a ton of classes to everything to make it work. This means things can be more concise and we don't have to worry about one style overriding another. In addition, it means we always know where to look if we need to change the style. We don't have to go rooting around in a bunch of CSS files looking for a class.
@@ -203,42 +203,42 @@ What if you have to update it someday? That sounds like a lot of search and repl
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import Image from './images/300.jpg';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled, { ThemeProvider } from "styled-components";
+import Image from "./images/300.jpg";
 
 const theme = {
-  primary: 'red',
+	primary: "red",
 };
 
 const Card = styled.div`
-  max-width: 350px;
-  /* border: 1px solid rgba(0, 0, 0, 0.1); */
-  border: 1px solid ${props => props.theme.primary};
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 30px auto;
-  img {
-    max-width: 100%;
-  }
+	max-width: 350px;
+	/* border: 1px solid rgba(0, 0, 0, 0.1); */
+	border: 1px solid ${(props) => props.theme.primary};
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	margin: 30px auto;
+	img {
+		max-width: 100%;
+	}
 `;
 
 const SocialCard = () => (
-  <Card>
-    <img src={Image} alt='Sample image' />
-    {/* Content goes here */}
-  </Card>
+	<Card>
+		<img src={Image} alt="Sample image" />
+		{/* Content goes here */}
+	</Card>
 );
 
 const App = () => (
-  <ThemeProvider theme={theme}>
-    <SocialCard />
-  </ThemeProvider>
+	<ThemeProvider theme={theme}>
+		<SocialCard />
+	</ThemeProvider>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 These theme variables can be used in any of our components since the ThemeProvider is wrapped around our entire application. We can then add a styled component to wrap our site in which will take care of all of the global styles such as typography, input styles, and other things that should be standard across all pages.
@@ -248,113 +248,113 @@ To demonstrate this, let's add some global styles and some content for our socia
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import styled, { ThemeProvider } from 'styled-components';
-import Image from './images/300.jpg';
-import User from './images/user.jpg';
-import Heart from './images/heart-solid.svg';
-import Share from './images/share-solid.svg';
-import Retweet from './images/retweet-solid.svg';
+import React from "react";
+import ReactDOM from "react-dom";
+import styled, { ThemeProvider } from "styled-components";
+import Image from "./images/300.jpg";
+import User from "./images/user.jpg";
+import Heart from "./images/heart-solid.svg";
+import Share from "./images/share-solid.svg";
+import Retweet from "./images/retweet-solid.svg";
 
 const theme = {
-  font: 'sans-serif',
-  primary: '#333',
-  secondary: '#999',
+	font: "sans-serif",
+	primary: "#333",
+	secondary: "#999",
 };
 
 const Card = styled.div`
-  max-width: 350px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 30px auto;
-  img {
-    max-width: 100%;
-  }
-  > div {
-    padding: 10px 20px;
-    > div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      p {
-        font-weight: bold;
-        span {
-          display: block;
-          padding: 5px;
-          font-weight: 300;
-          font-size: 0.8rem;
-          color: ${props => props.theme.secondary};
-        }
-      }
-      img {
-        max-width: 50px;
-        border-radius: 100%;
-      }
-    }
-  }
+	max-width: 350px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	margin: 30px auto;
+	img {
+		max-width: 100%;
+	}
+	> div {
+		padding: 10px 20px;
+		> div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			p {
+				font-weight: bold;
+				span {
+					display: block;
+					padding: 5px;
+					font-weight: 300;
+					font-size: 0.8rem;
+					color: ${(props) => props.theme.secondary};
+				}
+			}
+			img {
+				max-width: 50px;
+				border-radius: 100%;
+			}
+		}
+	}
 `;
 
 const SocialSharing = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  p {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    img {
-      width: 20px;
-      padding: 5px;
-      opacity: 0.3;
-    }
-  }
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	p {
+		display: flex;
+		align-items: center;
+		cursor: pointer;
+		img {
+			width: 20px;
+			padding: 5px;
+			opacity: 0.3;
+		}
+	}
 `;
 
 const SocialCard = () => (
-  <Card>
-    <img src={Image} alt='Sample image' />
-    <div>
-      <div>
-        <p>
-          @some_lego_guy
-          <br />
-          <span>Mar 14</span>
-        </p>
-        <img src={User} alt='@some_lego_guy' />
-      </div>
-      <p>Here is a custom status with some text and stuff...</p>
-      <SocialSharing>
-        <p>
-          <img src={Share} alt='Shares' /> 492
-        </p>
-        <p>
-          <img src={Retweet} alt='Retweets' /> 3,843
-        </p>
-        <p>
-          <img src={Heart} alt='Likes' /> 1,336
-        </p>
-      </SocialSharing>
-    </div>
-  </Card>
+	<Card>
+		<img src={Image} alt="Sample image" />
+		<div>
+			<div>
+				<p>
+					@some_lego_guy
+					<br />
+					<span>Mar 14</span>
+				</p>
+				<img src={User} alt="@some_lego_guy" />
+			</div>
+			<p>Here is a custom status with some text and stuff...</p>
+			<SocialSharing>
+				<p>
+					<img src={Share} alt="Shares" /> 492
+				</p>
+				<p>
+					<img src={Retweet} alt="Retweets" /> 3,843
+				</p>
+				<p>
+					<img src={Heart} alt="Likes" /> 1,336
+				</p>
+			</SocialSharing>
+		</div>
+	</Card>
 );
 
 const GlobalStyles = styled.div`
-  font-family: ${props => props.theme.font};
-  color: ${props => props.theme.primary};
+	font-family: ${(props) => props.theme.font};
+	color: ${(props) => props.theme.primary};
 `;
 
 const App = () => (
-  <ThemeProvider theme={theme}>
-    <GlobalStyles>
-      <SocialCard />
-    </GlobalStyles>
-  </ThemeProvider>
+	<ThemeProvider theme={theme}>
+		<GlobalStyles>
+			<SocialCard />
+		</GlobalStyles>
+	</ThemeProvider>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 This is obviously a pretty basic example but it's a simple way to get our feet wet with Styled Components. There are also some more in-depth things we can do with it, which we can learn about in the documentation.
@@ -383,15 +383,15 @@ Instead, we will create separate files and just import them into the app.scss fi
 
 There are lots of different opinions on how to organize the folder with our styles. We could spend a TON of time going down a rabbit hole of organizational techniques, but I find that the way I like to do it is to organize my Sass folder the same as my project. Typically this would translate out to having the following layout:
 
-- Sass/
-  - Components/ - A directory which has a .scss file for each React component
-  - Pages/ - A directory which has a .scss file for each page that requires custom styles
-  - Templates/ (optional) - A directory for templates if using them (for tools such as gatsby)
-  - \_elements.scss - Any generic styles for the site. Shouldn't have any classes or ids for selectors.
-  - \_keyframes.scss (optional) - Any keyframes or animations I will be using for the site.
-  - \_mixins.scss - Any mixins (style snippets) that will be used over and over
-  - \_variables.scss - Any variables that will be used throughout styles
-  - app.scss - The file that imports all other scss files
+-   Sass/
+    -   Components/ - A directory which has a .scss file for each React component
+    -   Pages/ - A directory which has a .scss file for each page that requires custom styles
+    -   Templates/ (optional) - A directory for templates if using them (for tools such as gatsby)
+    -   \_elements.scss - Any generic styles for the site. Shouldn't have any classes or ids for selectors.
+    -   \_keyframes.scss (optional) - Any keyframes or animations I will be using for the site.
+    -   \_mixins.scss - Any mixins (style snippets) that will be used over and over
+    -   \_variables.scss - Any variables that will be used throughout styles
+    -   app.scss - The file that imports all other scss files
 
 The first thing you may notice about the file names is that several of them start with an underscore. This is because outside of node, Sass is actually compiled to a CSS file. Any SCSS file without an underscore at the beginning is compiled as a different stylesheet. Since we are pulling all of our stylesheets into the app.scss file rather than separating them out, they should all start with an underscore.
 
@@ -416,7 +416,7 @@ Once we have some variables added, we should import this into the `app.scss` fil
 ```scss
 // sass/app.scss
 
-@import './variables';
+@import "./variables";
 ```
 
 ### Creating global styles for elements
@@ -427,10 +427,10 @@ We created some global styles for our styled components application which set ou
 // sass/_elements.scss
 
 html {
-  body {
-    font-family: $font;
-    color: $primary;
-  }
+	body {
+		font-family: $font;
+		color: $primary;
+	}
 }
 ```
 
@@ -439,8 +439,8 @@ Now we can import the `_elements.scss` file into our app.scss file. See if you c
 ```scss
 // sass/app.scss
 
-@import './variables';
-@import './elements';
+@import "./variables";
+@import "./elements";
 ```
 
 ### Adding Classes to Elements in Component
@@ -450,50 +450,50 @@ So we can target the elements in our React js component, we should add some clas
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Image from './images/300.jpg';
-import User from './images/user.jpg';
-import Heart from './images/heart-solid.svg';
-import Share from './images/share-solid.svg';
-import Retweet from './images/retweet-solid.svg';
-import './sass/app.scss';
+import React from "react";
+import ReactDOM from "react-dom";
+import Image from "./images/300.jpg";
+import User from "./images/user.jpg";
+import Heart from "./images/heart-solid.svg";
+import Share from "./images/share-solid.svg";
+import Retweet from "./images/retweet-solid.svg";
+import "./sass/app.scss";
 
 const SocialCard = () => (
-  <div className='social_card'>
-    <img src={Image} alt='Sample image' />
-    <div className='social_card_body'>
-      <div>
-        <p>
-          @some_lego_guy
-          <br />
-          <span>Mar 14</span>
-        </p>
-        <img src={User} alt='@some_lego_guy' />
-      </div>
-      <p>Here is a custom status with some text and stuff...</p>
-      <div className='social_interactions'>
-        <p>
-          <img src={Share} alt='Shares' /> 492
-        </p>
-        <p>
-          <img src={Retweet} alt='Retweets' /> 3,843
-        </p>
-        <p>
-          <img src={Heart} alt='Likes' /> 1,336
-        </p>
-      </div>
-    </div>
-  </div>
+	<div className="social_card">
+		<img src={Image} alt="Sample image" />
+		<div className="social_card_body">
+			<div>
+				<p>
+					@some_lego_guy
+					<br />
+					<span>Mar 14</span>
+				</p>
+				<img src={User} alt="@some_lego_guy" />
+			</div>
+			<p>Here is a custom status with some text and stuff...</p>
+			<div className="social_interactions">
+				<p>
+					<img src={Share} alt="Shares" /> 492
+				</p>
+				<p>
+					<img src={Retweet} alt="Retweets" /> 3,843
+				</p>
+				<p>
+					<img src={Heart} alt="Likes" /> 1,336
+				</p>
+			</div>
+		</div>
+	</div>
 );
 
 const App = () => (
-  <div>
-    <SocialCard />
-  </div>
+	<div>
+		<SocialCard />
+	</div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 Awesome! Let's start styling our component! Inside the Sass folder, create a new folder called "components". This folder will hold the styles for all of our React js components. Typically, I would put each component into it's own file, this is a pretty simple application so we will keep it in the app.js file.
@@ -506,52 +506,52 @@ The code below will style the social card to look the same as our styled compone
 // sass/components/_socialcard.scss
 
 .social_card {
-  max-width: 350px;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 5px;
-  overflow: hidden;
-  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
-  margin: 30px auto;
-  img {
-    max-width: 100%;
-  }
-  .social_card_body {
-    padding: 10px 20px;
-    > div {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      p {
-        font-weight: bold;
-        span {
-          display: block;
-          padding: 5px;
-          font-weight: 300;
-          font-size: 0.8rem;
-          color: $secondary;
-        }
-      }
-      img {
-        max-width: 50px;
-        border-radius: 100%;
-      }
-    }
-    .social_interactions {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      p {
-        display: flex;
-        align-items: center;
-        cursor: pointer;
-        img {
-          width: 20px;
-          padding: 5px;
-          opacity: 0.3;
-        }
-      }
-    }
-  }
+	max-width: 350px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+	margin: 30px auto;
+	img {
+		max-width: 100%;
+	}
+	.social_card_body {
+		padding: 10px 20px;
+		> div {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			p {
+				font-weight: bold;
+				span {
+					display: block;
+					padding: 5px;
+					font-weight: 300;
+					font-size: 0.8rem;
+					color: $secondary;
+				}
+			}
+			img {
+				max-width: 50px;
+				border-radius: 100%;
+			}
+		}
+		.social_interactions {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			p {
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+				img {
+					width: 20px;
+					padding: 5px;
+					opacity: 0.3;
+				}
+			}
+		}
+	}
 }
 ```
 
@@ -560,9 +560,9 @@ Now we can go ahead and write the import statement in the app.scss file so we ar
 ```scss
 // sass/app.scss
 
-@import './variables';
-@import './elements';
-@import './components/socialcard';
+@import "./variables";
+@import "./elements";
+@import "./components/socialcard";
 ```
 
 And just like that, here is the final Social Card component with our sass styles. It looks the same as the component did in Styled Components.

@@ -1,7 +1,7 @@
 ---
 title: First Post dasfsa
-date: '2021-05-28T05:00:00.000Z'
-seoDescription: Sample description
+date: "2021-05-28T05:00:00.000Z"
+excerpt: Sample description
 published: false
 ---
 

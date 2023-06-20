@@ -1,7 +1,7 @@
 ---
-title: 'React: Class Components vs. Stateless Functional Components'
-date: '2018-08-22T05:00:00.000Z'
-seoDescription: In this article, I'll explain the differences between class components and stateless functional components as well as when and why to use the different types.
+title: "React: Class Components vs. Stateless Functional Components"
+date: "2018-08-22T05:00:00.000Z"
+excerpt: In this article, I'll explain the differences between class components and stateless functional components as well as when and why to use the different types.
 published: true
 ---
 
@@ -18,19 +18,19 @@ These things can be useful when we are storing or maniplating data within our co
 ```jsx
 // helloworld.js
 class HelloWorld extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      greeting: 'Hello World',
-    };
-  }
-  render() {
-    return (
-      <div>
-        <p>{this.state.greeting}</p>
-      </div>
-    );
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			greeting: "Hello World",
+		};
+	}
+	render() {
+		return (
+			<div>
+				<p>{this.state.greeting}</p>
+			</div>
+		);
+	}
 }
 ```
 
@@ -48,15 +48,15 @@ If we are putting all of our components in a single file, then this should be ho
 
 ```jsx
 // helloworld.js
-const HelloWorld = props => (
-  <div>
-    <p>{props.greeting}</p>
-  </div>
+const HelloWorld = (props) => (
+	<div>
+		<p>{props.greeting}</p>
+	</div>
 );
 export default HelloWorld;
 
 // Example use
-<HelloWorld greeting='Hello World!' />;
+<HelloWorld greeting="Hello World!" />;
 ```
 
 ### The second way: export the function
@@ -65,14 +65,14 @@ When we have a stateless functional component in a file by itself, we don't need
 
 ```jsx
 // helloworld.js
-export default props => (
-  <div>
-    <p>{props.greeting}</p>
-  </div>
+export default (props) => (
+	<div>
+		<p>{props.greeting}</p>
+	</div>
 );
 
 // Example use
-<HelloWorld greeting='Hello World!' />;
+<HelloWorld greeting="Hello World!" />;
 ```
 
 As you can see, these two functional components look almost identical and they do the same thing. It's really just a matter of personal preference.

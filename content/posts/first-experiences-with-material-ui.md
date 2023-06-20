@@ -1,9 +1,9 @@
 ---
 title: First Experiences with Material UI
-date: '2021-12-27T06:00:00.000Z'
-seoDescription: >-
-  In this post, I'll be talking about my first experiences with it and some of
-  the benefits and challenges I've found while getting started.
+date: "2021-12-27T06:00:00.000Z"
+excerpt: >-
+    In this post, I'll be talking about my first experiences with it and some of
+    the benefits and challenges I've found while getting started.
 published: true
 ---
 
@@ -79,4 +79,4 @@ Obviously, I could just write some global styles which duplicates that of the MU
 
 Despite the concern around the global styles, MUI seems to be a pretty solid foundation for a project built with React. I will continue to use it and learn more, so be sure to check in to look for updates around MUI!
 
-Have any suggestions around Material UI? Feel free to reach out to me on Twitter at [@iam\_timsmith](https://www.iamtimsmith.com/iam_timsmith).
+Have any suggestions around Material UI? Feel free to reach out to me on Twitter at [@iam_timsmith](https://www.iamtimsmith.com/iam_timsmith).

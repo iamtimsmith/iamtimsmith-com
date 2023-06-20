@@ -1,7 +1,7 @@
 ---
 title: What I Learned from my First Tech Conference
-date: '2019-05-12T05:00:00.000Z'
-seoDescription: I recently attended my first tech conference. In this article I will talk about what I learned, what to expect, and how to prepare to have a great time!
+date: "2019-05-12T05:00:00.000Z"
+excerpt: I recently attended my first tech conference. In this article I will talk about what I learned, what to expect, and how to prepare to have a great time!
 published: true
 ---
 

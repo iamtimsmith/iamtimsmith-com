@@ -1,0 +1,54 @@
+query homeQuery($last: Float) {
+  ...LayoutQueryFragment
+  page(relativePath: "home.mdx") {
+    ...PageParts
+  }
+  postConnection(sort: "date", last: $last, filter: { published: { eq: true } }) {
+    edges {
+      cursor
+      node {
+        title
+        excerpt
+        _sys {
+          filename
+        }
+      }
+    }
+  }
+}
+
+query paginationQuery($last: Float, $after: String) {
+  ...LayoutQueryFragment
+  postConnection(sort: "date", last: $last, before: $after, filter: { published: { eq: true } }) {
+    edges {
+      cursor
+      node {
+        title
+        excerpt
+        _sys {
+          filename
+        }
+      }
+    }
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
+}
+
+query pageQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
+}
+
+query blogPostQuery($relativePath: String!) {
+  ...LayoutQueryFragment
+  post(relativePath: $relativePath) {
+    ...PostParts
+  }
+}

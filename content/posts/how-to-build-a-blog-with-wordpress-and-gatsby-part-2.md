@@ -1,7 +1,7 @@
 ---
 title: How To Build A Blog with Wordpress and Gatsby.js - Part 2
-date: '2019-04-19T05:00:00.000Z'
-seoDescription: In the last post, we covered setting up WordPress for use with Gatsby. Today we will cover how to pull the data from WordPress into Gatsby and build pages.
+date: "2019-04-19T05:00:00.000Z"
+excerpt: In the last post, we covered setting up WordPress for use with Gatsby. Today we will cover how to pull the data from WordPress into Gatsby and build pages.
 published: true
 ---
 
@@ -42,16 +42,16 @@ gatsby new gatsby-wordpress
 
 Now that we have our project created, let's take a look inside. We will see a `src` folder along with several files. Here's a little breakdown of what these do:
 
-- **src/**: Directory that holds our React js project
-- **.gitignore**: Tells what shouldn't be captured in git commits
-- **.prettierrc**: Determines styles in code editor (tabs, quotes, etc)
-- **LICENSE**: Basic MIT license
-- **README.md**: Markdown file with instructions for use
-- **gatsby-browser.js**: Gatsby Browser API stuff goes here. Global style calls go here too
-- **gatsby-config.js**: Configuration for our project including meta data and plugins
-- **gatsby-node.js**: Where we tell gatsby to build pages from a template using provided data
-- **gatsby-ssr.js**: Gatsby Server Side Rendering APIs go here
-- **package.json**: File which holds custom scripts, dependency information, etc
+-   **src/**: Directory that holds our React js project
+-   **.gitignore**: Tells what shouldn't be captured in git commits
+-   **.prettierrc**: Determines styles in code editor (tabs, quotes, etc)
+-   **LICENSE**: Basic MIT license
+-   **README.md**: Markdown file with instructions for use
+-   **gatsby-browser.js**: Gatsby Browser API stuff goes here. Global style calls go here too
+-   **gatsby-config.js**: Configuration for our project including meta data and plugins
+-   **gatsby-node.js**: Where we tell gatsby to build pages from a template using provided data
+-   **gatsby-ssr.js**: Gatsby Server Side Rendering APIs go here
+-   **package.json**: File which holds custom scripts, dependency information, etc
 
 These files will be present in all Gatsby starters we use, so it's worth our time to have at least a basic level of understanding with each one. Let's take a look and see what dependencies and plugins we have by default. Open up the `package.json` file and scroll down to dependencies. This will tell us what packages we already have. Mine looks like this:
 
@@ -147,75 +147,75 @@ Looking at our `package.json` file will reveal that each of these packages have 
 ```js
 // gatsby-config.js
 module.exports = {
-  siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this
+	siteMetadata: {
+		title: `Gatsby Default Starter`,
+		description: `Kick off your next, great Gatsby project with this
     default starter. This barebones starter ships with the main Gatsby
     configuration files you might need.`,
-    author: `@gatsbyjs`,
-  },
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: 'gatsby-source-wordpress',
-      options: {
-        // I have created a dummy site for us to use with the plugins we discussed
-        baseUrl: 'gatsbypress.iamtimsmith.com',
-        protocol: 'https',
-        hostingWPCOM: false,
-        // We will be using some advanced custom fields
-        useACF: true,
-        acfOptionPageIds: [],
-        verboseOutput: false,
-        perPage: 100,
-        searchAndReplaceContentUrls: {
-          sourceUrl: 'https://gatsbypress.iamtimsmith.com',
-          replacementUrl: 'https://localhost:8000',
-        },
-        // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
-        includedRoutes: [
-          '**/categories',
-          '**/posts',
-          '**/pages',
-          '**/media',
-          '**/tags',
-          '**/taxonomies',
-          '**/users',
-        ],
-        excludedRoutes: [],
-        normalizer: function ({ entities }) {
-          return entities;
-        },
-      },
-    },
-    `gatsby-plugin-sass`,
-    `gatsby-plugin-sitemap`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
-  ],
+		author: `@gatsbyjs`,
+	},
+	plugins: [
+		`gatsby-plugin-react-helmet`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `images`,
+				path: `${__dirname}/src/images`,
+			},
+		},
+		`gatsby-transformer-sharp`,
+		`gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `gatsby-starter-default`,
+				short_name: `starter`,
+				start_url: `/`,
+				background_color: `#663399`,
+				theme_color: `#663399`,
+				display: `minimal-ui`,
+				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+			},
+		},
+		{
+			resolve: "gatsby-source-wordpress",
+			options: {
+				// I have created a dummy site for us to use with the plugins we discussed
+				baseUrl: "gatsbypress.iamtimsmith.com",
+				protocol: "https",
+				hostingWPCOM: false,
+				// We will be using some advanced custom fields
+				useACF: true,
+				acfOptionPageIds: [],
+				verboseOutput: false,
+				perPage: 100,
+				searchAndReplaceContentUrls: {
+					sourceUrl: "https://gatsbypress.iamtimsmith.com",
+					replacementUrl: "https://localhost:8000",
+				},
+				// Set how many simultaneous requests are sent at once.
+				concurrentRequests: 10,
+				includedRoutes: [
+					"**/categories",
+					"**/posts",
+					"**/pages",
+					"**/media",
+					"**/tags",
+					"**/taxonomies",
+					"**/users",
+				],
+				excludedRoutes: [],
+				normalizer: function ({ entities }) {
+					return entities;
+				},
+			},
+		},
+		`gatsby-plugin-sass`,
+		`gatsby-plugin-sitemap`,
+		// this (optional) plugin enables Progressive Web App + Offline functionality
+		// To learn more, visit: https://gatsby.dev/offline
+		// 'gatsby-plugin-offline',
+	],
 };
 ```
 
@@ -250,13 +250,13 @@ Below is the code I'm using for our template starter. This is just to make sure 
 
 ```jsx
 // src/templates/BlogPost.js
-import React from 'react';
-import Layout from '../components/layout';
+import React from "react";
+import Layout from "../components/layout";
 
 const BlogPostTemplate = () => (
-  <Layout>
-    <h1>Blog Post Template</h1>
-  </Layout>
+	<Layout>
+		<h1>Blog Post Template</h1>
+	</Layout>
 );
 
 export default BlogPostTemplate;
@@ -286,34 +286,34 @@ The code below pulls in the data for blog posts from wordpress and creates a pag
 const path = require(`path`);
 const { createFilePath } = require(`gatsby-source-filesystem`);
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions;
-  const BlogPostTemplate = path.resolve('./src/templates/BlogPost.js');
-  const result = await graphql(`
-    {
-      allWordpressPost {
-        edges {
-          node {
-            slug
-            wordpress_id
-          }
-        }
-      }
-    }
-  `);
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
-    return;
-  }
-  const BlogPosts = result.data.allWordpressPost.edges;
-  BlogPosts.forEach(post => {
-    createPage({
-      path: `/post/${post.node.slug}`,
-      component: BlogPostTemplate,
-      context: {
-        id: post.node.wordpress_id,
-      },
-    });
-  });
+	const { createPage } = actions;
+	const BlogPostTemplate = path.resolve("./src/templates/BlogPost.js");
+	const result = await graphql(`
+		{
+			allWordpressPost {
+				edges {
+					node {
+						slug
+						wordpress_id
+					}
+				}
+			}
+		}
+	`);
+	if (result.errors) {
+		reporter.panicOnBuild(`Error while running GraphQL query.`);
+		return;
+	}
+	const BlogPosts = result.data.allWordpressPost.edges;
+	BlogPosts.forEach((post) => {
+		createPage({
+			path: `/post/${post.node.slug}`,
+			component: BlogPostTemplate,
+			context: {
+				id: post.node.wordpress_id,
+			},
+		});
+	});
 };
 ```
 
@@ -331,56 +331,59 @@ Now that we have pages being created at the desired locations, we should update 
 
 ```jsx
 // src/templates/BlogPostTemplate.js
-import React from 'react';
-import { graphql } from 'gatsby';
-import Img from 'gatsby-image';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import { graphql } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 const BlogPostTemplate = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.wordpressPost.title}
-      description={data.wordpressPost.excerpt}
-    />
-    <h1>{data.wordpressPost.title}</h1>
-    <p>
-      Written by {data.wordpressPost.author.name} on {data.wordpressPost.date}
-    </p>
-    <Img
-      sizes={data.wordpressPost.acf.feat_img.localFile.childImageSharp.sizes}
-      alt={data.wordpressPost.title}
-      style={{ maxHeight: 450 }}
-    />
-    <div
-      style={{ marginTop: 20 }}
-      dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
-    />
-  </Layout>
+	<Layout>
+		<SEO
+			title={data.wordpressPost.title}
+			description={data.wordpressPost.excerpt}
+		/>
+		<h1>{data.wordpressPost.title}</h1>
+		<p>
+			Written by {data.wordpressPost.author.name} on{" "}
+			{data.wordpressPost.date}
+		</p>
+		<Img
+			sizes={
+				data.wordpressPost.acf.feat_img.localFile.childImageSharp.sizes
+			}
+			alt={data.wordpressPost.title}
+			style={{ maxHeight: 450 }}
+		/>
+		<div
+			style={{ marginTop: 20 }}
+			dangerouslySetInnerHTML={{ __html: data.wordpressPost.content }}
+		/>
+	</Layout>
 );
 export default BlogPostTemplate;
 export const query = graphql`
-  query ($id: Int!) {
-    wordpressPost(wordpress_id: { eq: $id }) {
-      title
-      content
-      excerpt
-      date(formatString: "MMMM DD, YYYY")
-      author {
-        name
-      }
-      acf {
-        feat_img {
-          localFile {
-            childImageSharp {
-              sizes(maxWidth: 1200) {
-                ...GatsbyImageSharpSizes
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+	query ($id: Int!) {
+		wordpressPost(wordpress_id: { eq: $id }) {
+			title
+			content
+			excerpt
+			date(formatString: "MMMM DD, YYYY")
+			author {
+				name
+			}
+			acf {
+				feat_img {
+					localFile {
+						childImageSharp {
+							sizes(maxWidth: 1200) {
+								...GatsbyImageSharpSizes
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 `;
 ```
 

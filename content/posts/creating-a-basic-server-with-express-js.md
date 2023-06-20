@@ -1,7 +1,7 @@
 ---
 title: Creating a Basic Server with Express.js
-date: '2020-02-12T05:00:00.000Z'
-seoDescription: I'm going to show you how to create an Express.js server. We will go over starting the server, setting up simple routes, and outputting various types of data.
+date: "2020-02-12T05:00:00.000Z"
+excerpt: I'm going to show you how to create an Express.js server. We will go over starting the server, setting up simple routes, and outputting various types of data.
 published: true
 ---
 
@@ -60,12 +60,12 @@ Open your newly created file and you can begin building a simple server. At firs
 
 ```js
 // server.js
-const express = require('express');
+const express = require("express");
 const app = express();
 const port = 4000;
 
 app.listen(port, () => {
-  console.log(`Success! Your application is running on port ${port}.`);
+	console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -81,8 +81,8 @@ Before setting up routes, you need to include the body-parser package we include
 
 ```js
 // server.js
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 4000;
 
@@ -90,7 +90,7 @@ const port = 4000;
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.listen(port, () => {
-  console.log(`Success! Your application is running on port ${port}.`);
+	console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -102,24 +102,24 @@ Express allows you to use the app variable with a method for the desired request
 
 ```js
 // server.js
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 4000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set up home route
-app.get('/', (req, res) => {
-  res.send('This is the homepage');
+app.get("/", (req, res) => {
+	res.send("This is the homepage");
 });
 // Set up second page
-app.get('/second', (req, res) => {
-  res.send('This is the second page');
+app.get("/second", (req, res) => {
+	res.send("This is the second page");
 });
 
 app.listen(port, () => {
-  console.log(`Success! Your application is running on port ${port}.`);
+	console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -131,9 +131,9 @@ For now, the server file doesn't look bad. As your application grows, you will n
 
 When building an application using Express.js, I prefer to stick with an MVC architecture. If you're unfamiliar with this, it stands for model-view-controller. It is an architectural pattern that has been around for a long time and there's lots of information. To put this into the most basic, oversimplified terms possible:
 
-- **Model** - The data in our application
-- **View** - The stuff that the user sees
-- **Controller** - What the routes should do
+-   **Model** - The data in our application
+-   **View** - The stuff that the user sees
+-   **Controller** - What the routes should do
 
 I will be using this sort of structure in this tutorial, although we won't have any models. Those can set up using various tools, known as ORMs, to connect databases. For this project, I will use a controller to simplify routing and pug for the views. First, let's set up a controller.
 
@@ -147,12 +147,12 @@ Now you can open `BasicController.js`. This file will begin with a module.export
 ```js
 // controllers/BasicController.js
 module.exports = {
-  home: (req, res) => {
-    res.send('This is the home page');
-  },
-  second: (req, res) => {
-    res.send('This is the second page');
-  },
+	home: (req, res) => {
+		res.send("This is the home page");
+	},
+	second: (req, res) => {
+		res.send("This is the second page");
+	},
 };
 ```
 
@@ -169,13 +169,13 @@ The `routes.js` file will house all of the routes for the project. Using control
 
 ```js
 // routes.js
-const express = require('express');
+const express = require("express");
 const router = express.Router();
 
-const basic = require('./controllers/BasicController.js');
+const basic = require("./controllers/BasicController.js");
 
-router.get('/', basic.home);
-router.get('/second', basic.second);
+router.get("/", basic.home);
+router.get("/second", basic.second);
 
 module.exports = router;
 ```
@@ -186,17 +186,17 @@ You're almost ready to test this out! The last step to get this working is to mo
 
 ```js
 // server.js
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 4000;
 
 app.use(bodyParser.urlencoded({ extended: false }));
 // Specify the url prefix and import routes
-app.use('/', require('./routes'));
+app.use("/", require("./routes"));
 
 app.listen(port, () => {
-  console.log(`Success! Your application is running on port ${port}.`);
+	console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -214,19 +214,19 @@ Since pug is already installed, we can just tell Express to use that as a templa
 
 ```js
 // server.js
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 const app = express();
 const port = 4000;
 
 // Set up pug as view engine
-app.set('view engine', 'pug');
+app.set("view engine", "pug");
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/', require('./routes'));
+app.use("/", require("./routes"));
 
 app.listen(port, () => {
-  console.log(`Success! Your application is running on port ${port}.`);
+	console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -266,12 +266,12 @@ The final step to adding views is to update the methods you created in the `Basi
 ```js
 // controllers/BasicController.js
 module.exports = {
-  home: (req, res) => {
-    res.render('home');
-  },
-  second: (req, res) => {
-    res.render('second');
-  },
+	home: (req, res) => {
+		res.render("home");
+	},
+	second: (req, res) => {
+		res.render("second");
+	},
 };
 ```
 
@@ -285,7 +285,6 @@ This is the first in a series of posts about setting up a project with Express.
 
 1. Creating a Basic Server with Express.js
 1. [Using MongoDB with an Express.js project](/blog/using-mongodb-with-express-js)
-<!-- 1. [Adding Authentication to an Express application with Passport.js](/blog/adding-auth-to-express-application-with-passport) -->
-
+ <!-- 1. [Adding Authentication to an Express application with Passport.js](/blog/adding-auth-to-express-application-with-passport) -->
 
 Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

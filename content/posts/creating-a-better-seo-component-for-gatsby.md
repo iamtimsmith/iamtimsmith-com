@@ -1,10 +1,10 @@
 ---
 title: Creating a better SEO component for Gatsby sites
-date: '2021-02-15T06:00:00.000Z'
-seoDescription: >-
-  In this post, I'll show you how to build a better SEO component which is
-  optimized for both search engines and social sharing to help your marketing
-  strategy.
+date: "2021-02-15T06:00:00.000Z"
+excerpt: >-
+    In this post, I'll show you how to build a better SEO component which is
+    optimized for both search engines and social sharing to help your marketing
+    strategy.
 published: true
 ---
 
@@ -16,10 +16,10 @@ When creating the file for the SEO component, you should think about what you'll
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 ```
 
 The packages above will accomplish all of the tasks I listed with flying colors. To handle the graphql query, I opted for the `useStaticQuery` hook rather than the `StaticQuery` component. That's just personal preference though, either will work just fine. Next you will create a basic component with some hard-coded data to make sure the component is working.
@@ -30,18 +30,18 @@ In the basic version of the component, you will just be setting up the helmet el
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = () => {
-  return (
-    <Helmet>
-      <title>This is a title</title>
-      <meta name='description' content='This is  some content' />
-    </Helmet>
-  );
+	return (
+		<Helmet>
+			<title>This is a title</title>
+			<meta name="description" content="This is  some content" />
+		</Helmet>
+	);
 };
 
 export default SEO;
@@ -51,17 +51,17 @@ Once the code in the SEO component is updated, you can import it into a file to 
 
 ```jsx
 // pages/index.js
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const IndexPage = () => {
-  return (
-    <Layout>
-      <SEO />
-      <h1>This is the index page</h1>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<SEO />
+			<h1>This is the index page</h1>
+		</Layout>
+	);
 };
 
 export default IndexPage;
@@ -73,23 +73,23 @@ Once the SEO component is imported and rendered, you should see that the title a
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description }) => {
-  return (
-    <Helmet>
-      <title>{title}</title>
-      <meta name='description' content={description} />
-    </Helmet>
-  );
+	return (
+		<Helmet>
+			<title>{title}</title>
+			<meta name="description" content={description} />
+		</Helmet>
+	);
 };
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
 };
 
 export default SEO;
@@ -99,20 +99,20 @@ Now that you have props for title and description, you can pass those in from th
 
 ```jsx
 // pages/index.js
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const IndexPage = () => {
-  return (
-    <Layout>
-      <SEO
-        title='Home'
-        description='This is the homepage for a gatsby website'
-      />
-      <h1>This is the index page</h1>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<SEO
+				title="Home"
+				description="This is the homepage for a gatsby website"
+			/>
+			<h1>This is the index page</h1>
+		</Layout>
+	);
 };
 
 export default IndexPage;
@@ -124,23 +124,23 @@ You may want to add some elements to the html element for SEO purposes. This can
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description }) => {
-  return (
-    <Helmet htmlAttributes={{ lang: `en` }}>
-      <title>{title}</title>
-      <meta name='description' content={description} />
-    </Helmet>
-  );
+	return (
+		<Helmet htmlAttributes={{ lang: `en` }}>
+			<title>{title}</title>
+			<meta name="description" content={description} />
+		</Helmet>
+	);
 };
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
 };
 
 export default SEO;
@@ -154,40 +154,40 @@ If you look at the title for your index page, it just says "Home". This is adequ
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `);
+	const data = useStaticQuery(graphql`
+		query {
+			site {
+				siteMetadata {
+					title
+					description
+				}
+			}
+		}
+	`);
 
-  return (
-    <Helmet
-      htmlAttributes={{ lang: `en` }}
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-    >
-      <title>{title}</title>
-      <meta
-        name='description'
-        content={description || data.site.siteMetadata.description}
-      />
-    </Helmet>
-  );
+	return (
+		<Helmet
+			htmlAttributes={{ lang: `en` }}
+			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+		>
+			<title>{title}</title>
+			<meta
+				name="description"
+				content={description || data.site.siteMetadata.description}
+			/>
+		</Helmet>
+	);
 };
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
 };
 
 export default SEO;
@@ -201,47 +201,50 @@ Providing a canonical url and a favicon in your SEO strategy can also help to bu
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, slug }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-        }
-      }
-      favicon: file(name: { eq: "favicon" }) {
-        publicURL
-      }
-    }
-  `);
+	const data = useStaticQuery(graphql`
+		query {
+			site {
+				siteMetadata {
+					title
+					description
+					siteUrl
+				}
+			}
+			favicon: file(name: { eq: "favicon" }) {
+				publicURL
+			}
+		}
+	`);
 
-  return (
-    <Helmet
-      htmlAttributes={{ lang: `en` }}
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-    >
-      <title>{title}</title>
-      <meta
-        name='description'
-        content={description || data.site.siteMetadata.description}
-      />
-      <link rel='canonical' href={`${data.site.siteMetadata.siteUrl}${slug}`} />
-      <link rel='shortcut icon' href={data.favicon.publicURL} />
-    </Helmet>
-  );
+	return (
+		<Helmet
+			htmlAttributes={{ lang: `en` }}
+			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+		>
+			<title>{title}</title>
+			<meta
+				name="description"
+				content={description || data.site.siteMetadata.description}
+			/>
+			<link
+				rel="canonical"
+				href={`${data.site.siteMetadata.siteUrl}${slug}`}
+			/>
+			<link rel="shortcut icon" href={data.favicon.publicURL} />
+		</Helmet>
+	);
 };
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  slug: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
+	slug: PropTypes.string,
 };
 
 export default SEO;
@@ -263,49 +266,52 @@ When setting up up your webpage to be shared on social media sites, there are a 
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, slug }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-        }
-      }
-      favicon: file(name: { eq: "favicon" }) {
-        publicURL
-      }
-    }
-  `);
+	const data = useStaticQuery(graphql`
+		query {
+			site {
+				siteMetadata {
+					title
+					description
+					siteUrl
+				}
+			}
+			favicon: file(name: { eq: "favicon" }) {
+				publicURL
+			}
+		}
+	`);
 
-  return (
-    <Helmet
-      htmlAttributes={{ lang: `en` }}
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-    >
-      <title>{title}</title>
-      <meta
-        name='description'
-        content={description || data.site.siteMetadata.description}
-      />
-      <link rel='canonical' href={`${data.site.siteMetadata.siteUrl}${slug}`} />
-      <link rel='shortcut icon' href={data.favicon.publicURL} />
-      <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@iam_timsmith' />
-    </Helmet>
-  );
+	return (
+		<Helmet
+			htmlAttributes={{ lang: `en` }}
+			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+		>
+			<title>{title}</title>
+			<meta
+				name="description"
+				content={description || data.site.siteMetadata.description}
+			/>
+			<link
+				rel="canonical"
+				href={`${data.site.siteMetadata.siteUrl}${slug}`}
+			/>
+			<link rel="shortcut icon" href={data.favicon.publicURL} />
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@iam_timsmith" />
+		</Helmet>
+	);
 };
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  slug: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
+	slug: PropTypes.string,
 };
 
 export default SEO;
@@ -319,70 +325,73 @@ The next meta tags to add are called OpenGraph, or OG, tags which will provide t
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, image, slug }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-        }
-      }
-      favicon: file(name: { eq: "favicon" }) {
-        publicURL
-      }
-      social: file(name: { eq: "timsmith-social" }) {
-        publicURL
-      }
-    }
-  `);
+	const data = useStaticQuery(graphql`
+		query {
+			site {
+				siteMetadata {
+					title
+					description
+					siteUrl
+				}
+			}
+			favicon: file(name: { eq: "favicon" }) {
+				publicURL
+			}
+			social: file(name: { eq: "timsmith-social" }) {
+				publicURL
+			}
+		}
+	`);
 
-  return (
-    <Helmet
-      htmlAttributes={{ lang: `en` }}
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-    >
-      <title>{title}</title>
-      <meta
-        name='description'
-        content={description || data.site.siteMetadata.description}
-      />
-      <link rel='canonical' href={`${data.site.siteMetadata.siteUrl}${slug}`} />
-      <link rel='shortcut icon' href={data.favicon.publicURL} />
-      <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@iam_timsmith' />
-      <meta name='og:title' content={title} />
-      <meta
-        name='og:description'
-        content={description || data.site.siteMetadata.description}
-      />
-      <meta
-        name='og:image'
-        content={`${data.site.siteMetadata.siteUrl}${
-          image || data.social.publicURL
-        }`}
-      />
-      <meta name='og:type' content='website' />
-      <meta
-        name='og:url'
-        content={`${data.site.siteMetadata.siteUrl}/${slug}`}
-      />
-      <meta name='og:site_name' content={data.site.siteMetadata.title} />
-    </Helmet>
-  );
+	return (
+		<Helmet
+			htmlAttributes={{ lang: `en` }}
+			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+		>
+			<title>{title}</title>
+			<meta
+				name="description"
+				content={description || data.site.siteMetadata.description}
+			/>
+			<link
+				rel="canonical"
+				href={`${data.site.siteMetadata.siteUrl}${slug}`}
+			/>
+			<link rel="shortcut icon" href={data.favicon.publicURL} />
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@iam_timsmith" />
+			<meta name="og:title" content={title} />
+			<meta
+				name="og:description"
+				content={description || data.site.siteMetadata.description}
+			/>
+			<meta
+				name="og:image"
+				content={`${data.site.siteMetadata.siteUrl}${
+					image || data.social.publicURL
+				}`}
+			/>
+			<meta name="og:type" content="website" />
+			<meta
+				name="og:url"
+				content={`${data.site.siteMetadata.siteUrl}/${slug}`}
+			/>
+			<meta name="og:site_name" content={data.site.siteMetadata.title} />
+		</Helmet>
+	);
 };
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  slug: PropTypes.string,
+	title: PropTypes.string,
+	description: PropTypes.string,
+	image: PropTypes.string,
+	slug: PropTypes.string,
 };
 
 export default SEO;
@@ -394,22 +403,22 @@ Adding the new props to the existing index page would look like this:
 
 ```jsx
 // pages/index.js
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const IndexPage = () => {
-  return (
-    <Layout>
-      <SEO
-        title='Home'
-        description='This is the homepage for a gatsby website'
-        image='https://placeimg.com/300/300'
-        slug='/'
-      />
-      <h1>This is the index page</h1>
-    </Layout>
-  );
+	return (
+		<Layout>
+			<SEO
+				title="Home"
+				description="This is the homepage for a gatsby website"
+				image="https://placeimg.com/300/300"
+				slug="/"
+			/>
+			<h1>This is the index page</h1>
+		</Layout>
+	);
 };
 
 export default IndexPage;
@@ -429,72 +438,75 @@ My solution to add Schema information to the SEO component is not a complex one,
 
 ```jsx
 // components/seo.js
-import React from 'react';
-import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
-import { useStaticQuery, graphql } from 'gatsby';
+import React from "react";
+import PropTypes from "prop-types";
+import Helmet from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, image, slug, children }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          title
-          description
-          siteUrl
-        }
-      }
-      favicon: file(name: { eq: "favicon" }) {
-        publicURL
-      }
-      social: file(name: { eq: "timsmith-social" }) {
-        publicURL
-      }
-    }
-  `);
+	const data = useStaticQuery(graphql`
+		query {
+			site {
+				siteMetadata {
+					title
+					description
+					siteUrl
+				}
+			}
+			favicon: file(name: { eq: "favicon" }) {
+				publicURL
+			}
+			social: file(name: { eq: "timsmith-social" }) {
+				publicURL
+			}
+		}
+	`);
 
-  return (
-    <Helmet
-      htmlAttributes={{ lang: `en` }}
-      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-    >
-      <title>{title}</title>
-      <meta
-        name='description'
-        content={description || data.site.siteMetadata.description}
-      />
-      <link rel='canonical' href={`${data.site.siteMetadata.siteUrl}${slug}`} />
-      <link rel='shortcut icon' href={data.favicon.publicURL} />
-      <meta name='twitter:card' content='summary_large_image' />
-      <meta name='twitter:site' content='@iam_timsmith' />
-      <meta name='og:title' content={title} />
-      <meta
-        name='og:description'
-        content={description || data.site.siteMetadata.description}
-      />
-      <meta
-        name='og:image'
-        content={`${data.site.siteMetadata.siteUrl}${
-          image || data.social.publicURL
-        }`}
-      />
-      <meta name='og:type' content='website' />
-      <meta
-        name='og:url'
-        content={`${data.site.siteMetadata.siteUrl}/${slug}`}
-      />
-      <meta name='og:site_name' content={data.site.siteMetadata.title} />
-      {children}
-    </Helmet>
-  );
+	return (
+		<Helmet
+			htmlAttributes={{ lang: `en` }}
+			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+		>
+			<title>{title}</title>
+			<meta
+				name="description"
+				content={description || data.site.siteMetadata.description}
+			/>
+			<link
+				rel="canonical"
+				href={`${data.site.siteMetadata.siteUrl}${slug}`}
+			/>
+			<link rel="shortcut icon" href={data.favicon.publicURL} />
+			<meta name="twitter:card" content="summary_large_image" />
+			<meta name="twitter:site" content="@iam_timsmith" />
+			<meta name="og:title" content={title} />
+			<meta
+				name="og:description"
+				content={description || data.site.siteMetadata.description}
+			/>
+			<meta
+				name="og:image"
+				content={`${data.site.siteMetadata.siteUrl}${
+					image || data.social.publicURL
+				}`}
+			/>
+			<meta name="og:type" content="website" />
+			<meta
+				name="og:url"
+				content={`${data.site.siteMetadata.siteUrl}/${slug}`}
+			/>
+			<meta name="og:site_name" content={data.site.siteMetadata.title} />
+			{children}
+		</Helmet>
+	);
 };
 
 SEO.propTypes = {
-  title: PropTypes.string,
-  description: PropTypes.string,
-  image: PropTypes.string,
-  slug: PropTypes.string,
-  children: PropTypes.node,
+	title: PropTypes.string,
+	description: PropTypes.string,
+	image: PropTypes.string,
+	slug: PropTypes.string,
+	children: PropTypes.node,
 };
 
 export default SEO;
@@ -504,40 +516,45 @@ To help show the context in which this will be used, I will use a fake blog post
 
 ```jsx
 // templates/post.js
-import React from 'react';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const BlogPost = () => {
-  const title = 'This is the blog post';
-  const description = 'This is the content for the blog post.';
-  const image = 'https://placeimg.com/300/300';
-  const slug = '/this-is-the-blog-post';
+	const title = "This is the blog post";
+	const description = "This is the content for the blog post.";
+	const image = "https://placeimg.com/300/300";
+	const slug = "/this-is-the-blog-post";
 
-  return (
-    <Layout>
-      <SEO title={title} description={description} image={image} slug={slug}>
-        <script type='application/ld+json'>
-          {`{
+	return (
+		<Layout>
+			<SEO
+				title={title}
+				description={description}
+				image={image}
+				slug={slug}
+			>
+				<script type="application/ld+json">
+					{`{
 						'@context': 'https://schema.org',
 						'@type': 'LiveBlogPosting',
 						'@id': 'https://mysite.com${slug}',
 						'headline': ${title},
 						'description': ${description}
 					}`}
-        </script>
-      </SEO>
-      <img src={image} alt={title} />
-      <h1>{title}</h1>
-      <p>{description}</p>
-    </Layout>
-  );
+				</script>
+			</SEO>
+			<img src={image} alt={title} />
+			<h1>{title}</h1>
+			<p>{description}</p>
+		</Layout>
+	);
 };
 
 export default BlogPost;
 ```
 
-The example above is a very simple example as far as schemas go, but it illustrates [how you can use the JSON-LD format to markup your blog post]([https://schema.org/BlogPosting]\(https://schema.org/BlogPosting\)) data using the SEO component.
+The example above is a very simple example as far as schemas go, but it illustrates [how you can use the JSON-LD format to markup your blog post](<[https://schema.org/BlogPosting](https://schema.org/BlogPosting)>) data using the SEO component.
 
 ## Wrapping Up
 

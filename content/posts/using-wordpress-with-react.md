@@ -1,7 +1,7 @@
 ---
 title: Using Wordpress with React js
-date: '2019-02-17T05:00:00.000Z'
-seoDescription: In this article, we will cover how to use WordPress as a headless CMS by leveraging the WordPress API and React js when building a project.
+date: "2019-02-17T05:00:00.000Z"
+excerpt: In this article, we will cover how to use WordPress as a headless CMS by leveraging the WordPress API and React js when building a project.
 published: true
 ---
 
@@ -59,7 +59,7 @@ Now that we have our new packages installed, we need to set up `react-router` in
 ```jsx
 // app.js
 
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 ```
 
 Now that we have imported `react-router`, we can use those components to set up routes. Our current app.js file looks something like this:
@@ -67,20 +67,20 @@ Now that we have imported `react-router`, we can use those components to set up 
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import Header from './components/header';
+import React from "react";
+import ReactDOM from "react-dom";
+import Header from "./components/header";
 
 const App = () => (
-  <div>
-    <Header />
-    <section className='section container content'>
-      <h1>Hello World</h1>
-    </section>
-  </div>
+	<div>
+		<Header />
+		<section className="section container content">
+			<h1>Hello World</h1>
+		</section>
+	</div>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 To add a router to our `app.js` component, we need to wrap the outermost `<div>` in a `<Router>` component so we can set up our application's routes. Then we can replace our `<h1>` tag with these two routes:
@@ -101,26 +101,26 @@ The second route will show a component called `PostView` when a user visits a wi
 ```jsx
 // app.js
 
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-import Header from './components/header';
-import PostList from './components/postList';
-import PostView from './components/postView';
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import Header from "./components/header";
+import PostList from "./components/postList";
+import PostView from "./components/postView";
 
 const App = () => (
-  <Router>
-    <div>
-      <Header />
-      <section className='section container content'>
-        <Route exact path='/' component={PostList} />
-        <Route path='/:slug' component={PostView} />
-      </section>
-    </div>
-  </Router>
+	<Router>
+		<div>
+			<Header />
+			<section className="section container content">
+				<Route exact path="/" component={PostList} />
+				<Route path="/:slug" component={PostView} />
+			</section>
+		</div>
+	</Router>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 Next we need to create the `PostList` and `PostView` components and import them into the `app.js` component.
@@ -141,9 +141,9 @@ Next we should import the stuff we will need to build this component. Add these 
 ```jsx
 // components/postList.js
 
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 ```
 
 After that, we can create a class component called `PostList` and set up the constructor and state for the index page of our blog. Our state should hold a list of the posts we will be displaying. Any custom functions we write in this component will be bound to the `this` keyword in this constructor.
@@ -151,17 +151,17 @@ After that, we can create a class component called `PostList` and set up the con
 ```jsx
 // components/postList.js
 
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 class PostList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [],
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			posts: [],
+		};
+	}
 }
 
 export default PostList;
@@ -192,34 +192,34 @@ Since we have all of the posts in our state, we can create a render method with 
 ```jsx
 // components/postList.js
 
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 class PostList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [],
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			posts: [],
+		};
+	}
 
-  render() {
-    return (
-      <div>
-        {this.state.posts.map(post => (
-          <Link to={`/${post.slug}`} key={post.id}>
-            <div className='card' key={post.id}>
-              <div className='card-content'>
-                <h3>{post.title.rendered}</h3>
-                {post.excerpt.rendered}
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				{this.state.posts.map((post) => (
+					<Link to={`/${post.slug}`} key={post.id}>
+						<div className="card" key={post.id}>
+							<div className="card-content">
+								<h3>{post.title.rendered}</h3>
+								{post.excerpt.rendered}
+							</div>
+						</div>
+					</Link>
+				))}
+			</div>
+		);
+	}
 }
 
 export default PostList;
@@ -232,51 +232,53 @@ Lets add a function to do this after our `componentDidMount` but before the `ren
 ```jsx
 // components/postList.js
 
-import React, { Component } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import React, { Component } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
 
 class PostList extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [],
-    };
-    this.createMarkup = this.createMarkup.bind();
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			posts: [],
+		};
+		this.createMarkup = this.createMarkup.bind();
+	}
 
-  componentDidMount() {
-    axios.get('https://techcrunch.com/wp-json/wp/v2/posts').then(posts => {
-      this.setState({
-        posts: posts.data,
-      });
-    });
-  }
+	componentDidMount() {
+		axios
+			.get("https://techcrunch.com/wp-json/wp/v2/posts")
+			.then((posts) => {
+				this.setState({
+					posts: posts.data,
+				});
+			});
+	}
 
-  createMarkup(html) {
-    return { __html: html };
-  }
+	createMarkup(html) {
+		return { __html: html };
+	}
 
-  render() {
-    return (
-      <div>
-        {this.state.posts.map(post => (
-          <Link to={`/${post.slug}`} key={post.id}>
-            <div className='card' key={post.id}>
-              <div className='card-content'>
-                <h3>{post.title.rendered}</h3>
-                <div
-                  dangerouslySetInnerHTML={this.createMarkup(
-                    post.excerpt.rendered
-                  )}
-                />
-              </div>
-            </div>
-          </Link>
-        ))}
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				{this.state.posts.map((post) => (
+					<Link to={`/${post.slug}`} key={post.id}>
+						<div className="card" key={post.id}>
+							<div className="card-content">
+								<h3>{post.title.rendered}</h3>
+								<div
+									dangerouslySetInnerHTML={this.createMarkup(
+										post.excerpt.rendered
+									)}
+								/>
+							</div>
+						</div>
+					</Link>
+				))}
+			</div>
+		);
+	}
 }
 
 export default PostList;
@@ -300,51 +302,51 @@ The code below will be used for our completed `PostView` component. Take a look 
 ```jsx
 // components/postView.js
 
-import React, { Component } from 'react';
-import axios from 'axios';
+import React, { Component } from "react";
+import axios from "axios";
 
 class PostView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      post: {},
-    };
-    this.createMarkup = this.createMarkup.bind();
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			post: {},
+		};
+		this.createMarkup = this.createMarkup.bind();
+	}
 
-  componentDidMount() {
-    const slug = this.props.match.params.slug;
-    axios
-      .get(`https://techcrunch.com/wp-json/wp/v2/posts?slug=${slug}`)
-      .then(post => {
-        this.setState({
-          post: post.data[0],
-        });
-      });
-  }
+	componentDidMount() {
+		const slug = this.props.match.params.slug;
+		axios
+			.get(`https://techcrunch.com/wp-json/wp/v2/posts?slug=${slug}`)
+			.then((post) => {
+				this.setState({
+					post: post.data[0],
+				});
+			});
+	}
 
-  createMarkup(html) {
-    return { __html: html };
-  }
+	createMarkup(html) {
+		return { __html: html };
+	}
 
-  render() {
-    let build;
-    if (this.state.post.title) {
-      build = (
-        <div>
-          <h1>{this.state.post.title.rendered}</h1>
-          <div
-            dangerouslySetInnerHTML={this.createMarkup(
-              this.state.post.content.rendered
-            )}
-          />
-        </div>
-      );
-    } else {
-      build = <div />;
-    }
-    return build;
-  }
+	render() {
+		let build;
+		if (this.state.post.title) {
+			build = (
+				<div>
+					<h1>{this.state.post.title.rendered}</h1>
+					<div
+						dangerouslySetInnerHTML={this.createMarkup(
+							this.state.post.content.rendered
+						)}
+					/>
+				</div>
+			);
+		} else {
+			build = <div />;
+		}
+		return build;
+	}
 }
 
 export default PostView;
@@ -357,21 +359,21 @@ We are pretty much set now with our blog. There are just a few more small things
 ```jsx
 // components/header.js
 
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => (
-  <nav className='navbar is-primary'>
-    <div className='container has-text-centered'>
-      <div className='navbar-brand'>
-        <p className='is-size-3'>
-          <Link to='/' className='has-text-white'>
-            Wordpress + React
-          </Link>
-        </p>
-      </div>
-    </div>
-  </nav>
+	<nav className="navbar is-primary">
+		<div className="container has-text-centered">
+			<div className="navbar-brand">
+				<p className="is-size-3">
+					<Link to="/" className="has-text-white">
+						Wordpress + React
+					</Link>
+				</p>
+			</div>
+		</div>
+	</nav>
 );
 
 export default Header;

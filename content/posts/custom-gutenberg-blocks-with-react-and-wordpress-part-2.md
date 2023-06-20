@@ -1,9 +1,9 @@
 ---
 title: Creating Custom Gutenberg Blocks with React and WordPress - Part 2
-date: '2019-10-20T05:00:00.000Z'
-seoDescription: >-
-  I'll explain how to use JSX when building out custom Gutenberg blocks with
-  react and WordPress.
+date: "2019-10-20T05:00:00.000Z"
+excerpt: >-
+    I'll explain how to use JSX when building out custom Gutenberg blocks with
+    react and WordPress.
 published: true
 ---
 
@@ -59,18 +59,18 @@ Once it is installed, you can start setting up your `gulpfile.js` file. At the t
 
 ```js
 // gulpfile.js
-const { task, src, dest, watch, series } = require('gulp');
-const concat = require('gulp-concat-util');
+const { task, src, dest, watch, series } = require("gulp");
+const concat = require("gulp-concat-util");
 ```
 
 After you have imported your libraries, you can write a custom task to handle JavaScript. The code below will set up a basic task to find all of your custom block files and put them into a single file to be loaded by your theme:
 
 ```js
 // gulpfile.js
-task('blocks', function () {
-  return src('./blocks/**/*.js')
-    .pipe(concat('blocks.js'))
-    .pipe(dest('dist/js'));
+task("blocks", function () {
+	return src("./blocks/**/*.js")
+		.pipe(concat("blocks.js"))
+		.pipe(dest("dist/js"));
 });
 ```
 
@@ -90,12 +90,12 @@ In order to make this work, I will create a new variable outside of the task whi
 ```js
 // gulpfile.js
 const block = {
-  header: `(function (wp) {
+	header: `(function (wp) {
     const { registerBlockType } = wp.blocks;
     const {RichText} = wp.editor;
     const {components, editor, blocks, element, i18n} = wp;
   `,
-  footer: `})(window.wp);`,
+	footer: `})(window.wp);`,
 };
 ```
 
@@ -105,12 +105,12 @@ Now it's time to wrap the existing concatenation in this function so all of the 
 
 ```js
 // gulpfile.js
-task('blocks', function () {
-  return src('./blocks/**/*.js')
-    .pipe(concat('blocks.js'))
-    .pipe(concat.header(block.header))
-    .pipe(concat.footer(block.footer))
-    .pipe(dest('dist/js'));
+task("blocks", function () {
+	return src("./blocks/**/*.js")
+		.pipe(concat("blocks.js"))
+		.pipe(concat.header(block.header))
+		.pipe(concat.footer(block.footer))
+		.pipe(dest("dist/js"));
 });
 ```
 
@@ -135,17 +135,17 @@ The only import needed at the top is `gulp-babel`. The rest will be used in a `p
 
 ```js
 // gulpfile.js
-task('blocks', function () {
-  return src('./blocks/**/*.js')
-    .pipe(concat('blocks.js'))
-    .pipe(concat.header(block.header))
-    .pipe(concat.footer(block.footer))
-    .pipe(
-      babel({
-        presets: ['@babel/preset-react'],
-      })
-    )
-    .pipe(dest('dist/js'));
+task("blocks", function () {
+	return src("./blocks/**/*.js")
+		.pipe(concat("blocks.js"))
+		.pipe(concat.header(block.header))
+		.pipe(concat.footer(block.footer))
+		.pipe(
+			babel({
+				presets: ["@babel/preset-react"],
+			})
+		)
+		.pipe(dest("dist/js"));
 });
 ```
 
@@ -155,41 +155,41 @@ I won't go over it in detail, but you should set up a watch and default task in 
 
 ```js
 // gulpfile.js
-const { task, src, dest, watch, series } = require('gulp');
-const concat = require('gulp-concat-util');
-const babel = require('gulp-babel');
+const { task, src, dest, watch, series } = require("gulp");
+const concat = require("gulp-concat-util");
+const babel = require("gulp-babel");
 
 const block = {
-  header: `(function (wp) {
+	header: `(function (wp) {
     const { registerBlockType } = wp.blocks;
     const {RichText} = wp.editor;
     const {components, editor, blocks, element, i18n} = wp;
   `,
-  footer: `})(window.wp);`,
+	footer: `})(window.wp);`,
 };
 
-task('blocks', function () {
-  return src('./blocks/**/*.js')
-    .pipe(concat('blocks.js'))
-    .pipe(concat.header(block.header))
-    .pipe(concat.footer(block.footer))
-    .pipe(
-      babel({
-        presets: ['@babel/preset-react'],
-      })
-    )
-    .pipe(dest('dist/js'));
+task("blocks", function () {
+	return src("./blocks/**/*.js")
+		.pipe(concat("blocks.js"))
+		.pipe(concat.header(block.header))
+		.pipe(concat.footer(block.footer))
+		.pipe(
+			babel({
+				presets: ["@babel/preset-react"],
+			})
+		)
+		.pipe(dest("dist/js"));
 });
 
-task('watch', function () {
-  watch('./blocks/**/*.js', series('blocks'));
+task("watch", function () {
+	watch("./blocks/**/*.js", series("blocks"));
 });
 
-task('default', series('blocks'));
+task("default", series("blocks"));
 ```
 
 ## Conclusion
 
 Writing custom Gutenberg blocks can get pretty complicated, but this can become much easier with things like Gulp to help make your workflow better. By building a `gulpfile.js` file in this way, you are empowered to focus on building awesome blocks rather than worrying about errors, compatibility, and overly verbose code. In the next post in this series, I'll go over block creation so you can start building the blocks of your dreams!
 
-Have thoughts or questions? You can reach me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

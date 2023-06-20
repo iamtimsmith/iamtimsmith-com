@@ -1,7 +1,7 @@
 ---
-title: 'React: How to Create a Component'
-date: '2018-08-13T05:00:00.000Z'
-seoDescription: Components are an essential part of any React application. In this post, we'll be learning how to create components to do whatever we want.
+title: "React: How to Create a Component"
+date: "2018-08-13T05:00:00.000Z"
+excerpt: Components are an essential part of any React application. In this post, we'll be learning how to create components to do whatever we want.
 published: true
 ---
 
@@ -96,7 +96,7 @@ If we have our components in separate files, we will first need to import the co
 
 ```jsx
 // app.js
-import Example6 from './path/to/component';
+import Example6 from "./path/to/component";
 ```
 
 Once imported, we can add it to our JSX using the name we assigned to it in the import. For example, we can add the component imported above as follows:
@@ -114,7 +114,7 @@ Let's say we want to pass the string "Hello World" into our component. When we a
 
 ```jsx
 // app.js
-<Example6 text='Hello World' />
+<Example6 text="Hello World" />
 ```
 
 ## Receiving props inside component
@@ -134,48 +134,48 @@ The code above will render "Hello World" in a p tag. Easy peezy, right?
 // app.js
 // First we create our class
 class Greeting extends React.Component {
-  // Then we add our constructor which receives our props
-  constructor(props) {
-    super(props);
-    // Next we establish our state
-    this.state = {
-      name: '',
-      greeting: `Good ${this.props.time}, `,
-    };
-    // To use the 'this' keyword, we need to bind it to our function
-    this.onChange = this.onChange.bind(this);
-  }
+	// Then we add our constructor which receives our props
+	constructor(props) {
+		super(props);
+		// Next we establish our state
+		this.state = {
+			name: "",
+			greeting: `Good ${this.props.time}, `,
+		};
+		// To use the 'this' keyword, we need to bind it to our function
+		this.onChange = this.onChange.bind(this);
+	}
 
-  // A custom function to change the name in our state to match the user input
-  onChange(e) {
-    this.setState({
-      name: e.target.value,
-    });
-  }
-  // The render function, where we actually tell the browser what it should show
-  render() {
-    return (
-      <div>
-        <section className='section'>
-          <label className='label'>Name:</label>
-          <input
-            className='input'
-            name='name'
-            placeholder='Enter your name...'
-            onChange={this.onChange}
-          />
-        </section>
-        <section className='section'>
-          <p>
-            {this.state.greeting} {this.state.name}
-          </p>
-        </section>
-      </div>
-    );
-  }
+	// A custom function to change the name in our state to match the user input
+	onChange(e) {
+		this.setState({
+			name: e.target.value,
+		});
+	}
+	// The render function, where we actually tell the browser what it should show
+	render() {
+		return (
+			<div>
+				<section className="section">
+					<label className="label">Name:</label>
+					<input
+						className="input"
+						name="name"
+						placeholder="Enter your name..."
+						onChange={this.onChange}
+					/>
+				</section>
+				<section className="section">
+					<p>
+						{this.state.greeting} {this.state.name}
+					</p>
+				</section>
+			</div>
+		);
+	}
 }
 
-ReactDOM.render(<Greeting time='morning' />, document.getElementById('app'));
+ReactDOM.render(<Greeting time="morning" />, document.getElementById("app"));
 ```
 
 You can also [see the component in action here](https://codepen.io/iamtimsmith/pen/xaRydm/?editors=0010).

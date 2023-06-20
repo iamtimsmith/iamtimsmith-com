@@ -1,7 +1,7 @@
 ---
 title: Top Hires to Take Your Web-Based Project to the Next Level
-date: '2020-01-03T05:00:00.000Z'
-seoDescription: If you’re about to launch a web-based project, whether it’s for a small or large business, the following are the team members you simply can’t do without.
+date: "2020-01-03T05:00:00.000Z"
+excerpt: If you’re about to launch a web-based project, whether it’s for a small or large business, the following are the team members you simply can’t do without.
 published: false
 ---
 

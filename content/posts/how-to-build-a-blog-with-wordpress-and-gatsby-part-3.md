@@ -1,7 +1,7 @@
 ---
 title: How To Build A Blog with Wordpress and Gatsby.js - Part 3
-date: '2019-04-30T05:00:00.000Z'
-seoDescription: In the third part of this series about WordPress and Gatsby js, we will be creating pages using templates and components using data from WordPress.
+date: "2019-04-30T05:00:00.000Z"
+excerpt: In the third part of this series about WordPress and Gatsby js, we will be creating pages using templates and components using data from WordPress.
 published: true
 ---
 
@@ -26,13 +26,13 @@ We will go ahead and start off with a generic template again and then we will fi
 
 ```jsx
 // templates/Page.js
-import React from 'react';
-import Layout from '../components/layout';
+import React from "react";
+import Layout from "../components/layout";
 
 const PageTemplate = () => (
-  <Layout>
-    <h1>Page Template</h1>
-  </Layout>
+	<Layout>
+		<h1>Page Template</h1>
+	</Layout>
 );
 export default PageTemplate;
 ```
@@ -47,53 +47,53 @@ Awesome! Now that we have our page template created, we can add pages to the gat
 // You can delete this file if you're not using it
 const path = require(`path`);
 exports.createPages = async ({ graphql, actions, reporter }) => {
-  const { createPage } = actions;
-  const BlogPostTemplate = path.resolve('./src/templates/BlogPost.js');
-  const PageTemplate = path.resolve('./src/templates/Page.js');
-  const result = await graphql(`
-    {
-      allWordpressPost {
-        edges {
-          node {
-            slug
-            wordpress_id
-          }
-        }
-      }
-      allWordpressPage {
-        edges {
-          node {
-            slug
-            wordpress_id
-          }
-        }
-      }
-    }
-  `);
-  if (result.errors) {
-    reporter.panicOnBuild(`Error while running GraphQL query.`);
-    return;
-  }
-  const BlogPosts = result.data.allWordpressPost.edges;
-  BlogPosts.forEach(post => {
-    createPage({
-      path: `/post/${post.node.slug}`,
-      component: BlogPostTemplate,
-      context: {
-        id: post.node.wordpress_id,
-      },
-    });
-    const Pages = result.data.allWordpressPage.edges;
-    Pages.forEach(page => {
-      createPage({
-        path: `/${page.node.slug}`,
-        component: PageTemplate,
-        context: {
-          id: page.node.wordpress_id,
-        },
-      });
-    });
-  });
+	const { createPage } = actions;
+	const BlogPostTemplate = path.resolve("./src/templates/BlogPost.js");
+	const PageTemplate = path.resolve("./src/templates/Page.js");
+	const result = await graphql(`
+		{
+			allWordpressPost {
+				edges {
+					node {
+						slug
+						wordpress_id
+					}
+				}
+			}
+			allWordpressPage {
+				edges {
+					node {
+						slug
+						wordpress_id
+					}
+				}
+			}
+		}
+	`);
+	if (result.errors) {
+		reporter.panicOnBuild(`Error while running GraphQL query.`);
+		return;
+	}
+	const BlogPosts = result.data.allWordpressPost.edges;
+	BlogPosts.forEach((post) => {
+		createPage({
+			path: `/post/${post.node.slug}`,
+			component: BlogPostTemplate,
+			context: {
+				id: post.node.wordpress_id,
+			},
+		});
+		const Pages = result.data.allWordpressPage.edges;
+		Pages.forEach((page) => {
+			createPage({
+				path: `/${page.node.slug}`,
+				component: PageTemplate,
+				context: {
+					id: page.node.wordpress_id,
+				},
+			});
+		});
+	});
 };
 ```
 
@@ -109,31 +109,31 @@ The end result is a pretty simple component as shown below:
 
 ```jsx
 // src/templates/Page.js
-import React from 'react';
-import { graphql } from 'gatsby';
-import Layout from '../components/layout.js';
-import SEO from '../components/seo';
+import React from "react";
+import { graphql } from "gatsby";
+import Layout from "../components/layout.js";
+import SEO from "../components/seo";
 
 const PageTemplate = ({ data }) => (
-  <Layout>
-    <SEO
-      title={data.wordpressPage.title}
-      description={data.wordpressPage.excerpt}
-    />
-    <h1>{data.wordpressPage.title}</h1>
-    <div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
-  </Layout>
+	<Layout>
+		<SEO
+			title={data.wordpressPage.title}
+			description={data.wordpressPage.excerpt}
+		/>
+		<h1>{data.wordpressPage.title}</h1>
+		<div dangerouslySetInnerHTML={{ __html: data.wordpressPage.content }} />
+	</Layout>
 );
 export default PageTemplate;
 
 export const query = graphql`
-  query ($id: Int!) {
-    wordpressPage(wordpress_id: { eq: $id }) {
-      title
-      excerpt
-      content
-    }
-  }
+	query ($id: Int!) {
+		wordpressPage(wordpress_id: { eq: $id }) {
+			title
+			excerpt
+			content
+		}
+	}
 `;
 ```
 
@@ -155,23 +155,23 @@ Since we want our blog to show up on the homepage, we can edit the file called `
 
 ```jsx
 // src/pages/index.js
-import React from 'react';
-import { Link } from 'gatsby';
-import Layout from '../components/layout';
-import Image from '../components/image';
-import SEO from '../components/seo';
+import React from "react";
+import { Link } from "gatsby";
+import Layout from "../components/layout";
+import Image from "../components/image";
+import SEO from "../components/seo";
 
 const IndexPage = () => (
-  <Layout>
-    <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-      <Image />
-    </div>
-    <Link to='/page-2/'>Go to page 2</Link>
-  </Layout>
+	<Layout>
+		<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+		<h1>Hi people</h1>
+		<p>Welcome to your new Gatsby site.</p>
+		<p>Now go build something great.</p>
+		<div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+			<Image />
+		</div>
+		<Link to="/page-2/">Go to page 2</Link>
+	</Layout>
 );
 export default IndexPage;
 ```
@@ -182,72 +182,91 @@ To keep things simple, we'll just create a list of recent blog posts with an ima
 
 ```jsx
 // src/pages/index.js
-import React from 'react';
-import { graphql, Link } from 'gatsby';
-import Img from 'gatsby-image';
-import Layout from '../components/layout';
-import SEO from '../components/seo';
+import React from "react";
+import { graphql, Link } from "gatsby";
+import Img from "gatsby-image";
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const IndexPage = ({ data }) => (
-  <Layout>
-    <SEO title='Home' keywords={[`gatsby`, `application`, `react`]} />
-    <ul style={{ listStyle: 'none' }}>
-      {data.allWordpressPost.edges.map(post => (
-        <li style={{ padding: '20px 0', borderBottom: '1px solid #ccc' }}>
-          <Link
-            to={`/post/${post.node.slug}`}
-            style={{ display: 'flex', color: 'black', textDecoration: 'none' }}
-          >
-            <Img
-              sizes={post.node.acf.feat_img.localFile.childImageSharp.sizes}
-              alt={post.node.title}
-              style={{ width: '25%', marginRight: 20 }}
-            />
-            <div style={{ width: '75%' }}>
-              <h3
-                dangerouslySetInnerHTML={{ __html: post.node.title }}
-                style={{ marginBottom: 0 }}
-              />
-              <p style={{ margin: 0, color: 'grey' }}>
-                Written by {post.node.author.name} on {post.node.date}
-              </p>
-              <div dangerouslySetInnerHTML={{ __html: post.node.excerpt }} />
-            </div>
-          </Link>
-        </li>
-      ))}
-    </ul>
-  </Layout>
+	<Layout>
+		<SEO title="Home" keywords={[`gatsby`, `application`, `react`]} />
+		<ul style={{ listStyle: "none" }}>
+			{data.allWordpressPost.edges.map((post) => (
+				<li
+					style={{
+						padding: "20px 0",
+						borderBottom: "1px solid #ccc",
+					}}
+				>
+					<Link
+						to={`/post/${post.node.slug}`}
+						style={{
+							display: "flex",
+							color: "black",
+							textDecoration: "none",
+						}}
+					>
+						<Img
+							sizes={
+								post.node.acf.feat_img.localFile.childImageSharp
+									.sizes
+							}
+							alt={post.node.title}
+							style={{ width: "25%", marginRight: 20 }}
+						/>
+						<div style={{ width: "75%" }}>
+							<h3
+								dangerouslySetInnerHTML={{
+									__html: post.node.title,
+								}}
+								style={{ marginBottom: 0 }}
+							/>
+							<p style={{ margin: 0, color: "grey" }}>
+								Written by {post.node.author.name} on{" "}
+								{post.node.date}
+							</p>
+							<div
+								dangerouslySetInnerHTML={{
+									__html: post.node.excerpt,
+								}}
+							/>
+						</div>
+					</Link>
+				</li>
+			))}
+		</ul>
+	</Layout>
 );
 export default IndexPage;
 
 export const query = graphql`
-  query {
-    allWordpressPost {
-      edges {
-        node {
-          title
-          excerpt
-          slug
-          author {
-            name
-          }
-          date(formatString: "MMMM DD, YYYY")
-          acf {
-            feat_img {
-              localFile {
-                childImageSharp {
-                  sizes(maxWidth: 600) {
-                    ...GatsbyImageSharpSizes
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  }
+	query {
+		allWordpressPost {
+			edges {
+				node {
+					title
+					excerpt
+					slug
+					author {
+						name
+					}
+					date(formatString: "MMMM DD, YYYY")
+					acf {
+						feat_img {
+							localFile {
+								childImageSharp {
+									sizes(maxWidth: 600) {
+										...GatsbyImageSharpSizes
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
 `;
 ```
 
@@ -294,45 +313,45 @@ Using queries works a bit differently inside of components. Rather than just wri
 
 ```jsx
 // src/components/header.js
-import { Link } from 'gatsby';
-import PropTypes from 'prop-types';
-import React from 'react';
+import { Link } from "gatsby";
+import PropTypes from "prop-types";
+import React from "react";
 
 const Header = ({ siteTitle }) => (
-  <header
-    style={{
-      background: `rebeccapurple`,
-      marginBottom: `1.45rem`,
-    }}
-  >
-    <div
-      style={{
-        margin: `0 auto`,
-        maxWidth: 960,
-        padding: `1.45rem 1.0875rem`,
-      }}
-    >
-      <h1 style={{ margin: 0 }}>
-        <Link
-          to='/'
-          style={{
-            color: `white`,
-            textDecoration: `none`,
-          }}
-        >
-          {siteTitle}
-        </Link>
-      </h1>
-    </div>
-  </header>
+	<header
+		style={{
+			background: `rebeccapurple`,
+			marginBottom: `1.45rem`,
+		}}
+	>
+		<div
+			style={{
+				margin: `0 auto`,
+				maxWidth: 960,
+				padding: `1.45rem 1.0875rem`,
+			}}
+		>
+			<h1 style={{ margin: 0 }}>
+				<Link
+					to="/"
+					style={{
+						color: `white`,
+						textDecoration: `none`,
+					}}
+				>
+					{siteTitle}
+				</Link>
+			</h1>
+		</div>
+	</header>
 );
 
 Header.propTypes = {
-  siteTitle: PropTypes.string,
+	siteTitle: PropTypes.string,
 };
 
 Header.defaultProps = {
-  siteTitle: ``,
+	siteTitle: ``,
 };
 
 export default Header;
@@ -342,50 +361,50 @@ If we take a quick look at the existing header component, we will see that a sit
 
 ```jsx
 // src/components/header.js
-import { StaticQuery, graphql, Link } from 'gatsby';
-import React from 'react';
+import { StaticQuery, graphql, Link } from "gatsby";
+import React from "react";
 
 const Header = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        wordpressSiteMetadata {
-          name
-        }
-      }
-    `}
-    render={data => (
-      <header
-        style={{
-          background: `rebeccapurple`,
-          marginBottom: `1.45rem`,
-        }}
-      >
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `1.45rem 1.0875rem`,
-            display: `flex`,
-            justifyContent: `space-between`,
-            alignItems: `center`,
-          }}
-        >
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to='/'
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-              }}
-            >
-              {data.wordpressSiteMetadata.name}
-            </Link>
-          </h1>
-        </div>
-      </header>
-    )}
-  />
+	<StaticQuery
+		query={graphql`
+			query {
+				wordpressSiteMetadata {
+					name
+				}
+			}
+		`}
+		render={(data) => (
+			<header
+				style={{
+					background: `rebeccapurple`,
+					marginBottom: `1.45rem`,
+				}}
+			>
+				<div
+					style={{
+						margin: `0 auto`,
+						maxWidth: 960,
+						padding: `1.45rem 1.0875rem`,
+						display: `flex`,
+						justifyContent: `space-between`,
+						alignItems: `center`,
+					}}
+				>
+					<h1 style={{ margin: 0 }}>
+						<Link
+							to="/"
+							style={{
+								color: `white`,
+								textDecoration: `none`,
+							}}
+						>
+							{data.wordpressSiteMetadata.name}
+						</Link>
+					</h1>
+				</div>
+			</header>
+		)}
+	/>
 );
 export default Header;
 ```
@@ -405,76 +424,76 @@ When we were setting our gatsby-config.js file in the [second part of the series
 ```js
 // gatsby-config.js
 module.exports = {
-  siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this
+	siteMetadata: {
+		title: `Gatsby Default Starter`,
+		description: `Kick off your next, great Gatsby project with this
     default starter. This barebones starter ships with the main Gatsby
     configuration files you might need.`,
-    author: `@gatsbyjs`,
-  },
-  plugins: [
-    `gatsby-plugin-react-helmet`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
-        start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
-      },
-    },
-    {
-      resolve: 'gatsby-source-wordpress',
-      options: {
-        // I have created a dummy site for us to use with the plugins we discussed
-        baseUrl: 'gatsbypress.iamtimsmith.com',
-        protocol: 'https',
-        hostingWPCOM: false,
-        // We will be using some advanced custom fields
-        useACF: true,
-        acfOptionPageIds: [],
-        verboseOutput: false,
-        perPage: 100,
-        searchAndReplaceContentUrls: {
-          sourceUrl: 'https://gatsbypress.iamtimsmith.com',
-          replacementUrl: 'https://localhost:8000',
-        },
-        // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
-        includedRoutes: [
-          '**/categories',
-          '**/posts',
-          '**/pages',
-          '**/media',
-          '**/tags',
-          '**/taxonomies',
-          '**/users',
-          '**/*/*/menus', // <== Menu api endpoint
-          '**/*/*/menu-locations', // <== Menu api endpoint
-        ],
-        excludedRoutes: [],
-        normalizer: function ({ entities }) {
-          return entities;
-        },
-      },
-    },
-    `gatsby-plugin-sitemap`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.dev/offline
-    // 'gatsby-plugin-offline',
-  ],
+		author: `@gatsbyjs`,
+	},
+	plugins: [
+		`gatsby-plugin-react-helmet`,
+		{
+			resolve: `gatsby-source-filesystem`,
+			options: {
+				name: `images`,
+				path: `${__dirname}/src/images`,
+			},
+		},
+		`gatsby-transformer-sharp`,
+		`gatsby-plugin-sharp`,
+		{
+			resolve: `gatsby-plugin-manifest`,
+			options: {
+				name: `gatsby-starter-default`,
+				short_name: `starter`,
+				start_url: `/`,
+				background_color: `#663399`,
+				theme_color: `#663399`,
+				display: `minimal-ui`,
+				icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+			},
+		},
+		{
+			resolve: "gatsby-source-wordpress",
+			options: {
+				// I have created a dummy site for us to use with the plugins we discussed
+				baseUrl: "gatsbypress.iamtimsmith.com",
+				protocol: "https",
+				hostingWPCOM: false,
+				// We will be using some advanced custom fields
+				useACF: true,
+				acfOptionPageIds: [],
+				verboseOutput: false,
+				perPage: 100,
+				searchAndReplaceContentUrls: {
+					sourceUrl: "https://gatsbypress.iamtimsmith.com",
+					replacementUrl: "https://localhost:8000",
+				},
+				// Set how many simultaneous requests are sent at once.
+				concurrentRequests: 10,
+				includedRoutes: [
+					"**/categories",
+					"**/posts",
+					"**/pages",
+					"**/media",
+					"**/tags",
+					"**/taxonomies",
+					"**/users",
+					"**/*/*/menus", // <== Menu api endpoint
+					"**/*/*/menu-locations", // <== Menu api endpoint
+				],
+				excludedRoutes: [],
+				normalizer: function ({ entities }) {
+					return entities;
+				},
+			},
+		},
+		`gatsby-plugin-sitemap`,
+		// this (optional) plugin enables Progressive Web App + Offline functionality
+		// To learn more, visit: https://gatsby.dev/offline
+		// 'gatsby-plugin-offline',
+	],
 };
 ```
 
@@ -486,72 +505,83 @@ The final step is to add this query into our static query and create the menu it
 
 ```jsx
 // src/components/header.js
-import { StaticQuery, graphql, Link } from 'gatsby';
-import React from 'react';
+import { StaticQuery, graphql, Link } from "gatsby";
+import React from "react";
 
 const Header = () => (
-  <StaticQuery
-    query={graphql`
-      query {
-        wordpressSiteMetadata {
-          name
-        }
-        wordpressWpApiMenusMenusItems(name: { eq: "Main Menu" }) {
-          items {
-            title
-            object_slug
-          }
-        }
-      }
-    `}
-    render={data => (
-      <header
-        style={{
-          background: `rebeccapurple`,
-          marginBottom: `1.45rem`,
-        }}
-      >
-        <div
-          style={{
-            margin: `0 auto`,
-            maxWidth: 960,
-            padding: `1.45rem 1.0875rem`,
-            display: `flex`,
-            justifyContent: `space-between`,
-            alignItems: `center`,
-          }}
-        >
-          <h1 style={{ margin: 0 }}>
-            <Link
-              to='/'
-              style={{
-                color: `white`,
-                textDecoration: `none`,
-              }}
-            >
-              {data.wordpressSiteMetadata.name}
-            </Link>
-          </h1>
-          <ul style={{ listStyle: `none`, display: `flex`, margin: 0 }}>
-            {data.wordpressWpApiMenusMenusItems.items.map(item => (
-              <li key={item.object_slug} style={{ margin: `0 10px` }}>
-                <Link
-                  to={`/${item.object_slug}`}
-                  style={{
-                    color: `white`,
-                    textDecoration: `none`,
-                    fontFamily: `sans-serif`,
-                  }}
-                >
-                  {item.title}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
-      </header>
-    )}
-  />
+	<StaticQuery
+		query={graphql`
+			query {
+				wordpressSiteMetadata {
+					name
+				}
+				wordpressWpApiMenusMenusItems(name: { eq: "Main Menu" }) {
+					items {
+						title
+						object_slug
+					}
+				}
+			}
+		`}
+		render={(data) => (
+			<header
+				style={{
+					background: `rebeccapurple`,
+					marginBottom: `1.45rem`,
+				}}
+			>
+				<div
+					style={{
+						margin: `0 auto`,
+						maxWidth: 960,
+						padding: `1.45rem 1.0875rem`,
+						display: `flex`,
+						justifyContent: `space-between`,
+						alignItems: `center`,
+					}}
+				>
+					<h1 style={{ margin: 0 }}>
+						<Link
+							to="/"
+							style={{
+								color: `white`,
+								textDecoration: `none`,
+							}}
+						>
+							{data.wordpressSiteMetadata.name}
+						</Link>
+					</h1>
+					<ul
+						style={{
+							listStyle: `none`,
+							display: `flex`,
+							margin: 0,
+						}}
+					>
+						{data.wordpressWpApiMenusMenusItems.items.map(
+							(item) => (
+								<li
+									key={item.object_slug}
+									style={{ margin: `0 10px` }}
+								>
+									<Link
+										to={`/${item.object_slug}`}
+										style={{
+											color: `white`,
+											textDecoration: `none`,
+											fontFamily: `sans-serif`,
+										}}
+									>
+										{item.title}
+									</Link>
+								</li>
+							)
+						)}
+					</ul>
+				</div>
+			</header>
+		)}
+	/>
 );
 export default Header;
 ```

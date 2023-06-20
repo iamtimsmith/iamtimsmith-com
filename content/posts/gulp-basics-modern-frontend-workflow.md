@@ -1,7 +1,7 @@
 ---
 title: Gulp Basics - A Modern Frontend Workflow
-date: '2019-11-02T05:00:00.000Z'
-seoDescription: Today I'll be teaching you some basics of a build tool called Gulp, what Gulp is used for, and how to use it when setting up a front-end for your project.
+date: "2019-11-02T05:00:00.000Z"
+excerpt: Today I'll be teaching you some basics of a build tool called Gulp, what Gulp is used for, and how to use it when setting up a front-end for your project.
 published: true
 ---
 
@@ -58,17 +58,17 @@ The first thing to do in your `gulpfile.js` is to import the Gulp library. There
  * The first method which would allow you to use
  * functions as gulp.task()
  **/
-const gulp = require('gulp');
+const gulp = require("gulp");
 /* or */
-const { dest, series, src, task, watch } = require('gulp');
+const { dest, series, src, task, watch } = require("gulp");
 
 /* Task to do something */
-task('sample', function (done) {
-  src('path/to/file').pipe(doSomething()).pipe(dest('path/to/new/dest'));
+task("sample", function (done) {
+	src("path/to/file").pipe(doSomething()).pipe(dest("path/to/new/dest"));
 });
 
 /* What to do when the command "gulp" is run */
-task('default', series('sample'));
+task("default", series("sample"));
 ```
 
 Let's unpack this a little bit. The first part at the top is where you will import gulp. The first example imports the gulp library and then would require you to use `gulp.watch`, `gulp.series`, etc when doing anything. The second involves destructuring which allows you to assign multiple variables at once. As I said before, this is totally personal preference, so choose the one you like best.
@@ -274,11 +274,11 @@ Below is a task which handles the minification of JavaScript after it's imported
 
 ```js
 // gulpfile.js
-task('uglify', function () {
-  return src('dist/scripts.js')
-    .pipe(uglify())
-    .pipe(rename({ suffix: '.min' }))
-    .pipe(dest('dist'));
+task("uglify", function () {
+	return src("dist/scripts.js")
+		.pipe(uglify())
+		.pipe(rename({ suffix: ".min" }))
+		.pipe(dest("dist"));
 });
 ```
 
@@ -288,10 +288,10 @@ One final special task I want to talk about is the "Watch" task. It is similar t
 
 ```js
 // gulpfile.js
-task('watch', function (done) {
-  watch('scss/**/*.scss', series('styles', 'minify'));
-  watch('js/**/*.js', series('javascript'));
-  done();
+task("watch", function (done) {
+	watch("scss/**/*.scss", series("styles", "minify"));
+	watch("js/**/*.js", series("javascript"));
+	done();
 });
 ```
 

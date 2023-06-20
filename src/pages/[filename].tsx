@@ -1,6 +1,6 @@
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
-import client from "../../.tina/__generated__/client";
+import client from "../../tina/__generated__/client";
 import { Gif } from "../components/gif";
 import { EmailSignup } from "../components/signup";
 import { Code } from "../components/code";

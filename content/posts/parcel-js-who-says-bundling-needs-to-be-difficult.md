@@ -1,7 +1,7 @@
 ---
-title: 'Parcel.js: Who says bundling needs to be difficult?'
-date: '2018-08-31T05:00:00.000Z'
-seoDescription: I'm going to show you how to set up a project using Parcel for building a React app. It only takes about 5 minutes to get up and running (even less once you've done it a couple of time)!
+title: "Parcel.js: Who says bundling needs to be difficult?"
+date: "2018-08-31T05:00:00.000Z"
+excerpt: I'm going to show you how to set up a project using Parcel for building a React app. It only takes about 5 minutes to get up and running (even less once you've done it a couple of time)!
 published: true
 ---
 
@@ -85,17 +85,17 @@ We can now open this file in our text editor. We will fill it with the following
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Parcel Setup</title>
-  </head>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<title>Parcel Setup</title>
+	</head>
 
-  <body>
-    <div id="app"></div>
-    <script src="./app.js"></script>
-  </body>
+	<body>
+		<div id="app"></div>
+		<script src="./app.js"></script>
+	</body>
 </html>
 ```
 
@@ -123,20 +123,20 @@ Inside our app.js file, we will create a React component and use React DOM to re
 
 ```jsx
 // app.js
-import React from 'react';
-import ReactDOM from 'react-dom';
+import React from "react";
+import ReactDOM from "react-dom";
 
 class App extends React.Component {
-  render() {
-    return (
-      <div>
-        <h1>Hello World!</h1>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<h1>Hello World!</h1>
+			</div>
+		);
+	}
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 Great! The top of our file is importing the dependencies we need for this file. We installed them in step 5. Next, we're creating our App component which will just return an H1 tag with the text "Hello World!". The bottom line renders the app inside the #app element we created in our HTML document in step 4.
@@ -177,17 +177,17 @@ It should look like this:
 ```json
 // package.json
 {
-  "name": "parcel-setup",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "parcel": "^1.9.7",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  }
+	"name": "parcel-setup",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"dependencies": {
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"parcel": "^1.9.7",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2"
+	}
 }
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: Using the Pug Templating Engine  Part 4 - Includes & Mixins
-date: '2021-02-08T05:00:00.000Z'
-seoDescription: With Pug, you can use pieces called includes and mixins to make development more efficient. I'll teach you about it in this blog post.
+date: "2021-02-08T05:00:00.000Z"
+excerpt: With Pug, you can use pieces called includes and mixins to make development more efficient. I'll teach you about it in this blog post.
 published: true
 ---
 
@@ -44,29 +44,29 @@ Below the `h1` tag, I have added a line with the `include` keyword followed by t
 ```html
 <!-- output -->
 <html>
-  <head>
-    <title>My Site</title>
-  </head>
-  <body>
-    <header>
-      <a href="/">Home</a>
-    </header>
+	<head>
+		<title>My Site</title>
+	</head>
+	<body>
+		<header>
+			<a href="/">Home</a>
+		</header>
 
-    <h1>Hello, world!</h1>
-    <form action="/action-goes-here" method="post">
-      <label for="name">Name:</label>
-      <input type="text" name="name" id="name" />
-      <textarea name="message" id="message"></textarea>
-      <input type="submit" value="Submit" />
-    </form>
+		<h1>Hello, world!</h1>
+		<form action="/action-goes-here" method="post">
+			<label for="name">Name:</label>
+			<input type="text" name="name" id="name" />
+			<textarea name="message" id="message"></textarea>
+			<input type="submit" value="Submit" />
+		</form>
 
-    <footer>
-      <p>Site Footer</p>
-    </footer>
-    <script>
-      console.log('Hello, world!');
-    </script>
-  </body>
+		<footer>
+			<p>Site Footer</p>
+		</footer>
+		<script>
+			console.log("Hello, world!");
+		</script>
+	</body>
 </html>
 ```
 
@@ -116,34 +116,34 @@ After using the mixin in a template, the compiled markdown will look like this:
 ```html
 <!-- output -->
 <html>
-  <head>
-    <title>My Site</title>
-  </head>
-  <body>
-    <header>
-      <a href="/">Home</a>
-    </header>
+	<head>
+		<title>My Site</title>
+	</head>
+	<body>
+		<header>
+			<a href="/">Home</a>
+		</header>
 
-    <h1>Hello, world!</h1>
-    <form action="/action-goes-here" method="post">
-      <label for="name">Name:</label>
-      <input type="text" name="name" id="name" />
-      <textarea name="message" id="message"></textarea>
-      <input type="submit" value="Submit" />
-    </form>
+		<h1>Hello, world!</h1>
+		<form action="/action-goes-here" method="post">
+			<label for="name">Name:</label>
+			<input type="text" name="name" id="name" />
+			<textarea name="message" id="message"></textarea>
+			<input type="submit" value="Submit" />
+		</form>
 
-    <article>
-      <h2>This is the title</h2>
-      <p>This is the content</p>
-    </article>
+		<article>
+			<h2>This is the title</h2>
+			<p>This is the content</p>
+		</article>
 
-    <footer>
-      <p>Site Footer</p>
-    </footer>
-    <script>
-      console.log('Hello, world!');
-    </script>
-  </body>
+		<footer>
+			<p>Site Footer</p>
+		</footer>
+		<script>
+			console.log("Hello, world!");
+		</script>
+	</body>
 </html>
 ```
 

@@ -1,7 +1,7 @@
 ---
 title: this.state - How to Use State in React js
-date: '2019-01-31T05:00:00.000Z'
-seoDescription: If you're anything like me, the concept of state was confusing at first. In this tutorial, we'll learn how to use state and props in a react js application.
+date: "2019-01-31T05:00:00.000Z"
+excerpt: If you're anything like me, the concept of state was confusing at first. In this tutorial, we'll learn how to use state and props in a react js application.
 published: true
 ---
 
@@ -18,7 +18,7 @@ Props and state both have their place within react. There are instances where ea
 ```jsx
 // app.js
 
-<App prop='Some data for a prop' />
+<App prop="Some data for a prop" />
 ```
 
 Many times state will be used to pass data into a child component via props. There are even ways to manipulate a parent component's state from a child component. By the end of this post, you'll know how to do both.
@@ -114,7 +114,7 @@ Okay, so we have our state and we can output it. It's basically the same as prop
 ```jsx
 // app.js
 
-this.setState({ item: 'newValue' });
+this.setState({ item: "newValue" });
 ```
 
 The code above calls a `this.setState` function and passes in an object with key-value pairs. If the key matches one we already have in state, it updates the value in state to the new value provided. If the key doesn't exist in state, it will be created with the given value.
@@ -172,7 +172,7 @@ Here is the code for our newly created `Button` component:
 // app.js
 
 const Button = ({ action, label }) => (
-  <button onClick={() => action()}>{label}</button>
+	<button onClick={() => action()}>{label}</button>
 );
 ```
 
@@ -216,41 +216,41 @@ We need to remember to bind `this` to our function in the constructor as well. R
 ```jsx
 // app.js
 
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 class Example extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isHungry: true,
-      topping: 'Pepperoni',
-      slices: 8,
-    };
-    this.eatSlice = this.eatSlice.bind(this);
-    this.buySlice = this.buySlice.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			isHungry: true,
+			topping: "Pepperoni",
+			slices: 8,
+		};
+		this.eatSlice = this.eatSlice.bind(this);
+		this.buySlice = this.buySlice.bind(this);
+	}
 
-  eatSlice() {
-    const totalSlices = this.state.slices - 1;
-    this.setState({
-      slices: totalSlices,
-    });
-  }
+	eatSlice() {
+		const totalSlices = this.state.slices - 1;
+		this.setState({
+			slices: totalSlices,
+		});
+	}
 
-  buySlice() {
-    const totalSlices = this.state.slices + 1;
-    this.setState({
-      slices: totalSlices,
-    });
-  }
+	buySlice() {
+		const totalSlices = this.state.slices + 1;
+		this.setState({
+			slices: totalSlices,
+		});
+	}
 
-  render() {
-    return (
-      <div>
-        <Button action={this.eatSlice} label='Eat a slice' />
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div>
+				<Button action={this.eatSlice} label="Eat a slice" />
+			</div>
+		);
+	}
 }
 ```
 

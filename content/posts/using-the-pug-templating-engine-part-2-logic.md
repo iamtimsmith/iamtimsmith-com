@@ -1,7 +1,7 @@
 ---
 title: Using the Pug Templating Engine  Part 2 - Logic
-date: '2021-01-22T05:00:00.000Z'
-seoDescription: Today I'm going to show you how you can use variables and logic in your templates to make them dynamic and flexible to allow you to display data however you need.
+date: "2021-01-22T05:00:00.000Z"
+excerpt: Today I'm going to show you how you can use variables and logic in your templates to make them dynamic and flexible to allow you to display data however you need.
 published: true
 ---
 

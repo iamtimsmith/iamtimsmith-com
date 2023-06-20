@@ -1,9 +1,9 @@
 ---
 title: Using Variables in CSS
-date: '2021-12-20T06:00:00.000Z'
-seoDescription: >-
-  In this article, I'll teach you how to use variables in your css files and
-  what the limitations are.
+date: "2021-12-20T06:00:00.000Z"
+excerpt: >-
+    In this article, I'll teach you how to use variables in your css files and
+    what the limitations are.
 published: true
 ---
 
@@ -43,7 +43,7 @@ body.dark button {
 }
 ```
 
-Obviously the code above wouldn't be *that* big of a deal to change, but if this file continued on and on with these colors you can imagine why it would be useful to make a change in one place and have it update everywhere. The code below shows how this code can work with variables.
+Obviously the code above wouldn't be _that_ big of a deal to change, but if this file continued on and on with these colors you can imagine why it would be useful to make a change in one place and have it update everywhere. The code below shows how this code can work with variables.
 
 ```css
 body {
@@ -128,4 +128,4 @@ Thanks to modern browers, you can use CSS variables with all browsers except IE1
 
 Overall, CSS variables are a very cool innovation within your styles. They make it very easy to not only write reusable styles, but update them or expand on them further down the road. I highly recommend checking them out in your next project and seeing what you think about them.
 
-Have questions? You can find me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+Have questions? You can find me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

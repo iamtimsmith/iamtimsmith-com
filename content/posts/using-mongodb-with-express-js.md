@@ -1,7 +1,7 @@
 ---
 title: Using MongoDB with an Express.js Application
-date: '2020-02-13T05:00:00.000Z'
-seoDescription: MongoDB is a nosql database that is growing in popularity. In this post, I'll show you how you can use it in your next Express application.
+date: "2020-02-13T05:00:00.000Z"
+excerpt: MongoDB is a nosql database that is growing in popularity. In this post, I'll show you how you can use it in your next Express application.
 published: true
 ---
 
@@ -55,26 +55,26 @@ Whew. Now you've got a `.env` file with the connection string for the database. 
 
 ```js
 // server.js
-const express = require('express');
-const bodyParser = require('body-parser');
+const express = require("express");
+const bodyParser = require("body-parser");
 // Include mongoose in the server file
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const app = express();
 // Tell the server file about the .env file
-require('dotenv').config();
+require("dotenv").config();
 
 const port = 4000;
 // Use the MONGO_URI from .env or use local mongodb
 const db =
-  process.env.MONGO_URI || 'mongodb://localhost:27017/express-tutorial';
+	process.env.MONGO_URI || "mongodb://localhost:27017/express-tutorial";
 
-app.set('view engine', 'pug');
+app.set("view engine", "pug");
 
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use('/', require('./routes'));
+app.use("/", require("./routes"));
 
 app.listen(port, () => {
-  console.log(`Success! Your application is running on port ${port}.`);
+	console.log(`Success! Your application is running on port ${port}.`);
 });
 
 // Connect the Express application to MongoDB
@@ -100,19 +100,19 @@ Open up `models/Post.js` and you can begin creating a model for blog posts. Firs
 
 ```js
 // models/Post.js
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-  title: String,
-  author: String,
-  slug: { type: String, unique: true },
-  body: String,
-  comments: [{ body: String, date: Date }],
-  date: { type: Date, default: Date.now },
+	title: String,
+	author: String,
+	slug: { type: String, unique: true },
+	body: String,
+	comments: [{ body: String, date: Date }],
+	date: { type: Date, default: Date.now },
 });
 
-const Post = mongoose.model('Post', postSchema);
+const Post = mongoose.model("Post", postSchema);
 ```
 
 Let's briefly go over what's happening here: First you import the mongoose library for use in this file. Next you create a schema called `postSchema` with the various fields fields you want on that data type. You may notice that the title, author, and body all have a value of `String` while comments and date have different stuff. That's because the data type is required for any field and writing out `title: {type: String}` a bunch of times sounds like a pain. The mongoose developers thought about this and decided to make the `title: String` shorthand, which does the same thing. If you need to add more information such as a default, unique, or something else you'll still have to use the object.
@@ -127,6 +127,6 @@ This is the second in a series of posts about setting up a project with Express.
 
 1. [Creating a Basic Server with Express.js](/blog/creating-a-basic-server-with-express-js)
 1. Using MongoDB with an Express.js project
-<!-- 1. [Adding Authentication to an Express application with Passport.js](/blog/adding-auth-to-express-application-with-passport) -->
+ <!-- 1. [Adding Authentication to an Express application with Passport.js](/blog/adding-auth-to-express-application-with-passport) -->
 
 Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

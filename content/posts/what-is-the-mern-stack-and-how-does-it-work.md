@@ -1,7 +1,7 @@
 ---
 title: What is the MERN stack and how do I use it?
-date: '2019-01-23T05:00:00.000Z'
-seoDescription: In this MERN stack tutorial, we will build a simple blog using React js, Node js, Express js, and Mongodb to add to our Full-Stack Developer toolkit.
+date: "2019-01-23T05:00:00.000Z"
+excerpt: In this MERN stack tutorial, we will build a simple blog using React js, Node js, Express js, and Mongodb to add to our Full-Stack Developer toolkit.
 published: true
 ---
 
@@ -17,10 +17,10 @@ Perhaps the first item to discuss is the idea of a "stack". There are many diffe
 
 Although there are many different stacks out there to consider, some have become more common than others. One of these popular stacks is called the MEAN stack which consists of:
 
-- **M**ongoDb
-- **E**xpress js
-- **A**ngular js
-- **N**ode js
+-   **M**ongoDb
+-   **E**xpress js
+-   **A**ngular js
+-   **N**ode js
 
 Today we will be looking at the MERN stack which is almost the same as MEAN except we will replace Angular js with React js. This will allow us to use MongoDB for our database, Nodejs and Express js for our server and routes, and React js to create a front-end for the user to interact with.
 
@@ -54,14 +54,14 @@ While I'm not going to get into how to build it step by step in this article (th
 
 Once we create our `app.js` file, we will have to install some packages. Here are some common packages I've used in my Express js projects before which might be helpful to you.
 
-- **Express js** - A web application framework with built in functionality for a lot of things including routing.
-- **Mongoose** - An ODM to allow interactions between our express js application and MongoDB.
-- **BodyParser** - A library which allows our express js application to read the body (or content) of the incoming requests.
-- **DotENV** - Allows us to use a .env file for sensitive data.
-- **Passport js** - Authentication for our app with several different options for authentication methods.
-- **Validator** - Simple validation on many types of data.
-- **bCrypt** - Encryption for sensitive data such as passwords
-- **Nodemon** - "Hot Reloading" for our node server when things change so we don't have to stop and start the server every time we make a change
+-   **Express js** - A web application framework with built in functionality for a lot of things including routing.
+-   **Mongoose** - An ODM to allow interactions between our express js application and MongoDB.
+-   **BodyParser** - A library which allows our express js application to read the body (or content) of the incoming requests.
+-   **DotENV** - Allows us to use a .env file for sensitive data.
+-   **Passport js** - Authentication for our app with several different options for authentication methods.
+-   **Validator** - Simple validation on many types of data.
+-   **bCrypt** - Encryption for sensitive data such as passwords
+-   **Nodemon** - "Hot Reloading" for our node server when things change so we don't have to stop and start the server every time we make a change
 
 Of course there are many more packages out there, but these are several of the commonly used libraries I see and why they are used.
 
@@ -70,75 +70,75 @@ Now that we have gone over some commonly used packages, let's take a look at som
 ```js
 // server.js
 
-const express = require('express');
-const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
+const express = require("express");
+const mongoose = require("mongoose");
+const bodyParser = require("body-parser");
 const app = express();
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 // Import Model
-const Post = require('./models/Post');
+const Post = require("./models/Post");
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost:27017/simple-mern', () =>
-  console.log('MongoDB is connected')
+mongoose.connect("mongodb://localhost:27017/simple-mern", () =>
+	console.log("MongoDB is connected")
 );
 
 // Enable CORS
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header(
-    'Access-Control-Allow-Headers',
-    'Origin, X-Requested-With, Content-Type, Accept'
-  );
-  next();
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header(
+		"Access-Control-Allow-Headers",
+		"Origin, X-Requested-With, Content-Type, Accept"
+	);
+	next();
 });
 
 // Get all of our posts
-app.get('/api/posts', (req, res) => {
-  Post.find({}).then(posts => {
-    res.json(posts);
-  });
+app.get("/api/posts", (req, res) => {
+	Post.find({}).then((posts) => {
+		res.json(posts);
+	});
 });
 
 // Get One of Our posts
-app.get('/api/posts/:id', (req, res) => {
-  Post.findOne({ _id: req.params.id }).then(post => {
-    res.json(post);
-  });
+app.get("/api/posts/:id", (req, res) => {
+	Post.findOne({ _id: req.params.id }).then((post) => {
+		res.json(post);
+	});
 });
 
 // Create and Update post
-app.post('/api/posts', (req, res) => {
-  const data = {
-    title: req.body.title,
-    content: req.body.content,
-  };
-  Post.findOne({ _id: req.body.id }, (err, post) => {
-    if (post) {
-      Post.findByIdAndUpdate(req.body.id, data, { upsert: false }).then(
-        updated => {
-          res.json(updated);
-        }
-      );
-    } else {
-      Post.create(data).then(created => {
-        res.json(created);
-      });
-    }
-  });
+app.post("/api/posts", (req, res) => {
+	const data = {
+		title: req.body.title,
+		content: req.body.content,
+	};
+	Post.findOne({ _id: req.body.id }, (err, post) => {
+		if (post) {
+			Post.findByIdAndUpdate(req.body.id, data, { upsert: false }).then(
+				(updated) => {
+					res.json(updated);
+				}
+			);
+		} else {
+			Post.create(data).then((created) => {
+				res.json(created);
+			});
+		}
+	});
 });
 
 // Delete selected post
-app.post('/api/posts/:id', (req, res) => {
-  Post.findByIdAndDelete(req.params.id).then(post => {
-    res.json({ message: 'Your post was deleted!' });
-  });
+app.post("/api/posts/:id", (req, res) => {
+	Post.findByIdAndDelete(req.params.id).then((post) => {
+		res.json({ message: "Your post was deleted!" });
+	});
 });
 
-app.listen(3333, () => console.log('Server is running on port 3333'));
+app.listen(3333, () => console.log("Server is running on port 3333"));
 ```
 
 So here is our simple API server. As you can see, it has some basic CRUD (Create-Read-Update-Delete) functionality to it but nothing super complicated. If we look closely, we can see that we are using `res.json()` to provide the output data at a specific URL rather than outputting HTML or another template. This is how we build our APIs to make data available to React js.
@@ -191,28 +191,28 @@ Now that we've gone over project organization, let's talk about our actual Front
 
 ```jsx
 // client/app.js
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { BrowserRouter as Router, Route } from 'react-router-dom';
-import Header from './components/header';
-import Index from './components/index';
-import Single from './components/single';
-import New from './components/new';
-import Edit from './components/edit';
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Header from "./components/header";
+import Index from "./components/index";
+import Single from "./components/single";
+import New from "./components/new";
+import Edit from "./components/edit";
 
 const App = () => (
-  <Router>
-    <div>
-      <Header />
-      <Route path='/' exact component={Index} />
-      <Route path='/new' exact component={New} />
-      <Route path='/post/:id' exact component={Single} />
-      <Route path='/edit/:id' exact component={Edit} />
-    </div>
-  </Router>
+	<Router>
+		<div>
+			<Header />
+			<Route path="/" exact component={Index} />
+			<Route path="/new" exact component={New} />
+			<Route path="/post/:id" exact component={Single} />
+			<Route path="/edit/:id" exact component={Edit} />
+		</div>
+	</Router>
 );
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById("app"));
 ```
 
 And here's a screenshot of our app homepage:
@@ -221,51 +221,53 @@ And here's a screenshot of our app homepage:
 
 As you can see, the `app.js` isn't anything complicated. It has a `<Router>` which allows us to set up routes in React js which render different components based on the url. Here are the other components being used in our React js application:
 
-- **Header** - A navigation bar at the top of the screen
-- **Index** - Lists all of the available blog posts
-- **New** - Form which allows user to create new blog post
-- **Single** - Displays a single blog post based on the id
-- **Edit** - Form which allows user to update blog post based on id
+-   **Header** - A navigation bar at the top of the screen
+-   **Index** - Lists all of the available blog posts
+-   **New** - Form which allows user to create new blog post
+-   **Single** - Displays a single blog post based on the id
+-   **Edit** - Form which allows user to update blog post based on id
 
 We are using Axios to make our http calls to our API endpoints and then using React js to display the data how we'd like. I will put the Index.js code in this post so we can examine how that is working together.
 
 ```jsx
 // client/components/index.js
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import axios from 'axios';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Index extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: [],
-    };
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			posts: [],
+		};
+	}
 
-  componentDidMount() {
-    axios.get('http://localhost:3333/api/posts').then(posts => {
-      this.setState({
-        posts: posts.data,
-      });
-    });
-  }
+	componentDidMount() {
+		axios.get("http://localhost:3333/api/posts").then((posts) => {
+			this.setState({
+				posts: posts.data,
+			});
+		});
+	}
 
-  render() {
-    return (
-      <div className='m-8'>
-        <ul className='index'>
-          {this.state.posts.map(post => (
-            <li key={post.title}>
-              <h2>
-                <Link to={`/post/${post._id}`}>{post.title}</Link>
-              </h2>
-            </li>
-          ))}
-        </ul>
-      </div>
-    );
-  }
+	render() {
+		return (
+			<div className="m-8">
+				<ul className="index">
+					{this.state.posts.map((post) => (
+						<li key={post.title}>
+							<h2>
+								<Link to={`/post/${post._id}`}>
+									{post.title}
+								</Link>
+							</h2>
+						</li>
+					))}
+				</ul>
+			</div>
+		);
+	}
 }
 
 export default Index;
