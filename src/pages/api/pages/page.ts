@@ -8,7 +8,7 @@ export default async (req, res) => {
 
 	// Rest of the API logic
 	const page = await client.queries.page({
-		relativePath: `${req.query.path}.md`,
+		relativePath: `${req.query.path}.mdx`,
 	});
 	if (page) {
 		return res.status(200).json(page.data.page);

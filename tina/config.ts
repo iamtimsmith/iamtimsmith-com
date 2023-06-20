@@ -24,6 +24,7 @@ export default defineConfig({
 				name: "post",
 				label: "Posts",
 				path: "content/posts",
+				format: "mdx",
 				fields: [
 					{
 						type: "boolean",
@@ -81,6 +82,7 @@ export default defineConfig({
 				name: "page",
 				label: "Pages",
 				path: "content/pages",
+				format: "mdx",
 				fields: [
 					{
 						type: "boolean",
