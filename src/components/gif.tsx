@@ -6,7 +6,7 @@ export interface GifProps {
 	maxWidth?: number;
 }
 
-export const Gif = ({ src, caption, maxWidth }: GifProps) => (
+export const Gif = ({ src, caption, maxWidth = 400 }: GifProps) => (
 	<figure style={{ maxWidth }}>
 		<video src={src} loop muted playsInline autoPlay />
 		{caption && <figcaption>{caption}</figcaption>}
