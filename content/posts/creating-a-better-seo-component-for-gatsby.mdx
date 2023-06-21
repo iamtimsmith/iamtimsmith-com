@@ -1,11 +1,13 @@
 ---
 title: Creating a better SEO component for Gatsby sites
-date: "2021-02-15T06:00:00.000Z"
+date: 2021-02-15T06:00:00.000Z
 excerpt: >-
-    In this post, I'll show you how to build a better SEO component which is
-    optimized for both search engines and social sharing to help your marketing
-    strategy.
+  In this post, I'll show you how to build a better SEO component which is
+  optimized for both search engines and social sharing to help your marketing
+  strategy.
 published: true
+feauredImage: >-
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/creating-a-better-seo-component-for-gatsby-sites_ihotzv.jpg
 ---
 
 When you create a new project using the default starter for Gatsby, it gives you an SEO component with some basic contents. This is good for simple things such as a favicon, page title, and description. It leaves out other important pieces that can make a site even more optimized for both search engines and social sharing. In this post, I'll show you how to build a better SEO component which can help in marketing your Gatsby site. Even if you're not using Gatsby, the things discussed in this article will provide a framework for a solid SEO component. Let's get started!
@@ -14,7 +16,7 @@ When you create a new project using the default starter for Gatsby, it gives you
 
 When creating the file for the SEO component, you should think about what you'll need the component to do. In this case, you will need the ability to create a react component, write jsx, insert information into the head of your page, and use graphql to get some data for default values. I will also be using the `prop-types` package to check for types on the incoming props.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -28,7 +30,7 @@ The packages above will accomplish all of the tasks I listed with flying colors.
 
 In the basic version of the component, you will just be setting up the helmet element with a title and description. Then you can import it into a page and make sure you're seeing the hard-coded data in your page. Below is the code for the hard-coded component.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -49,7 +51,7 @@ export default SEO;
 
 Once the code in the SEO component is updated, you can import it into a file to make sure the title and description are changing for the page. There aren't any props to pass in yet, so it will just look like this:
 
-```jsx
+```javascript
 // pages/index.js
 import React from "react";
 import Layout from "../components/layout";
@@ -71,7 +73,7 @@ export default IndexPage;
 
 Once the SEO component is imported and rendered, you should see that the title and description for the index page says "This is a title" and "This is some content", respectively. That's pretty good, but it's not very dynamic. To fix that, you will add props for a title and description and use that to fill out the SEO component.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -97,7 +99,7 @@ export default SEO;
 
 Now that you have props for title and description, you can pass those in from the index page. Update the code for the index page with the following code:
 
-```jsx
+```javascript
 // pages/index.js
 import React from "react";
 import Layout from "../components/layout";
@@ -122,7 +124,7 @@ export default IndexPage;
 
 You may want to add some elements to the html element for SEO purposes. This can be done using the `Helmet` component by adding an object with the desired attributes in the `htmlAttributes` prop. It is always a good idea to add a lang attribute to indicate the language in which the site is written. The modified code below shows how you can add attributes to the html element in the DOM.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -152,7 +154,7 @@ There are a [number of attributes you can add to the html element](https://www.w
 
 If you look at the title for your index page, it just says "Home". This is adequate, though you may want to put the site title in there so visitors know what site they're on. Here's where you need to start using queries to get data. Below, you can see the first query to get the site title and description from the `gatsby-config.js` file. This is where I will be pulling data from, though you could query WordPress data, Ghost data, or any other source. Below is the component with the query being performed through a hook. The [documentation](https://www.gatsbyjs.com/docs/how-to/querying-data/static-query/) will also show how to use the StaticQuery component to achieve the same result.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -199,7 +201,7 @@ Using the code above, you have a title that displays in a format like "Page Titl
 
 Providing a canonical url and a favicon in your SEO strategy can also help to build your online profile. Setting these up can be done by adding a query for the favicon and providing the slug for the current page. In addition, I will include a base url from the `gatsby-config.js` file and add a prop to pass in a slug for the current page.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -252,19 +254,19 @@ export default SEO;
 
 Now when you refresh your page, you should see the favicon you selected in the browser tab you're using. If you open up the html on your site, you should also see the canonical url in the head section.
 
-<EmailSignup title="Like this post? Join my mailing list!" />
+<email_signup />
 
 ## Adding social sharing cards
 
 Have you ever shared a link on social media and felt disappointed when it didn't pop up with a photo, title, and excerpt? I know I have, so I want to make sure that doesn't happen when someone shares a page of mine. To do this, you need to add both twitter tags and OG tags.
 
-<Gif src="https://media.giphy.com/media/L1Byye4j6sBSkqJTul/giphy.mp4" />
+<gif src="https://media.giphy.com/media/L1Byye4j6sBSkqJTul/giphy.mp4" caption="You are the real O.G." />
 
 ### Adding Twitter cards
 
 When setting up up your webpage to be shared on social media sites, there are a few different "categories" of meta tags you need to know about. The first is "twitter". [According to the Twitter docs](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started), it will look for twitter tags first and fall back to OG tags if none are found so we will set those up first.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -323,7 +325,7 @@ The 2 additional lines of code above establish what [type of card you want to di
 
 The next meta tags to add are called OpenGraph, or OG, tags which will provide the data for social media sites to generate the cards when your content is shared. To do this, you need to add another prop for an image and, like the title and description, add a query to get a fallback image for use if none is provided.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -401,7 +403,7 @@ Now when a user shares your page on any social media site that supports OpenGrap
 
 Adding the new props to the existing index page would look like this:
 
-```jsx
+```javascript
 // pages/index.js
 import React from "react";
 import Layout from "../components/layout";
@@ -436,7 +438,7 @@ In a nutshell, Schema.org markup is just a way to provide more information about
 
 My solution to add Schema information to the SEO component is not a complex one, though it gets the job done. It is simply to add it as children of the component. The reason for this has to do with how many options are available for schemas and what the contents of those schemas look like. It would be A LOT of work to build out a component that could handle all of the possibilities for that. To make my life a little easier, I just made it possible to add whatever children the particular piece of content called for. This would make it possible to any schema desired without having to try and plan for every option or constantly add onto the SEO component whenever a schema changed or got added. The code to do this can be found below.
 
-```jsx
+```javascript
 // components/seo.js
 import React from "react";
 import PropTypes from "prop-types";
@@ -514,7 +516,7 @@ export default SEO;
 
 To help show the context in which this will be used, I will use a fake blog post as an example. Below is a component with a hard-coded title, description, image, and slug to keep things simple. These would likely come from a graphql query in a real world example.
 
-```jsx
+```javascript
 // templates/post.js
 import React from "react";
 import Layout from "../components/layout";
@@ -554,7 +556,7 @@ const BlogPost = () => {
 export default BlogPost;
 ```
 
-The example above is a very simple example as far as schemas go, but it illustrates [how you can use the JSON-LD format to markup your blog post](<[https://schema.org/BlogPosting](https://schema.org/BlogPosting)>) data using the SEO component.
+The example above is a very simple example as far as schemas go, but it illustrates [how you can use the JSON-LD format to markup your blog post]([https://schema.org/BlogPosting]\(https://schema.org/BlogPosting\)) data using the SEO component.
 
 ## Wrapping Up
 
