@@ -12,9 +12,7 @@ feauredImage: >-
 
 A few years ago I wrote an article called [Let's build a search bar in React](/blog/lets-build-a-search-bar-in-react) where I showed readers (you guessed it!) how to build a search bar in React. When I wrote that article, React Hooks didn't exist so it is written using class components. Since publishing the post, I've gotten several requests to rewrite the post showing how to build a search bar using React Hooks. After taking a break from blogging to focus on my family and being swamped with work, I'm happy to report that this is that post!
 
-<gif src="https://media.giphy.com/media/hZfm9Pj95F9Mk/giphy.mp4" width={300} />
-
-<Gif src="https://media.giphy.com/media/hZfm9Pj95F9Mk/giphy.mp4" width={300} />
+<gif src="https://media.giphy.com/media/hZfm9Pj95F9Mk/giphy.mp4" width={300} caption="&#x22;Awesome!&#x22; - Spicoli" />
 
 In this post, I will follow roughly the same structure as the original. In my last post I used Parcel to bundle all of my packages together and build my code. Parcel has made several improvements since that post, so I will stick with that build tool for this post.
 
@@ -126,7 +124,7 @@ Once you have the basic scaffolding done, you need to add a `div` with the id of
 
 Now that the `index.html` file is set up, you can get started building your application. To get started, open up your `app/app.jsx` file and add the code below. This will just display an styled h1 tag that says "Search" to make sure that the configuration is working properly.
 
-```jsx
+```javascript
 import React from "react";
 import ReactDOM from "react-dom";
 import "bulma/bulma";
@@ -156,21 +154,21 @@ If you've read my previous blog posts about [React Components](/blog/how-to-crea
 
 While there are several hooks you can use for various purposes, I will just be focusing on one in particular. That hook is the `useState` hook, which allows you to create a piece of data as well as modify it without setting up a constructor or having to fuss with a class component.
 
-<Gif src="https://media.giphy.com/media/9p8hgZoQjj9y8/giphy.mp4" />
+<gif src="https://media.giphy.com/media/9p8hgZoQjj9y8/giphy.mp4" caption="Captain Hook from the movie &#x22;Hook&#x22;" />
 
-<EmailSignup title="Like this post? Join my mailing list!" />
+<email_signup />
 
 ## Adding state to the App
 
 The first step to using the `useState` hook is to import it from the `react` library. You can use it from the `React` object if you like, but I prefer to use named exports to keep the code a little cleaner. Your react import should now look like this:
 
-```jsx
+```javascript
 import React, { useState } from "react";
 ```
 
 Now that you have imported the `useState` hook, you can create your state item. To do this, you will create a state variable and assign it a value. In this case, you will create a variable called `list`. You will also create a variable called `setList` which will be how you manipulate the state variable when needed. These names are arbitrary and can be whatever you like, though the typical naming convention is to put "set" before the capitalized name of the state variable. The code below illustrates how to add the list state with an array of items as the default value.
 
-```jsx
+```javascript
 import React from "react";
 import ReactDOM from "react-dom";
 import "bulma/bulma";
@@ -198,7 +196,7 @@ As you can see the variables are set to a `useState` function with the argument 
 
 What good is having a list of items in state if the user can't see or add items in their list? The code below will show you how to display the items in an ordered list and create a field and button to add new items to the list. I am using the `map()` function here which iterates over an array and returns something. In this case the something being returned is jsx code to be rendered. The code below shows the updated code for the component.
 
-```jsx
+```javascript
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "bulma/bulma";
@@ -257,7 +255,7 @@ In the return, the component iterates over the items in the `list` array to disp
 
 Now that the user can add items to their to-do list, you need to give them the ability to remove them. This will be done by adding a button to the right of each list item which triggers a function to find the item in the `list` array and removing it using the JavaScript `filter` method. Once that is done, the list being displayed will update with the specified item removed.
 
-```jsx
+```javascript
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "bulma/bulma";
@@ -322,7 +320,7 @@ ReactDOM.render(<App />, document.getElementById(`app`));
 
 Now that you have a functioning task list application, it's time to add the search functionality. This should be case insensitive and update in real-time. Doing this will require a search input which then uses a `filter` method on change to render only items in the list which match the search string.
 
-```jsx
+```javascript
 import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import "bulma/bulma";
