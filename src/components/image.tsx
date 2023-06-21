@@ -8,7 +8,7 @@ export interface ImageProps {
 }
 
 export const Image = ({ url, caption, alt }: ImageProps) => {
-	const id = slugify(caption) || undefined;
+	const id = caption ? slugify(caption) : undefined;
 	return (
 		<span role="figure" aria-labelledby={id}>
 			{url && (
