@@ -52,8 +52,13 @@ a {
 	color: var(--color-accent);
 }
 
-figure {
+figure,
+[role="figure"] {
 	margin: 1.5rem auto;
+}
+
+img {
+	max-width: 100%;
 }
 
 figure video {
@@ -62,7 +67,8 @@ figure video {
 	width: 100%;
 }
 
-figcaption {
+figcaption,
+.figcaption {
 	max-width: 600px;
 	margin: 0 auto;
 	text-align: center;

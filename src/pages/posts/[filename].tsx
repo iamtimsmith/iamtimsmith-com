@@ -1,9 +1,10 @@
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import client from "../../../tina/__generated__/client";
-import { Gif, GifProps } from "../../components/gif";
+import { Gif } from "../../components/gif";
 import { EmailSignup } from "../../components/signup";
 import { Code } from "../../components/code";
+import { Image } from "../../components/image";
 
 const BlogPage = (props) => {
 	const { data } = useTina({
@@ -22,6 +23,7 @@ const BlogPage = (props) => {
 						gif: (props) => <Gif {...props} />,
 						email_signup: (props) => <EmailSignup {...props} />,
 						code_block: Code,
+						img: (props) => <Image {...props} />,
 					}}
 				/>
 			</div>
