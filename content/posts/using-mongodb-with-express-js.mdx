@@ -15,7 +15,7 @@ SQL is a type of database that has been around for a long time and allows tables
 
 Like SQL, it can be used locally or from a remote platform. When using it locally, it will store the data in a specified location, but won't work until you run `mongod` in the terminal. In recent years, platforms such as [mLab](https://mlab.com/) and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). In this tutorial, I'll be using mLab although it doesn't matter which one you choose as long as you have the connection url.
 
-<Gif src="https://media.giphy.com/media/XHGAZo1d0vlSsWXEZP/giphy.mp4" width={300} />
+<gif src="https://media.giphy.com/media/XHGAZo1d0vlSsWXEZP/giphy.mp4" caption="Whatever you think is best" width={300} />
 
 ## Adding new packages to the Express Application
 
@@ -52,7 +52,7 @@ node_modules
 
 Whew. Now you've got a `.env` file with the connection string for the database. You have also made sure it's not being pushed into a repository. The next thing you need to do is tell the Express application about the `.env` file and use it to connect to the database. To do this, open the server file and add the following lines:
 
-```js
+```javascript
 // server.js
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -82,9 +82,9 @@ mongoose.connect(db, { useNewUrlParser: true });
 
 The code above adds the mongoose package to the file, gets the connection string for the database, and connects to MongoDB using the url assigned to `db`. We're done right? Well.....
 
-<Gif src="https://media.giphy.com/media/s3d5ugcxFDApG/giphy.mp4" width={250} />
+<gif src="https://media.giphy.com/media/s3d5ugcxFDApG/giphy.mp4" width={250} caption="Dwight is not impressed." />
 
-<EmailSignup title="Like this post? Join my mailing list!" />
+<email_signup />
 
 ## Setting up Models with Mongoose
 
@@ -97,7 +97,7 @@ $ mkdir models && touch models/Post.js
 
 Open up `models/Post.js` and you can begin creating a model for blog posts. First, you'll create a schema which determines what fields are available, what data type those fields should be, and other configurations. In the schema, you can set whether the value should be a unique value, default values, and more! The code below will get a post content type set up with several fields to use:
 
-```js
+```javascript
 // models/Post.js
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
