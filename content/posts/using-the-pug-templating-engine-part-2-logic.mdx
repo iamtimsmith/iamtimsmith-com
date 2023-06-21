@@ -1,13 +1,18 @@
 ---
 title: Using the Pug Templating Engine  Part 2 - Logic
-date: "2021-01-22T05:00:00.000Z"
-excerpt: Today I'm going to show you how you can use variables and logic in your templates to make them dynamic and flexible to allow you to display data however you need.
+date: 2021-01-22T05:00:00.000Z
+excerpt: >-
+  Today I'm going to show you how you can use variables and logic in your
+  templates to make them dynamic and flexible to allow you to display data
+  however you need.
 published: true
+feauredImage: >-
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109220/iamtimsmith/using-the-pug-templating-engine-part-2-logic_ngbh0q.jpg
 ---
 
 In [my previous post](/blog/using-the-pug-templating-engine-part-1-markup), I showed you how to create elements in Pug with classes, ids, attributes, and nesting. Today I'm going to show you how you can use variables and logic in your templates to make them dynamic and flexible, allowing you to write one template to hold lots of different pieces of information that are all formatted the same rather than writing out a separate HTML file for each one. Without further adieu, let's get started!
 
-<Gif src='https://media.giphy.com/media/cfUMNY4RfGhEc/giphy.mp4' />
+<gif src="https://media.giphy.com/media/cfUMNY4RfGhEc/giphy.mp4" caption="A surprised-looking pug." width={300} />
 
 ## Creating and using variables within Pug
 
@@ -72,7 +77,7 @@ else
 
 The conditional you see above is a simple, but common example of how logic can be used in templating. Similar to how elements are nested, you can see that conditional logic also uses indentation to determine what goes inside the if-then statement. The example shows an `if` statement with a check to see if the variable has a value. If so, it runs the code indented beneath it. If it evaluates to `false`, it will move to the `else` block where it runs the code indented below.
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ### Switch Statements
 
@@ -140,4 +145,4 @@ ul
 
 The ability to write JavaScript code in templates is a game changer both in terms of cleaner code and dynamic content. In this post, I've demonstrated some of the most common ways to use logic inside your templates when using Pug as a templating engine. In the next post, I'll show you how to simplify your templates using a DRY, or Don't Repeat Yourself, approach which will save time and effort.
 
-Have questions? You can reach me on Twitter [@iam_timsmith](https://www.twitter.com/iam_timsmith).
+Have questions? You can reach me on Twitter [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
