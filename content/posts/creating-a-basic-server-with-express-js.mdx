@@ -1,8 +1,13 @@
 ---
 title: Creating a Basic Server with Express.js
-date: "2020-02-12T05:00:00.000Z"
-excerpt: I'm going to show you how to create an Express.js server. We will go over starting the server, setting up simple routes, and outputting various types of data.
+date: 2020-02-12T05:00:00.000Z
+excerpt: >-
+  I'm going to show you how to create an Express.js server. We will go over
+  starting the server, setting up simple routes, and outputting various types of
+  data.
 published: true
+feauredImage: >-
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109210/iamtimsmith/creating-a-basic-server-with-express-js_w8abev.jpg
 ---
 
 In this post, I'm going to show you how to create a basic Express.js server for your web applications. We will go over starting the server, setting up simple routes, and outputting various types of data.
@@ -40,7 +45,7 @@ After the `package.json` file is created, you can add the necessary dependencies
 $ npm i express body-parser pug
 ```
 
-The next step to perform is [setting up your git repository](/blog/take-snapshots-of-your-project-with-git). This is an optional step depending on whether you are using git for version control. If you are using git, I also recommend adding a `.gitginore` file to exclude the `/node_modules` directory from the repo. Keeping the node_modules directory will bloat your codebase and will cause problems with git. The code for the `.gitignore` is below:
+The next step to perform is [setting up your git repository](/blog/take-snapshots-of-your-project-with-git). This is an optional step depending on whether you are using git for version control. If you are using git, I also recommend adding a `.gitginore` file to exclude the `/node_modules` directory from the repo. Keeping the node\_modules directory will bloat your codebase and will cause problems with git. The code for the `.gitignore` is below:
 
 ```bash
 # .gitignore
@@ -58,7 +63,7 @@ $ touch server.js
 
 Open your newly created file and you can begin building a simple server. At first, we will import express and designate a port on which our server can run. Inside your server file, add the following code:
 
-```js
+```javascript
 // server.js
 const express = require("express");
 const app = express();
@@ -73,13 +78,13 @@ Let's take a closer look at what's going on here. Line 1 imports the express lib
 
 Once those variables are set, you can create the server by using `app.listen()`. First, pass in the port at which you want the server to run. This can be any value as long as it's an integer. After the port, can provide a callback. In this case, I've used the callback to log a message to the console indicating the server is running. This isn't required, but I like having the message to indicate that the terminal is working as expected.
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ## Setting up routes in express
 
 Before setting up routes, you need to include the body-parser package we included so express can use the information coming from the http request. To do so, modify the server file like so:
 
-```js
+```javascript
 // server.js
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -100,7 +105,7 @@ Now that Express can parse the http requests, you can set up your routes. I ment
 
 Express allows you to use the app variable with a method for the desired request type to establish routes. To illustrate this, you'll add 2 GET routes to the server file then start the server and navigate from one to the other.
 
-```js
+```javascript
 // server.js
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -131,9 +136,9 @@ For now, the server file doesn't look bad. As your application grows, you will n
 
 When building an application using Express.js, I prefer to stick with an MVC architecture. If you're unfamiliar with this, it stands for model-view-controller. It is an architectural pattern that has been around for a long time and there's lots of information. To put this into the most basic, oversimplified terms possible:
 
--   **Model** - The data in our application
--   **View** - The stuff that the user sees
--   **Controller** - What the routes should do
+* **Model** - The data in our application
+* **View** - The stuff that the user sees
+* **Controller** - What the routes should do
 
 I will be using this sort of structure in this tutorial, although we won't have any models. Those can set up using various tools, known as ORMs, to connect databases. For this project, I will use a controller to simplify routing and pug for the views. First, let's set up a controller.
 
@@ -144,7 +149,7 @@ $ mkdir controllers && touch controllers/BasicController.js
 
 Now you can open `BasicController.js`. This file will begin with a module.exports and we will be exporting an object of methods which make up the controllers. If this is confusing, the code below may help to explain a bit better:
 
-```js
+```javascript
 // controllers/BasicController.js
 module.exports = {
 	home: (req, res) => {
@@ -167,7 +172,7 @@ $ touch routes.js
 
 The `routes.js` file will house all of the routes for the project. Using controllers helps to keep this file clean since you can just tell Express what controller and method you want to use for the callback. Setting up a route goes from (potentially) many lines to a single line, making it quick and easy to tell what routes are doing what things. The code below illustrates what a routes file should look like given this setup:
 
-```js
+```javascript
 // routes.js
 const express = require("express");
 const router = express.Router();
@@ -184,7 +189,7 @@ First you import the express library and the `Router()` method. Next, import any
 
 You're almost ready to test this out! The last step to get this working is to modify the server file, like so:
 
-```js
+```javascript
 // server.js
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -204,7 +209,7 @@ The line of code you added above says, "use this middleware, use the prefix of `
 
 Now if you run `node server.js`, you'll see the same output as before because the servers work the same way. In my opinion, handling routes this way is much more legible and scalable.
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ## Adding views with pug
 
@@ -212,7 +217,7 @@ Now you have set up a server, created controllers to handle the requests, and se
 
 Since pug is already installed, we can just tell Express to use that as a templating engine. By default, it will look for the views in a `views/` folder, so no further configuration is needed there.
 
-```js
+```javascript
 // server.js
 const express = require("express");
 const bodyParser = require("body-parser");
@@ -263,7 +268,7 @@ html
 
 The final step to adding views is to update the methods you created in the `BasicController.js` file. You can update `res.send()` to `res.render()`. The first argument you pass into `res.render()` is the name of the file in the views folder you want to render. The optional second parameter is an object which contains any variables you want to pass into the template. In this case, I won't worry about variables. The updated controller code is below. Once that has been updated, you can run `node server.js` and give the application a try. You should see a title, some text, and a link to the other page for each page.
 
-```js
+```javascript
 // controllers/BasicController.js
 module.exports = {
 	home: (req, res) => {
@@ -279,12 +284,11 @@ module.exports = {
 
 Congratulations! You now have a working express application complete with routing, controllers, and views. You can add more items as you see fit to continue and build on your app. Next steps would be adding a database with models, setting up authorization for users, and setting up private routes. Now go forth and create great things!
 
----
+***
 
 This is the first in a series of posts about setting up a project with Express.
 
 1. Creating a Basic Server with Express.js
-1. [Using MongoDB with an Express.js project](/blog/using-mongodb-with-express-js)
- <!-- 1. [Adding Authentication to an Express application with Passport.js](/blog/adding-auth-to-express-application-with-passport) -->
+2. [Using MongoDB with an Express.js project](/blog/using-mongodb-with-express-js)
 
-Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).
+Have thoughts or questions? You can reach me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
