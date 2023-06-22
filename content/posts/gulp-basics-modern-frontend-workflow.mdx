@@ -11,17 +11,17 @@ feauredImage: >-
 
 With front-end tools evolving as rapidly as they do, it can be hard to know how to use things while maintaining compatibility with various browsers. Fortunately, there is a handy JavaScript library called Gulp which can make your life easier when building front-ends with just about any tool you choose.
 
-Today I’ll be teaching you some basics of Gulp, what Gulp is used for, and how to use it when setting up a front-end for your project.
+Today I'll be teaching you some basics of Gulp, what Gulp is used for, and how to use it when setting up a front-end for your project.
 
 ## What is Gulp?
 
-While Gulp is still a relatively new tool to me, it has been around for several years. Gulp is a build tool that can be used to improve your workflow and increase productivity using automations. For instance, when using sass you have to have some way to compile the code into plain css since browsers don’t know how to interpret sass code.
+While Gulp is still a relatively new tool to me, it has been around for several years. Gulp is a build tool that can be used to improve your workflow and increase productivity using automations. For instance, when using sass you have to have some way to compile the code into plain css since browsers don't know how to interpret sass code.
 
 With a few lines of code for configuration, you can run a command in your terminal and have the sass files compiled using Node.js! If you want to support a wide array of browsers, you could also configure Gulp to add browser prefixes to any css code that needs them for maximum browser compatibility.
 
 ## Setting up gulp
 
-To set up a Gulp workflow in your project, there are a few steps involved. The first of which is to install gulp. To do this, I’ll be using npm, although you can use Yarn if you’d like. First you should install the Gulp CLI library. To do this, use the following command in your terminal:
+To set up a Gulp workflow in your project, there are a few steps involved. The first of which is to install gulp. To do this, I'll be using npm, although you can use Yarn if you'd like. First you should install the Gulp CLI library. To do this, use the following command in your terminal:
 
 ```shell
 # Terminal
@@ -42,18 +42,18 @@ Once the project is initialized in the package.json file, you should add the Gul
 $ npm install --save-dev gulp
 ```
 
-Now that Gulp is installed globally on your machine, you have a node project created, and you have added Gulp as a dev dependency, it’s time to create a configuration file. To do this, create a file called gulpfile.js in the root directory of your project.
+Now that Gulp is installed globally on your machine, you have a node project created, and you have added Gulp as a dev dependency, it's time to create a configuration file. To do this, create a file called gulpfile.js in the root directory of your project.
 
 ```shell
 # Terminal
 $ touch gulpfile.js
 ```
 
-This file will hold all of the configurations for your project. It begins with imports for whatever plugins you’ll be using and then includes “tasks” where you will tell Gulp what to do. Each task is given a unique name and handles a specific function. It should be noted that more advanced projects can have multiple files which hold these tasks and pull them all into the gulpfile.js file. For the purposes of this post, I’ll be putting everything into the main file.
+This file will hold all of the configurations for your project. It begins with imports for whatever plugins you'll be using and then includes “tasks” where you will tell Gulp what to do. Each task is given a unique name and handles a specific function. It should be noted that more advanced projects can have multiple files which hold these tasks and pull them all into the gulpfile.js file. For the purposes of this post, I'll be putting everything into the main file.
 
 ## Basics of your gulpfile.js
 
-The first thing to do in your gulpfile.js is to import the Gulp library. There are a few ways to do this and I will list both below. I prefer and will be using the second method with destructuring because it’s a bit more concise. It’s totally up to you though, so choose the option that’s right for you!
+The first thing to do in your gulpfile.js is to import the Gulp library. There are a few ways to do this and I will list both below. I prefer and will be using the second method with destructuring because it's a bit more concise. It's totally up to you though, so choose the option that's right for you!
 
 ```javascript
 // gulpfile.js
@@ -75,16 +75,16 @@ task('sample', function (done) {
 task('default', series('sample'));
 ```
 
-Let’s unpack this a little bit. The first part at the top is where you will import gulp. The first example imports the gulp library and then would require you to use gulp.watch, gulp.series, etc when doing anything. The second involves destructuring which allows you to assign multiple variables at once. As I said before, this is totally personal preference, so choose the one you like best.
+Let's unpack this a little bit. The first part at the top is where you will import gulp. The first example imports the gulp library and then would require you to use gulp.watch, gulp.series, etc when doing anything. The second involves destructuring which allows you to assign multiple variables at once. As I said before, this is totally personal preference, so choose the one you like best.
 
-The second section is where you create a custom task which takes a few parameters. The first is the name of the task, which should be unique. The second is a function where you will provide the instructions for the task. If you only wanted to run this custom task, you’d run the following command in the terminal (with the appropriate name, of course):
+The second section is where you create a custom task which takes a few parameters. The first is the name of the task, which should be unique. The second is a function where you will provide the instructions for the task. If you only wanted to run this custom task, you'd run the following command in the terminal (with the appropriate name, of course):
 
 ```shell
 # Terminal
 $ gulp sample
 ```
 
-The third is another task, but it’s a bit different. You’ll notice that the name of the task is “default”. This functions the same as any other task except that it doesn’t require the task name when you run the command in the terminal. You can just run gulp in the terminal and it will automatically run this task. If you look closely, you can also see that the function is called series() which you imported from the Gulp library. This allows you to chain together the custom tasks you wrote in the order in which they’re listed.
+The third is another task, but it's a bit different. You'll notice that the name of the task is “default”. This functions the same as any other task except that it doesn't require the task name when you run the command in the terminal. You can just run gulp in the terminal and it will automatically run this task. If you look closely, you can also see that the function is called series() which you imported from the Gulp library. This allows you to chain together the custom tasks you wrote in the order in which they're listed.
 
 ## Adding gulp plugins
 
@@ -99,16 +99,16 @@ After the library is installed, you need to import it into your gulpfile.js file
 
 ```javascript
 // gulpfile.js
-...
+// ...
 const rename = require('gulp-rename');
-...
+// ...
 ```
 
-Now that you have the library imported, you can use it in a task. Each library works a little bit differently, so make sure to consult the documentation to find out how it should be used in your project. I’ll explain how to use a few different libraries that I use pretty often.
+Now that you have the library imported, you can use it in a task. Each library works a little bit differently, so make sure to consult the documentation to find out how it should be used in your project. I'll explain how to use a few different libraries that I use pretty often.
 
 ## Compiling Sass Code
 
-Browsers can’t interpret sass code, so it’s in order to take advantage of this awesome tool you need a way to turn sass into plain css. There are some different tools you can use such as a sass cli or different pieces of software, but I prefer to set it up in a Gulp workflow because it gives me more power than just compiling it. I can modify it as needed. To compile sass code with Gulp, you should use the gulp-sass library. You can add it as a dependency like so:
+Browsers can't interpret sass code, so it's in order to take advantage of this awesome tool you need a way to turn sass into plain css. There are some different tools you can use such as a sass cli or different pieces of software, but I prefer to set it up in a Gulp workflow because it gives me more power than just compiling it. I can modify it as needed. To compile sass code with Gulp, you should use the gulp-sass library. You can add it as a dependency like so:
 
 ```shell
 # Terminal
@@ -119,9 +119,9 @@ Once the library is added you can import it into your gulpfile.js and create a c
 
 ```javascript
 // gulpfile.js
-...
+// ...
 const sass = require('gulp-sass');
-...
+// ...
 
 task('sass', function (done) {
   src('scss/**/*.scss')
@@ -135,21 +135,21 @@ The task above is using a technique called “globbing” in the src function. T
 
 ## Minifying CSS code
 
-After I set up the task to compile sass into css, I set up a new task which will minify the the css code. To do this, I use a few different libraries. The first of which is called gulp-rename and the second is gulp-cssnano. The first library allows me to take my existing file, say style.css and save a modified copy as style.min.css which will help to keep track of what’s what. Gulp-cssnano is what actually minifies the css code. Both libraries can be installed with the following command:
+After I set up the task to compile sass into css, I set up a new task which will minify the the css code. To do this, I use a few different libraries. The first of which is called gulp-rename and the second is gulp-cssnano. The first library allows me to take my existing file, say style.css and save a modified copy as style.min.css which will help to keep track of what's what. Gulp-cssnano is what actually minifies the css code. Both libraries can be installed with the following command:
 
 ```shell
 # Terminal
 $ npm install --save-dev gulp-rename gulp-cssnano
 ```
 
-Then a new task can b created. In this case, I’m calling the new task “minify-css”.
+Then a new task can b created. In this case, I'm calling the new task “minify-css”.
 
 ```javascript
 // gulpfile.js
-...
+// ...
 const rename = require('gulp-rename');
 const cssnano = require('gulp-cssnano');
-...
+// ...
 
 task('minify-css', function (done) {
   src('dist/css/style.css')
@@ -162,7 +162,7 @@ task('minify-css', function (done) {
 
 ## Automating Browser Prefixes
 
-The next thing I like to do in my gulpfile.js is to set up Gulp to automatically add vendor prefixes to my CSS. This saves me a lot of time when writing code because I don’t have to look up vendor prefixes or wonder about compatibility. I simply write the code I want to use and Gulp finds all of the prefixes and adds them in automatically. To do this, I use the gulp-autoprefixer library. This can be set up like so:
+The next thing I like to do in my gulpfile.js is to set up Gulp to automatically add vendor prefixes to my CSS. This saves me a lot of time when writing code because I don't have to look up vendor prefixes or wonder about compatibility. I simply write the code I want to use and Gulp finds all of the prefixes and adds them in automatically. To do this, I use the gulp-autoprefixer library. This can be set up like so:
 
 ```shell
 # Terminal
@@ -171,11 +171,11 @@ $ npm install --save-dev gulp-autoprefixer
 
 ```javascript
 // gulpfile.js
-...
+// ...
 const rename = require('gulp-rename');
 const cssnano = require('gulp-cssnano');
 const autoprefixer = require('gulp-autoprefixer');
-...
+// ...
 
 task('minify-css', function (done) {
   src('dist/css/style.css')
@@ -193,11 +193,11 @@ task('minify-css', function (done) {
 });
 ```
 
-Let’s take a look at this code. You may notice that I went ahead and reused the code from the minify-css section and just added to it. That’s because I don’t necessarily need to create a new task just for this. I’d rather add vendor prefixes before saving it to a minified css file. To do this, I added a function called autoprefixer to the task which has several different parameter options. In this case, I’m just using one called overrideBrowserslist which allows me to specify which browsers I want to support. The list I have specified says that I want to support all browsers that are used by more than 2% of the world’s population, I want to support the last 2 versions of those browsers, and I want to specifically support IE 11 and greater.
+Let's take a look at this code. You may notice that I went ahead and reused the code from the minify-css section and just added to it. That's because I don't necessarily need to create a new task just for this. I'd rather add vendor prefixes before saving it to a minified css file. To do this, I added a function called autoprefixer to the task which has several different parameter options. In this case, I'm just using one called overrideBrowserslist which allows me to specify which browsers I want to support. The list I have specified says that I want to support all browsers that are used by more than 2% of the world's population, I want to support the last 2 versions of those browsers, and I want to specifically support IE 11 and greater.
 
-This is amazing for someone like me who hates having to support IE 11, but that’s a discussion for another time…
+This is amazing for someone like me who hates having to support IE 11, but that's a discussion for another time…
 
-<gif src="https://media.giphy.com/media/MrFNWzMrSgVFK/giphy.mp4" caption="R.I.P. Internet Explorer 11" width={} />
+<gif src="https://media.giphy.com/media/MrFNWzMrSgVFK/giphy.mp4" caption="R.I.P. Internet Explorer 11" />
 
 <email_signup />
 
@@ -212,7 +212,7 @@ To add babel to the project, you need to add a few dependencies. You can do this
 $ npm install --save-dev gulp-babel @babel/core @babel/preset-env
 ```
 
-This is the setup I use because it works for most projects I’m working on. This can be any babel setup you prefer though, so if you’re familiar with the library feel free to play around with it. To use babel in the gulpfile.js, add the following code…
+This is the setup I use because it works for most projects I'm working on. This can be any babel setup you prefer though, so if you're familiar with the library feel free to play around with it. To use babel in the gulpfile.js, add the following code…
 
 ```javascript
 // gulpfile.js
@@ -233,14 +233,14 @@ This task also uses globbing which takes any JavaScript file that is saved and a
 
 ## Combining JavaScript files
 
-What if you have several different JavaScript files to keep things organized in development, but you really don’t want that in production? There’s another plugin you can use which will combine all of your JavaScript files into one. To do this, I use a plugin called gulp-concat which does exactly what you’d expect. Installation just requires the following code:
+What if you have several different JavaScript files to keep things organized in development, but you really don't want that in production? There's another plugin you can use which will combine all of your JavaScript files into one. To do this, I use a plugin called gulp-concat which does exactly what you'd expect. Installation just requires the following code:
 
 ```shell
 # Terminal
 $ npm install --save-dev gulp-concat
 ```
 
-After installing gulp-concat, you can add it to your gulpfile.js and combine your JS files!
+After installing gulp-concat, you can add it to your gulpfile.js and combine your JS files!
 
 ```javascript
 // gulpfile.js
@@ -263,18 +263,18 @@ What this addition to the javascript task does is combines all of the JS files i
 
 ## Minify JavaScript files
 
-The last thing I will talk about today is minifying JavaScript. I don’t always do this since it can cause problems in the JS code sometimes, but just in case you want to and you’re curious I’ll drop so knowledge.
+The last thing I will talk about today is minifying JavaScript. I don't always do this since it can cause problems in the JS code sometimes, but just in case you want to and you're curious I'll drop so knowledge.
 
 <gif src="https://media.giphy.com/media/lRRjGTRlFwmQYFmmpU/giphy.mp4" caption="&#x22;Knowing is half the battle&#x22; - G.I. Joe" />
 
-To minify your Javascript code, you can use a plugin called gulp-uglify. If I’m being honest, this one is my favorite plugin name, but I digress. The following command will add the library as a dependency:
+To minify your Javascript code, you can use a plugin called gulp-uglify. If I'm being honest, this one is my favorite plugin name, but I digress. The following command will add the library as a dependency:
 
 ```shell
 # Terminal
 $ npm install --save-dev gulp-uglify
 ```
 
-Below is a task which handles the minification of JavaScript after it’s imported:
+Below is a task which handles the minification of JavaScript after it's imported:
 
 ```javascript
 // gulpfile.js
@@ -288,7 +288,7 @@ task('uglify', function () {
 
 ## The watch task
 
-One final special task I want to talk about is the “Watch” task. It is similar to the default task, except that it allows gulp to actively watch for changes and re-run anytime a change is saved. This can be very handy for ongoing development so you don’t have to keep running the same command over and over. The following code will set up a watch task:
+One final special task I want to talk about is the “Watch” task. It is similar to the default task, except that it allows gulp to actively watch for changes and re-run anytime a change is saved. This can be very handy for ongoing development so you don't have to keep running the same command over and over. The following code will set up a watch task:
 
 ```javascript
 // gulpfile.js
@@ -301,7 +301,7 @@ task('watch', function (done) {
 
 ## The completed gulpfile
 
-If you’re just interested in using the Gulpfile from this tutorial, the code for the whole file can be found below:
+If you're just interested in using the Gulpfile from this tutorial, the code for the whole file can be found below:
 
 ```javascript
 // gulpfile.js
