@@ -1,8 +1,12 @@
 ---
 title: How To Build A Blog with Wordpress and Gatsby.js - Part 3
-date: "2019-04-30T05:00:00.000Z"
-excerpt: In the third part of this series about WordPress and Gatsby js, we will be creating pages using templates and components using data from WordPress.
+date: 2019-04-30T05:00:00.000Z
+excerpt: >-
+  In the third part of this series about WordPress and Gatsby js, we will be
+  creating pages using templates and components using data from WordPress.
 published: true
+feauredImage: >-
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109211/iamtimsmith/how-to-build-a-blog-with-wordpress-and-gatsby-part-3_d4vwn6.jpg
 ---
 
 > Note: This is part three in a series of posts about Gatsby.js and WordPress. You can find [Part One here](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-1) and [Part Two here](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-2).
@@ -15,7 +19,7 @@ So far, we've talked about what themes and plugins to use for a WordPress back-e
 
 As you'll recall from the last post, we should create a page template before adding the `createPages` api to the gatsby-node.js file so it has something to call. To do this, we'll create a file in the pages directory called PageTemplate.js using the code below:
 
-```bash
+```shell
 # terminal
 touch ./src/templates/Page.js
 ```
@@ -24,7 +28,7 @@ Just like with the blog post template, we can probably just use a [stateless fun
 
 We will go ahead and start off with a generic template again and then we will fill it out later with the appropriate data. The code below will get a simple template created for us to use for pages for now:
 
-```jsx
+```javascript
 // templates/Page.js
 import React from "react";
 import Layout from "../components/layout";
@@ -41,7 +45,7 @@ export default PageTemplate;
 
 Awesome! Now that we have our page template created, we can add pages to the gatsby-node.js file pretty easily. First, we will import the template just like we did for the BlogPostTemplate. Then we will add the allWordpressPage piece to the graphql query. Finally, we will use the `createPage` api to create pages based on the information retrieved from the graphql query and use the Page template to build the pages automatically. Below is our finished gatsby-node.js file. See if you can spot the things I mentioned for the pages.
 
-```js
+```javascript
 // gatsby-node.js
 
 // You can delete this file if you're not using it
@@ -99,7 +103,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
 Just like before, we can test this to make sure the pages were created as expected by starting our development server and visiting [localhost:8000/stuff](http://localhost:8000/stuff) and getting a list of all of the available pages. Again, this is only available in a development environment since a live site will show a different 404 page. We should see an `/about` page and a `/sample-page` page in there. If so, our gatsby-node.js file worked and we can update the template to show the data we want.
 
-![See a list of available pages](../images/gatsby3-1.png)
+![See a list of available pages by visiting the 404 page](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109222/iamtimsmith/gatsby3-1_uwjb5m.png "See a list of available pages by visiting the 404 page.")
 
 ## Updating the Page Template
 
@@ -107,7 +111,7 @@ Since we have our page routes set up, we can start adding to the template. This 
 
 The end result is a pretty simple component as shown below:
 
-```jsx
+```javascript
 // src/templates/Page.js
 import React from "react";
 import { graphql } from "gatsby";
@@ -139,11 +143,11 @@ export const query = graphql`
 
 I mentioned at the end of [part two](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-2) that configuring the gatsby-node.js file is probably the most difficult part of this whole thing. Since we worked our way through that already and understand how it works, setting up another content type was cake, right?
 
-<Gif src='https://media.giphy.com/media/zcCGBRQshGdt6/giphy.mp4' />
+<gif src="https://media.giphy.com/media/zcCGBRQshGdt6/giphy.mp4" caption="... That was easy" />
 
 Now if we visit the about page at [http://localhost:8000/about](http://localhost:8000/about), we can see the data coming in from WordPress. If we inspect the page and look at the head, we can also see that the title and meta tags are being updated in the head because of the SEO component!
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ## Creating Pages in the Pages Directory
 
@@ -153,7 +157,7 @@ We can also see that the starter default comes with a few pages already in the `
 
 Since we want our blog to show up on the homepage, we can edit the file called `index.js` to do this. Let's take a look at this file before we make any changes:
 
-```jsx
+```javascript
 // src/pages/index.js
 import React from "react";
 import { Link } from "gatsby";
@@ -180,7 +184,7 @@ We are going to remove everything after the SEO tag but before the closing Layou
 
 To keep things simple, we'll just create a list of recent blog posts with an image, title, author, date, and excerpt. Each of the items in this list should link to the individual blog post for readers. Below is the code to create this layout. It's pretty straightforward and looks very similar to our blog post template with the exception of the map function which iterates over the items in an array.
 
-```jsx
+```javascript
 // src/pages/index.js
 import React from "react";
 import { graphql, Link } from "gatsby";
@@ -272,14 +276,11 @@ export const query = graphql`
 
 And here's what it looks like when we visit the homepage of our blog:
 
-![Finished blog home page](../images/gatsby3-2.png)
+![Finished blog home page](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109214/iamtimsmith/gatsby3-2_gzdsan.png "The finished blog home page.")
 
 It's looking pretty good so far. We're getting pretty close to being done, we just have a few more things to change and we're ready to start blogging!
 
-<Gif
-  src='https://media.giphy.com/media/qLWdMYX1NYF2g/giphy.mp4'
-  caption='So close...'
-/>
+<gif src="https://media.giphy.com/media/qLWdMYX1NYF2g/giphy.mp4" caption="&#x22;So close...&#x22; - Jim Halpert" />
 
 ## Changing the Header Component
 
@@ -289,7 +290,7 @@ One of the first things I notice about the blog pictured above is the header. It
 
 In the gatsby-config.js file, we can see a piece at the top called `siteMetaData` with a title, description, and author. This is where some basic information is kept about the project for the SEO component, but also for the site name.
 
-```js
+```javascript
 // gatsby-config.js
 module.exports = {
   siteMetadata: {
@@ -307,11 +308,11 @@ The title we're seeing in the header comes from the title listed here. We can ch
 
 Since we are building a blog using WordPress and want our users to have full control over the data, we should get our site name from WordPress so if it ever changes the user can update it. Fortunately, WordPress makes this available to us through the API, so we can query it in graphql like so:
 
-![Graphql query to get siteName from WordPress](../images/gatsby3-3.png)
+![Graphql query to get siteName from WordPress](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109224/iamtimsmith/gatsby3-3_b0ezin.png "Graphql query to get siteName from WordPress")
 
 Using queries works a bit differently inside of components. Rather than just writing a query which drops data into our page or template, we have to use a new component called `StaticQuery` which is designed specifically for using queries inside of components.
 
-```jsx
+```javascript
 // src/components/header.js
 import { Link } from "gatsby";
 import PropTypes from "prop-types";
@@ -359,7 +360,7 @@ export default Header;
 
 If we take a quick look at the existing header component, we will see that a site-title is being passed in as a prop which is then used to display the site title from `gatsby-config.js` in the header. What we are going to do is use the `StaticQuery` component provided by gatsby and use a query prop to run our query and then a render prop to actually render out our component like we normally would. You can see below how we do this in code:
 
-```jsx
+```javascript
 // src/components/header.js
 import { StaticQuery, graphql, Link } from "gatsby";
 import React from "react";
@@ -411,9 +412,9 @@ export default Header;
 
 The header component above looks a little different than it originally did, but as we start to dig into it a bit more we can see it hasn't changed much. We essentially just wrapped our header in the StaticQuery component and then ran our query inside of that component to give the header the necessary data. Simple, right?
 
-![Our Gatsby js blog after updating the header component](../images/gatsby3-4.png)
+![Our Gatsby js blog after updating the header component](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1687449613/iamtimsmith/gatsby3-4_eb0bgw.png "Our Gatsby js blog after updating the header component")
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ### Adding a Menu to the Header
 
@@ -421,7 +422,7 @@ Let's take it a step further and say our user wants a menu in the header that he
 
 When we were setting our gatsby-config.js file in the [second part of the series](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-2), we just stuck with the default routes provided in the gatsby-source-wordpress docs. The WP API Menus plugin creates a few new routes for those endpoints, so the first thing we need to do is add these endpoints to the gatsby-config.js file.
 
-```js
+```javascript
 // gatsby-config.js
 module.exports = {
 	siteMetadata: {
@@ -499,11 +500,11 @@ module.exports = {
 
 If you look at the code above, you'll notice we have added two new routes to the gatsby-source-wordpress. These routes are created automatically by the plugin inside of WordPress without any additional configuration. Remember, after making changes to files outside of the src folder, we need to restart our development server by running `gatsby develop`. After restarting, we can visit [http://localhost:8000/\_\_\_graphql](http://localhost:8000/___graphql) and query for the menu information, which will like like the screenshot below.
 
-![GraphiQL query to get menu items from WordPress](../images/gatsby3-6.png)
+![GraphiQL query to get menu items from WordPress](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109223/iamtimsmith/gatsby3-5_s2nz0m.png "GraphiQL query to get menu items from WordPress")
 
 The final step is to add this query into our static query and create the menu itself in the header component. We can just drop this in under the wordpressSiteMetadata piece. Once we have it added into the query, we can just use a `map()` function to iterate over the menu items and create it dynamically, allowing the user to update it through WordPress. Doing it this way does require us to specify which menu we want, so we need the name of the menu which is set in WordPress. In this case, our menu is called Main Menu so we will use that in our query.
 
-```jsx
+```javascript
 // src/components/header.js
 import { StaticQuery, graphql, Link } from "gatsby";
 import React from "react";
@@ -588,7 +589,7 @@ export default Header;
 
 That's a good looking component! Let's see what it looks like when we visit the site:
 
-![Blog after adding menu to header](../images/gatsby3-7.png)
+![Blog after adding menu to header](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109223/iamtimsmith/gatsby3-6_vkef44.png "Blog after adding menu to header")
 
 ## Wrapping up
 
@@ -596,4 +597,4 @@ Well done! We now have a functioning blog using WordPress and Gatsby js. There a
 
 The code for this post can be found on [Github](https://github.com/iamtimsmith/building-a-blog-with-wordpress-and-gatsby).
 
-If you have any thoughts or questions, you can find me on twitter at [@iam_timsmith](https://twitter.com/iam_timsmith)!
+If you have any thoughts or questions, you can find me on twitter at [@iam\_timsmith](https://twitter.com/iam_timsmith)!
