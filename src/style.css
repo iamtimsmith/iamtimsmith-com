@@ -59,6 +59,7 @@ figure,
 
 img {
 	max-width: 100%;
+	width: 600px;
 }
 
 figure video {
@@ -70,9 +71,9 @@ figure video {
 figcaption,
 .figcaption {
 	max-width: 600px;
-	margin: 0 auto;
+	margin: 0 auto !important;
 	text-align: center;
-	color: var(--color-grey--400);
+	color: var(--color-grey--400) !important;
 	font-size: 0.8rem;
 	font-style: italic;
 }
