@@ -61,8 +61,7 @@ figure img,
 [role="figure"] img {
 	max-width: 100%;
 	width: 600px;
-	display: block;
-	margin: 0 auto;
+	margin: 0 auto !important;
 }
 
 figure video {
