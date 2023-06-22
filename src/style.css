@@ -57,9 +57,12 @@ figure,
 	margin: 1.5rem auto;
 }
 
-img {
+figure img,
+[role="figure"] img {
 	max-width: 100%;
 	width: 600px;
+	display: block;
+	margin: 0 auto;
 }
 
 figure video {
