@@ -1,8 +1,13 @@
 ---
-title: "React: Class Components vs. Stateless Functional Components"
-date: "2018-08-22T05:00:00.000Z"
-excerpt: In this article, I'll explain the differences between class components and stateless functional components as well as when and why to use the different types.
+title: 'React: Class Components vs. Stateless Functional Components'
+date: 2018-08-22T05:00:00.000Z
+excerpt: >-
+  In this article, I'll explain the differences between class components and
+  stateless functional components as well as when and why to use the different
+  types.
 published: true
+feauredImage: >-
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109222/iamtimsmith/class-components-vs-stateless-functional-components_wdyhqg.jpg
 ---
 
 When I first began to learn React, I didn't even realize there was a difference between class components and stateless functional components. I thought they were just different ways to write the same thing.
@@ -15,7 +20,7 @@ A class component is a component that takes advantage of [ES6 classes](https://d
 
 These things can be useful when we are storing or maniplating data within our component. Cases such as these will be our primary use cases for class components. I have provided an example of a class component which will render "Hello World" below using state:
 
-```jsx
+```javascript
 // helloworld.js
 class HelloWorld extends React.Component {
 	constructor(props) {
@@ -40,13 +45,13 @@ I know, I know. "Stateless Functional Component" sounds like something big and s
 
 There are two ways to create a stateless functional component. Both are similar and do the same thing, it's just a matter of conciseness. I will be using [ES6 arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to create the components. If you haven't used them, I highly recommend you check ES6 out.
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ### The first way: Put it in a variable
 
 If we are putting all of our components in a single file, then this should be how we create stateless functional components. The ability choose how succinctly we want to create our functional components comes into play when we have a different file for each component. The code below illustrates how we can create a functional component within a variable and export it for use in another area of our app.
 
-```jsx
+```javascript
 // helloworld.js
 const HelloWorld = (props) => (
 	<div>
@@ -63,7 +68,7 @@ export default HelloWorld;
 
 When we have a stateless functional component in a file by itself, we don't need to name the component. I know, this saves us, like, 10 characters but hey I'll take what I can get. We can simply create the function and export it like the code below.
 
-```jsx
+```javascript
 // helloworld.js
 export default (props) => (
 	<div>
