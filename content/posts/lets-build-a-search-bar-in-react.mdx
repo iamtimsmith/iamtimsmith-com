@@ -444,7 +444,7 @@ componentWillReceiveProps(nextProps) {
 
 Now if we change the `.map()` function we're using for our list to map over the `filtered` list instead of the `items` list being passed in through props, we should see the same thing on the front end.
 
-<gif src="https://media.tenor.com/videos/1c0f33f884ddedac7cacd0d5def58234/mp4" caption="&#x22;Whoop-dee-doo, Basil. What does it all mean?&#x22; - Austin Powers" />
+<gif src="https://media.tenor.com/videos/1c0f33f884ddedac7cacd0d5def58234/mp4" caption="&#x22;Whoop-dee-doo, Basil. What does it all mean?&#x22; - Austin Powers" width={550} />
 
 What's the big deal? The big deal is that now we have a list we can manipulate without altering the original list. All we have to do is modify our `filter` state and the items being displayed will also reflect that, but we haven't lost the original list by doing this.
 
