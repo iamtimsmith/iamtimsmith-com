@@ -1,8 +1,13 @@
 ---
 title: How to Use Sass and Styled Components in a React JS Application
-date: "2019-03-10T05:00:00.000Z"
-excerpt: Today we will be covering a few popular methods to style our React JS applications such as Styled Components and Sass to explain the benefits of both.
+date: 2019-03-10T05:00:00.000Z
+excerpt: >-
+  Today we will be covering a few popular methods to style our React JS
+  applications such as Styled Components and Sass to explain the benefits of
+  both.
 published: true
+feauredImage: >-
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109211/iamtimsmith/how-to-use-styles-in-a-react-js-application_mntcjp.png
 ---
 
 Today we will be covering a few popular methods to style our React JS applications such as Styled Components and Sass to explain the benefits of both.
@@ -19,7 +24,7 @@ The primary reason for the debate has to do with separation of concerns. Is it b
 
 I don't know that there is necessarily a "correct" answer. I'm sure there are use cases where each is more appropriate, although I find myself reaching for Sass more often. Let's get into each a bit more so you can decide which you prefer!
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ## CSS-in-JS
 
@@ -35,7 +40,7 @@ Assuming we already have a React js project set up, we can add Styled Components
 
 The next step will be to [create a component](/blog/how-to-create-a-component/) to show our card. We can use the code below to do this:
 
-```jsx
+```javascript
 // app.js
 
 import React from "react";
@@ -76,7 +81,7 @@ What the code above is doing is creating a `const` variable called Card which sa
 
 Inside of the Card variable, we can also drop in media queries to make things a bit more responsive. If we add a media query like the code below, you can see that when we reach a max-width of 1000px the card background turns red. This isn't a style we actually want to add, it's just for demonstration purposes.
 
-```jsx
+```javascript
 // app.js
 
 import React from "react";
@@ -114,7 +119,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 We can also nest our styles inside of the styled component, which simplifies the code we're writing. If you have used sass or less, you are already familiar with this concept. The example below shows how we can do this to handle styles for the image in our card component:
 
-```jsx
+```javascript
 // app.js
 
 import React from "react";
@@ -154,7 +159,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 Another benefit of using CSS-in-JS is that we can mix javascript with styles. I realize this sounds kind of obvious from the concept name, but what I mean is that we can use logic to display things and we can pass variables into our styles. This can become a very powerful tool with a library like React js. We won't keep this style since it's a bit obnoxious, but for the purposes of illustration we can do this with string literals like so:
 
-```jsx
+```javascript
 // app.js
 
 import React from "react";
@@ -200,7 +205,7 @@ To do this, we should import the ThemeProvider component from styled-components 
 
 What if you have to update it someday? That sounds like a lot of search and replace waiting to happen. Instead we can declare the global theme variable and access it from any of our styled components. Doing so is pretty simple and is illustrated below.
 
-```jsx
+```javascript
 // app.js
 
 import React from "react";
@@ -245,7 +250,7 @@ These theme variables can be used in any of our components since the ThemeProvid
 
 To demonstrate this, let's add some global styles and some content for our social card. The code below adds the necessary content to the social card and also adds a few global styles to be applied to text.
 
-```jsx
+```javascript
 // app.js
 
 import React from "react";
@@ -361,13 +366,13 @@ This is obviously a pretty basic example but it's a simple way to get our feet w
 
 Styled Components are very nice because it allows us to throw our styles in the same file as our component rather than opening several different files to find the correct styles. Here is what our finished social card with Styled Components looks like:
 
-![Finished social card with Styled Components](../images/styled-components.png)
+![Finished social card using Styled Components](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/styled-components_lzr4s8.png "The finished social card using Styled Components")
 
-<EmailSignup title='Like this post? Join my mailing list!' />
+<email_signup />
 
 ## Using Sass in a React Application
 
-Sass was created several years ago and was originally implemented in applications built using Ruby. In recent years, it has been adapted to work with Node.js which is how we will be using it today. You may notice that we are creating "scss" files but calling it _sass_. This is because Sass was originally created with a certain syntax which is actually known as "Sass". Later an alternative syntax was created to closer resemble CSS, and this is called "Scss". Because Scss has the same functionality of Sass, it still falls into the category of Sass.
+Sass was created several years ago and was originally implemented in applications built using Ruby. In recent years, it has been adapted to work with Node.js which is how we will be using it today. You may notice that we are creating "scss" files but calling it *sass*. This is because Sass was originally created with a certain syntax which is actually known as "Sass". Later an alternative syntax was created to closer resemble CSS, and this is called "Scss". Because Scss has the same functionality of Sass, it still falls into the category of Sass.
 
 It is generally pretty simple to get up and running with Sass in a React js application, although it does make a difference how you go about bundling or compiling your application. In the code for this tutorial, I will be [using Parcel js which is pretty easy to get up and running](https://www.iamtimsmith.com/blog/parcel-js-who-says-bundling-needs-to-be-difficult/) and handles the Sass for us. There are other libraries which are sometimes necessary such as [node-sass](https://github.com/sass/node-sass), [gatsby-plugin-sass](https://www.gatsbyjs.org/packages/gatsby-plugin-sass/), or [next-sass](https://github.com/zeit/next-plugins/tree/master/packages/next-sass).
 
@@ -383,15 +388,15 @@ Instead, we will create separate files and just import them into the app.scss fi
 
 There are lots of different opinions on how to organize the folder with our styles. We could spend a TON of time going down a rabbit hole of organizational techniques, but I find that the way I like to do it is to organize my Sass folder the same as my project. Typically this would translate out to having the following layout:
 
--   Sass/
-    -   Components/ - A directory which has a .scss file for each React component
-    -   Pages/ - A directory which has a .scss file for each page that requires custom styles
-    -   Templates/ (optional) - A directory for templates if using them (for tools such as gatsby)
-    -   \_elements.scss - Any generic styles for the site. Shouldn't have any classes or ids for selectors.
-    -   \_keyframes.scss (optional) - Any keyframes or animations I will be using for the site.
-    -   \_mixins.scss - Any mixins (style snippets) that will be used over and over
-    -   \_variables.scss - Any variables that will be used throughout styles
-    -   app.scss - The file that imports all other scss files
+* Sass/
+  * Components/ - A directory which has a .scss file for each React component
+  * Pages/ - A directory which has a .scss file for each page that requires custom styles
+  * Templates/ (optional) - A directory for templates if using them (for tools such as gatsby)
+  * \_elements.scss - Any generic styles for the site. Shouldn't have any classes or ids for selectors.
+  * \_keyframes.scss (optional) - Any keyframes or animations I will be using for the site.
+  * \_mixins.scss - Any mixins (style snippets) that will be used over and over
+  * \_variables.scss - Any variables that will be used throughout styles
+  * app.scss - The file that imports all other scss files
 
 The first thing you may notice about the file names is that several of them start with an underscore. This is because outside of node, Sass is actually compiled to a CSS file. Any SCSS file without an underscore at the beginning is compiled as a different stylesheet. Since we are pulling all of our stylesheets into the app.scss file rather than separating them out, they should all start with an underscore.
 
@@ -447,7 +452,7 @@ Now we can import the `_elements.scss` file into our app.scss file. See if you c
 
 So we can target the elements in our React js component, we should add some classes and/or ids. CSS frameworks like Boostrap and Foundation require a lot of classes which can get pretty messy. My favorite code is the code that doesn't have 30+ classes on an element for styles, so with that in mind let's go ahead and add some classes to our component with the code below:
 
-```jsx
+```javascript
 // app.js
 
 import React from "react";
@@ -567,7 +572,7 @@ Now we can go ahead and write the import statement in the app.scss file so we ar
 
 And just like that, here is the final Social Card component with our sass styles. It looks the same as the component did in Styled Components.
 
-![Final Social Card with Sass styles](../images/sass.png)
+![The final social card using Sass styles](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109220/iamtimsmith/sass_tvvowq.png "The final social card using Sass styles")
 
 ## Final thoughts on Sass vs Styled Components
 
