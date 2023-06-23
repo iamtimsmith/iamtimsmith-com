@@ -5,6 +5,7 @@ import { Gif } from "../../components/gif";
 import { EmailSignup } from "../../components/signup";
 import { Code } from "../../components/code";
 import { Image } from "../../components/image";
+import { Embed } from "../../components/embed";
 
 const BlogPage = (props) => {
 	const { data } = useTina({
@@ -22,6 +23,7 @@ const BlogPage = (props) => {
 					components={{
 						gif: (props) => <Gif {...props} />,
 						email_signup: (props) => <EmailSignup {...props} />,
+						embed: (props) => <Embed {...props} />,
 						code_block: Code,
 						img: (props) => <Image {...props} />,
 					}}

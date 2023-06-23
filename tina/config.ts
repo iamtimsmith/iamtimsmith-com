@@ -1,6 +1,7 @@
 import { defineConfig, MediaStore } from "tinacms";
 import { GifSchema } from "../src/components/gif";
 import { SignupSchema } from "../src/components/signup";
+import { EmbedSchema } from "../src/components/embed";
 
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
@@ -74,7 +75,7 @@ export default defineConfig({
 						name: "body",
 						label: "Body",
 						isBody: true,
-						templates: [GifSchema, SignupSchema],
+						templates: [EmbedSchema, GifSchema, SignupSchema],
 					},
 				],
 				ui: {
