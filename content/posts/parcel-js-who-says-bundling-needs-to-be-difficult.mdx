@@ -1,15 +1,15 @@
 ---
-title: 'Parcel.js: Who says bundling needs to be difficult?'
+title: "Parcel.js: Who says bundling needs to be difficult?"
 date: 2018-08-31T05:00:00.000Z
 excerpt: >-
-  I'm going to show you how to set up a project using Parcel for building a
-  React app. It only takes about 5 minutes to get up and running (even less once
-  you've done it a couple of time)!
+    I'm going to show you how to set up a project using Parcel for building a
+    React app. It only takes about 5 minutes to get up and running (even less once
+    you've done it a couple of time)!
 published: true
-feauredImage: >-
-  http://res.cloudinary.com/dcrgbfjfu/image/upload/v1687529287/iamtimsmith/parcel-js-who-says-bundling-needs-to-be-difficult_bfk6n3.png
+featuredImage: >-
+    http://res.cloudinary.com/dcrgbfjfu/image/upload/v1687529287/iamtimsmith/parcel-js-who-says-bundling-needs-to-be-difficult_bfk6n3.png
 tags:
-  - workflow
+    - workflow
 ---
 
 If you're using React, you've likely come across build tools such as [Webpack](https://webpack.js.org/), [Grunt](https://gruntjs.com/), or [Gulp](https://gulpjs.com/).
@@ -68,7 +68,7 @@ Once we have git added, we should add a .gitignore file. The point of this file 
 touch .gitignore && open $_
 ```
 
-Once our file is open, we need to add the files and folders we don't want added. In this case, it's just going to be our node\_modules folder, which is where our dependencies are stored. Our .gitignore file should look like this:
+Once our file is open, we need to add the files and folders we don't want added. In this case, it's just going to be our node_modules folder, which is where our dependencies are stored. Our .gitignore file should look like this:
 
 ```shell
 # .gitignore
@@ -164,7 +164,7 @@ Inside of our file, we will put the following code. This is a pretty basic setup
 ```json
 // .babelrc
 {
-  "presets": ["env", "react"]
+	"presets": ["env", "react"]
 }
 ```
 
@@ -214,20 +214,20 @@ Our complete package.json file should look like this:
 ```json
 // package.json
 {
-  "name": "parcel-setup",
-  "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT",
-  "scripts": {
-    "start": "parcel index.html"
-  },
-  "dependencies": {
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "parcel": "^1.9.7",
-    "react": "^16.4.2",
-    "react-dom": "^16.4.2"
-  }
+	"name": "parcel-setup",
+	"version": "1.0.0",
+	"main": "index.js",
+	"license": "MIT",
+	"scripts": {
+		"start": "parcel index.html"
+	},
+	"dependencies": {
+		"babel-preset-env": "^1.7.0",
+		"babel-preset-react": "^6.24.1",
+		"parcel": "^1.9.7",
+		"react": "^16.4.2",
+		"react-dom": "^16.4.2"
+	}
 }
 ```
 

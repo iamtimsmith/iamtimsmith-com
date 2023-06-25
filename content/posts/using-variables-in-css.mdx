@@ -2,12 +2,12 @@
 title: Using Variables in CSS
 date: 2021-12-20T06:00:00.000Z
 excerpt: >-
-  In this article, I'll teach you how to use variables in your css files and
-  what the limitations are.
+    In this article, I'll teach you how to use variables in your css files and
+    what the limitations are.
 published: true
 tags:
-  - basics
-  - css
+    - basics
+    - css
 ---
 
 When I was first starting to learn web development, I remember being annoyed with writing the same hex code for a color over and over then finding out the color had to change and searching through code to find every instance. It was a huge pain! At the time, this was one of the pain points that made [css preprocessors like Sass](/blog/how-to-use-styles-in-a-react-js-application) and Less so appealing since they allowed you to use variables in your styles.
@@ -46,7 +46,7 @@ body.dark button {
 }
 ```
 
-Obviously the code above wouldn't be *that* big of a deal to change, but if this file continued on and on with these colors you can imagine why it would be useful to make a change in one place and have it update everywhere. The code below shows how this code can work with variables.
+Obviously the code above wouldn't be _that_ big of a deal to change, but if this file continued on and on with these colors you can imagine why it would be useful to make a change in one place and have it update everywhere. The code below shows how this code can work with variables.
 
 ```css
 body {
@@ -121,7 +121,10 @@ More often than not, you'll just see it used like this. There is, however, a sec
 
 Although css variables have solved a lot of problems for front-end developers, it is not without flaws. If you've spent time writing SCSS or something similar, you may have used variables and mixins to handle media queries. This cannot be done with CSS variables which is a bit of a bummer. In addition, CSS variables can't store a url. This would be useful if you had to reuse an image in different places, but it doesn't work.
 
-<gif src="https://media.giphy.com/media/hGUsHFdmERpc1VpoCA/giphy.mp4" width={300} />
+<gif
+	src="https://media.giphy.com/media/hGUsHFdmERpc1VpoCA/giphy.mp4"
+	width={300}
+/>
 
 ### Browser Support
 
@@ -131,4 +134,4 @@ Thanks to modern browers, you can use CSS variables with all browsers except IE1
 
 Overall, CSS variables are a very cool innovation within your styles. They make it very easy to not only write reusable styles, but update them or expand on them further down the road. I highly recommend checking them out in your next project and seeing what you think about them.
 
-Have questions? You can find me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+Have questions? You can find me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

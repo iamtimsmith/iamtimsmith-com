@@ -2,16 +2,16 @@
 title: What is the MERN stack and how do I use it?
 date: 2019-01-23T05:00:00.000Z
 excerpt: >-
-  In this MERN stack tutorial, we will build a simple blog using React js, Node
-  js, Express js, and Mongodb to add to our Full-Stack Developer toolkit.
+    In this MERN stack tutorial, we will build a simple blog using React js, Node
+    js, Express js, and Mongodb to add to our Full-Stack Developer toolkit.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/what-is-the-mern-stack-and-how-does-it-work_qnfgvf.jpg
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/what-is-the-mern-stack-and-how-does-it-work_qnfgvf.jpg
 tags:
-  - express
-  - mongodb
-  - node
-  - react
+    - express
+    - mongodb
+    - node
+    - react
 ---
 
 Note: [The code for this tutorial can be found here](https://github.com/iamtimsmith/simple-mern-app).
@@ -26,14 +26,17 @@ Perhaps the first item to discuss is the idea of a "stack". There are many diffe
 
 Although there are many different stacks out there to consider, some have become more common than others. One of these popular stacks is called the MEAN stack which consists of:
 
-* **M**ongoDb
-* **E**xpress js
-* **A**ngular js
-* **N**ode js
+-   **M**ongoDb
+-   **E**xpress js
+-   **A**ngular js
+-   **N**ode js
 
 Today we will be looking at the MERN stack which is almost the same as MEAN except we will replace Angular js with React js. This will allow us to use MongoDB for our database, Nodejs and Express js for our server and routes, and React js to create a front-end for the user to interact with.
 
-<gif src="https://media.giphy.com/media/tO5ddHjpXB6lG/giphy.mp4" caption="Kuzco and Pacha don't know about the MERN stack." />
+<gif
+	src="https://media.giphy.com/media/tO5ddHjpXB6lG/giphy.mp4"
+	caption="Kuzco and Pacha don't know about the MERN stack."
+/>
 
 ## How do we build with it?
 
@@ -59,18 +62,21 @@ Hopefully that cleared things up a little and if it didn't, forget I ever mentio
 
 While I'm not going to get into how to build it step by step in this article (that will be a separate article), I would like to go over different pieces that can be/are commonly used in this stack. I went through several tutorials which explained how to set up a server but not necessarily why those libraries are used to do so.
 
-<gif src="https://media.giphy.com/media/5wFkqt6A8R4qAqGIFQ/giphy.mp4" caption="I need to know details!" />
+<gif
+	src="https://media.giphy.com/media/5wFkqt6A8R4qAqGIFQ/giphy.mp4"
+	caption="I need to know details!"
+/>
 
 Once we create our `app.js` file, we will have to install some packages. Here are some common packages I've used in my Express js projects before which might be helpful to you.
 
-* **Express js** - A web application framework with built in functionality for a lot of things including routing.
-* **Mongoose** - An ODM to allow interactions between our express js application and MongoDB.
-* **BodyParser** - A library which allows our express js application to read the body (or content) of the incoming requests.
-* **DotENV** - Allows us to use a .env file for sensitive data.
-* **Passport js** - Authentication for our app with several different options for authentication methods.
-* **Validator** - Simple validation on many types of data.
-* **bCrypt** - Encryption for sensitive data such as passwords
-* **Nodemon** - "Hot Reloading" for our node server when things change so we don't have to stop and start the server every time we make a change
+-   **Express js** - A web application framework with built in functionality for a lot of things including routing.
+-   **Mongoose** - An ODM to allow interactions between our express js application and MongoDB.
+-   **BodyParser** - A library which allows our express js application to read the body (or content) of the incoming requests.
+-   **DotENV** - Allows us to use a .env file for sensitive data.
+-   **Passport js** - Authentication for our app with several different options for authentication methods.
+-   **Validator** - Simple validation on many types of data.
+-   **bCrypt** - Encryption for sensitive data such as passwords
+-   **Nodemon** - "Hot Reloading" for our node server when things change so we don't have to stop and start the server every time we make a change
 
 Of course there are many more packages out there, but these are several of the commonly used libraries I see and why they are used.
 
@@ -189,7 +195,10 @@ Adding the `client` folder to the `.gitignore` file will ensure that it is not b
 
 How your full stack app is designed will be totally up to you, I just feel that things can stay a bit more organized by maintaining separate repos for front and back ends.
 
-<gif src="https://media.giphy.com/media/cIWnDtConYRFPxmmah/giphy.mp4" caption="David Rose is getting organized." />
+<gif
+	src="https://media.giphy.com/media/cIWnDtConYRFPxmmah/giphy.mp4"
+	caption="David Rose is getting organized."
+/>
 
 ### Creating Our React js Front-End
 
@@ -227,11 +236,11 @@ And here's a screenshot of our app homepage:
 
 As you can see, the `app.js` isn't anything complicated. It has a `<Router>` which allows us to set up routes in React js which render different components based on the url. Here are the other components being used in our React js application:
 
-* **Header** - A navigation bar at the top of the screen
-* **Index** - Lists all of the available blog posts
-* **New** - Form which allows user to create new blog post
-* **Single** - Displays a single blog post based on the id
-* **Edit** - Form which allows user to update blog post based on id
+-   **Header** - A navigation bar at the top of the screen
+-   **Index** - Lists all of the available blog posts
+-   **New** - Form which allows user to create new blog post
+-   **Single** - Displays a single blog post based on the id
+-   **Edit** - Form which allows user to update blog post based on id
 
 We are using Axios to make our http calls to our API endpoints and then using React js to display the data how we'd like. I will put the Index.js code in this post so we can examine how that is working together.
 

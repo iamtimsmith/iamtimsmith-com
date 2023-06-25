@@ -2,14 +2,14 @@
 title: Creating Custom Gutenberg Blocks with React and WordPress - Part 2
 date: 2019-10-20T05:00:00.000Z
 excerpt: >-
-  I'll explain how to use JSX when building out custom Gutenberg blocks with
-  react and WordPress.
+    I'll explain how to use JSX when building out custom Gutenberg blocks with
+    react and WordPress.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/custom-gutenberg-blocks-with-react-and-wordpress-part-2_cbavue.jpg
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/custom-gutenberg-blocks-with-react-and-wordpress-part-2_cbavue.jpg
 tags:
-  - react
-  - wordpress
+    - react
+    - wordpress
 ---
 
 In the [last post about custom Gutenberg blocks with React and WordPress](/blog/custom-gutenberg-blocks-with-react-and-wordpress-part-1), I talked about registering custom blocks in WordPress as well as why you may want to use Gutenberg with custom blocks. While you can use plain old React to create your custom blocks, it is easier to read your code using a tool like JSX.
@@ -20,7 +20,11 @@ In this post I'll explain how and why you should use Gulp to improve your workfl
 
 In a nutshell, Gulp is a build tool which allows you to use to coolest new stuff without sacrficing compatibility. I'm not going to talk a ton about what Gulp is, but if you're curious you [learn more about it in this blog post](/gulp-basics-modern-frontend-workflow). For the purposes of this article, I will be keeping it VERY simple. It will basically be the absolute bare minimum you will need to build custom blocks.
 
-<gif src="https://media.giphy.com/media/5vUTS3pfJAwAv2yUNM/giphy.mp4" caption="NPH after doing the bare minimum." width={300} />
+<gif
+	src="https://media.giphy.com/media/5vUTS3pfJAwAv2yUNM/giphy.mp4"
+	caption="NPH after doing the bare minimum."
+	width={300}
+/>
 
 ## Setting Up Gulp and a gulpfile
 
@@ -197,4 +201,4 @@ task("default", series("blocks"));
 
 Writing custom Gutenberg blocks can get pretty complicated, but this can become much easier with things like Gulp to help make your workflow better. By building a `gulpfile.js` file in this way, you are empowered to focus on building awesome blocks rather than worrying about errors, compatibility, and overly verbose code. In the next post in this series, I'll go over block creation so you can start building the blocks of your dreams!
 
-Have thoughts or questions? You can reach me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

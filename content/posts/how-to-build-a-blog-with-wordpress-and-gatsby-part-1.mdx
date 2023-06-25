@@ -2,14 +2,14 @@
 title: How To Build A Blog with Wordpress and Gatsby.js - Part 1
 date: 2019-03-24T05:00:00.000Z
 excerpt: >-
-  Ever wondered how to use Gatsby js with WordPress? This post will cover
-  everything you need to know about getting WordPress ready for a Gatsby site.
+    Ever wondered how to use Gatsby js with WordPress? This post will cover
+    everything you need to know about getting WordPress ready for a Gatsby site.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109220/iamtimsmith/how-to-build-a-blog-with-wordpress-and-gatsby-part-1_bqdelr.jpg
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109220/iamtimsmith/how-to-build-a-blog-with-wordpress-and-gatsby-part-1_bqdelr.jpg
 tags:
-  - react
-  - wordpress
+    - react
+    - wordpress
 ---
 
 > Note: This is part one in a series of posts about Gatsby.js and WordPress. You can find [Part Two here](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-2) and [Part Three here](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-3).
@@ -22,7 +22,10 @@ One such drawback is the difficulties faced when trying to rank for SEO, because
 
 In this series of blog posts, we'll be talking about how to build a Gatsby js site with a WordPress back-end. The aim of the setup is to allow non-developer users to make changes on their website while allowing developers to use a fast, modern, and enjoyable tool to build with.
 
-<gif src="https://media.giphy.com/media/3o7ZeTmU77UlPyeR2w/giphy.mp4" caption="Kylo Ren approves!" />
+<gif
+	src="https://media.giphy.com/media/3o7ZeTmU77UlPyeR2w/giphy.mp4"
+	caption="Kylo Ren approves!"
+/>
 
 ## Why Use Gatsby js with WordPress At All?
 
@@ -34,7 +37,10 @@ First, it really allows a lot of customization for the developer to choose tools
 
 Second, I believe that plugins are a double-edged sword. They allow some cool functionality which otherwise wouldn't exist for non-coders, but people get slap-happy with them and start putting them on. I've seen sites with more than 60 plugins activated at once and they wondered why their site was so slow! Having 60 different plugins could mean having a ridiculous amount of http requests being sent because each plugin is loading a new library. Using a separate front-end means the developer is in control of this. It does mean that the client will have to pay to have some changes made, but at the same time it will ensure that the site is staying optimized and that a developer can make the change without adding a bunch of unnecessary junk.
 
-<gif src="https://media.giphy.com/media/CBFgxojcXwac/giphy.mp4" caption="He can't believe it! It's a good thing he's go infinite sunglasses to take off in disbelief." />
+<gif
+	src="https://media.giphy.com/media/CBFgxojcXwac/giphy.mp4"
+	caption="He can't believe it! It's a good thing he's go infinite sunglasses to take off in disbelief."
+/>
 
 Third, I've seen cases where the developer and designer create an amazing site for a client and then the client decides to start poking around trying to change something minute like font-size from 12px to 14px and ends up taking the whole site down. This is an extreme example, but it definitely happens. If the front-end is a totally separate entity, then the client doesn't have the ability to do so.
 
@@ -52,7 +58,10 @@ As a matter of fact, [my portfolio site](https://www.iamtimsmith.com) is built u
 
 Now let's get down to business...
 
-<gif src="https://media.giphy.com/media/xUOwGmsFStnxzIGC2s/giphy.mp4" caption="&#x22;I love all this water cool talk, but let's get down to business.&#x22; - Roland Schitt" />
+<gif
+	src="https://media.giphy.com/media/xUOwGmsFStnxzIGC2s/giphy.mp4"
+	caption="&#x22;I love all this water cool talk, but let's get down to business.&#x22; - Roland Schitt"
+/>
 
 ## Setting Up WordPress
 
@@ -96,7 +105,10 @@ When I build a Gatsby website, I like to use Netlify to handle the deployment of
 
 Netlify has the ability to create webhooks that we can grab to say, "Hey, there's new content so you need to rebuild". I built [WP Trigger Netlify Build](https://github.com/iamtimsmith/wp-trigger-netlify-build) to make this super easy to integrate with WordPress. Simply drop in the necessary information and it will tell Netlify to rebuild when changes are made. It even shows a badge with the status of the build on the dashboard.
 
-<gif src="https://media.giphy.com/media/qyX9oq2ZmsPwk/giphy.mp4" caption="&#x22;We gon' have lots of fixins!&#x22; - Stevie Janowski" />
+<gif
+	src="https://media.giphy.com/media/qyX9oq2ZmsPwk/giphy.mp4"
+	caption="&#x22;We gon' have lots of fixins!&#x22; - Stevie Janowski"
+/>
 
 <email_signup />
 
@@ -106,6 +118,6 @@ Not to be too anti-climactic, but there's really not a ton more to do on the Wor
 
 That being said, if we are creating custom content types for our blog we will need a way to differenciate them in ACF. Creating a custom page template will serve this purpose so we can filter on the page template to show the custom fields. We can also use the page template to filter in our Gatsby project to make sure we are receiving the desired fields for a given page.
 
-If you have any questions, you can hit me up on twitter at [@iam\_timsmith](https://twitter.com/iam_timsmith)!
+If you have any questions, you can hit me up on twitter at [@iam_timsmith](https://twitter.com/iam_timsmith)!
 
 See you in [How To Build A Blog with Wordpress and Gatsby.js - Part 2](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-2)!

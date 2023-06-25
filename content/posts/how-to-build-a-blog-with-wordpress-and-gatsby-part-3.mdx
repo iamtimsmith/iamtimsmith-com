@@ -2,14 +2,14 @@
 title: How To Build A Blog with Wordpress and Gatsby.js - Part 3
 date: 2019-04-30T05:00:00.000Z
 excerpt: >-
-  In the third part of this series about WordPress and Gatsby js, we will be
-  creating pages using templates and components using data from WordPress.
+    In the third part of this series about WordPress and Gatsby js, we will be
+    creating pages using templates and components using data from WordPress.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109211/iamtimsmith/how-to-build-a-blog-with-wordpress-and-gatsby-part-3_d4vwn6.jpg
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109211/iamtimsmith/how-to-build-a-blog-with-wordpress-and-gatsby-part-3_d4vwn6.jpg
 tags:
-  - react
-  - wordpress
+    - react
+    - wordpress
 ---
 
 > Note: This is part three in a series of posts about Gatsby.js and WordPress. You can find [Part One here](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-1) and [Part Two here](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-2).
@@ -146,7 +146,10 @@ export const query = graphql`
 
 I mentioned at the end of [part two](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-2) that configuring the gatsby-node.js file is probably the most difficult part of this whole thing. Since we worked our way through that already and understand how it works, setting up another content type was cake, right?
 
-<gif src="https://media.giphy.com/media/zcCGBRQshGdt6/giphy.mp4" caption="... That was easy" />
+<gif
+	src="https://media.giphy.com/media/zcCGBRQshGdt6/giphy.mp4"
+	caption="... That was easy"
+/>
 
 Now if we visit the about page at [http://localhost:8000/about](http://localhost:8000/about), we can see the data coming in from WordPress. If we inspect the page and look at the head, we can also see that the title and meta tags are being updated in the head because of the SEO component!
 
@@ -283,7 +286,10 @@ And here's what it looks like when we visit the homepage of our blog:
 
 It's looking pretty good so far. We're getting pretty close to being done, we just have a few more things to change and we're ready to start blogging!
 
-<gif src="https://media.giphy.com/media/qLWdMYX1NYF2g/giphy.mp4" caption="&#x22;So close...&#x22; - Jim Halpert" />
+<gif
+	src="https://media.giphy.com/media/qLWdMYX1NYF2g/giphy.mp4"
+	caption="&#x22;So close...&#x22; - Jim Halpert"
+/>
 
 ## Changing the Header Component
 
@@ -600,4 +606,4 @@ Well done! We now have a functioning blog using WordPress and Gatsby js. There a
 
 The code for this post can be found on [Github](https://github.com/iamtimsmith/building-a-blog-with-wordpress-and-gatsby).
 
-If you have any thoughts or questions, you can find me on twitter at [@iam\_timsmith](https://twitter.com/iam_timsmith)!
+If you have any thoughts or questions, you can find me on twitter at [@iam_timsmith](https://twitter.com/iam_timsmith)!

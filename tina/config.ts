@@ -54,7 +54,7 @@ export default defineConfig({
 					},
 					{
 						type: "image",
-						name: "feauredImage",
+						name: "featuredImage",
 						label: "Featured Image",
 					},
 					{
@@ -107,21 +107,21 @@ export default defineConfig({
 						required: true,
 					},
 					{
-						type: "rich-text",
-						name: "body",
-						label: "Body",
-						isBody: true,
-						templates: [GifSchema, SignupSchema],
-					},
-					{
 						type: "image",
-						name: "feauredImage",
+						name: "featuredImage",
 						label: "Featured Image",
 					},
 					{
 						type: "string",
 						name: "excerpt",
 						label: "Excerpt",
+					},
+					{
+						type: "rich-text",
+						name: "body",
+						label: "Body",
+						isBody: true,
+						templates: [GifSchema, SignupSchema],
 					},
 				],
 				ui: {

@@ -2,14 +2,14 @@
 title: Using MongoDB with an Express.js Application
 date: 2020-02-13T05:00:00.000Z
 excerpt: >-
-  MongoDB is a nosql database that is growing in popularity. In this post, I'll
-  show you how you can use it in your next Express application.
+    MongoDB is a nosql database that is growing in popularity. In this post, I'll
+    show you how you can use it in your next Express application.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-mongodb-with-express-js_ml3don.jpg
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-mongodb-with-express-js_ml3don.jpg
 tags:
-  - express
-  - mongodb
+    - express
+    - mongodb
 ---
 
 MongoDB is a nosql database that is growing in popularity. In this post, I'll show you how you can use it in your next Express application. The MERN stack (MongoDB, Express, React, Node), MEAN stack (MongoDB, Express, Angular, Node), and MEVN stack (MongoDB, Express, Vue, Node) all use MongoDB as a database since it's so easy to read information. Let's get right into it!
@@ -20,7 +20,11 @@ SQL is a type of database that has been around for a long time and allows tables
 
 Like SQL, it can be used locally or from a remote platform. When using it locally, it will store the data in a specified location, but won't work until you run `mongod` in the terminal. In recent years, platforms such as [mLab](https://mlab.com/) and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). In this tutorial, I'll be using mLab although it doesn't matter which one you choose as long as you have the connection url.
 
-<gif src="https://media.giphy.com/media/XHGAZo1d0vlSsWXEZP/giphy.mp4" caption="Whatever you think is best" width={300} />
+<gif
+	src="https://media.giphy.com/media/XHGAZo1d0vlSsWXEZP/giphy.mp4"
+	caption="Whatever you think is best"
+	width={300}
+/>
 
 ## Adding new packages to the Express Application
 
@@ -87,7 +91,11 @@ mongoose.connect(db, { useNewUrlParser: true });
 
 The code above adds the mongoose package to the file, gets the connection string for the database, and connects to MongoDB using the url assigned to `db`. We're done right? Well.....
 
-<gif src="https://media.giphy.com/media/s3d5ugcxFDApG/giphy.mp4" width={250} caption="Dwight is not impressed." />
+<gif
+	src="https://media.giphy.com/media/s3d5ugcxFDApG/giphy.mp4"
+	width={250}
+	caption="Dwight is not impressed."
+/>
 
 <email_signup />
 
@@ -125,11 +133,11 @@ In addition, you may notice that the date field is an object while the comments 
 
 Finally, you define the model for Post using the schema which makes it available to use when handling data in your application.
 
-***
+---
 
 This is the second in a series of posts about setting up a project with Express.
 
 1. [Creating a Basic Server with Express.js](/blog/creating-a-basic-server-with-express-js)
 2. Using MongoDB with an Express.js project
 
-Have thoughts or questions? You can reach me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).

@@ -2,14 +2,14 @@
 title: this.state - How to Use State in React js
 date: 2019-01-31T05:00:00.000Z
 excerpt: >-
-  If you're anything like me, the concept of state was confusing at first. In
-  this tutorial, we'll learn how to use state and props in a react js
-  application.
+    If you're anything like me, the concept of state was confusing at first. In
+    this tutorial, we'll learn how to use state and props in a react js
+    application.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/this-state-how-to-use-state-in-react_frmrl7.png
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/this-state-how-to-use-state-in-react_frmrl7.png
 tags:
-  - react
+    - react
 ---
 
 If you're anything like me, the concept of state was confusing at first. In this tutorial, we'll learn how to use state and props in a react js application.
@@ -34,7 +34,7 @@ Many times state will be used to pass data into a child component via props. The
 
 Before we can get into the details about creating a state within our component, it's important to note that state can only be [created in a class component](https://www.iamtimsmith.com/blog/class-components-vs-stateless-functional-components/). The reason for this is the fact that our state will be housed in a class constructor.
 
-*What's a constructor you say?* A constructor is a concept involved in object-oriented programming which creates an object. This is where we want to set up our state for the component. It should also be noted that a constructor is not necessary for class components to receive props so if we aren't "doing" anything in our constructor then we don't need to have one.
+_What's a constructor you say?_ A constructor is a concept involved in object-oriented programming which creates an object. This is where we want to set up our state for the component. It should also be noted that a constructor is not necessary for class components to receive props so if we aren't "doing" anything in our constructor then we don't need to have one.
 
 If you aren't sure how to create a component, you can [learn about that here](https://www.iamtimsmith.com/blog/how-to-create-a-component/). Now, on to the code...
 
@@ -85,15 +85,19 @@ class Example extends Component {
 
 In the Pizza component above, you can see that we have a state which includes a boolean value of true for `isHungry`, a string value of "Pepperoni" for the `topping`, and the integer 8 for the number of `slices`. We can actually use any data type within state such as bool, integer, string, array, or object.
 
-I know what you're thinking. *Super Cool, Tim. Now what?*
+I know what you're thinking. _Super Cool, Tim. Now what?_
 
-<gif src="https://media.giphy.com/media/20KLYSIhq35V4EpVlC/giphy.mp4" caption="&#x22;What now?&#x22; - David Rose" width={300} />
+<gif
+	src="https://media.giphy.com/media/20KLYSIhq35V4EpVlC/giphy.mp4"
+	caption="&#x22;What now?&#x22; - David Rose"
+	width={300}
+/>
 
 I'm glad you asked. That brings us to the next section:
 
 ## Accessing State from the Render Method
 
-Using state inside of our render method is pretty easy. Like *SUPER* easy. Can you guess how to do it without me telling you? I'll give you a few minutes.
+Using state inside of our render method is pretty easy. Like _SUPER_ easy. Can you guess how to do it without me telling you? I'll give you a few minutes.
 
 Did you get it? I'll go over it anyway just in case. Let's say we just want to output the topping for our pizza. We could do that in a paragraph tag like so:
 
@@ -109,7 +113,10 @@ The code above would be output in the browser like this:
 <p>Pepperoni</p>
 ```
 
-<gif src="https://media.giphy.com/media/d2Z9QYzA2aidiWn6/giphy.mp4" caption="Awesome!" />
+<gif
+	src="https://media.giphy.com/media/d2Z9QYzA2aidiWn6/giphy.mp4"
+	caption="Awesome!"
+/>
 
 ## How do we change the state?
 
@@ -160,7 +167,10 @@ If we assume this function will be fired when a button is clicked, then each tim
 
 This allows users to modify data on a page in real time, which is awesome. We can also pass our state into a child component as props. This brings us to our next topic which is changing parent state from a child component.
 
-<gif src="https://media.giphy.com/media/3owzW5c1tPq63MPmWk/giphy.mp4" caption="Modifying data on a page in real-time can sound complicated" />
+<gif
+	src="https://media.giphy.com/media/3owzW5c1tPq63MPmWk/giphy.mp4"
+	caption="Modifying data on a page in real-time can sound complicated"
+/>
 
 <email_signup />
 
@@ -287,7 +297,7 @@ Working with state is an essential skill to have in react js. It makes our lives
 In this post, we talked about what state is, how to create state, how to change state, and how to manipulate state from a child component. This should be enough information for us to control the data within our components in most cases. Now go forth and build cool stuff!
 
 <embed
-  html="<iframe
+	html="<iframe
   height='600'
   style='width: 100%;'
   scrolling='no'

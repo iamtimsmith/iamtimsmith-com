@@ -2,13 +2,13 @@
 title: Using the Pug Templating Engine  Part 4 - Includes & Mixins
 date: 2021-02-08T05:00:00.000Z
 excerpt: >-
-  With Pug, you can use pieces called includes and mixins to make development
-  more efficient. I'll teach you about it in this blog post.
+    With Pug, you can use pieces called includes and mixins to make development
+    more efficient. I'll teach you about it in this blog post.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-the-pug-templating-engine-part-4_xzm535.jpg
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-the-pug-templating-engine-part-4_xzm535.jpg
 tags:
-  - pug
+    - pug
 ---
 
 Now that we've covered templating, logic, and layouts, it's time to cover the last major piece of Pug: includes and mixins. These concepts also fall into the DRY category and can help make your life as a developer much easier. First up? Includes.
@@ -17,7 +17,10 @@ Now that we've covered templating, logic, and layouts, it's time to cover the la
 
 Imagine you've got a piece of your site that will be used in various places on your site, such as a contact form. If you wanted that on two different pages, you'd have to create the form manually on each page even though they're exactly the same. Again, that leads to issues with having to update something in multiple locations. Who wants to do that?
 
-<gif src="https://media.giphy.com/media/5CEr8N7lClOg0/giphy.mp4" caption="Lame." />
+<gif
+	src="https://media.giphy.com/media/5CEr8N7lClOg0/giphy.mp4"
+	caption="Lame."
+/>
 
 This is exactly the reason Pug gives us the ability to use includes. Includes allow you to write some static code (no dynamic data) and put it wherever you want in the templates. In our form example, the form code would just be standard Pug templating. The code below shows what's in my form template.
 
@@ -115,7 +118,10 @@ The `hello.pug` page looks pretty much the same as before, but with a few change
 
 As you can see, the example above calls the post mixin, `+post()` with two arguments being passed in. Using the mixins in templates is pretty straightforward and should feel similar to writing JavaScript function. In the example, the title argument is "This is the title" and the content argument is "This is the content".
 
-<gif src="https://media.giphy.com/media/4cUCFvwICarHq/giphy.mp4" caption="Amazed kid looking all over" />
+<gif
+	src="https://media.giphy.com/media/4cUCFvwICarHq/giphy.mp4"
+	caption="Amazed kid looking all over"
+/>
 
 After using the mixin in a template, the compiled markdown will look like this:
 
@@ -165,4 +171,4 @@ I just wanted to illustrate just how flexible Pug can be to meet just about any 
 
 Pug is an incredibly versatile templating engine for Nodejs applications. I have covered just about everything you need to build dynamic websites or applications as easily as you can. Maybe your next project will have a Pug frontend, maybe not. Either way, you know more than you did before (hopefully) and that's always a good thing.
 
-Have questions? You can find me on Twitter [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+Have questions? You can find me on Twitter [@iam_timsmith](https://www.twitter.com/iam_timsmith).

@@ -1,15 +1,15 @@
 ---
-title: 'React 101: The Basics'
+title: "React 101: The Basics"
 date: 2021-11-29T06:00:00.000Z
 excerpt: >-
-  Learn about the benefits of using React and the surrounding ecosystem for your
-  project.
+    Learn about the benefits of using React and the surrounding ecosystem for your
+    project.
 published: true
-feauredImage: >-
-  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/react-101-the-basics_oskpng.jpg
+featuredImage: >-
+    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/react-101-the-basics_oskpng.jpg
 tags:
-  - basics
-  - react
+    - basics
+    - react
 ---
 
 React is one of the most in demand tools in the job market these days, but if you don't know it should you just skip it? You could, but I still think it's worth learning. I'm going to teach you some basics about react to get you started. This should be enough information to give you an understanding of what React is and how to set it up.
@@ -24,7 +24,11 @@ Part of the reason for the popularity has to do with the direction of data flow 
 
 React was a gamechanger because it modified the paradigm to be data-driven. In a React application, the state (data) is passed into the view (HTML). When the view is changed or interacted with, an action is called which updates the state and re-renders the view with the new data. This is called unidirectional flow and can be very helpful.
 
-<gif src="https://media.giphy.com/media/26DMX0rWhOZhYsu6k/giphy.mp4" caption="This has all been very helpful. Thank you." width={300} />
+<gif
+	src="https://media.giphy.com/media/26DMX0rWhOZhYsu6k/giphy.mp4"
+	caption="This has all been very helpful. Thank you."
+	width={300}
+/>
 
 ## How to set up a React project
 
@@ -50,7 +54,7 @@ Originally, Next was created for server-side rendering which means that all of t
 
 Another popular solution (and the one I've used for 4 years at the time of this post) is Gatsby. I've written [several posts about Gatsby](/blog/how-to-build-a-blog-with-wordpress-and-gatsby-part-1) as well as [how to improve the default SEO component](/blog/creating-a-better-seo-component-for-gatsby) which comes with a default Gatsby project. Needless to say, I'm a big fan.
 
-So, what is Gatsby? I'm glad you asked. Gatsby is a Static Site Generator, or SSG, which means that you can create a site using React components and then build the site which creates static HTML pages from your React components. This means that sites are *blazing fast* when the browser renders a page because it doesn't have the extra bloat that comes along with tons of libraries which block rendering or slow down performance.
+So, what is Gatsby? I'm glad you asked. Gatsby is a Static Site Generator, or SSG, which means that you can create a site using React components and then build the site which creates static HTML pages from your React components. This means that sites are _blazing fast_ when the browser renders a page because it doesn't have the extra bloat that comes along with tons of libraries which block rendering or slow down performance.
 
 In addition to being crazy fast, Gatsby offers routing, graphql, and optimized images without any customization. Plus, if you do need something special added on like a CMS or other tool, [Gatsby offers tons of plugins](https://www.gatsbyjs.com/plugins) to assist with this. SSG also adds SEO benefits since the code is being compiled into HTML, so there's not much difference between Next and Gatsby in that regard.
 
@@ -58,7 +62,10 @@ In addition to being crazy fast, Gatsby offers routing, graphql, and optimized i
 
 As I mentioned before, you should use Create React App when SSR and SEO are not a concern (webapps, admin panels, cms, etc). Choosing between Next and Gatsby is a bit more complex since both offer SSR and SSG nowadays. Choosing which is right for your project really depends on whether you're looking for server-side rendering or static site generation and which one you prefer. Performance differences are neglegible and both support TypeScript, testing, other features.
 
-<gif src="https://media.giphy.com/media/26FPIGF8y0GmUBruU/giphy.mp4" caption="Choosing a framework can feel as difficult as choosing your starter pokemon!" />
+<gif
+	src="https://media.giphy.com/media/26FPIGF8y0GmUBruU/giphy.mp4"
+	caption="Choosing a framework can feel as difficult as choosing your starter pokemon!"
+/>
 
 The big difference between server-side rendering and static site generation is that SSR collects data each time the page is fetched and renders whatever is collected while SSG collects data at build time and builds static files from that data. For example, if you were using a CMS for content management and SSR on the frontend, you could simply refresh the page after updating a blog post and see the updates. If you were using a CMS and updated the same blog post, you wouldn't see updates in a statically generated site until ran another build so it could pull in the updated data.
 
@@ -102,7 +109,10 @@ npm i react react-dom
 
 [React](https://www.npmjs.com/package/react) is a library which contains the code needed for state management and component creation. [React DOM](https://www.npmjs.com/package/react-dom) is the library specific to web development which allows the use of DOM elements (such as `div`, `h1`, or `p`) in your components. With these two libraries, you can start building out a React project.
 
-<gif src="https://media.giphy.com/media/GxMOE1Ns0fdy4bfhf6/giphy.mp4" caption="So long, binder of requirements!" />
+<gif
+	src="https://media.giphy.com/media/GxMOE1Ns0fdy4bfhf6/giphy.mp4"
+	caption="So long, binder of requirements!"
+/>
 
 Of the solutions I mentioned earlier, Gatsby and Create React App both come with these already installed. When setting up a Next application, these libraries need to be installed alongside the Next library.
 
