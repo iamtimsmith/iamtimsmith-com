@@ -66,6 +66,7 @@ export default defineConfig({
 						type: "string",
 						name: "tags",
 						label: "Tags",
+						list: true,
 						ui: {
 							component: "tags",
 						},
