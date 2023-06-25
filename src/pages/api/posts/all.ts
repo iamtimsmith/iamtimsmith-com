@@ -9,6 +9,8 @@ export default async (req, res) => {
 	if (req.query?.sort) args.sort = req.query.sort;
 	if (req.query?.published === "true")
 		args.filter = { ...args.filter, published: { eq: true } };
+	if (req.query?.tag)
+		args.filter = { ...args.filter, tags: { in: req.query.tag } };
 	// Fetch posts
 	const page = await client.queries.postConnection(args);
 	let posts = page.data?.postConnection?.edges || [];
