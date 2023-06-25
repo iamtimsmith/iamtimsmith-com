@@ -28,6 +28,7 @@
 	--color-accent: var(--color-teal--400);
 	--color-link-accent: var(--color-teal--600);
 	--color-border: var(--color-grey--700);
+	--color-error: #f15a79;
 }
 
 html {
