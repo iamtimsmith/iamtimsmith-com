@@ -13,9 +13,40 @@ featuredImage: >-
 
 You may hear developers talking about dialogs and modals on websites as being similar things. Are they really the same though? The answer is: sort of. They do have similar appearances and functionality, but with a key difference. In this blog post, I'll explore modals and dialogs and explain the difference while showing you how they can be used natively in the browser.
 
-## What is a dialog?
+## Dialogs and modals?
 
-## What is a modal?
+While both dialogs and modals can appear similar, there are different reasons for using each. First we'll discuss what they are and how they're used and then we'll discuss how they're different.
+
+### How are dialogs and modals similar?
+
+Dialogs and modals can serve similar purposes: to display some data or collect some data outside the flow of the normal document. This could be a form collection, a call-to-action, or something similar that you want to be front-and-center for a user. Typically, people refer to these things as "popups".
+
+<gif src="https://media.giphy.com/media/c8tz8pCwiT4UqmsBOP/giphy.mp4" caption="Dialogs and modals are designed to draw the user's attention." />
+
+I'm sure you've seen them all over the web if you've been using the internet for any amount of time. Typically, people complain about these because they can be disruptive when using a website. Because of this, it's important to use them in this fashion sparingly. One of the two items is more disruptive than the other though...
+
+### How are dialogs and modals different?
+
+The way in which dialogs and modals differ has to do with how it allows the user to interact with the document when it's open. What does that mean? Let's talk about each one:
+
+* A dialog still allows a user to interact with other content on the page while it's open (i.e. click buttons and links visible around the dialog)
+* A modal locks down the page until something is done. This is typically done with a background that covers all other content so the modal must be dealt with. This is the more disruptive of the two options.
+
+Understanding the differences between the two will allow you to make the right choice about which option is best for your situation. As a general rule, you should reach for the dialog unless it's absolutely necessary to prevent the user from interacting with other elements.
+
+## The dialog element
+
+In years past, building dialogs and modals consisted of nesting divs inside of divs while applying some styles to make it look and behave a certain way using javascript and css. While some of this is still necessary due to it's interactive nature, the dialog has come a long way since then.
+
+One of the big problems around the dialog components of old are a lack of accessibility. They just weren't easy to understand and use with screen readers. There was a role="dialog" attribute which could be applied, but many times accessibility is unfortunately an afterthought.
+
+<gif src="https://media.giphy.com/media/U7gJGolFtVBWNLH7bb/giphy.mp4" caption="David Rose, shocked, backs away to avoid my callout." />
+
+Despite this, the web has evolved quite a bit in the last several years to make accessibility much more "baked in" through the use of semantic elements. Because of this, we have a dialog element in HTML5 which takes care of a lot of these things for us. In addition to being accessible, the dialog element gives us the ability to use it as both a dialog and a modal, although the way to do this may not be super intuitive.
+
+## Dialog element basics
+
+A dialog element is hidden by default and accepts children to be displayed inside the dialog. It also accepts an open attribute which decides whether the dialog should be visible to the user or not.
 
 ## How do I use a dialog?
 
