@@ -1,39 +1,54 @@
-import React from "react";
+import { TinaMarkdown } from "tinacms/dist/rich-text";
+import client from "../../tina/__generated__/client";
 import Link from "next/link";
+import { tinaField, useTina } from "tinacms/dist/react";
+import { AuthorBio, Layout, PostSummary } from "../components";
+import { Post } from "../../tina/__generated__/types";
 
-export default () => {
+const HomePage = (props) => {
+	const { data } = useTina({
+		query: props.query,
+		variables: props.variables,
+		data: props.data,
+	});
+
 	return (
-		<div
-			style={{
-				maxWidth: 800,
-				margin: "0 auto",
-				fontFamily: "sans-serif",
-				lineHeight: 1.5,
-			}}
-		>
-			<h1>Welcome! 👋</h1>
-			<p>
-				This page serves as a set of docs for using this content repo.
-			</p>
-			<h2>Motivations</h2>
-			<p>
-				Over the years, I've rebuilt my website with many tools (gatsby,
-				markdown, wordpress, vue, etc) and it becomes cumbersome to move
-				the data from one location to another and restructure the data.
-				The goal of this repo is to provide a easy-to-use and
-				easy-to-customize modern CMS solution with reusable data to
-				prevent the need for all of this work in the future.
-			</p>
-			<h2>Useful Links</h2>
-			<ul>
-				<li>
-					<Link href="/posts">Blog Posts</Link>
-				</li>
-				<li>
-					<a href="https://www.iamtimsmith.com">iamtimsmith.com</a>
-				</li>
-			</ul>
-			<h2>Pages</h2>
-		</div>
+		<Layout {...data.global}>
+			<div data-tina-field={tinaField(data.page, "body")}>
+				<TinaMarkdown content={data.page.body} />
+			</div>
+			<AuthorBio
+				author={data.global.author}
+				siteName={data.global.header.siteName}
+			/>
+			<h2>Recent Posts</h2>
+			{data.postConnection.edges.map(({ node }: { node: Post }) => (
+				<PostSummary post={node} key={node._sys.filename} />
+			))}
+			<Link href="/blog">View more posts →</Link>
+		</Layout>
 	);
+};
+
+export default HomePage;
+
+export const getStaticProps = async () => {
+	let data = {};
+	let query = {};
+
+	try {
+		const res = await client.queries.homeQuery();
+		query = res.query;
+		data = res.data;
+	} catch {
+		// swallow errors related to document creation
+	}
+
+	return {
+		props: {
+			variables: {},
+			data,
+			query,
+		},
+	};
 };

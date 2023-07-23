@@ -1,7 +1,9 @@
 import { defineConfig, MediaStore } from "tinacms";
-import { GifSchema } from "../src/components/gif";
-import { SignupSchema } from "../src/components/signup";
-import { EmbedSchema } from "../src/components/embed";
+import {
+	GifSchema,
+	EmailSignupSchema,
+	EmbedCodeSchema,
+} from "../src/components";
 
 const branch = process.env.HEAD || process.env.VERCEL_GIT_COMMIT_REF || "main";
 
@@ -76,12 +78,11 @@ export default defineConfig({
 						name: "body",
 						label: "Body",
 						isBody: true,
-						templates: [EmbedSchema, GifSchema, SignupSchema],
+						templates: [EmbedCodeSchema, GifSchema, EmailSignupSchema],
 					},
 				],
 				ui: {
-					router: ({ document }) =>
-						`/posts/${document._sys.filename}`,
+					router: ({ document }) => `/blog/${document._sys.filename}`,
 					filename: {
 						slugify: (values) =>
 							values?.title?.toLowerCase().replace(/ /g, "-"),
@@ -121,7 +122,7 @@ export default defineConfig({
 						name: "body",
 						label: "Body",
 						isBody: true,
-						templates: [GifSchema, SignupSchema],
+						templates: [GifSchema, EmailSignupSchema],
 					},
 				],
 				ui: {
@@ -229,12 +230,7 @@ export default defineConfig({
 										name: "icon",
 										label: "Icon",
 										type: "string",
-										options: [
-											"Dev.to",
-											"Github",
-											"Linkedin",
-											"Twitter",
-										],
+										options: ["Dev.to", "Github", "Linkedin", "Twitter"],
 										required: true,
 									},
 									{

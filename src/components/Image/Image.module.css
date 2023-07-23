@@ -1,0 +1,18 @@
+.Image {
+	margin: 1.5rem auto;
+	display: block;
+}
+
+.ImageImg {
+	height: auto;
+	display: block;
+	margin: 0.25rem auto;
+}
+
+.ImageCaption {
+	display: block;
+	color: var(--color-caption);
+	font-style: italic;
+	font-size: 0.875rem;
+	text-align: center;
+}

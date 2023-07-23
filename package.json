@@ -4,7 +4,7 @@
 	"description": "",
 	"main": "index.js",
 	"scripts": {
-		"dev": "tinacms dev -c \"next dev -p 8000\"",
+		"dev": "tinacms dev -c \"next dev -p 1125\"",
 		"build": "tinacms build && next build",
 		"start": "tinacms build && next start",
 		"test": "echo \"Error: no test specified\" && exit 1"
@@ -17,6 +17,7 @@
 		"@tinacms/cli": "^1.5.19",
 		"cors": "^2.8.5",
 		"next": "^13.2.4",
+		"next-themes": "^0.2.1",
 		"next-tinacms-cloudinary": "^4.3.1",
 		"react": "^18.2.0",
 		"react-dom": "^18.2.0",
@@ -27,6 +28,7 @@
 		"@types/cors": "^2.8.13",
 		"@types/node": "^18.15.0",
 		"@types/react": "^18.0.28",
+		"@types/react-syntax-highlighter": "^15.5.7",
 		"typescript": "^4.9.5"
 	},
 	"prettier": {

@@ -1,15 +1,5 @@
-import { Layout } from "../components/layout";
-import '../style.css';
+import "../styles/style.css";
 
-const CustomApp = ({ Component, pageProps }) => {
-	return (
-		<Layout>
-			<main>
-				<Component {...pageProps} />
-			</main>
-		</Layout>
-
-	)
-}
+const CustomApp = ({ Component, pageProps }) => <Component {...pageProps} />;
 
 export default CustomApp;

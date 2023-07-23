@@ -1,11 +1,14 @@
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import client from "../../../tina/__generated__/client";
-import { Gif } from "../../components/gif";
-import { EmailSignup } from "../../components/signup";
-import { Code } from "../../components/code";
-import { Image } from "../../components/image";
-import { Embed } from "../../components/embed";
+import {
+	Gif,
+	EmailSignup,
+	CodeBlock,
+	Image,
+	EmbedCode,
+	Layout,
+} from "../../components";
 
 const BlogPage = (props) => {
 	const { data } = useTina({
@@ -15,7 +18,7 @@ const BlogPage = (props) => {
 	});
 
 	return (
-		<>
+		<Layout {...data.global}>
 			<h1>{data.post.title}</h1>
 			<div className="content">
 				<TinaMarkdown
@@ -23,13 +26,13 @@ const BlogPage = (props) => {
 					components={{
 						gif: (props) => <Gif {...props} />,
 						email_signup: (props) => <EmailSignup {...props} />,
-						embed: (props) => <Embed {...props} />,
-						code_block: Code,
+						embed: (props) => <EmbedCode {...props} />,
+						code_block: CodeBlock,
 						img: (props) => <Image {...props} />,
 					}}
 				/>
 			</div>
-		</>
+		</Layout>
 	);
 };
 
@@ -38,7 +41,7 @@ export const getStaticProps = async ({ params }) => {
 	let query = {};
 	let variables = { relativePath: `${params.filename}.mdx` };
 	try {
-		const res = await client.queries.post(variables);
+		const res = await client.queries.blogPostQuery(variables);
 		query = res.query;
 		data = res.data;
 		variables = res.variables;

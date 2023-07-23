@@ -1,9 +1,8 @@
 import { useTina } from "tinacms/dist/react";
 import { TinaMarkdown } from "tinacms/dist/rich-text";
 import client from "../../tina/__generated__/client";
-import { Gif } from "../components/gif";
-import { EmailSignup } from "../components/signup";
-import { Code } from "../components/code";
+import { Image } from "../components/Image";
+import { EmailSignup, Gif, Layout } from "../components";
 
 const PageTemplate = (props) => {
 	const { data } = useTina({
@@ -13,17 +12,18 @@ const PageTemplate = (props) => {
 	});
 
 	return (
-		<>
+		<Layout {...data.global}>
 			<h1>{data.page.title}</h1>
 			<TinaMarkdown
 				content={data.page.body}
 				components={{
 					gif: (props) => <Gif {...props} />,
 					email_signup: (props) => <EmailSignup {...props} />,
-					code_block: Code,
+					// code_block: Code,
+					img: (props) => <Image {...props} />,
 				}}
 			/>
-		</>
+		</Layout>
 	);
 };
 
@@ -32,7 +32,7 @@ export const getStaticProps = async ({ params }) => {
 	let query = {};
 	let variables = { relativePath: `${params.filename}.mdx` };
 	try {
-		const res = await client.queries.page(variables);
+		const res = await client.queries.pageQuery(variables);
 		query = res.query;
 		data = res.data;
 		variables = res.variables;

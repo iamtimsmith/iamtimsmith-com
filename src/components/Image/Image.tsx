@@ -1,5 +1,6 @@
 import NextImage from "next/image";
-import { slugify } from "../utils/slugify";
+import { slugify } from "../../utils/slugify";
+import style from "./Image.module.css";
 
 export interface ImageProps {
 	url?: string;
@@ -7,28 +8,28 @@ export interface ImageProps {
 	caption?: string;
 }
 
-export const Image = ({ url, caption, alt }: ImageProps) => {
+export const Image = ({ url, caption, alt = "" }: ImageProps) => {
 	const id = caption ? slugify(caption) : undefined;
+
 	return (
-		<span role="figure" aria-labelledby={id}>
+		<span
+			className={style.Image}
+			role="figure"
+			aria-labelledby={id}
+		>
 			{url && (
 				<NextImage
+					className={style.ImageImg}
 					src={url}
 					alt={alt}
-					width={800}
+					width={600}
 					height={400}
-					style={{ height: "auto" }}
 				/>
 			)}
 			{caption && (
 				<span
 					id={id}
-					className="figcaption"
-					style={{
-						display: "block",
-						color: "var(--color-grey--50)",
-						margin: "-1rem auto 1.5rem",
-					}}
+					className={style.ImageCaption}
 				>
 					{caption}
 				</span>

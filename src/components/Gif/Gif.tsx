@@ -1,14 +1,16 @@
+import clsx from "clsx";
+import style from "./Gif.module.css";
 import { Template } from "tinacms";
 
 export interface GifProps {
-	src?: string;
+	src: string;
 	caption?: string;
 	maxWidth?: number;
 }
 
-export const Gif = ({ src, caption, maxWidth = 400 }: GifProps) => (
-	<figure style={{ maxWidth }}>
-		<video src={src} loop muted playsInline autoPlay />
+export const Gif = ({ src, caption, maxWidth = 400 }: GifProps | any) => (
+	<figure className={clsx([style.Gif])} style={{ maxWidth }}>
+		<video src={src} playsInline autoPlay muted loop />
 		{caption && <figcaption>{caption}</figcaption>}
 	</figure>
 );

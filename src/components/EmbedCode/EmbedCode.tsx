@@ -1,14 +1,15 @@
 import { Template } from "tinacms";
+import style from "./EmbedCode.module.css";
 
 interface EmbedProps {
 	html?: string;
 }
 
-export const Embed = ({ html }: EmbedProps) => (
-	<div dangerouslySetInnerHTML={{ __html: html }} />
+export const EmbedCode = ({ html = "" }: EmbedProps) => (
+	<div className={style.EmbedCode} dangerouslySetInnerHTML={{ __html: html }} />
 );
 
-export const EmbedSchema: Template = {
+export const EmbedCodeSchema: Template = {
 	name: "embed",
 	label: "Embed Code",
 	fields: [

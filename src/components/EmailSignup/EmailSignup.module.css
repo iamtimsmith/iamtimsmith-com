@@ -1,0 +1,36 @@
+.EmailSignup {
+	display: block;
+	margin: 1.5rem 0;
+	padding: 2rem;
+	background: var(--color-bg-light);
+	color: var(--color-text);
+	text-align: center;
+}
+
+.EmailSignupTitle {
+	font-size: var(--font-size--xl);
+	font-weight: 900;
+	margin: 0 0 1rem;
+	line-height: 1.2;
+}
+
+.EmailSignup input {
+	width: 300px;
+	max-width: 100%;
+	margin: 0.5rem 0;
+}
+
+.EmailSignupError {
+	font-size: var(--font-size--sm);
+	color: var(--color-error);
+}
+
+.EmailSignupSuccess {
+	font-size: var(--font-size--sm);
+}
+
+@media screen and (min-width: 600px) {
+	.EmailSignup {
+		padding: 2rem 5rem;
+	}
+}
