@@ -1,4 +1,4 @@
-.ThemeButton {
+.themeButton {
 	font-size: 1.2rem;
 	padding: 0.25rem 0.55rem;
 	display: flex;
@@ -9,7 +9,7 @@
 	color: var(--color-text);
 }
 
-.ThemeButtonPlaceholder {
+.themeButtonPlaceholder {
 	display: block;
 	width: 1em;
 	height: 1em;

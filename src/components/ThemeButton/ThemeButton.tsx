@@ -1,7 +1,6 @@
-"use client";
 import { useTheme } from "next-themes";
 import { MoonIcon, SunIcon } from "../Icons";
-import style from "./ThemeButton.module.css";
+import styles from "./styles.module.css";
 import { useEffect, useState } from "react";
 
 export const ThemeButton = () => {
@@ -29,10 +28,7 @@ export const ThemeButton = () => {
 	}, []);
 
 	return (
-		<button
-			className={style.ThemeButton}
-			onClick={() => toggleTheme()}
-		>
+		<button className={styles.themeButton} onClick={() => toggleTheme()}>
 			{icon}
 		</button>
 	);
