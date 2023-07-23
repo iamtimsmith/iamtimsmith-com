@@ -1,6 +1,6 @@
 "use client";
 import { FormEvent, useRef, useState } from "react";
-import style from "./EmailSignup.module.css";
+import styles from "./EmailSignup.module.css";
 import { Template } from "tinacms";
 
 export const EmailSignup = () => {
@@ -31,8 +31,8 @@ export const EmailSignup = () => {
 	};
 
 	return (
-		<form className={style.EmailSignup} onSubmit={subscribeUser}>
-			<p className={style.EmailSignupTitle}>Sign up for my mailing list!</p>
+		<form className={styles.emailSignup} onSubmit={subscribeUser}>
+			<p className={styles.emailSignupTitle}>Sign up for my mailing list!</p>
 			{(message.success && <p>{message.success}</p>) || (
 				<>
 					<p>
@@ -52,7 +52,7 @@ export const EmailSignup = () => {
 						Subscribe
 					</button>
 					{message.error && (
-						<p className={style.EmailSignupError}>{message.error}</p>
+						<p className={styles.emailSignupError}>{message.error}</p>
 					)}
 				</>
 			)}
