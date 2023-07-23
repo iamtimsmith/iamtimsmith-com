@@ -1,12 +1,12 @@
-.Gif {
+.gif {
 	margin: 1.5rem auto;
 }
 
-.Gif video {
+.gif video {
 	max-width: 100%;
 }
 
-.Gif figcaption {
+.gif figcaption {
 	color: var(--color-caption);
 	font-style: italic;
 	font-size: 0.875rem;
