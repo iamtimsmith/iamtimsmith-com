@@ -9,7 +9,7 @@ interface CodeBlockProps {
 
 export const CodeBlock = ({ lang, value }: CodeBlockProps) => {
 	return (
-		<div className={styles.CodeBlock}>
+		<div className={styles.codeBlock}>
 			<SyntaxHighlighter language={lang} style={nord}>
 				{value || ""}
 			</SyntaxHighlighter>
