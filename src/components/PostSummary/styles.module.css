@@ -1,8 +1,8 @@
-.BlogPostSummaryTitle {
+.blogPostSummaryTitle {
 	font-size: var(--font-size--lg);
 	font-weight: 700;
 }
 
-.BlogPostSummaryExcerpt {
+.blogPostSummaryExcerpt {
 	margin-top: 0;
 }

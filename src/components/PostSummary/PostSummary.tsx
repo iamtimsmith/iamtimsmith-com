@@ -16,10 +16,10 @@ export const PostSummary = ({ post }: PostSummaryProps) => {
 
 	return (
 		<article data-tina-field={tinaField(post)}>
-			<Link className={styles.BlogPostSummaryTitle} href={`/blog/${filename}`}>
+			<Link className={styles.blogPostSummaryTitle} href={`/blog/${filename}`}>
 				{title}
 			</Link>
-			<p className={styles.BlogPostSummaryExcerpt}>{excerpt}</p>
+			<p className={styles.blogPostSummaryExcerpt}>{excerpt}</p>
 		</article>
 	);
 };
