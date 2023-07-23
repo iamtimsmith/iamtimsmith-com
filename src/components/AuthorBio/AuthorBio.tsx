@@ -10,11 +10,11 @@ interface AuthorBioProps {
 }
 
 export const AuthorBio = ({ author, siteName }: AuthorBioProps) => (
-	<div className={styles.AuthorBio} data-tina-field={tinaField(author)}>
-		<figure className={styles.AuthorBioImage}>
+	<div className={styles.authorBio} data-tina-field={tinaField(author)}>
+		<figure className={styles.authorBioImage}>
 			<Image src={author.portrait} alt={siteName} width={96} height={96} />
 		</figure>
-		<div className={styles.AuthorBioContent}>
+		<div className={styles.authorBioContent}>
 			<TinaMarkdown content={author.bio} />
 		</div>
 	</div>
