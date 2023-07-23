@@ -1,30 +1,30 @@
-.Header {
+.header {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 }
 
-.HeaderItems,
-.HeaderNav {
+.headerItems,
+.headerNav {
 	display: flex;
 	align-items: center;
 	margin: 0;
 }
 
-.HeaderLogo {
+.headerLogo {
 	font-size: var(--font-size--xl);
 	font-weight: bold;
 	color: var(--color-text);
 	background: none;
 }
 
-.HeaderNavItem {
+.headerNavItem {
 	list-style: none;
 	padding: 0.55rem;
 	margin: 0;
 }
 
-.HeaderButton {
+.headerButton {
 	font-size: 1.2rem;
 	padding: 0.25rem 0.55rem;
 	display: flex;

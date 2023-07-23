@@ -9,20 +9,20 @@ export const Header = (props: GlobalHeader) => {
 	const { siteName, nav } = props;
 
 	return (
-		<header className={styles.Header}>
+		<header className={styles.header}>
 			<Link
-				className={styles.HeaderLogo}
+				className={styles.headerLogo}
 				href="/"
 				data-tina-field={tinaField(props, "siteName")}
 			>
 				{siteName}
 			</Link>
-			<div className={styles.HeaderItems}>
+			<div className={styles.headerItems}>
 				<nav>
-					<ul className={styles.HeaderNav}>
+					<ul className={styles.headerNav}>
 						{nav &&
 							nav.map((item: any, i: number) => (
-								<li className={styles.HeaderNavItem} key={`navItem_${i}`}>
+								<li className={styles.headerNavItem} key={`navItem_${i}`}>
 									<Link href={item.url} data-tina-field={tinaField(item)}>
 										{item?.title}
 									</Link>
@@ -33,7 +33,7 @@ export const Header = (props: GlobalHeader) => {
 				<ThemeButton />
 				{/*
 				** SEARCH IS NOT AVAILABLE IN TINA YET **
-				<button className={styles.HeaderButton}>
+				<button className={styles.headerButton}>
 					<SearchIcon />
 				</button> */}
 			</div>
