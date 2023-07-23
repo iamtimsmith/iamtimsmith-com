@@ -1,12 +1,12 @@
 import { Template } from "tinacms";
-import style from "./EmbedCode.module.css";
+import style from "./styles.module.css";
 
 interface EmbedProps {
 	html?: string;
 }
 
 export const EmbedCode = ({ html = "" }: EmbedProps) => (
-	<div className={style.EmbedCode} dangerouslySetInnerHTML={{ __html: html }} />
+	<div className={style.embedCode} dangerouslySetInnerHTML={{ __html: html }} />
 );
 
 export const EmbedCodeSchema: Template = {

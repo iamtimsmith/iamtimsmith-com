@@ -1,6 +1,6 @@
 "use client";
 import { FormEvent, useRef, useState } from "react";
-import styles from "./EmailSignup.module.css";
+import styles from "./styles.module.css";
 import { Template } from "tinacms";
 
 export const EmailSignup = () => {
