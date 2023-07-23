@@ -1,22 +1,22 @@
-.Footer {
+.footer {
 	padding: 3rem 0;
 }
 
-.FooterSocials {
+.footerSocials {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	list-style: none;
 }
 
-.FooterSocialLink {
+.footerSocialLink {
 	background: none;
 	margin: 0.55rem;
 	font-size: 1.5rem;
 	opacity: 0.5;
 	transition: color 0.3s, opacity 0.3s;
 }
-.FooterSocialLink:hover {
+.footerSocialLink:hover {
 	color: var(--color-accent);
 	opacity: 1;
 }
