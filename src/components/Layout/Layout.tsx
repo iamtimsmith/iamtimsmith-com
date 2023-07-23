@@ -5,6 +5,7 @@ import { GlobalFooter, GlobalHeader } from "../../../tina/__generated__/types";
 import { Header } from "../Header";
 import { Footer } from "../Footer";
 import Head from "next/head";
+import { EnvironmentIndicator } from "../EnvironmentIndicator";
 
 interface LayoutProps extends PropsWithChildren {
 	header: GlobalHeader;
@@ -13,11 +14,7 @@ interface LayoutProps extends PropsWithChildren {
 
 export const Layout = ({ header, footer, children }: LayoutProps) => (
 	<ThemeProvider>
-		{process.env.NODE_ENV === "development" && (
-			<div className="EnvironmentBar">
-				Environment: <span>{process.env.NODE_ENV}</span>
-			</div>
-		)}
+		{process.env.NODE_ENV === "development" && <EnvironmentIndicator />}
 		<div className={style.container}>
 			<Header {...header} />
 			{children}

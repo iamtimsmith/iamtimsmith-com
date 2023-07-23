@@ -1,0 +1,16 @@
+.environmentIndicator {
+	position: sticky;
+	top: 0;
+	left: 0;
+	right: 0;
+	color: var(--color-text);
+	font-size: 0.75rem;
+	font-family: "Dank Mono", monospace;
+	padding: 0.1rem 1rem;
+	text-transform: capitalize;
+	background: var(--color-error);
+}
+
+.environmentIndicatorEnv {
+	font-style: italic;
+}

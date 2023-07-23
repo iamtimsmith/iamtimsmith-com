@@ -9,3 +9,4 @@ export * from "./Gif";
 export * from "./EmailSignup";
 export * from "./CodeBlock";
 export * from "./AuthorBio";
+export * from "./EnvironmentIndicator";
