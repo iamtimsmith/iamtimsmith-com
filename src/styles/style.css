@@ -4,4 +4,5 @@
 @import "./themes/_dark.css";
 
 @import "./_reset.css";
+@import "./_fonts.css";
 @import "./_global.css";

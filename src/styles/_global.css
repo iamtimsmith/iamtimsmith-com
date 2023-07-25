@@ -25,8 +25,9 @@ pre,
 code,
 pre *,
 code * {
-	font-family: monospace !important;
-	font-size: 0.75rem !important;
+	font-family: "Dank Mono", monospace !important;
+	font-variant-ligatures: normal;
+	font-size: 0.85rem !important;
 }
 
 /**
