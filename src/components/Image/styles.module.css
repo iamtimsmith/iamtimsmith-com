@@ -8,6 +8,7 @@
   height: auto;
   display: block;
   margin: 0.25rem auto;
+  border-radius: var(--border--rounded);
 }
 
 .imageCaption {

@@ -1,14 +1,15 @@
 .gif {
-	margin: 1.5rem auto;
+  margin: 1.5rem auto;
 }
 
 .gif video {
-	max-width: 100%;
+  max-width: 100%;
+  border-radius: var(--border--rounded);
 }
 
 .gif figcaption {
-	color: var(--color-caption);
-	font-style: italic;
-	font-size: 0.875rem;
-	text-align: center;
+  color: var(--color-caption);
+  font-style: italic;
+  font-size: 0.875rem;
+  text-align: center;
 }

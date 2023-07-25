@@ -33,7 +33,7 @@ export const Header = (props: GlobalHeader) => {
         <ThemeButton />
 
         {/* ** SEARCH IS NOT AVAILABLE IN TINA YET ** */}
-        <button className={styles.headerButton}>
+        <button className={styles.headerButton} aria-label="Search">
           <SearchIcon />
         </button>
       </div>

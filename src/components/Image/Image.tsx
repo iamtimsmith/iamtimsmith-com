@@ -6,9 +6,17 @@ export interface ImageProps {
   url?: string;
   alt?: string;
   caption?: string;
+  width?: number;
+  height?: number;
 }
 
-export const Image = ({ url, caption, alt = "" }: ImageProps) => {
+export const Image = ({
+  url,
+  caption,
+  alt = "",
+  width = 600,
+  height = 400,
+}: ImageProps) => {
   const id = caption ? slugify(caption) : undefined;
 
   return (
@@ -18,8 +26,8 @@ export const Image = ({ url, caption, alt = "" }: ImageProps) => {
           className={styles.imageImg}
           src={url}
           alt={alt}
-          width={600}
-          height={400}
+          width={width}
+          height={height}
         />
       )}
       {caption && (
