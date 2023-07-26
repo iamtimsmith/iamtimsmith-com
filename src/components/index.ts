@@ -1,4 +1,5 @@
 export * from "./AuthorBio";
+export * from "./BackToTop";
 export * from "./CodeBlock";
 export * from "./EmailSignup";
 export * from "./EmbedCode";
@@ -11,4 +12,6 @@ export * from "./Image";
 export * from "./Layout";
 export * from "./Link";
 export * from "./Markdown";
+export * from "./Pagination";
 export * from "./PostSummary";
+export * from "./SocialMenu";

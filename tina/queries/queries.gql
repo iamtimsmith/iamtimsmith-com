@@ -1,56 +1,56 @@
 query homeQuery {
-	...LayoutQueryFragment
-	page(relativePath: "home.mdx") {
-		...PageParts
-	}
-	postConnection(sort: "date", last: 6, filter: { published: { eq: true } }) {
-		edges {
-			node {
-				_sys {
-					filename
-				}
-				...PostParts
-			}
-		}
-	}
+  ...LayoutQueryFragment
+  page(relativePath: "home.mdx") {
+    ...PageParts
+  }
+  postConnection(sort: "date", last: 6, filter: { published: { eq: true } }) {
+    edges {
+      node {
+        _sys {
+          filename
+        }
+        ...PostParts
+      }
+    }
+  }
 }
 
-query paginationQuery($after: String) {
-	...LayoutQueryFragment
-	postConnection(
-		sort: "date"
-		last: 6
-		before: $after
-		filter: { published: { eq: true } }
-	) {
-		edges {
-			cursor
-			node {
-				...PostParts
-				_sys {
-					filename
-				}
-			}
-		}
-		pageInfo {
-			hasPreviousPage
-			hasNextPage
-			startCursor
-			endCursor
-		}
-	}
+query paginationQuery($limit: Float, $before: String) {
+  ...LayoutQueryFragment
+  postConnection(
+    sort: "date"
+    last: $limit
+    before: $before
+    filter: { published: { eq: true } }
+  ) {
+    edges {
+      cursor
+      node {
+        ...PostParts
+        _sys {
+          filename
+        }
+      }
+    }
+    pageInfo {
+      hasPreviousPage
+      hasNextPage
+      startCursor
+      endCursor
+    }
+  }
 }
 
 query pageQuery($relativePath: String!) {
-	...LayoutQueryFragment
-	page(relativePath: $relativePath) {
-		...PageParts
-	}
+  ...LayoutQueryFragment
+  page(relativePath: $relativePath) {
+    ...PageParts
+  }
 }
 
 query blogPostQuery($relativePath: String!) {
-	...LayoutQueryFragment
-	post(relativePath: $relativePath) {
-		...PostParts
-	}
+  ...LayoutQueryFragment
+  post(relativePath: $relativePath) {
+    ...PostParts
+  }
 }

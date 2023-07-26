@@ -4,6 +4,7 @@ import { GlobalFooter, GlobalHeader } from "../../../tina/__generated__/types";
 import { EnvironmentIndicator } from "../EnvironmentIndicator";
 import { Footer } from "../Footer";
 import { Header } from "../Header";
+import { SocialMenu } from "../SocialMenu";
 import style from "./styles.module.css";
 
 interface LayoutProps extends PropsWithChildren {
@@ -19,6 +20,6 @@ export const Layout = ({ header, footer, children }: LayoutProps) => (
       {children}
       <Footer {...footer} />
     </div>
-    {/* <SocialMenu /> */}
+    <SocialMenu {...footer} />
   </ThemeProvider>
 );

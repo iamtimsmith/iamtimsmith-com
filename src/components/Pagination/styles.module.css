@@ -1,0 +1,19 @@
+.pagination {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.paginationLink {
+  display: block;
+  visibility: hidden;
+  margin: 1rem;
+}
+
+.paginationLinkVisible {
+  visibility: visible;
+}
+
+.paginationCount {
+  margin: 0 2rem;
+}
