@@ -44,12 +44,12 @@ export const Sharebar = ({ post }: SharebarProps) => {
   }, []);
 
   return (
-    <aside className={clsx([styles.Sharebar, show && styles.show])}>
-      <nav className={styles.SharebarNav}>
-        <span className={styles.SharebarLabel}>Share:</span>
+    <aside className={clsx([styles.sharebar, show && styles.show])}>
+      <nav className={styles.sharebarNav}>
+        <span className={styles.sharebarLabel}>Share:</span>
         {sites.map((site) => (
           <a
-            className={clsx([styles.SharebarButton, styles[site.name]])}
+            className={clsx([styles.sharebarButton, styles[site.name]])}
             href={getSharingUrl(
               site.name,
               url,

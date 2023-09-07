@@ -14,4 +14,5 @@ export * from "./Link";
 export * from "./Markdown";
 export * from "./Pagination";
 export * from "./PostSummary";
+export * from "./Sharebar";
 export * from "./SocialMenu";

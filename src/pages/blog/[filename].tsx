@@ -1,6 +1,6 @@
 import { tinaField, useTina } from "tinacms/dist/react";
 import client from "../../../tina/__generated__/client";
-import { Layout, Markdown } from "../../components";
+import { Layout, Markdown, Sharebar } from "../../components";
 
 const BlogPage = (props) => {
   const { data } = useTina({
@@ -21,6 +21,7 @@ const BlogPage = (props) => {
           <span key={tag}>#{tag}</span>
         ))}
       </p>
+      <Sharebar post={data.post} />
     </Layout>
   );
 };

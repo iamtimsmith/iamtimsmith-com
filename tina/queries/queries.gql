@@ -51,6 +51,9 @@ query pageQuery($relativePath: String!) {
 query blogPostQuery($relativePath: String!) {
   ...LayoutQueryFragment
   post(relativePath: $relativePath) {
+    _sys {
+      filename
+    }
     ...PostParts
   }
 }
