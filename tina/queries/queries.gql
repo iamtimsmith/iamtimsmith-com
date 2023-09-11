@@ -74,3 +74,17 @@ query tagPaginationQuery($limit: Float, $before: String, $tag: [String]) {
     }
   }
 }
+
+query searchQuery {
+  ...LayoutQueryFragment
+  postConnection {
+    edges {
+      node {
+        _sys {
+          filename
+        }
+        ...PostParts
+      }
+    }
+  }
+}

@@ -1,12 +1,15 @@
+import { useState } from "react";
 import { tinaField } from "tinacms/dist/react";
 import { GlobalHeader } from "../../../tina/__generated__/types";
 import { SearchIcon } from "../Icons";
 import { Link } from "../Link";
+import { Modal } from "../Modal";
 import { ThemeButton } from "../ThemeButton";
 import styles from "./styles.module.css";
 
 export const Header = (props: GlobalHeader) => {
   const { siteName, nav } = props;
+  const [searchValue, setSearchValue] = useState("");
 
   return (
     <header className={styles.header}>
@@ -32,10 +35,30 @@ export const Header = (props: GlobalHeader) => {
         </nav>
         <ThemeButton />
 
-        {/* ** SEARCH IS NOT AVAILABLE IN TINA YET ** */}
-        <button className={styles.headerButton} aria-label="Search">
-          <SearchIcon />
-        </button>
+        <Modal
+          trigger={
+            <button className={styles.headerButton} aria-label="Search">
+              <SearchIcon />
+            </button>
+          }
+        >
+          <div className={styles.searchForm}>
+            <input
+              className={styles.searchInput}
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => setSearchValue(e.target.value)}
+              value={searchValue}
+            />
+            <a
+              className={styles.searchButton}
+              aria-label="Perform search"
+              href={`/search?s=${searchValue}`}
+            >
+              <SearchIcon />
+            </a>
+          </div>
+        </Modal>
       </div>
     </header>
   );

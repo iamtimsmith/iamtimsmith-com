@@ -1,0 +1,21 @@
+.modal {
+  padding: 0;
+  border: 0;
+}
+
+.modal::backdrop {
+  background: color-mix(in srgb, #1f2933, transparent 5%);
+}
+
+.closeButton {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.closeIcon {
+  font-size: 1.2rem;
+}

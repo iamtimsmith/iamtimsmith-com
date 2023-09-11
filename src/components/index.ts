@@ -12,6 +12,7 @@ export * from "./Image";
 export * from "./Layout";
 export * from "./Link";
 export * from "./Markdown";
+export * from "./Modal";
 export * from "./Pagination";
 export * from "./PostSummary";
 export * from "./Sharebar";
