@@ -49,11 +49,14 @@ export const getStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths = async () => {
-  const postsListData = await client.queries.postConnection();
+  const postsListData = await client.queries.postConnection({
+    filter: { published: { eq: true } },
+  });
+  const postsList = postsListData?.data?.postConnection?.edges || [];
 
   return {
-    paths: postsListData.data.postConnection.edges.map((post) => ({
-      params: { filename: post.node._sys.filename },
+    paths: postsList.map((post) => ({
+      params: { filename: post?.node?._sys?.filename },
     })),
     fallback: false,
   };
