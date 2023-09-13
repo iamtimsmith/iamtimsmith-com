@@ -1,7 +1,7 @@
 import { GetServerSideProps } from "next";
 import { useTina } from "tinacms/dist/react";
 import client from "../../tina/__generated__/client";
-import { Layout, PostSummary } from "../components";
+import { Layout, PostSummary, Seo } from "../components";
 
 const SearchPage = ({ term, ...props }) => {
   const { data } = useTina({
@@ -12,6 +12,11 @@ const SearchPage = ({ term, ...props }) => {
 
   return (
     <Layout {...data.global}>
+      <Seo
+        title="Search"
+        description="Search for blog posts about MERN, Node js, React js, Express js, and Wordpress in Tim Smith's blog."
+        image="https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109224/iamtimsmith/timsmith_fyh0hq.jpg"
+      />
       <h1>Posts containing "{term}"</h1>
       {data.postConnection.edges.length > 0 ? (
         data.postConnection.edges.map(({ node }) => (

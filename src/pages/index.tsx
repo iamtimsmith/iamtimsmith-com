@@ -1,7 +1,14 @@
 import { tinaField, useTina } from "tinacms/dist/react";
 import client from "../../tina/__generated__/client";
 import { Post } from "../../tina/__generated__/types";
-import { AuthorBio, Layout, Link, Markdown, PostSummary } from "../components";
+import {
+  AuthorBio,
+  Layout,
+  Link,
+  Markdown,
+  PostSummary,
+  Seo,
+} from "../components";
 
 const HomePage = (props) => {
   const { data } = useTina({
@@ -12,6 +19,11 @@ const HomePage = (props) => {
 
   return (
     <Layout {...data.global}>
+      <Seo
+        title={data.page.title}
+        description={data.page.excerpt}
+        image={data.page.featuredImage}
+      />
       <div data-tina-field={tinaField(data.page, "body")}>
         <Markdown content={data.page.body} />
       </div>

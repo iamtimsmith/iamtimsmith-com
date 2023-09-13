@@ -15,5 +15,6 @@ export * from "./Markdown";
 export * from "./Modal";
 export * from "./Pagination";
 export * from "./PostSummary";
+export * from "./Seo";
 export * from "./Sharebar";
 export * from "./SocialMenu";

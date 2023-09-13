@@ -1,7 +1,7 @@
 import { useTina } from "tinacms/dist/react";
 import client from "../../../../tina/__generated__/client";
 import { Post } from "../../../../tina/__generated__/types";
-import { Layout, Pagination, PostSummary } from "../../../components";
+import { Layout, Pagination, PostSummary, Seo } from "../../../components";
 import {
   getPaginationPages,
   getPreviousPost,
@@ -26,6 +26,11 @@ const PaginationPage = ({ pageCount, page, ...props }: PaginationPageProps) => {
 
   return (
     <Layout {...data.global}>
+      <Seo
+        title={`Blog - Page ${page}`}
+        description="A blog to teach new developers about MERN, Node js, React js, Express js, and Wordpress in a simple and understandable way."
+        image="https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109224/iamtimsmith/timsmith_fyh0hq.jpg"
+      />
       <h1>Blog</h1>
       {data.postConnection.edges.map(({ node }: { node: Post }) => (
         <PostSummary post={node} key={node._sys.filename} />

@@ -1,6 +1,6 @@
 import { useTina } from "tinacms/dist/react";
 import client from "../../tina/__generated__/client";
-import { Layout, Markdown } from "../components";
+import { Layout, Markdown, Seo } from "../components";
 
 const PageTemplate = (props) => {
   const { data } = useTina({
@@ -11,6 +11,11 @@ const PageTemplate = (props) => {
 
   return (
     <Layout {...data.global}>
+      <Seo
+        title={data.page.title}
+        description={data.page.excerpt}
+        image={data.page.featuredImage}
+      />
       <h1>{data.page.title}</h1>
       <Markdown content={data.page.body} />
     </Layout>
