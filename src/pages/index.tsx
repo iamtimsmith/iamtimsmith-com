@@ -35,7 +35,7 @@ const HomePage = (props) => {
       {data.postConnection.edges.map(({ node }: { node: Post }) => (
         <PostSummary post={node} key={node._sys.filename} />
       ))}
-      <Link url="/blog">View more posts →</Link>
+      <Link url="/blog/page/2">View more posts →</Link>
     </Layout>
   );
 };
