@@ -42,22 +42,25 @@ export const Header = (props: GlobalHeader) => {
             </button>
           }
         >
-          <div className={styles.searchForm}>
+          <form
+            className={styles.searchForm}
+            role="search"
+            method="get"
+            action={`${process.env.NEXT_PUBLIC_WEBSITE_URL}/search`}
+          >
             <input
               className={styles.searchInput}
               type="text"
+              name="s"
               placeholder="Search..."
               onChange={(e) => setSearchValue(e.target.value)}
               value={searchValue}
+              autoFocus
             />
-            <a
-              className={styles.searchButton}
-              aria-label="Perform search"
-              href={`/search?s=${searchValue}`}
-            >
+            <button className={styles.searchButton} aria-label="Perform Search">
               <SearchIcon />
-            </a>
-          </div>
+            </button>
+          </form>
         </Modal>
       </div>
     </header>

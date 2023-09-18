@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.iamtimsmith.com
-
-# Sitemaps
-Sitemap: https://www.iamtimsmith.com/sitemap.xml
