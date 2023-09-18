@@ -63,6 +63,13 @@ export default defineConfig({
             type: "string",
             name: "excerpt",
             label: "Excerpt",
+            ui: {
+              validate: (value: string) => {
+                if (value.length < 120 || value.length > 155) {
+                  return `Your description is ${value.length} characters long. It should be between 120 and 150.`;
+                }
+              },
+            },
           },
           {
             type: "string",
@@ -162,13 +169,6 @@ export default defineConfig({
                 label: "Site Description",
                 type: "string",
                 required: true,
-                ui: {
-                  validate: (data) => {
-                    if (data.length < 160) {
-                      return "Hello!";
-                    }
-                  },
-                },
               },
               {
                 name: "favicon",

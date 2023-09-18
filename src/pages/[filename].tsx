@@ -1,8 +1,10 @@
-import { useTina } from "tinacms/dist/react";
+import { useRef } from "react";
+import { tinaField, useTina } from "tinacms/dist/react";
 import client from "../../tina/__generated__/client";
 import { Layout, Markdown, Seo } from "../components";
 
 const PageTemplate = (props) => {
+  const contentRef = useRef<HTMLDivElement>();
   const { data } = useTina({
     query: props.query,
     variables: props.variables,
@@ -10,14 +12,16 @@ const PageTemplate = (props) => {
   });
 
   return (
-    <Layout {...data.global}>
+    <Layout {...data.global} content={contentRef.current?.innerText}>
       <Seo
         title={data.page.title}
         description={data.page.excerpt}
         image={data.page.featuredImage}
       />
       <h1>{data.page.title}</h1>
-      <Markdown content={data.page.body} />
+      <div ref={contentRef} data-tina-field={tinaField(data.page, "body")}>
+        <Markdown content={data.page.body} />
+      </div>
     </Layout>
   );
 };

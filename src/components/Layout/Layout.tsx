@@ -10,11 +10,14 @@ import style from "./styles.module.css";
 interface LayoutProps extends PropsWithChildren {
   header: GlobalHeader;
   footer: GlobalFooter;
+  content?: string;
 }
 
-export const Layout = ({ header, footer, children }: LayoutProps) => (
+export const Layout = ({ header, footer, content, children }: LayoutProps) => (
   <ThemeProvider>
-    {process.env.NODE_ENV === "development" && <EnvironmentIndicator />}
+    {process.env.NODE_ENV === "development" && (
+      <EnvironmentIndicator content={content} />
+    )}
     <div className={style.container}>
       <Header {...header} />
       {children}

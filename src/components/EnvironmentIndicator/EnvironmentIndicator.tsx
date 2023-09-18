@@ -1,10 +1,27 @@
+import { wordCount } from "../../utils/wordCount";
 import styles from "./styles.module.css";
 
-export const EnvironmentIndicator = () => (
-	<div className={styles.environmentIndicator}>
-		Environment:{" "}
-		<span className={styles.environmentIndicatorEnv}>
-			{process.env.NODE_ENV}
-		</span>
-	</div>
-);
+interface EnvironmentIndicatorProps {
+  content?: string;
+}
+
+export const EnvironmentIndicator = ({
+  content,
+}: EnvironmentIndicatorProps) => {
+  const wordLength = wordCount(content);
+  return (
+    <div className={styles.environmentIndicator}>
+      <p>
+        Environment:{" "}
+        <span className={styles.environmentIndicatorEnv}>
+          {process.env.NODE_ENV}
+        </span>
+      </p>
+      {content && (
+        <p>
+          Length: {wordLength} {wordLength === 1 ? "word" : "words"}
+        </p>
+      )}
+    </div>
+  );
+};
