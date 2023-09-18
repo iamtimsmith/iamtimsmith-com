@@ -11,6 +11,10 @@
       {
         "title": "Blog",
         "url": "/blog"
+      },
+      {
+        "title": "Uses",
+        "url": "/uses"
       }
     ]
   },

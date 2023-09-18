@@ -22,7 +22,7 @@ const BlogPage = (props) => {
       </div>
       <p data-tina-field={tinaField(data.post, "tags")}>
         Tags:{" "}
-        {data.post.tags.map((tag) => (
+        {data.post.tags?.map((tag) => (
           <span key={tag}>#{tag}</span>
         ))}
       </p>
@@ -55,7 +55,10 @@ export const getStaticProps = async ({ params }) => {
 
 export const getStaticPaths = async () => {
   const postsListData = await client.queries.postConnection({
-    filter: { published: { eq: true } },
+    filter:
+      process.env.NODE_ENV === "production"
+        ? { published: { eq: true } }
+        : undefined,
   });
   const postsList = postsListData?.data?.postConnection?.edges || [];
 
