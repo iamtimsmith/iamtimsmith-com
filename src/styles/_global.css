@@ -243,20 +243,7 @@ form button:hover {
   border-color: var(--color-button-accent-hover);
 }
 
-/**
- * Environment bar
-**/
-.EnvironmentBar {
-  position: sticky;
-  top: 0;
-  left: 0;
-  right: 0;
-  color: var(--color-text);
-  font-size: var(--font-size--sm);
-  font-family: "Dank Mono", monospace;
-  padding: 0.1rem 1rem;
-  background: var(--color-error);
-}
-.EnvironmentBar > span {
-  font-style: italic;
+code {
+  background: var(--color-grey--800);
+  padding: 0.25rem 0.125rem;
 }

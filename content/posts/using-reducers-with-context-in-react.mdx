@@ -10,4 +10,313 @@ featuredImage: >-
   http://res.cloudinary.com/dcrgbfjfu/image/upload/v1695060550/iamtimsmith/using-reducers-with-context-in-react_gzu3qk.jpg
 ---
 
-If you've ever used Redux, you likely know the benefits and drawbacks of using reducers. In this post, I'll explain what reducers are and how to use them when managing contexts for your applications to track changes in state.
+In this post, I'll explain what reducers are and how to use them when managing contexts for your applications to track changes in state.
+
+## What is a reducer?
+
+If you've ever used [Redux](https://redux.js.org/ "Redux"), you likely know the benefits and drawbacks of using reducers. So what is a reducer anyway? A reducer is a tool which allows you to track changes to your global state. It is typically used when you have a lot of state to manage or when some of your state depends on other pieces of your state.
+
+<gif src="https://media.giphy.com/media/1xpC9NtXaMlzsjmpxF/giphy.mp4" caption="Redux has been a reliable state management tool for years" />
+
+In years past, Redux used this approach when handling their state which made it really scalable for large applications. Fortunately, the folks at [React](https://react.dev/ "React") have added this functionality to the tools provided from the basic React library so there is no extra stuff needed.
+
+## Using a reducer with context
+
+A reducer isn't all that powerful by itself. It allows you to create "paths" for your local state which might be useful, but it really gets supercharged when combined with [React Context](/blog/how-to-use-react-context "How to use React Context").
+
+The reason reducers work so well with context is because it allows the state being managed by reducers to be used anywhere in your application. In effect, you can update your state via these paths from anywhere in your app while tracking those changers within the [React Context Dev Tools](https://chrome.google.com/webstore/detail/react-context-devtool/oddhnidmicpefilikhgeagedibnefkcf "React Context Dev Tools").
+
+Now that you understand why it is useful to use these to tools together, lets get into some code and see how to actually implement them!
+
+## Creating a context
+
+To get started, I'll be quickly creating a context to use for the demo. If you're not familiar with context or need a refresher, you can check out my [post about React Context](/blog/how-to-use-react-context "post about React Context").
+
+Below you can see my full context starter file. Inside, I create a new context, create a provider which will be wrapped around the app, and add a basic piece of state in the provider.
+
+```javascript
+import { createContext, useState } from 'react';
+
+// Create new context
+export const MyContext = createContext();
+
+// Create Provider to wrap app
+export const MyContextProvider = ({ children }) => {
+  const [name, setName] = useState('');
+
+  return (
+    <MyContext.Provider value={{ name, setName }}>{children}</MyContext.Provider>
+  )
+}
+```
+
+Then in the App component (or any other component you want to put the provider in that is a parent of the spot where you want to use it), wrap the rest of the app.
+
+```javascript
+import { MyContextProvider } from '[PATH_TO_CONTEXT_FILE]';
+import { MyComponent } from '[PATH_TO_COMPONENT_FILE]';
+
+export default App = () => (
+  <MyContextProvider>
+    <MyComponent/>
+  </MyContextProvider>
+)
+```
+
+Finally, you can use this context within a component like so:
+
+```javascript
+import { useContext } from 'react';
+import { MyContext } from '[PATH_TO_CONTEXT_FILE]';
+
+export const MyComponent = () => {
+  const { name, setName } = useContext(MyContext);
+
+  return (
+    <>
+      <p>Name: {name}</p>
+      <input type='text' onChange={e => setName(e.target.value)} />
+    </>
+  )
+}
+```
+
+This context pattern is pretty awesome for simple state that needs to be managed. It's quick and easy to set up, simple to add to, and straightforward to read. This can become very complicated if there is a lot more state to manage or if state is dependent upon each other when updating. This is where reducers come into play.
+
+## Creating a reducer
+
+To get started, I'm going to create a simple reducer. This is not going to be inside of a context or really usable at this point, but I'm hoping it will illustrate a basic reducer setup for you before showing you how to put it in your context.
+
+So what is a reducer? A reducer is a function which takes state and an action (which are both passed implicitly). Inside the function you will create a switch statement to handle the different paths we want to be able to take. Let's go ahead and do this now.
+
+To start, I will create an empty function which takes the state and an action.
+
+```javascript
+const reducer = (state, action) => {
+  // ...more code here
+}
+```
+
+That was easy enough! Before going further, it's worth noting that the action typically consists of a `type` (path name) and a `payload` (new data). With this in mind, I will create the switch statement:
+
+```javascript
+const reducer = (state, action) => {
+  switch (action.type) {
+    default: return;
+  }
+}
+```
+
+Still with me? Great! All that's left is to create the individual paths with a type and something to do when that type is called. To keep things simple, I'll keep using my name updater from the context.
+
+```javascript
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'SET_NAME': return action.payload;
+    default: return;
+  }
+}
+```
+
+I have created my path to update the name state when the `SET_NAME` type is used. While you can name these types whatever you want, a common paradigm is all caps with underscores for spaces.
+
+## The useReducer hook
+
+I mentioned earlier that React provides the ability to use reducers out of the box. This is done with a hook called [useReducer](https://react.dev/reference/react/useReducer "useReducer Docs"). In order to use the hook, I just need to add this line where I want to use the state:
+
+```javascript
+import { useReducer } from 'react';
+
+const reducer = (state, action) => {
+  // ...Reducer from the previous code block
+}
+
+const MyComponent = () => {
+  const [state, dispatch] = useReducer(reducer, '');
+  // ...Rest of the component
+};
+```
+
+When using the useReducer hook, the first argument we pass is a reducer function. In this case, we created it already and can just pass it in as a variable. The second argument is the initial state that should be used when the app is started. Since my state is just a name, I'm just passing an empty string. This can be any type of data though (string, number, object, etc).
+
+<gif src="https://media.giphy.com/media/xUySTwRa249DIKvxEA/giphy.mp4" caption="What's next?" />
+
+## How to actually use the reducer
+
+Now that I have a reducer implemented, it's important to know how to use it to get and set data. You may notice that the useReducer hook returns a state and a dispatch function. These are the keys to using a reducer.
+
+In order to use the data, I'm going to just use the JSX from the simple component we created first.
+
+```javascript
+import { useReducer } from 'react';
+
+const reducer = (state, action) => {
+  // ...Reducer from the previous code block
+}
+
+const MyComponent = () => {
+  const [state, dispatch] = useReducer(reducer, '');
+
+  return (
+    <>
+      <p>Name: {state}</p>
+    </>
+  )
+};
+```
+
+Since the state is just a string, I can output it like this. If it were an object, I'd have to drill down like state.name or whatever the key to be accessed is. Next I need to add a way to update the state.
+
+```javascript
+import { useReducer } from 'react';
+
+const reducer = (state, action) => {
+  // ...Reducer from the previous code block
+}
+
+const MyComponent = () => {
+  const [state, dispatch] = useReducer(reducer, '');
+
+  return (
+    <>
+      <p>Name: {state}</p>
+      <input
+        type='text'
+        onChange={e => dispatch({
+          type: 'SET_NAME',
+          payload: e.target.value
+        })}
+      />
+    </>
+  )
+};
+```
+
+Finally, I can add my input back in which allows me to update the name. You will notice the onChange function changed a bit. Instead of updating the state directly like before, I'm calling the dispatch function I got from useReducer and passing in the action object with a type and payload (which match the key names I used for the reducer).
+
+When a user changes the text in the input, an action will be dispatched to the reducer. The reducer will look at the type being passed in to see if it matches a path. If the path matches, it will do whatever that path says to do, otherwise it will do nothing since our default path simply returns.
+
+You now understand the basics of a reducer. Great work! Now lets look at how this can be implemented into a context.
+
+## Replacing state in context with a reducer
+
+I will begin by grabbing the context I created earlier and replacing the useState hook with a useReducer hook. You can either put the reducer directly in your context file or you can put it in a separate file and import it. The functionality is the same. I generally put them into separate files, but for the sake of simplicity, I'll put them together for this tutorial.
+
+```javascript
+import { createContext } from 'react';
+
+const reducer = (state, action) => {
+  // ...Reducer from the previous code block
+}
+
+// Create new context
+export const MyContext = createContext();
+
+// Create Provider to wrap app
+export const MyContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, '');
+
+  return (
+    <MyContext.Provider value={{ state, dispatch }}>{children}</MyContext.Provider>
+  )
+}
+```
+
+You can now see that I have replaced the state with a reducer and changed the values being passed into the provider to state and dispatch. This means that I will be able to access the state variable and dispatch function from anywhere in my app.
+
+This is the most basic form of using a reducer with context, but there is more we can do to improve things as the app scales.
+
+## Action Types
+
+In the reducer I created, I used SET\_NAME as a type. This isn't too difficult to remember, but as I add more state and functionality it can get cumbersome to remember all of the possible action types. Because of this, many developers will create an object which holds the action types. An example of this object is below:
+
+```javascript
+const actionTypes = {
+  SET_NAME: 'SET_NAME',
+}
+```
+
+This may not look like it makes much sense, but it makes things considerably easier when using a code editor because typing actionTypes. will generally provide a list of possible action types which are in the object. Using this method would look like this for the reducer and dispatch functions:
+
+```javascript
+// Action Types
+const actionTypes = {
+  SET_NAME: 'SET_NAME',
+}
+
+// Reducer
+const reducer = (state, action) => {
+  switch (action.type) {
+    case actionTypes.SET_NAME:
+      return action.payload;
+    default: return;
+  }
+}
+
+// Dispatch
+dispatch({
+  type: actionTypes.SET_NAME,
+  payload: '[value goes here]'
+});
+```
+
+While this isn't significant in terms of the code actually written, it provides a quality-of-life improvement for developers.
+
+## Creating actions
+
+Another quality-of-life improvement is creating defined actions which can be called. This means not having to use the dispatch function manually all the time because you're handling that in a single function which can be reused in different places.
+
+To create these actions, I will just create a function within the context that calls the dispatch function. My action will accept a string to act as my payload. you can see this function below:
+
+```javascript
+import { createContext } from 'react';
+
+const reducer = (state, action) => {
+  // ...Reducer from the previous code block
+}
+
+// Create new context
+export const MyContext = createContext();
+
+// Create Provider to wrap app
+export const MyContextProvider = ({ children }) => {
+  const [state, dispatch] = useReducer(reducer, '');
+
+  const setName = (payload) => {
+    dispatch({
+      type: actionTypes.SET_NAME,
+      payload
+    });
+  }
+
+  return (
+    <MyContext.Provider value={{ state, setName }}>{children}</MyContext.Provider>
+  )
+}
+```
+
+Once I have the setName action created, I can pass that into the provider instead of the dispatch function. In order to use this, I can just get the setName action from the context and call that.
+
+```javascript
+const MyComponent = () => {
+  const {state, setName} = useContext(MyContext);
+
+  return (
+    <>
+      <p>Name: {state}</p>
+      <input
+        type='text'
+        onChange={e => setName(e.target.value)}
+      />
+    </>
+  )
+};
+```
+
+You can see how much easier this code is to read because of that action. I can also update the name from anywhere without having to remember the action type or using the dispatch function. It's not necessary, but it does make it a bit nicer to update the state.
+
+## Conclusion
+
+At this point, you know everything you need to know to start using reducers with context in React. Of course there are more things you can do to optimize this and I would love to hear about the things you've done to improve quality of life!
+
+You can find me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).

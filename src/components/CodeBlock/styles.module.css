@@ -2,3 +2,7 @@
   margin: 1.5rem 0;
   border-radius: var(--border--rounded);
 }
+
+.codeBlock pre {
+  background: var(--color-grey--800) !important;
+}
