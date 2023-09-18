@@ -19,6 +19,7 @@
     "cors": "^2.8.5",
     "next": "^13.2.4",
     "next-cloudinary": "^4.16.2",
+    "next-seo": "^6.1.0",
     "next-sitemap": "^4.2.3",
     "next-themes": "^0.2.1",
     "next-tinacms-cloudinary": "^4.3.1",
