@@ -1,7 +1,8 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .headerItems,
@@ -61,4 +62,11 @@
 .searchButton:hover {
   background: var(--color-grey--50);
   color: var(--color-grey--900);
+}
+
+@media screen and (min-width: 460px) {
+  .header {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
 }
