@@ -18,3 +18,4 @@ export * from "./PostSummary";
 export * from "./Seo";
 export * from "./Sharebar";
 export * from "./SocialMenu";
+export * from "./Tags";

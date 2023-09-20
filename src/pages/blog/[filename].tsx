@@ -1,7 +1,7 @@
 import { useRef } from "react";
 import { tinaField, useTina } from "tinacms/dist/react";
 import client from "../../../tina/__generated__/client";
-import { Layout, Link, Markdown, Seo, Sharebar } from "../../components";
+import { Layout, Markdown, Seo, Sharebar, Tags } from "../../components";
 
 const BlogPage = (props) => {
   const contentRef = useRef<HTMLDivElement>();
@@ -26,14 +26,7 @@ const BlogPage = (props) => {
       >
         <Markdown content={data.post.body} />
       </div>
-      <p data-tina-field={tinaField(data.post, "tags")}>
-        Tags:{" "}
-        {data.post.tags?.map((tag) => (
-          <Link url={`/blog/tags/${tag}`} key={tag}>
-            #{tag}
-          </Link>
-        ))}
-      </p>
+      <Tags tags={data.post.tags} post={data.post} />
       <Sharebar post={data.post} />
     </Layout>
   );
