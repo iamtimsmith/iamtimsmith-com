@@ -13,7 +13,7 @@
 }
 
 .headerLogo {
-  font-size: var(--font-size--3x);
+  font-size: var(--font-size--lg);
   font-weight: bold;
   color: var(--color-text);
   background: none;

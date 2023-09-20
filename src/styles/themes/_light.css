@@ -1,10 +1,12 @@
 :root {
-	--color-bg: var(--color-grey--50);
-	--color-bg-light: var(--color-grey--100);
-	--color-text: var(--color-grey--900);
-	--color-caption: var(--color-grey--400);
-	--color-accent: var(--color-teal--700);
-	--color-link-accent: var(--color-teal--200);
-	--color-border: var(--color-grey--200);
-	--color-error: #a50c2d;
+  --color-bg: var(--color-grey--50);
+  --color-bg-light: var(--color-grey--100);
+  --color-text: var(--color-grey--900);
+  --color-caption: var(--color-grey--400);
+  --color-accent: var(--color-teal--700);
+  --color-link-accent: var(--color-teal--200);
+  --color-button-accent: var(--color-teal--300);
+  --color-button-accent-hover: var(--color-teal--400);
+  --color-border: var(--color-grey--200);
+  --color-error: #a50c2d;
 }

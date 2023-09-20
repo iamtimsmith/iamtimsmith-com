@@ -5,16 +5,12 @@
     "favicon": "https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109225/iamtimsmith/favicon_snggon.ico",
     "nav": [
       {
-        "title": "Home",
-        "url": "/"
-      },
-      {
         "title": "Blog",
         "url": "/blog"
       },
       {
-        "title": "Uses",
-        "url": "/uses"
+        "title": "Tags",
+        "url": "/tags"
       }
     ]
   },
