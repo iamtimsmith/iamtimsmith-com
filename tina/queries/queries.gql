@@ -58,17 +58,18 @@ query blogPostQuery($relativePath: String!) {
   }
 }
 
-query tagPaginationQuery($limit: Float, $before: String, $tag: [String]) {
+query tagPageQuery($tag: [String]) {
   ...LayoutQueryFragment
   postConnection(
     sort: "date"
-    last: $limit
-    before: $before
     filter: { published: { eq: true }, tags: { in: $tag } }
   ) {
     edges {
       cursor
       node {
+        _sys {
+          filename
+        }
         ...PostParts
       }
     }
@@ -87,4 +88,8 @@ query searchQuery {
       }
     }
   }
+}
+
+query layoutQuery {
+  ...LayoutQueryFragment
 }
