@@ -13,7 +13,7 @@
 }
 
 .headerLogo {
-  font-size: var(--font-size--xl);
+  font-size: var(--font-size--3x);
   font-weight: bold;
   color: var(--color-text);
   background: none;
@@ -68,5 +68,8 @@
   .header {
     flex-wrap: nowrap;
     justify-content: space-between;
+  }
+  .headerLogo {
+    font-size: var(--font-size--xl);
   }
 }
