@@ -12,7 +12,7 @@ export const Tags = ({ tags, post }: TagsProps) => (
   <p className={styles.tags} data-tina-field={tinaField(post, "tags")}>
     Tags:{" "}
     {tags?.map((tag) => (
-      <Link className={styles.tag} url={`/blog/tags/${tag}`} key={tag}>
+      <Link className={styles.tag} url={`/tags/${tag}`} key={tag}>
         #{tag}
       </Link>
     ))}

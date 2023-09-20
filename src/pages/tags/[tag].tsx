@@ -1,8 +1,8 @@
 import { useTina } from "tinacms/dist/react";
-import client from "../../../../tina/__generated__/client";
-import { Post } from "../../../../tina/__generated__/types";
-import { Layout, PostSummary, Seo } from "../../../components";
-import { getAllTags } from "../../../utils/tags";
+import client from "../../../tina/__generated__/client";
+import { Post } from "../../../tina/__generated__/types";
+import { Layout, PostSummary, Seo } from "../../components";
+import { getAllTags } from "../../utils/tags";
 
 interface TagPageProps {
   tag: string;

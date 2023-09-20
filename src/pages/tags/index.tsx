@@ -1,7 +1,7 @@
 import { useTina } from "tinacms/dist/react";
-import client from "../../../../tina/__generated__/client";
-import { Layout, Link } from "../../../components";
-import { getAllTags } from "../../../utils/tags";
+import client from "../../../tina/__generated__/client";
+import { Layout, Link } from "../../components";
+import { getAllTags } from "../../utils/tags";
 
 interface TagIndexPageProps {
   tags: string[];
@@ -23,7 +23,7 @@ const TagIndexPage = ({ tags, ...props }: TagIndexPageProps) => {
       <ul>
         {tags.map((tag) => (
           <li key={tag}>
-            <Link url={`/blog/tags/${tag}`}>#{tag}</Link>
+            <Link url={`/tags/${tag}`}>#{tag}</Link>
           </li>
         ))}
       </ul>
