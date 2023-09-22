@@ -1,5 +1,5 @@
 ---
-title: 'Dialogs vs. Modals: Is there a difference?'
+title: "Dialogs vs. Modals: Is there a difference?"
 date: 2023-06-26T05:00:00.000Z
 excerpt: >-
   Many times, modals and dialogs are regarded as the same thing in web
@@ -12,7 +12,9 @@ featuredImage: >-
 published: true
 ---
 
-You may hear developers talking about dialogs and modals on websites as being similar things. Are they really the same though? The answer is: sort of. They do have similar appearances and functionality, but with a key difference. In this blog post, I'll explore modals and dialogs and explain the difference while showing you how they can be used natively in the browser.
+You may hear developers talking about dialogs and modals on websites as being similar things. Are they really the same though? The answer is: sort of. Modals are a type of dialog, but not all dialogs are modals. They do have similar appearances and functionality, but with a key difference. In this blog post, I'll explore modals and dialogs and explain the difference while showing you how they can be used natively in the browser.
+
+> Please note: I will be using the term "dialog" to represent a non-modal dialog and the term "modal" to represent a modal dialog. This is to describe the behavior of each rather than the HTML element to build them.
 
 ## Dialogs and modals?
 
@@ -22,7 +24,10 @@ While both dialogs and modals can appear similar, there are different reasons fo
 
 Dialogs and modals can serve similar purposes: to display some data or collect some data outside the flow of the normal document. This could be a form collection, a call-to-action, or something similar that you want to be front-and-center for a user. Typically, people refer to these things as "popups".
 
-<gif src="https://media.giphy.com/media/c8tz8pCwiT4UqmsBOP/giphy.mp4" caption="Dialogs and modals are designed to draw the user's attention." />
+<gif
+  src="https://media.giphy.com/media/c8tz8pCwiT4UqmsBOP/giphy.mp4"
+  caption="Dialogs and modals are designed to draw the user's attention."
+/>
 
 I'm sure you've seen them all over the web if you've been using the internet for any amount of time. Typically, people complain about these because they can be disruptive when using a website. Because of this, it's important to use them in this fashion sparingly. One of the two items is more disruptive than the other though...
 
@@ -30,8 +35,8 @@ I'm sure you've seen them all over the web if you've been using the internet for
 
 The way in which dialogs and modals differ has to do with how it allows the user to interact with the document when it's open. What does that mean? Let's talk about each one:
 
-* A dialog still allows a user to interact with other content on the page while it's open (i.e. click buttons and links visible around the dialog)
-* A modal locks down the page until something is done. This is typically done with a background that covers all other content so the modal must be dealt with. This is the more disruptive of the two options.
+- A dialog still allows a user to interact with other content on the page while it's open (i.e. click buttons and links visible around the dialog)
+- A modal locks down the page until something is done. This is typically done with a background that covers all other content so the modal must be dealt with. This is the more disruptive of the two options.
 
 Understanding the differences between the two will allow you to make the right choice about which option is best for your situation. As a general rule, you should reach for the dialog unless it's absolutely necessary to prevent the user from interacting with other elements.
 
@@ -41,7 +46,10 @@ In years past, building dialogs and modals consisted of nesting divs inside of d
 
 One of the big problems around the dialog components of old are a lack of accessibility. They just weren't easy to understand and use with screen readers. There was a role="dialog" attribute which could be applied, but many times accessibility is unfortunately an afterthought.
 
-<gif src="https://media.giphy.com/media/U7gJGolFtVBWNLH7bb/giphy.mp4" caption="David Rose, shocked, backs away to avoid my callout." />
+<gif
+  src="https://media.giphy.com/media/U7gJGolFtVBWNLH7bb/giphy.mp4"
+  caption="David Rose, shocked, backs away to avoid my callout."
+/>
 
 Despite this, the web has evolved quite a bit in the last several years to make accessibility much more "baked in" through the use of semantic elements. Because of this, we have a dialog element in HTML5 which takes care of a lot of these things for us. In addition to being accessible, the dialog element gives us the ability to use it as both a dialog and a modal, although the way to do this may not be super intuitive.
 
@@ -112,12 +120,12 @@ The button and dialog should look pretty much the same as the previous code exce
 
 ```html
 <button onclick="openModal()">This button opens a modal</button>
-		<!--The dialog element being used as a modal-->
-  <dialog id="modal">
-    <p>I'm a modal</p>
-    <!-- A button to be able to close the modal -->
-    <button onclick="closeModal()">Close</button>
-  </dialog>
+<!--The dialog element being used as a modal-->
+<dialog id="modal">
+  <p>I'm a modal</p>
+  <!-- A button to be able to close the modal -->
+  <button onclick="closeModal()">Close</button>
+</dialog>
 ```
 
 With this code in place, clicking the button should display something like this:
@@ -156,11 +164,14 @@ By using the dialog element, the browser takes care of these things for us! So i
 
 While the two attributes may not seem like a big deal, it may not always be something you think of when you create a dialog or modal. Using a dialog element allows us to focus on building cool things instead of getting into the nitty gritty and sometimes guessing on which aria- attributes are appropriate.
 
-<gif src="https://media.giphy.com/media/13EtQIwmTqNDji/giphy.mp4" caption="Like the dialog element, Max Goof is pretty cool!" />
+<gif
+  src="https://media.giphy.com/media/13EtQIwmTqNDji/giphy.mp4"
+  caption="Like the dialog element, Max Goof is pretty cool!"
+/>
 
 ## Making my dialogs cool
 
-As previously discussed, my dialogs are pretty lame. I think it's time to add some styles. In the spirit of [Max Goof](https://disney.fandom.com/wiki/Max_Goof "Max Goof"),  let's build a modal he might have looked at for his favorite singer, Powerline. First, [I'll set some CSS variables](/blog/using-variables-in-css "Using Variables in CSS") based on some of the palettes I've seen online:
+As previously discussed, my dialogs are pretty lame. I think it's time to add some styles. In the spirit of [Max Goof](https://disney.fandom.com/wiki/Max_Goof "Max Goof"), let's build a modal he might have looked at for his favorite singer, Powerline. First, [I'll set some CSS variables](/blog/using-variables-in-css "Using Variables in CSS") based on some of the palettes I've seen online:
 
 ```css
 :root {
@@ -227,10 +238,10 @@ a {
 a:hover {
   background: linear-gradient(
     to bottom right,
-		var(--yellow),
-		var(--red),
-		var(--purple)
-	);
+    var(--yellow),
+    var(--red),
+    var(--purple)
+  );
 }
 
 button {
@@ -247,11 +258,11 @@ button:hover {
 }
 
 .headline {
-	font-size: 1.5rem;
-	font-weight: bold;
-	text-transform: uppercase;
-	color: var(--text);
-	text-shadow: 5px 5px 0 var(--red);
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: var(--text);
+  text-shadow: 5px 5px 0 var(--red);
 }
 ```
 
@@ -262,10 +273,10 @@ dialog {
   position: fixed;
   background: linear-gradient(
     to bottom right,
-		var(--yellow),
-		var(--red),
-		var(--purple)
-	);
+    var(--yellow),
+    var(--red),
+    var(--purple)
+  );
   margin: 0 auto;
   text-align: center;
   width: 400px;
@@ -289,4 +300,4 @@ You can see the full code for this at [https://github.com/iamtimsmith/dialog-vs-
 
 Dialogs and modals have become a common part of the web, but it's not always clear which one is appropriate for a given situation. Now you'll know that a dialog is used when the user should still be able to interact with the main page content, while a modal should be used when the dialog should prevent the user from accessing the rest of the page. With this in mind, you can hopefully build better and more accessible user experiences when using a popup.
 
-Have questions? You can find me on Twitter at [@iam\_timsmith](https://www.twitter.com/iam_timsmith).
+Have questions? You can find me on Twitter at [@iam_timsmith](https://www.twitter.com/iam_timsmith).
