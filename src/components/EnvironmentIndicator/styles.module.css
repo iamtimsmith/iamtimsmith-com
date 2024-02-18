@@ -12,6 +12,18 @@
   display: flex;
 }
 
+.adminButton {
+  display: block;
+  background: var(--color-grey--900);
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  transition: background 0.2s;
+}
+
+.adminButton:hover {
+  background: var(--color-grey--800);
+}
+
 .environmentIndicatorEnv {
   font-style: italic;
 }

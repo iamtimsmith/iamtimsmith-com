@@ -12,6 +12,11 @@ export const EnvironmentIndicator = ({
   return (
     <div className={styles.environmentIndicator}>
       <p>
+        <a className={styles.adminButton} href="/admin/index.html">
+          Admin
+        </a>
+      </p>
+      <p>
         Environment:{" "}
         <span className={styles.environmentIndicatorEnv}>
           {process.env.NODE_ENV}
