@@ -1,3 +1,4 @@
+"use client";
 import { FC, HTMLAttributes, useState } from "react";
 import { mainNav, siteName } from "../../constants";
 import { Link } from "../Link";
