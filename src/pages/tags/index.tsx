@@ -1,8 +1,8 @@
 import { FC, HTMLAttributes } from "react";
 
-export interface indexProps extends HTMLAttributes<HTMLDivElement> {}
+export interface TagsPageProps extends HTMLAttributes<HTMLDivElement> {}
 
-const TagsPage: FC<indexProps> = ({ ...props }) => {
+const TagsPage: FC<TagsPageProps> = ({ ...props }) => {
   return (
     <div {...props}>
       <h1>Tags</h1>
