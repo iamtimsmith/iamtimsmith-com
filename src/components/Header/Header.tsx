@@ -1,28 +1,26 @@
 import { FC, HTMLAttributes, useState } from "react";
+import { mainNav, siteName } from "../../constants";
 import { Link } from "../Link";
 import styles from "./styles.module.css";
 
 export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const Header: FC<HeaderProps> = ({ className, ...props }) => {
-  const siteName = "My Site";
-  const nav = [];
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <header className={styles.header}>
+    <header className={styles.header} {...props}>
       <Link className={styles.headerLogo} url="/">
         {siteName}
       </Link>
       <div className={styles.headerItems}>
         <nav>
           <ul className={styles.headerNav}>
-            {nav &&
-              nav.map((item: { url: string; title: string }, i: number) => (
-                <li className={styles.headerNavItem} key={`navItem_${i}`}>
-                  <Link url={item.url}>{item?.title}</Link>
-                </li>
-              ))}
+            {mainNav.map((item: { url: string; title: string }, i: number) => (
+              <li className={styles.headerNavItem} key={`navItem_${i}`}>
+                <Link url={item.url}>{item?.title}</Link>
+              </li>
+            ))}
           </ul>
         </nav>
         {/* <ThemeButton /> */}
