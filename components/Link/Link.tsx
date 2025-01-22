@@ -14,26 +14,27 @@ export const Link = ({
   children,
   ...props
 }: LinkProps) => {
-  const isInternal = !url.includes("://");
+  const isInternal = !url?.includes("://");
+
+  if (!url) {
+    return (
+      <p className={className} {...props}>
+        {children}
+      </p>
+    );
+  }
+
+  if (isInternal) {
+    return (
+      <NextLink className={className} href={url} title={title} {...props}>
+        {children}
+      </NextLink>
+    );
+  }
 
   return (
-    <>
-      {(isInternal && (
-        <NextLink className={className} href={url} title={title} {...props}>
-          {children}
-        </NextLink>
-      )) || (
-        <a
-          className={className}
-          href={url}
-          title={title}
-          target="_blank"
-          rel="noopener"
-          {...props}
-        >
-          {children}
-        </a>
-      )}
-    </>
+    <a className={className} href={url} title={title} {...props}>
+      {children}
+    </a>
   );
 };
