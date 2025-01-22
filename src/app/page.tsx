@@ -1,6 +1,8 @@
+import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC, HTMLAttributes } from "react";
 import { Summary } from "../components/Summary";
-import { getLatestPosts } from "../helpers/getLatestPosts";
+import { getContentBySlug } from "../helpers/getContentBySlug";
+import { getLatestPosts } from "../helpers/getLatestPosts/getLatestPosts";
 
 export interface HomePageProps extends HTMLAttributes<HTMLDivElement> {
   searchParams: URLSearchParams;
@@ -11,11 +13,12 @@ const HomePage: FC<HomePageProps> = async ({
   searchParams,
   ...props
 }) => {
+  const page = await getContentBySlug("pages/home");
   const posts = await getLatestPosts();
 
   return (
-    <div {...props}>
-      <h1>Home</h1>
+    <main {...props}>
+      <MDXRemote source={page.content} />
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
@@ -27,7 +30,7 @@ const HomePage: FC<HomePageProps> = async ({
           </li>
         ))}
       </ul>
-    </div>
+    </main>
   );
 };
 

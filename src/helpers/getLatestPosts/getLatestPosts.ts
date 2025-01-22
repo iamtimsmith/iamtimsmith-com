@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
-import { postsPerPage } from "../constants";
-import { getContentBySlug } from "./getContentBySlug/getContentBySlug";
+import { postsPerPage } from "../../constants";
+import { getContentBySlug } from "../getContentBySlug/getContentBySlug";
 
 export const getLatestPosts = async (limit = postsPerPage) => {
   // Collect all of the MDX files in the pages directory, using fs.readdirSync.
