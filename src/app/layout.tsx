@@ -1,5 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import { Container } from "../components/Container";
+import { EnvironmentBar } from "../components/EnvironmentBar";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
 import "../styles/style.css";
@@ -18,6 +19,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body>
         <ThemeProvider>
+          {process.env.NODE_ENV === "development" && <EnvironmentBar />}
           <Container>
             <Header />
             {children}

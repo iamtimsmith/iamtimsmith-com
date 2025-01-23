@@ -1,0 +1,33 @@
+.environmentBar {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+  font-size: 0.75rem;
+  font-family: "Dank Mono", monospace;
+  padding: 0.1rem 1rem;
+  text-transform: capitalize;
+  background: var(--color-error);
+  display: flex;
+}
+
+.adminButton {
+  display: block;
+  background: var(--color-grey--900);
+  padding: 0 0.5rem;
+  border-radius: 0.25rem;
+  transition: background 0.2s;
+}
+
+.adminButton:hover {
+  background: var(--color-grey--800);
+}
+
+.environmentBarEnv {
+  font-style: italic;
+}
+
+.environmentBar p {
+  margin: 0 1rem;
+}

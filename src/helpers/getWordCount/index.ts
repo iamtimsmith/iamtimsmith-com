@@ -1,0 +1,1 @@
+export { getWordCount } from "./getWordCount";
