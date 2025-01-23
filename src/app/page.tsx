@@ -1,11 +1,14 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC } from "react";
-import { PageProps } from "../../.next/types/app/page";
 import { Author } from "../components/Author";
 import { Link } from "../components/Link";
 import { Summary } from "../components/Summary";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts/getLatestPosts";
+import { getMetadata } from "../helpers/getMetadata";
+import { PageProps } from "../types";
+
+export const generateMetadata = () => getMetadata("home");
 
 export interface HomePageProps extends PageProps {
   className?: string;

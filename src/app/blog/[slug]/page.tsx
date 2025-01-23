@@ -1,7 +1,11 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC } from "react";
-import { PageProps } from "../../../../.next/types/app/page";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
+import { getMetadata } from "../../../helpers/getMetadata";
+import { PageProps } from "../../../types";
+
+export const generateMetadata = ({ params }) =>
+  getMetadata(`posts/${params.slug}`);
 
 export interface PostPageProps extends PageProps {
   className?: string;

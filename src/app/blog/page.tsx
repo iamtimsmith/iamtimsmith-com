@@ -2,6 +2,11 @@ import { FC, HTMLAttributes } from "react";
 import { Summary } from "../../components/Summary";
 import { getLatestPosts } from "../../helpers/getLatestPosts";
 
+export const metadata = {
+  title: "Blog",
+  description: "Read the latest posts from the blog.",
+};
+
 export interface BlogPageProps extends HTMLAttributes<HTMLDivElement> {}
 
 const BlogPage: FC<BlogPageProps> = async ({ className, ...props }) => {
