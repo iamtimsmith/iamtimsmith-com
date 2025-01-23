@@ -247,3 +247,11 @@ code {
   background: var(--color-grey--800);
   padding: 0.25rem 0.125rem;
 }
+
+/**
+ * IMAGES
+**/
+img {
+  max-width: 100%;
+  height: auto;
+}
