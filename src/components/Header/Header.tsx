@@ -2,6 +2,7 @@
 import { FC, HTMLAttributes, useState } from "react";
 import { mainNav, siteName } from "../../constants";
 import { Link } from "../Link";
+import { ThemeButton } from "../ThemeButton";
 import styles from "./styles.module.css";
 
 export interface HeaderProps extends HTMLAttributes<HTMLDivElement> {}
@@ -24,7 +25,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
             ))}
           </ul>
         </nav>
-        {/* <ThemeButton /> */}
+        <ThemeButton />
 
         {/* <Modal
           trigger={

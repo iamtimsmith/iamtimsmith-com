@@ -1,3 +1,4 @@
+import { ThemeProvider } from "next-themes";
 import { Container } from "../components/Container";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
@@ -14,13 +15,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
-        <Container>
-          <Header />
-          {children}
-          <Footer />
-        </Container>
+        <ThemeProvider>
+          <Container>
+            <Header />
+            {children}
+            <Footer />
+          </Container>
+        </ThemeProvider>
       </body>
     </html>
   );

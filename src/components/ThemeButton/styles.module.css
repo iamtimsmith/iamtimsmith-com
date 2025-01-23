@@ -1,0 +1,25 @@
+.themeButton {
+  font-size: 1.2rem;
+  padding: 0.25rem 0.55rem;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+}
+
+.themeButtonPlaceholder {
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+:global([data-theme="system"]) .sun,
+:global([data-theme="light"]) .sun {
+  display: none;
+}
+
+:global([data-theme="dark"]) .moon {
+  display: none;
+}

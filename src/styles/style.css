@@ -2,5 +2,6 @@
 @import "_variables.css";
 
 @import "themes/_light.css";
+@import "themes/_dark.css";
 
 @import "_global.css";
