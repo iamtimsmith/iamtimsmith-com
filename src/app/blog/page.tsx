@@ -8,7 +8,7 @@ const BlogPage: FC<BlogPageProps> = async ({ className, ...props }) => {
   const posts = await getLatestPosts();
 
   return (
-    <div {...props}>
+    <main {...props}>
       <h1>Blog</h1>
       <ul>
         {posts.map((post) => (
@@ -21,7 +21,7 @@ const BlogPage: FC<BlogPageProps> = async ({ className, ...props }) => {
           </li>
         ))}
       </ul>
-    </div>
+    </main>
   );
 };
 
