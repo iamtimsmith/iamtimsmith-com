@@ -13,7 +13,7 @@ const HomePage: FC<HomePageProps> = async ({
   searchParams,
   ...props
 }) => {
-  const page = await getContentBySlug("pages/home");
+  const page = await getContentBySlug("home");
   const posts = await getLatestPosts();
 
   return (
