@@ -1,11 +1,14 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { FC, HTMLAttributes } from "react";
+import { FC } from "react";
+import { PageProps } from "../../.next/types/app/page";
+import { Author } from "../components/Author";
+import { Link } from "../components/Link";
 import { Summary } from "../components/Summary";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts/getLatestPosts";
 
-export interface HomePageProps extends HTMLAttributes<HTMLDivElement> {
-  searchParams: URLSearchParams;
+export interface HomePageProps extends PageProps {
+  className?: string;
 }
 
 const HomePage: FC<HomePageProps> = async ({
@@ -19,6 +22,8 @@ const HomePage: FC<HomePageProps> = async ({
   return (
     <main {...props}>
       <MDXRemote source={page.content} />
+      <Author />
+      <h2>Latest Posts</h2>
       <ul>
         {posts.map((post) => (
           <li key={post.slug}>
@@ -30,6 +35,7 @@ const HomePage: FC<HomePageProps> = async ({
           </li>
         ))}
       </ul>
+      <Link url="/blog">View more posts →</Link>
     </main>
   );
 };

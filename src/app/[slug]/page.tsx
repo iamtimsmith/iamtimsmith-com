@@ -1,10 +1,10 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
-import { FC, HTMLAttributes } from "react";
+import { FC } from "react";
+import { PageProps } from "../../../.next/types/app/page";
 import { getContentBySlug } from "../../helpers/getContentBySlug";
 
-export interface DynamicPageProps extends HTMLAttributes<HTMLDivElement> {
-  params: Promise<{ slug: string }>;
-  searchParams: URLSearchParams;
+interface DynamicPageProps extends PageProps {
+  className?: string;
 }
 
 const DynamicPage: FC<DynamicPageProps> = async ({

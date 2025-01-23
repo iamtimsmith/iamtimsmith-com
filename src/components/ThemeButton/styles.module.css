@@ -15,7 +15,7 @@
   height: 1em;
 }
 
-:global([data-theme="system"]) .sun,
+:global([data-theme="unicorn"]) .sun,
 :global([data-theme="light"]) .sun {
   display: none;
 }

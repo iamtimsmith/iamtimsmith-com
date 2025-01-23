@@ -5,9 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "next dev -p 1125",
-    "build": "tinacms build && next build",
+    "build": "next build",
     "postbuild": "next-sitemap --config sitemap.config.js",
-    "start": "tinacms build && next start",
+    "start": "next start",
     "test": "jest --watchAll"
   },
   "keywords": [],

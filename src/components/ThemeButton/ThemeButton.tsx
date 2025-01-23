@@ -19,6 +19,7 @@ export const ThemeButton: FC<ThemeButtonProps> = ({ className, ...props }) => {
     <button
       className={clsx([styles.themeButton])}
       onClick={handleThemeChange}
+      aria-label="Toggle website theme"
       {...props}
     >
       <MoonIcon className={styles.moon} />
