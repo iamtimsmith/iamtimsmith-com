@@ -18,7 +18,7 @@ const PostPage: FC<PostPageProps> = async ({
 
   return (
     <main {...props}>
-      <h1>Title</h1>
+      <h1>{post.frontmatter.title}</h1>
       <MDXRemote source={post.content} />
     </main>
   );

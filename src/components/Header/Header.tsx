@@ -15,7 +15,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
         {siteName}
       </Link>
       <div className={styles.headerItems}>
-        <nav>
+        <nav aria-label="Main navigation">
           <ul className={styles.headerNav}>
             {mainNav.map((item: { url: string; title: string }, i: number) => (
               <li className={styles.headerNavItem} key={`navItem_${i}`}>

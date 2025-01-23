@@ -10,7 +10,7 @@ export interface FooterProps extends HTMLAttributes<HTMLDivElement> {}
 export const Footer: FC<FooterProps> = ({ className, ...props }) => {
   return (
     <footer className={clsx([styles.footer, className])} {...props}>
-      <nav>
+      <nav aria-label="Social links">
         <ul className={styles.footerSocials}>
           {socialNav &&
             socialNav?.map((social) => (

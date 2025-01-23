@@ -17,7 +17,7 @@ describe("<Header />", () => {
 
   it("should render navigation", () => {
     render(<Header data-testid="header" />);
-    const element = screen.getByRole("navigation");
+    const element = screen.getByRole("navigation", { name: /main/i });
     expect(element).toBeInTheDocument();
   });
 
