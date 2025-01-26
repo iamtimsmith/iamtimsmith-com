@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC, HTMLAttributes } from "react";
 import { authorBio, authorPortrait, siteName } from "../../constants";
 import styles from "./styles.module.css";
@@ -13,9 +12,10 @@ export const Author: FC<AuthorProps> = ({ className, ...props }) => {
         <img src={authorPortrait} alt={siteName} width={96} height={96} />
         {/* <CldImage src={authorPortrait} alt={siteName} width={96} height={96} /> */}
       </figure>
-      <div className={styles.authorBio}>
-        <MDXRemote source={authorBio} />
-      </div>
+      <div
+        className={styles.authorBio}
+        dangerouslySetInnerHTML={{ __html: authorBio }}
+      />
     </div>
   );
 };

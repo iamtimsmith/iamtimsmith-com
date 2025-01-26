@@ -4,7 +4,8 @@ import { getContentBySlug } from "../../helpers/getContentBySlug";
 import { getMetadata } from "../../helpers/getMetadata";
 import { PageProps } from "../../types";
 
-export const generateMetadata = ({ params }) => getMetadata(params.slug);
+export const generateMetadata = ({ params, searchParams }) =>
+  getMetadata(params.slug);
 
 interface DynamicPageProps extends PageProps {
   className?: string;

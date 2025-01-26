@@ -15,7 +15,7 @@ export const authorName = "Tim Smith";
 export const authorPortrait =
   "https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109224/iamtimsmith/timsmith_fyh0hq.jpg";
 export const authorBio =
-  "I build things using React, Node, PHP, and more. Currently, I’m a Software Engineer working on [D\\&D Beyond](https://www.dndbeyond.com) at [Wizards of the Coast](https://company.wizards.com/en). You can follow me on Twitter at [@iam\\_timsmith](https://www.twitter.com/iam_timsmith).\n";
+  "I build things using React, Node, PHP, and more. Currently, I’m a Software Engineer working on <a href='https://www.dndbeyond.com'>D&D Beyond</a> at <a href='https://company.wizards.com/en'>Wizards of the Coast</a>. You can follow me on Twitter at <a href='https://www.twitter.com/iam_timsmith'>@iam_timsmith</a>.\n";
 export const twitterHandle = "@iam_timsmith";
 
 /**

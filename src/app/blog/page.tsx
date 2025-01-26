@@ -1,15 +1,22 @@
-import { FC, HTMLAttributes } from "react";
+import { FC } from "react";
 import { Summary } from "../../components/Summary";
 import { getLatestPosts } from "../../helpers/getLatestPosts";
+import { PageProps } from "../../types";
 
 export const metadata = {
   title: "Blog",
   description: "Read the latest posts from the blog.",
 };
 
-export interface BlogPageProps extends HTMLAttributes<HTMLDivElement> {}
+export interface BlogPageProps extends PageProps {
+  className?: string;
+}
 
-const BlogPage: FC<BlogPageProps> = async ({ className, ...props }) => {
+const BlogPage: FC<BlogPageProps> = async ({
+  params,
+  searchParams,
+  ...props
+}) => {
   const posts = await getLatestPosts();
 
   return (
