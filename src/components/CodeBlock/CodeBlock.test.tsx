@@ -11,12 +11,12 @@ describe("<CodeBlock />", () => {
   it("should render with a language", () => {
     render(<CodeBlock lang="jsx" data-testid="codeBlock" />);
     const element = screen.getByTestId("codeBlock");
-    expect(element).toContainHTML('class="language-jsx"');
+    expect(element).toContainHTML('lang="jsx"');
   });
 
   it("should render with a value", () => {
     const value = "console.log('Hello, world!');";
-    render(<CodeBlock value={value} data-testid="codeBlock" />);
+    render(<CodeBlock children={value} data-testid="codeBlock" />);
     const element = screen.getByTestId("codeBlock");
     expect(element).toContainHTML(value);
   });

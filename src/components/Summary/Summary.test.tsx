@@ -25,7 +25,7 @@ describe("<Summary />", () => {
   });
 
   it("should render a link if url is provided", () => {
-    render(<Component href="/url" />);
+    render(<Component url="/url" />);
     const element = screen.getByRole("link", { name: /summary/i });
     expect(element).toHaveAttribute("href", "/url");
   });

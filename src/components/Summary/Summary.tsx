@@ -10,7 +10,7 @@ interface SummaryProps {
 export const Summary = ({ title, excerpt, url, ...props }: SummaryProps) => {
   return (
     <article {...props}>
-      <Link className={styles.summaryTitle} url={url} title={title}>
+      <Link className={styles.summaryTitle} href={url} title={title}>
         {title}
       </Link>
       <p className={styles.summaryExcerpt}>{excerpt}</p>

@@ -16,7 +16,7 @@ export const Footer: FC<FooterProps> = ({ className, ...props }) => {
               <li key={social.title}>
                 <Link
                   className={styles.footerSocialLink}
-                  url={social.url || ""}
+                  href={social.url || ""}
                   aria-label={social.title || ""}
                 >
                   <Icon />

@@ -20,7 +20,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
           <ul className={styles.headerNav}>
             {mainNav.map((item: { url: string; title: string }, i: number) => (
               <li className={styles.headerNavItem} key={`navItem_${i}`}>
-                <Link url={item.url}>{item?.title}</Link>
+                <Link href={item.url}>{item?.title}</Link>
               </li>
             ))}
           </ul>
