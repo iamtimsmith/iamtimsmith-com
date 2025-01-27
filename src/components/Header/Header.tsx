@@ -12,7 +12,7 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
 
   return (
     <header className={styles.header} {...props}>
-      <Link className={styles.headerLogo} url="/">
+      <Link className={styles.headerLogo} href="/">
         {siteName}
       </Link>
       <div className={styles.headerItems}>

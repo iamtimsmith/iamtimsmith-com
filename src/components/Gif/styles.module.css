@@ -1,0 +1,14 @@
+.Gif {
+  margin: 1.5rem auto;
+}
+
+.Gif video {
+  max-width: 100%;
+}
+
+.Gif figcaption {
+  color: var(--color-caption);
+  font-style: italic;
+  font-size: 0.875rem;
+  text-align: center;
+}

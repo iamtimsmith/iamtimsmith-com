@@ -1,39 +1,37 @@
 import NextLink from "next/link";
-import { PropsWithChildren } from "react";
+import { HTMLAttributes } from "react";
 
-interface LinkProps extends PropsWithChildren {
-  className?: string;
-  url?: string;
-  title?: string;
+interface LinkProps extends HTMLAttributes<HTMLAnchorElement> {
+  href?: string;
 }
 
 export const Link = ({
   className,
-  url,
+  href,
   title,
   children,
   ...props
 }: LinkProps) => {
-  const isInternal = !url?.includes("://");
+  const isInternal = !href?.includes("://");
 
-  if (!url) {
+  if (!href) {
     return (
-      <p className={className} {...props}>
+      <span className={className} {...props}>
         {children}
-      </p>
+      </span>
     );
   }
 
   if (isInternal) {
     return (
-      <NextLink className={className} href={url} title={title} {...props}>
+      <NextLink className={className} href={href} title={title} {...props}>
         {children}
       </NextLink>
     );
   }
 
   return (
-    <a className={className} href={url} title={title} {...props}>
+    <a className={className} href={href} title={title} {...props}>
       {children}
     </a>
   );

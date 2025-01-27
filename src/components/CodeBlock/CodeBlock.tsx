@@ -4,20 +4,20 @@ import nord from "react-syntax-highlighter/dist/cjs/styles/prism/nord";
 import styles from "./styles.module.css";
 
 interface CodeBlockProps extends HTMLAttributes<HTMLDivElement> {
-  lang?: string;
-  value?: string | string[];
+  children?: string | string[];
 }
 
 export const CodeBlock: FC<CodeBlockProps> = ({
-  lang,
-  value,
+  children,
   className,
   ...props
 }) => {
+  const lang = className?.replace("language-", "") || "plaintext";
+
   return (
     <div className={styles.codeBlock} {...props}>
       <SyntaxHighlighter language={lang} style={nord}>
-        {value || ""}
+        {children || ""}
       </SyntaxHighlighter>
     </div>
   );

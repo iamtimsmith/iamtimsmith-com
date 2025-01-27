@@ -21,31 +21,31 @@ describe("<Link />", () => {
   });
 
   it("should render children with url provided", () => {
-    render(<Component url="/test" />);
+    render(<Component href="/test" />);
     const element = screen.getByTestId("link");
     expect(element).toHaveTextContent("Hello World");
   });
 
   it("should open a new tab when url is external", () => {
-    render(<Component url="https://example.com" />);
+    render(<Component href="https://example.com" />);
     const element = screen.getByTestId("link");
     expect(element).toHaveAttribute("href", expect.stringContaining("://"));
   });
 
   it("should not open a new tab when url is internal", () => {
-    render(<Component url="/uses" />);
+    render(<Component href="/uses" />);
     const element = screen.getByTestId("link");
     expect(element).not.toHaveAttribute("href", expect.stringContaining("://"));
   });
 
   it("should render internal link with title", () => {
-    render(<Component url="/uses" title="Test" />);
+    render(<Component href="/uses" title="Test" />);
     const element = screen.getByTestId("link");
     expect(element).toHaveAttribute("title", "Test");
   });
 
   it("should render external link with title", () => {
-    render(<Component url="https://example.com" title="Test" />);
+    render(<Component href="https://example.com" title="Test" />);
     const element = screen.getByTestId("link");
     expect(element).toHaveAttribute("title", "Test");
   });

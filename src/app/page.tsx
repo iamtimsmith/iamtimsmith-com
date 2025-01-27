@@ -38,7 +38,7 @@ const HomePage: FC<HomePageProps> = async ({
           </li>
         ))}
       </ul>
-      <Link url="/blog">View more posts →</Link>
+      <Link href="/blog">View more posts →</Link>
     </main>
   );
 };

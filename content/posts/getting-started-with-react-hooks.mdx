@@ -16,7 +16,7 @@ A few years ago I wrote a post about [class components vs stateless functional c
 
 Back in "the old days", you'd have to use a class component if you wanted access to state or lifecycle methods. This led to either a lot of unnecessary class components just in case they ever needed state or a lot of time [converting stateless functional components over to class components](/blog/how-to-create-a-component/) because the requirements for the functional component changed and required something only a class component could offer.
 
-<gif
+<Gif
   src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.mp4"
   caption="&#x22;Nope. Don't like that.&#x22; - Michael Scott"
 />
@@ -71,7 +71,7 @@ const MyComponent = () => {
 
 The second most used hook is likely the `useEffect` hook which gives us access to a lifecycle method. In a class component, there are a handful of lifecycle methods you can use to make things happen at various points during the component's "lifecycle". Among the most commonly used were `componentDidMount` and `componentDidUpdate` which would allow you to do something after the component had loaded and rendered.
 
-<gif
+<Gif
   src="https://media.giphy.com/media/XfDiixCqdH7OrEBg5z/giphy.mp4"
   caption="The useEffect hook runs when the component is done rendering"
 />
@@ -244,7 +244,7 @@ This is not so different from a simple Redux store with a reducer, so it should 
 
 In the example above, it is listening for the `TAKE_SLICE` action type to reduce the `slices` variable by one (to a minimum of 0) and the `PUT_BACK` action type to increase the `slices` variable by one (to a maximum of 8).
 
-<gif
+<Gif
   src="https://media.giphy.com/media/rVMwFhvflvxAc/giphy.mp4"
   caption="Have you ever seen anything so wonderful in your entire life?"
 />
