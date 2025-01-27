@@ -51,7 +51,6 @@ export const EmailSignup: FC<EmailSignupProps> = ({
             type="submit"
             value="Subscribe"
             name="subscribe"
-            disabled={!isValidEmail}
           >
             Subscribe
           </button>

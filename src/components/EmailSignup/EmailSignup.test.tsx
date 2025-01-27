@@ -66,23 +66,6 @@ describe("<EmailSignup />", () => {
     expect(input).toBeInvalid();
   });
 
-  it("should disable the submit button if the email is invalid", () => {
-    render(<EmailSignup data-testid="emailSignup" />);
-    const input = screen.getByRole("textbox", { name: /email address/i });
-    const button = screen.getByRole("button", { name: /subscribe/i });
-    expect(input).toBeInvalid();
-    expect(button).toBeDisabled();
-  });
-
-  it("should enable the submit button if the email is valid", () => {
-    render(<EmailSignup data-testid="emailSignup" />);
-    const input = screen.getByRole("textbox", { name: /email address/i });
-    const button = screen.getByRole("button", { name: /subscribe/i });
-    fireEvent.change(input, { target: { value: "kenobi@jedi.com" } });
-    expect(input).toBeValid();
-    expect(button).toBeEnabled();
-  });
-
   it("should render without a success message", () => {
     render(<EmailSignup data-testid="emailSignup" />);
     const element = screen.queryByText(/success/i);

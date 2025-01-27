@@ -26,12 +26,6 @@
   border-radius: 0 var(--border--rounded) var(--border--rounded) 0;
 }
 
-.emailSignupButton:disabled {
-  background: var(--color-bg-light);
-  color: var(--color-text-light);
-  border: 1px solid red;
-}
-
 .emailSignupError {
   font-size: var(--font-size--sm);
   color: var(--color-error);
