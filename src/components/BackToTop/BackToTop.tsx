@@ -4,7 +4,7 @@ import style from "./styles.module.css";
 
 type BackToTopProps = HTMLAttributes<HTMLButtonElement>;
 
-export const BackToTop: FC<BackToTopProps> = (props) => {
+export const BackToTop: FC<BackToTopProps> = ({ className, ...props }) => {
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(window.scrollY > 50);
