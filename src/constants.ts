@@ -1,3 +1,10 @@
+import {
+  DevIcon,
+  GithubIcon,
+  LinkedinIcon,
+  TwitterIcon,
+} from "./components/Icons";
+
 /**
  * SITE CONFIG
  */
@@ -34,22 +41,22 @@ export const mainNav = [
 
 export const socialNav = [
   {
-    icon: "Linkedin",
+    icon: LinkedinIcon,
     title: "Linkedin",
     url: "https://www.linkedin.com",
   },
   {
-    icon: "Dev.to",
+    icon: DevIcon,
     title: "Dev",
     url: "https://dev.to",
   },
   {
-    icon: "Github",
+    icon: GithubIcon,
     title: "Github",
     url: "https://www.github.com/iamtimsmith",
   },
   {
-    icon: "Twitter",
+    icon: TwitterIcon,
     title: "Twitter",
     url: "https://www.twitter.com",
   },

@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { FC, HTMLAttributes } from "react";
 import { socialNav } from "../../constants";
-import { getIcon } from "../../helpers/getIcon";
 import { Link } from "../Link";
 import styles from "./styles.module.css";
 
@@ -13,14 +12,14 @@ export const Footer: FC<FooterProps> = ({ className, ...props }) => {
       <nav aria-label="Social links">
         <ul className={styles.footerSocials}>
           {socialNav &&
-            socialNav?.map((social) => (
+            socialNav?.map(({ icon: Icon, ...social }) => (
               <li key={social.title}>
                 <Link
                   className={styles.footerSocialLink}
                   url={social.url || ""}
                   aria-label={social.title || ""}
                 >
-                  {getIcon(social?.icon || "")}
+                  <Icon />
                 </Link>
               </li>
             ))}
