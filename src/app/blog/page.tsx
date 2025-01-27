@@ -37,4 +37,6 @@ const BlogPage: FC<BlogPageProps> = async ({
   );
 };
 
+export const revalidate = 60; // Revalidate this page every 60 seconds
+
 export default BlogPage;
