@@ -3,7 +3,9 @@ import path from "path";
 import { postsPerPage } from "../../constants";
 import { getContentBySlug } from "../getContentBySlug/getContentBySlug";
 
-export const getLatestPosts = async (limit = postsPerPage) => {
+export const getLatestPosts = (limit = postsPerPage) => {
+  // Determine the environment
+  const isDev = process.env.NODE_ENV === "development";
   // Collect all of the MDX files in the pages directory, using fs.readdirSync.
   const files = fs.readdirSync(path.join(process.cwd(), "content/posts"));
   const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
@@ -21,16 +23,15 @@ export const getLatestPosts = async (limit = postsPerPage) => {
   });
 
   // Filter out any unpublished posts (ones where isPublished is not set to true).
-  const publishedPosts = posts.filter(
-    (post) => post.frontmatter.published === true
-  );
+  const publishedPosts = !isDev
+    ? posts.filter((post) => post.frontmatter.published === true)
+    : posts;
 
   // Sort all of the blog posts by publishedOn date.
   publishedPosts.sort((a, b) =>
     new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1
   );
-  // Limit the number of posts returned.
-
-  //Return the data.
+  // Limit the number of posts and return them.
+  if (limit < 0) return publishedPosts;
   return publishedPosts.slice(0, limit);
 };
