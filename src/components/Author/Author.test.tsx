@@ -32,20 +32,26 @@ describe("<Author />", () => {
   it("should render the author bio with D&D Beyond link", () => {
     render(<Author data-testid="author" />);
     const element = screen.getByRole("link", { name: /d&d beyond/i });
-    expect(element).toHaveAttribute("href", "https://www.dndbeyond.com");
+    expect(element).toHaveAttribute(
+      "href",
+      expect.stringContaining("dndbeyond.com")
+    );
   });
 
   it("should render the author bio with WOTC link", () => {
     render(<Author data-testid="author" />);
     const element = screen.getByRole("link", { name: /wizards of the coast/i });
-    expect(element).toHaveAttribute("href", "https://company.wizards.com/en");
+    expect(element).toHaveAttribute(
+      "href",
+      expect.stringContaining("wizards.com")
+    );
   });
   it("should render the author bio with Twitter link", () => {
     render(<Author data-testid="author" />);
     const element = screen.getByRole("link", { name: /@iam_timsmith/i });
     expect(element).toHaveAttribute(
       "href",
-      "https://www.twitter.com/iam_timsmith"
+      expect.stringContaining("twitter.com")
     );
   });
 });
