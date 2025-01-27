@@ -6,6 +6,17 @@ import {
 } from "./components/Icons";
 
 /**
+ * ENVIRNONMENT VARIABLES
+ */
+export const mailchimpApiKey =
+  process.env.MAILCHIMP_API_KEY || "MAILCHIMP_API_KEY";
+export const mailchimpAudienceId =
+  process.env.MAILCHIMP_AUDIENCE_ID || "MAILCHIMP_AUDIENCE_ID";
+export const mailchimpServer =
+  process.env.MAILCHIMP_API_SERVER || "MAILCHIMP_API_SERVER";
+export const mailchimpApiUrl = `https://${mailchimpServer}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members`;
+
+/**
  * SITE CONFIG
  */
 export const siteName = "Tim Smith";
@@ -24,6 +35,16 @@ export const authorPortrait =
 export const authorBio =
   "I build things using React, Node, PHP, and more. Currently, I’m a Software Engineer working on <a href='https://www.dndbeyond.com'>D&D Beyond</a> at <a href='https://company.wizards.com/en'>Wizards of the Coast</a>. You can follow me on Twitter at <a href='https://www.twitter.com/iam_timsmith'>@iam_timsmith</a>.\n";
 export const twitterHandle = "@iam_timsmith";
+
+/**
+ * SUCCESS AND ERROR MESSAGES
+ */
+export const noEmail = "Email is required. Please try again.";
+export const invalidEmail = "Please provide a valid email address.";
+export const subscribeError =
+  "Something went wrong! You can contact me at tim@iamtimsmith.com and I'll get you added.";
+export const subscribeSuccess =
+  "Awesome! You're signed up and can expect a monthly email with all of my latest blog posts!";
 
 /**
  * NAVIGATION CONFIG

@@ -1,6 +1,7 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC } from "react";
 import { Author } from "../../../components/Author";
+import { EmailSignup } from "../../../components/EmailSignup";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getMetadata } from "../../../helpers/getMetadata";
 import { PageProps } from "../../../types";
@@ -24,7 +25,7 @@ const PostPage: FC<PostPageProps> = async ({
   return (
     <main {...props}>
       <h1>{post.frontmatter.title}</h1>
-      <MDXRemote source={post.content} />
+      <MDXRemote source={post.content} components={{ EmailSignup }} />
       <Author />
     </main>
   );
