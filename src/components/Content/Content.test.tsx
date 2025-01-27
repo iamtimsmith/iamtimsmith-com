@@ -42,4 +42,10 @@ describe("<Mdx />", () => {
     const element = screen.getByTestId("mdx");
     expect(element).toHaveTextContent("<Gif ");
   });
+
+  it("should render embeds", () => {
+    render(Component);
+    const element = screen.getByTestId("mdx");
+    expect(element).toHaveTextContent("<Embed ");
+  });
 });
