@@ -12,7 +12,15 @@ export interface ContentProps extends HTMLAttributes<HTMLDivElement> {
 export const Content: FC<ContentProps> = ({ children, ...props }) => (
   <MDXRemote
     source={children}
-    components={{ EmailSignup, Gif, code: CodeBlock, a: Link }}
+    components={{
+      EmailSignup,
+      Gif,
+      pre: (props) => {
+        const data = (props.children as any).props;
+        return <CodeBlock {...data} />;
+      },
+      a: Link,
+    }}
     {...props}
   />
 );
