@@ -2,21 +2,21 @@
 title: How to use React Context
 date: 2021-12-13T06:00:00.000Z
 excerpt: >-
-    In this post, I'll show you how to set up and use React Context in your next
-    project
+  In this post, I'll show you how to set up and use React Context in your next
+  project
 published: true
 featuredImage: >-
-    http://res.cloudinary.com/dcrgbfjfu/image/upload/v1687669984/iamtimsmith/how-to-use-react-context_xfnwbh.jpg
+  http://res.cloudinary.com/dcrgbfjfu/image/upload/v1687669984/iamtimsmith/how-to-use-react-context_xfnwbh.jpg
 tags:
-    - basics
-    - react
+  - basics
+  - react
 ---
 
 Have you ever had to pass a piece of state three or four levels deep along with a method to update the state? If so, you have likely either suffered in silence or looked into libraries such as Redux. The team behind React heard these complaints from the community and decided it was high time they created an out-of-the-box solution for this. Their solution is a part of the React library and is called "Context". In this post, you'll learn how to set up and use Context in your project.
 
 <gif
-	src="https://media.giphy.com/media/5SBPr8uRojC3D2pW96/giphy.mp4"
-	caption="Context."
+  src="https://media.giphy.com/media/5SBPr8uRojC3D2pW96/giphy.mp4"
+  caption="Context."
 />
 
 ## Life before context
@@ -26,8 +26,8 @@ Before getting into Context, I'd like to explain the problem that context solves
 The latter solution is bad because it means writing duplicate code all over. This is a pain (and can be dangerous) because if you have to update that logic down the road, you may miss a spot where the code is duplicated and then there's a divergence in your logic. **We want to avoid this.**
 
 <gif
-	src="https://media.giphy.com/media/3ohuAwaX6Q13W78tdS/giphy.mp4"
-	caption="Brennan, a.k.a. Nighthawk, agrees that you shouldn't do this."
+  src="https://media.giphy.com/media/3ohuAwaX6Q13W78tdS/giphy.mp4"
+  caption="Brennan, a.k.a. Nighthawk, agrees that you shouldn't do this."
 />
 
 The first option presented doesn't sound too bad until you have a complex application with several children and grandchildren. Then if a great grandchild needs the state (or the ability to change the state) in the topmost component, it has to be passed down through each level even if it's not being used by the other levels. To illustrate, I'll give an example below:
@@ -117,18 +117,18 @@ One of my favorite ways to do this is to include it as a component in the same f
 import React, { createContext, useState } from "react";
 
 export const MyContext = createContext({
-	count: 0,
-	setCount: () => {},
+  count: 0,
+  setCount: () => {},
 });
 
 export const MyContextProvider = ({ children }) => {
-	const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-	return (
-		<MyContext.Provider value={{ count, setCount }}>
-			{children}
-		</MyContext.Provider>
-	);
+  return (
+    <MyContext.Provider value={{ count, setCount }}>
+      {children}
+    </MyContext.Provider>
+  );
 };
 ```
 
@@ -143,13 +143,13 @@ import React from "react";
 import { MyContextProvider } from "./MyContext";
 
 const App = ({ children }) => {
-	return <MyContextProvider>{children}</MyContextProvider>;
+  return <MyContextProvider>{children}</MyContextProvider>;
 };
 ```
 
 Now that the provider is wrapped around everything else in your app, all of the things in your app know about the context. You're ready to start using your context!
 
-<email_signup />
+<EmailSignup />
 
 ## How do I use context?
 
@@ -164,11 +164,11 @@ import React from "react";
 import { MyContext } from "./MyContext";
 
 const MyComponentWithContext = () => {
-	return (
-		<MyContext.Consumer>
-			{(context) => <p>The current count is {context.count}</p>}
-		</MyContext.Consumer>
-	);
+  return (
+    <MyContext.Consumer>
+      {(context) => <p>The current count is {context.count}</p>}
+    </MyContext.Consumer>
+  );
 };
 ```
 
@@ -179,11 +179,11 @@ import React from "react";
 import { MyContext } from "./MyContext";
 
 const MyComponentWithContext = () => {
-	return (
-		<MyContext.Consumer>
-			{({ count }) => <p>The current count is {count}</p>}
-		</MyContext.Consumer>
-	);
+  return (
+    <MyContext.Consumer>
+      {({ count }) => <p>The current count is {count}</p>}
+    </MyContext.Consumer>
+  );
 };
 ```
 
@@ -198,9 +198,9 @@ import React, { useContext } from "react";
 import { MyContext } from "./MyContext";
 
 const MyComponentWithContext = () => {
-	const { count } = useContext(MyContext);
+  const { count } = useContext(MyContext);
 
-	return <p>The current count is {context.count}</p>;
+  return <p>The current count is {context.count}</p>;
 };
 ```
 
@@ -217,13 +217,13 @@ import { MySecondContextProvider } from "./MySecondContext";
 import { MyThirdContextProvider } from "./MyThirdContext";
 
 const App = ({ children }) => {
-	return (
-		<MyFirstContextProvider>
-			<MySecondContextProvider>
-				<MyThirdContextProvider>{children}</MyThirdContextProvider>
-			</MySecondContextProvider>
-		</MyFirstContextProvider>
-	);
+  return (
+    <MyFirstContextProvider>
+      <MySecondContextProvider>
+        <MyThirdContextProvider>{children}</MyThirdContextProvider>
+      </MySecondContextProvider>
+    </MyFirstContextProvider>
+  );
 };
 ```
 

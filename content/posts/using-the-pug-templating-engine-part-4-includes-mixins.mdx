@@ -2,13 +2,13 @@
 title: Using the Pug Templating Engine  Part 4 - Includes & Mixins
 date: 2021-02-08T05:00:00.000Z
 excerpt: >-
-    With Pug, you can use pieces called includes and mixins to make development
-    more efficient. I'll teach you about it in this blog post.
+  With Pug, you can use pieces called includes and mixins to make development
+  more efficient. I'll teach you about it in this blog post.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-the-pug-templating-engine-part-4_xzm535.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-the-pug-templating-engine-part-4_xzm535.jpg
 tags:
-    - pug
+  - pug
 ---
 
 Now that we've covered templating, logic, and layouts, it's time to cover the last major piece of Pug: includes and mixins. These concepts also fall into the DRY category and can help make your life as a developer much easier. First up? Includes.
@@ -18,8 +18,8 @@ Now that we've covered templating, logic, and layouts, it's time to cover the la
 Imagine you've got a piece of your site that will be used in various places on your site, such as a contact form. If you wanted that on two different pages, you'd have to create the form manually on each page even though they're exactly the same. Again, that leads to issues with having to update something in multiple locations. Who wants to do that?
 
 <gif
-	src="https://media.giphy.com/media/5CEr8N7lClOg0/giphy.mp4"
-	caption="Lame."
+  src="https://media.giphy.com/media/5CEr8N7lClOg0/giphy.mp4"
+  caption="Lame."
 />
 
 This is exactly the reason Pug gives us the ability to use includes. Includes allow you to write some static code (no dynamic data) and put it wherever you want in the templates. In our form example, the form code would just be standard Pug templating. The code below shows what's in my form template.
@@ -53,35 +53,35 @@ Below the `h1` tag, I have added a line with the `include` keyword followed by t
 ```html
 <!-- output -->
 <html>
-	<head>
-		<title>My Site</title>
-	</head>
-	<body>
-		<header>
-			<a href="/">Home</a>
-		</header>
+  <head>
+    <title>My Site</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+    </header>
 
-		<h1>Hello, world!</h1>
-		<form action="/action-goes-here" method="post">
-			<label for="name">Name:</label>
-			<input type="text" name="name" id="name" />
-			<textarea name="message" id="message"></textarea>
-			<input type="submit" value="Submit" />
-		</form>
+    <h1>Hello, world!</h1>
+    <form action="/action-goes-here" method="post">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+      <textarea name="message" id="message"></textarea>
+      <input type="submit" value="Submit" />
+    </form>
 
-		<footer>
-			<p>Site Footer</p>
-		</footer>
-		<script>
-			console.log("Hello, world!");
-		</script>
-	</body>
+    <footer>
+      <p>Site Footer</p>
+    </footer>
+    <script>
+      console.log("Hello, world!");
+    </script>
+  </body>
 </html>
 ```
 
 Honestly, that's really all there is to know about includes. You write code, then include it somewhere. It is worth noting that using when using includes, the whole file is included. There's not any way to only pull certain pieces out for reuse. This is also the way you pull other data such as mixins into the current file. What if you needed this sort of idea, but with dynamic data? That's where mixins come into play.
 
-<email_signup />
+<EmailSignup />
 
 ## What are mixins used for in Pug?
 
@@ -119,8 +119,8 @@ The `hello.pug` page looks pretty much the same as before, but with a few change
 As you can see, the example above calls the post mixin, `+post()` with two arguments being passed in. Using the mixins in templates is pretty straightforward and should feel similar to writing JavaScript function. In the example, the title argument is "This is the title" and the content argument is "This is the content".
 
 <gif
-	src="https://media.giphy.com/media/4cUCFvwICarHq/giphy.mp4"
-	caption="Amazed kid looking all over"
+  src="https://media.giphy.com/media/4cUCFvwICarHq/giphy.mp4"
+  caption="Amazed kid looking all over"
 />
 
 After using the mixin in a template, the compiled markdown will look like this:
@@ -128,34 +128,34 @@ After using the mixin in a template, the compiled markdown will look like this:
 ```html
 <!-- output -->
 <html>
-	<head>
-		<title>My Site</title>
-	</head>
-	<body>
-		<header>
-			<a href="/">Home</a>
-		</header>
+  <head>
+    <title>My Site</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+    </header>
 
-		<h1>Hello, world!</h1>
-		<form action="/action-goes-here" method="post">
-			<label for="name">Name:</label>
-			<input type="text" name="name" id="name" />
-			<textarea name="message" id="message"></textarea>
-			<input type="submit" value="Submit" />
-		</form>
+    <h1>Hello, world!</h1>
+    <form action="/action-goes-here" method="post">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name" />
+      <textarea name="message" id="message"></textarea>
+      <input type="submit" value="Submit" />
+    </form>
 
-		<article>
-			<h2>This is the title</h2>
-			<p>This is the content</p>
-		</article>
+    <article>
+      <h2>This is the title</h2>
+      <p>This is the content</p>
+    </article>
 
-		<footer>
-			<p>Site Footer</p>
-		</footer>
-		<script>
-			console.log("Hello, world!");
-		</script>
-	</body>
+    <footer>
+      <p>Site Footer</p>
+    </footer>
+    <script>
+      console.log("Hello, world!");
+    </script>
+  </body>
 </html>
 ```
 

@@ -2,14 +2,14 @@
 title: "Parcel.js: Who says bundling needs to be difficult?"
 date: 2018-08-31T05:00:00.000Z
 excerpt: >-
-    I'm going to show you how to set up a project using Parcel for building a
-    React app. It only takes about 5 minutes to get up and running (even less once
-    you've done it a couple of time)!
+  I'm going to show you how to set up a project using Parcel for building a
+  React app. It only takes about 5 minutes to get up and running (even less once
+  you've done it a couple of time)!
 published: true
 featuredImage: >-
-    http://res.cloudinary.com/dcrgbfjfu/image/upload/v1687529287/iamtimsmith/parcel-js-who-says-bundling-needs-to-be-difficult_bfk6n3.png
+  http://res.cloudinary.com/dcrgbfjfu/image/upload/v1687529287/iamtimsmith/parcel-js-who-says-bundling-needs-to-be-difficult_bfk6n3.png
 tags:
-    - workflow
+  - workflow
 ---
 
 If you're using React, you've likely come across build tools such as [Webpack](https://webpack.js.org/), [Grunt](https://gruntjs.com/), or [Gulp](https://gulpjs.com/).
@@ -92,17 +92,17 @@ We can now open this file in our text editor. We will fill it with the following
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Parcel Setup</title>
-	</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Parcel Setup</title>
+  </head>
 
-	<body>
-		<div id="app"></div>
-		<script src="./app.js"></script>
-	</body>
+  <body>
+    <div id="app"></div>
+    <script src="./app.js"></script>
+  </body>
 </html>
 ```
 
@@ -134,13 +134,13 @@ import React from "react";
 import ReactDOM from "react-dom";
 
 class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<h1>Hello World!</h1>
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <h1>Hello World!</h1>
+      </div>
+    );
+  }
 }
 
 ReactDOM.render(<App />, document.getElementById("app"));
@@ -148,7 +148,7 @@ ReactDOM.render(<App />, document.getElementById("app"));
 
 Great! The top of our file is importing the dependencies we need for this file. We installed them in step 5. Next, we're creating our App component which will just return an H1 tag with the text "Hello World!". The bottom line renders the app inside the #app element we created in our HTML document in step 4.
 
-<email_signup />
+<EmailSignup />
 
 ### 7. Create a .babelrc file to tell it how to compile the JavaScript
 
@@ -164,7 +164,7 @@ Inside of our file, we will put the following code. This is a pretty basic setup
 ```json
 // .babelrc
 {
-	"presets": ["env", "react"]
+  "presets": ["env", "react"]
 }
 ```
 
@@ -184,17 +184,17 @@ It should look like this:
 ```json
 // package.json
 {
-	"name": "parcel-setup",
-	"version": "1.0.0",
-	"main": "index.js",
-	"license": "MIT",
-	"dependencies": {
-		"babel-preset-env": "^1.7.0",
-		"babel-preset-react": "^6.24.1",
-		"parcel": "^1.9.7",
-		"react": "^16.4.2",
-		"react-dom": "^16.4.2"
-	}
+  "name": "parcel-setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel": "^1.9.7",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
 }
 ```
 
@@ -214,20 +214,20 @@ Our complete package.json file should look like this:
 ```json
 // package.json
 {
-	"name": "parcel-setup",
-	"version": "1.0.0",
-	"main": "index.js",
-	"license": "MIT",
-	"scripts": {
-		"start": "parcel index.html"
-	},
-	"dependencies": {
-		"babel-preset-env": "^1.7.0",
-		"babel-preset-react": "^6.24.1",
-		"parcel": "^1.9.7",
-		"react": "^16.4.2",
-		"react-dom": "^16.4.2"
-	}
+  "name": "parcel-setup",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel index.html"
+  },
+  "dependencies": {
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "parcel": "^1.9.7",
+    "react": "^16.4.2",
+    "react-dom": "^16.4.2"
+  }
 }
 ```
 

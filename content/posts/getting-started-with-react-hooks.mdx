@@ -2,14 +2,14 @@
 title: Getting started with React Hooks
 date: 2021-12-06T06:00:00.000Z
 excerpt: >-
-    Today I'll be showing you how to use some of the more common hooks provided by
-    React as well as how to create your own custom hook.
+  Today I'll be showing you how to use some of the more common hooks provided by
+  React as well as how to create your own custom hook.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109212/iamtimsmith/getting-started-with-react-hooks_m3n7u4.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109212/iamtimsmith/getting-started-with-react-hooks_m3n7u4.jpg
 tags:
-    - basics
-    - react
+  - basics
+  - react
 ---
 
 A few years ago I wrote a post about [class components vs stateless functional components](/blog/class-components-vs-stateless-functional-components/) and why you should use each one. At the time of writing, those were the two types of components and many developers yearned for a way to use functional components with state and lifecycle methods.
@@ -17,8 +17,8 @@ A few years ago I wrote a post about [class components vs stateless functional c
 Back in "the old days", you'd have to use a class component if you wanted access to state or lifecycle methods. This led to either a lot of unnecessary class components just in case they ever needed state or a lot of time [converting stateless functional components over to class components](/blog/how-to-create-a-component/) because the requirements for the functional component changed and required something only a class component could offer.
 
 <gif
-	src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.mp4"
-	caption="&#x22;Nope. Don't like that.&#x22; - Michael Scott"
+  src="https://media.giphy.com/media/4cuyucPeVWbNS/giphy.mp4"
+  caption="&#x22;Nope. Don't like that.&#x22; - Michael Scott"
 />
 
 Fortunately, the team behind React heard these complains and took action. With the release of React 16 came something called "hooks". These hooks allow you to use state, a lifecycle method, and much more from a functional component! Today I'll be showing you how to use some of the more common hooks as well as how to create your own custom hook.
@@ -31,14 +31,14 @@ Perhaps the most commonly used hook is the `useState` hook which is used to crea
 import React, { useState } from "react";
 
 const MyComponent = () => {
-	const [count, setCount] = useState(0);
+  const [count, setCount] = useState(0);
 
-	return (
-		<div>
-			<p>Number of Clicks: {count}</p>
-			<button onClick={() => setCount(count + 1)}>Click Me!</button>
-		</div>
-	);
+  return (
+    <div>
+      <p>Number of Clicks: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Click Me!</button>
+    </div>
+  );
 };
 ```
 
@@ -56,14 +56,14 @@ When using TypeScript in your project with strict set to `true` in your `tsconfi
 import React, { useState } from "react";
 
 const MyComponent = () => {
-	const [count, setCount] = useState < number > 0;
+  const [count, setCount] = useState < number > 0;
 
-	return (
-		<div>
-			<p>Number of Clicks: {count}</p>
-			<button onClick={() => setCount(count + 1)}>Click Me!</button>
-		</div>
-	);
+  return (
+    <div>
+      <p>Number of Clicks: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Click Me!</button>
+    </div>
+  );
 };
 ```
 
@@ -72,8 +72,8 @@ const MyComponent = () => {
 The second most used hook is likely the `useEffect` hook which gives us access to a lifecycle method. In a class component, there are a handful of lifecycle methods you can use to make things happen at various points during the component's "lifecycle". Among the most commonly used were `componentDidMount` and `componentDidUpdate` which would allow you to do something after the component had loaded and rendered.
 
 <gif
-	src="https://media.giphy.com/media/XfDiixCqdH7OrEBg5z/giphy.mp4"
-	caption="The useEffect hook runs when the component is done rendering"
+  src="https://media.giphy.com/media/XfDiixCqdH7OrEBg5z/giphy.mp4"
+  caption="The useEffect hook runs when the component is done rendering"
 />
 
 The `useEffect` hook replaces these two lifecycle methods and allows you to do things after the component has rendered. It also allows us to pass in dependencies which determines when the hook will run which will help with performance. It's also worth mentioning that there can be more than one `useEffect` hook in a component to accomodate changes for different dependencies. The code below illustrates how to use the `useEffect` hook in a functional component:
@@ -82,17 +82,17 @@ The `useEffect` hook replaces these two lifecycle methods and allows you to do t
 import React, { useState, useEffect } from "react";
 
 const MyComponent = () => {
-	const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		setLoading(false);
-	}, []);
+  useEffect(() => {
+    setLoading(false);
+  }, []);
 
-	return (
-		<div>
-			<p>Is page loading? {loading.toString()}</p>
-		</div>
-	);
+  return (
+    <div>
+      <p>Is page loading? {loading.toString()}</p>
+    </div>
+  );
 };
 ```
 
@@ -106,18 +106,18 @@ You may also notice I have passed an empty array as the second argument. By doin
 import React, { useState, useEffect } from "react";
 
 const MyComponent = () => {
-	const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-	useEffect(() => {
-		setLoading(false);
-	}, [loading]);
+  useEffect(() => {
+    setLoading(false);
+  }, [loading]);
 
-	return (
-		<div>
-			<p>Is page loading? {loading.toString()}</p>
-			<button onClick={() => setLoading(true)}>Reload Me!</button>
-		</div>
-	);
+  return (
+    <div>
+      <p>Is page loading? {loading.toString()}</p>
+      <button onClick={() => setLoading(true)}>Reload Me!</button>
+    </div>
+  );
 };
 ```
 
@@ -129,19 +129,19 @@ In some cases, you may need to create an event listener in your component. I hav
 import React, { useEffect } from "react";
 
 const MyComponent = () => {
-	const onKeyPress = (e) => {
-		alert(`You pressed the ${e.key} key!`);
-	};
+  const onKeyPress = (e) => {
+    alert(`You pressed the ${e.key} key!`);
+  };
 
-	useEffect(() => {
-		document.addEventListener("keydown", onKeyPress);
-	}, []);
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyPress);
+  }, []);
 
-	return (
-		<div>
-			<p>My Component</p>
-		</div>
-	);
+  return (
+    <div>
+      <p>My Component</p>
+    </div>
+  );
 };
 ```
 
@@ -153,22 +153,22 @@ When the component unmounts, you'll see an ugly error in the console which tells
 import React, { useEffect } from "react";
 
 const MyComponent = () => {
-	const onKeyPress = (e) => {
-		alert(`You pressed the ${e.key} key!`);
-	};
+  const onKeyPress = (e) => {
+    alert(`You pressed the ${e.key} key!`);
+  };
 
-	useEffect(() => {
-		document.addEventListener("keydown", onKeyPress);
-		return () => {
-			document.removeEventListener("keydown", onKeyPress);
-		};
-	}, []);
+  useEffect(() => {
+    document.addEventListener("keydown", onKeyPress);
+    return () => {
+      document.removeEventListener("keydown", onKeyPress);
+    };
+  }, []);
 
-	return (
-		<div>
-			<p>My Component</p>
-		</div>
-	);
+  return (
+    <div>
+      <p>My Component</p>
+    </div>
+  );
 };
 ```
 
@@ -183,19 +183,19 @@ import React, { useContext } from "react";
 import MyContext from "./MyContext";
 
 const MyComponent = () => {
-	const { food } = useContext(MyContext);
+  const { food } = useContext(MyContext);
 
-	return (
-		<div>
-			<p>My favorite food is {food}!</p>
-		</div>
-	);
+  return (
+    <div>
+      <p>My favorite food is {food}!</p>
+    </div>
+  );
 };
 ```
 
 Using this hook, you can get any piece of state contained in the context and passed into the provider. This makes it really easy to have a "single source of truth" in your project without any extra libraries and without a ton of unnecessary code.
 
-<email_signup />
+<EmailSignup />
 
 ## The useReducer hook
 
@@ -207,36 +207,36 @@ The `useReducer` hook accepts two arguments: the reducer and an initial state. F
 import React, { useReducer } from "react";
 
 const initState = {
-	slices: 8,
+  slices: 8,
 };
 
 const reducer = (state, action) => {
-	switch (action.type) {
-		case "TAKE_SLICE":
-			if (state.slices === 0) return { slices: 0 };
-			return { slices: state.slices - 1 };
-		case "PUT_BACK":
-			if (state.slices === 8) return { slices: 8 };
-			return { slices: state.slices + 1 };
-		default:
-			return;
-	}
+  switch (action.type) {
+    case "TAKE_SLICE":
+      if (state.slices === 0) return { slices: 0 };
+      return { slices: state.slices - 1 };
+    case "PUT_BACK":
+      if (state.slices === 8) return { slices: 8 };
+      return { slices: state.slices + 1 };
+    default:
+      return;
+  }
 };
 
 const MyComponent = () => {
-	const [state, dispatch] = useReducer(reducer, initState);
+  const [state, dispatch] = useReducer(reducer, initState);
 
-	return (
-		<div>
-			<p>There are currently {state.slices} slices of pizza left.</p>
-			<button onClick={() => dispatch({ type: "TAKE_SLICE" })}>
-				Take a slice!
-			</button>
-			<button onClick={() => dispatch({ type: "PUT_BACK" })}>
-				Put the slice back!
-			</button>
-		</div>
-	);
+  return (
+    <div>
+      <p>There are currently {state.slices} slices of pizza left.</p>
+      <button onClick={() => dispatch({ type: "TAKE_SLICE" })}>
+        Take a slice!
+      </button>
+      <button onClick={() => dispatch({ type: "PUT_BACK" })}>
+        Put the slice back!
+      </button>
+    </div>
+  );
 };
 ```
 
@@ -245,8 +245,8 @@ This is not so different from a simple Redux store with a reducer, so it should 
 In the example above, it is listening for the `TAKE_SLICE` action type to reduce the `slices` variable by one (to a minimum of 0) and the `PUT_BACK` action type to increase the `slices` variable by one (to a maximum of 8).
 
 <gif
-	src="https://media.giphy.com/media/rVMwFhvflvxAc/giphy.mp4"
-	caption="Have you ever seen anything so wonderful in your entire life?"
+  src="https://media.giphy.com/media/rVMwFhvflvxAc/giphy.mp4"
+  caption="Have you ever seen anything so wonderful in your entire life?"
 />
 
 ## Are there more hooks?
@@ -261,19 +261,19 @@ You can also create custom hooks if none of the available hooks suit your needs.
 import { useEffect, useState } from "react";
 
 export const useFetch = (url) => {
-	const [data, setData] = useState(null);
+  const [data, setData] = useState(null);
 
-	const handleFetch = async (url) => {
-		const res = await fetch(url);
-		const json = await res.json();
-		return json;
-	};
+  const handleFetch = async (url) => {
+    const res = await fetch(url);
+    const json = await res.json();
+    return json;
+  };
 
-	useEffect(() => {
-		setData(handleFetch(url));
-	}, []);
+  useEffect(() => {
+    setData(handleFetch(url));
+  }, []);
 
-	return data;
+  return data;
 };
 ```
 
@@ -284,14 +284,14 @@ import React from "react";
 import { useFetch } from "./useFetch";
 
 const MyComponent = () => {
-	const post = useFetch("https://some-fake-site.com");
+  const post = useFetch("https://some-fake-site.com");
 
-	return (
-		<div>
-			<h1>{post.title}</h1>
-			<div dangerouslySetInnerHTML={{ __html: post.content }} />
-		</div>
-	);
+  return (
+    <div>
+      <h1>{post.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+    </div>
+  );
 };
 ```
 

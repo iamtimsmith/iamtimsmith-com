@@ -2,20 +2,20 @@
 title: Using the Pug Templating Engine  Part 3 - Layouts
 date: 2021-01-29T05:00:00.000Z
 excerpt: >-
-    Pug allows you to use inheritance to create a layout for the frontend and then
-    insert blocks of data into the layout, causing a better developer experience.
+  Pug allows you to use inheritance to create a layout for the frontend and then
+  insert blocks of data into the layout, causing a better developer experience.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-the-pug-templating-engine-part-3_gdvw7m.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-the-pug-templating-engine-part-3_gdvw7m.jpg
 tags:
-    - pug
+  - pug
 ---
 
 So far in this series, I have covered basic templating and how to use logic when creating a frontend with Pug. Those things are enough to get a frontend up and running, but there's still more to learn which can make your developer experience much better. That's what I will be talking about in today's post.
 
 <gif
-	src="https://media.giphy.com/media/YXpp9YxWhyWBy/giphy.mp4"
-	caption="Fred Z. Randall excited about going to mars in Rocketman."
+  src="https://media.giphy.com/media/YXpp9YxWhyWBy/giphy.mp4"
+  caption="Fred Z. Randall excited about going to mars in Rocketman."
 />
 
 ## How do I create layouts in Pug?
@@ -44,11 +44,11 @@ html
 Great! Now you've created a layout that doesn't actually do anything at the moment. How is that useful? In order to understand that, we need to talk about the other part of this section: blocks.
 
 <gif
-	src="https://media.giphy.com/media/ZgURe4CWXu8gBEpwYy/giphy.mp4"
-	caption="What are we supposed to do now?"
+  src="https://media.giphy.com/media/ZgURe4CWXu8gBEpwYy/giphy.mp4"
+  caption="What are we supposed to do now?"
 />
 
-<email_signup />
+<EmailSignup />
 
 ## Adding blocks to a layout
 
@@ -88,20 +88,20 @@ Below the extends line, you can see a `block content` section just like in the l
 ```html
 <!-- output -->
 <html>
-	<head>
-		<title>My Site</title>
-	</head>
-	<body>
-		<header>
-			<a href="/">Home</a>
-		</header>
+  <head>
+    <title>My Site</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+    </header>
 
-		<h1>Hello, world!</h1>
+    <h1>Hello, world!</h1>
 
-		<footer>
-			<p>Site Footer</p>
-		</footer>
-	</body>
+    <footer>
+      <p>Site Footer</p>
+    </footer>
+  </body>
 </html>
 ```
 
@@ -120,20 +120,20 @@ The code above would create a second page on our website with the following mark
 ```html
 <!-- output -->
 <html>
-	<head>
-		<title>My Site</title>
-	</head>
-	<body>
-		<header>
-			<a href="/">Home</a>
-		</header>
+  <head>
+    <title>My Site</title>
+  </head>
+  <body>
+    <header>
+      <a href="/">Home</a>
+    </header>
 
-		<h1>This is the second page!</h1>
+    <h1>This is the second page!</h1>
 
-		<footer>
-			<p>Site Footer</p>
-		</footer>
-	</body>
+    <footer>
+      <p>Site Footer</p>
+    </footer>
+  </body>
 </html>
 ```
 

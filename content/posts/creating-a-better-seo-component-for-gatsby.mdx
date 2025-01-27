@@ -2,16 +2,16 @@
 title: Creating a better SEO component for Gatsby sites
 date: 2021-02-15T06:00:00.000Z
 excerpt: >-
-    In this post, I'll show you how to build a better SEO component which is
-    optimized for both search engines and social sharing to help your marketing
-    strategy.
+  In this post, I'll show you how to build a better SEO component which is
+  optimized for both search engines and social sharing to help your marketing
+  strategy.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/creating-a-better-seo-component-for-gatsby-sites_ihotzv.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/creating-a-better-seo-component-for-gatsby-sites_ihotzv.jpg
 tags:
-    - gatsby
-    - react
-    - seo
+  - gatsby
+  - react
+  - seo
 ---
 
 When you create a new project using the default starter for Gatsby, it gives you an SEO component with some basic contents. This is good for simple things such as a favicon, page title, and description. It leaves out other important pieces that can make a site even more optimized for both search engines and social sharing. In this post, I'll show you how to build a better SEO component which can help in marketing your Gatsby site. Even if you're not using Gatsby, the things discussed in this article will provide a framework for a solid SEO component. Let's get started!
@@ -42,12 +42,12 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = () => {
-	return (
-		<Helmet>
-			<title>This is a title</title>
-			<meta name="description" content="This is  some content" />
-		</Helmet>
-	);
+  return (
+    <Helmet>
+      <title>This is a title</title>
+      <meta name="description" content="This is  some content" />
+    </Helmet>
+  );
 };
 
 export default SEO;
@@ -62,12 +62,12 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const IndexPage = () => {
-	return (
-		<Layout>
-			<SEO />
-			<h1>This is the index page</h1>
-		</Layout>
-	);
+  return (
+    <Layout>
+      <SEO />
+      <h1>This is the index page</h1>
+    </Layout>
+  );
 };
 
 export default IndexPage;
@@ -85,17 +85,17 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description }) => {
-	return (
-		<Helmet>
-			<title>{title}</title>
-			<meta name="description" content={description} />
-		</Helmet>
-	);
+  return (
+    <Helmet>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+    </Helmet>
+  );
 };
 
 SEO.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
 };
 
 export default SEO;
@@ -110,15 +110,15 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const IndexPage = () => {
-	return (
-		<Layout>
-			<SEO
-				title="Home"
-				description="This is the homepage for a gatsby website"
-			/>
-			<h1>This is the index page</h1>
-		</Layout>
-	);
+  return (
+    <Layout>
+      <SEO
+        title="Home"
+        description="This is the homepage for a gatsby website"
+      />
+      <h1>This is the index page</h1>
+    </Layout>
+  );
 };
 
 export default IndexPage;
@@ -136,17 +136,17 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description }) => {
-	return (
-		<Helmet htmlAttributes={{ lang: `en` }}>
-			<title>{title}</title>
-			<meta name="description" content={description} />
-		</Helmet>
-	);
+  return (
+    <Helmet htmlAttributes={{ lang: `en` }}>
+      <title>{title}</title>
+      <meta name="description" content={description} />
+    </Helmet>
+  );
 };
 
 SEO.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
 };
 
 export default SEO;
@@ -166,34 +166,34 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description }) => {
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					title
-					description
-				}
-			}
-		}
-	`);
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+        }
+      }
+    }
+  `);
 
-	return (
-		<Helmet
-			htmlAttributes={{ lang: `en` }}
-			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-		>
-			<title>{title}</title>
-			<meta
-				name="description"
-				content={description || data.site.siteMetadata.description}
-			/>
-		</Helmet>
-	);
+  return (
+    <Helmet
+      htmlAttributes={{ lang: `en` }}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+    >
+      <title>{title}</title>
+      <meta
+        name="description"
+        content={description || data.site.siteMetadata.description}
+      />
+    </Helmet>
+  );
 };
 
 SEO.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
 };
 
 export default SEO;
@@ -213,44 +213,41 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, slug }) => {
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					title
-					description
-					siteUrl
-				}
-			}
-			favicon: file(name: { eq: "favicon" }) {
-				publicURL
-			}
-		}
-	`);
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+        }
+      }
+      favicon: file(name: { eq: "favicon" }) {
+        publicURL
+      }
+    }
+  `);
 
-	return (
-		<Helmet
-			htmlAttributes={{ lang: `en` }}
-			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-		>
-			<title>{title}</title>
-			<meta
-				name="description"
-				content={description || data.site.siteMetadata.description}
-			/>
-			<link
-				rel="canonical"
-				href={`${data.site.siteMetadata.siteUrl}${slug}`}
-			/>
-			<link rel="shortcut icon" href={data.favicon.publicURL} />
-		</Helmet>
-	);
+  return (
+    <Helmet
+      htmlAttributes={{ lang: `en` }}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+    >
+      <title>{title}</title>
+      <meta
+        name="description"
+        content={description || data.site.siteMetadata.description}
+      />
+      <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}${slug}`} />
+      <link rel="shortcut icon" href={data.favicon.publicURL} />
+    </Helmet>
+  );
 };
 
 SEO.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
-	slug: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  slug: PropTypes.string,
 };
 
 export default SEO;
@@ -258,15 +255,15 @@ export default SEO;
 
 Now when you refresh your page, you should see the favicon you selected in the browser tab you're using. If you open up the html on your site, you should also see the canonical url in the head section.
 
-<email_signup />
+<EmailSignup />
 
 ## Adding social sharing cards
 
 Have you ever shared a link on social media and felt disappointed when it didn't pop up with a photo, title, and excerpt? I know I have, so I want to make sure that doesn't happen when someone shares a page of mine. To do this, you need to add both twitter tags and OG tags.
 
 <gif
-	src="https://media.giphy.com/media/L1Byye4j6sBSkqJTul/giphy.mp4"
-	caption="You are the real O.G."
+  src="https://media.giphy.com/media/L1Byye4j6sBSkqJTul/giphy.mp4"
+  caption="You are the real O.G."
 />
 
 ### Adding Twitter cards
@@ -281,46 +278,43 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, slug }) => {
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					title
-					description
-					siteUrl
-				}
-			}
-			favicon: file(name: { eq: "favicon" }) {
-				publicURL
-			}
-		}
-	`);
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+        }
+      }
+      favicon: file(name: { eq: "favicon" }) {
+        publicURL
+      }
+    }
+  `);
 
-	return (
-		<Helmet
-			htmlAttributes={{ lang: `en` }}
-			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-		>
-			<title>{title}</title>
-			<meta
-				name="description"
-				content={description || data.site.siteMetadata.description}
-			/>
-			<link
-				rel="canonical"
-				href={`${data.site.siteMetadata.siteUrl}${slug}`}
-			/>
-			<link rel="shortcut icon" href={data.favicon.publicURL} />
-			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:site" content="@iam_timsmith" />
-		</Helmet>
-	);
+  return (
+    <Helmet
+      htmlAttributes={{ lang: `en` }}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+    >
+      <title>{title}</title>
+      <meta
+        name="description"
+        content={description || data.site.siteMetadata.description}
+      />
+      <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}${slug}`} />
+      <link rel="shortcut icon" href={data.favicon.publicURL} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@iam_timsmith" />
+    </Helmet>
+  );
 };
 
 SEO.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
-	slug: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  slug: PropTypes.string,
 };
 
 export default SEO;
@@ -340,67 +334,64 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, image, slug }) => {
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					title
-					description
-					siteUrl
-				}
-			}
-			favicon: file(name: { eq: "favicon" }) {
-				publicURL
-			}
-			social: file(name: { eq: "timsmith-social" }) {
-				publicURL
-			}
-		}
-	`);
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+        }
+      }
+      favicon: file(name: { eq: "favicon" }) {
+        publicURL
+      }
+      social: file(name: { eq: "timsmith-social" }) {
+        publicURL
+      }
+    }
+  `);
 
-	return (
-		<Helmet
-			htmlAttributes={{ lang: `en` }}
-			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-		>
-			<title>{title}</title>
-			<meta
-				name="description"
-				content={description || data.site.siteMetadata.description}
-			/>
-			<link
-				rel="canonical"
-				href={`${data.site.siteMetadata.siteUrl}${slug}`}
-			/>
-			<link rel="shortcut icon" href={data.favicon.publicURL} />
-			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:site" content="@iam_timsmith" />
-			<meta name="og:title" content={title} />
-			<meta
-				name="og:description"
-				content={description || data.site.siteMetadata.description}
-			/>
-			<meta
-				name="og:image"
-				content={`${data.site.siteMetadata.siteUrl}${
-					image || data.social.publicURL
-				}`}
-			/>
-			<meta name="og:type" content="website" />
-			<meta
-				name="og:url"
-				content={`${data.site.siteMetadata.siteUrl}/${slug}`}
-			/>
-			<meta name="og:site_name" content={data.site.siteMetadata.title} />
-		</Helmet>
-	);
+  return (
+    <Helmet
+      htmlAttributes={{ lang: `en` }}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+    >
+      <title>{title}</title>
+      <meta
+        name="description"
+        content={description || data.site.siteMetadata.description}
+      />
+      <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}${slug}`} />
+      <link rel="shortcut icon" href={data.favicon.publicURL} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@iam_timsmith" />
+      <meta name="og:title" content={title} />
+      <meta
+        name="og:description"
+        content={description || data.site.siteMetadata.description}
+      />
+      <meta
+        name="og:image"
+        content={`${data.site.siteMetadata.siteUrl}${
+          image || data.social.publicURL
+        }`}
+      />
+      <meta name="og:type" content="website" />
+      <meta
+        name="og:url"
+        content={`${data.site.siteMetadata.siteUrl}/${slug}`}
+      />
+      <meta name="og:site_name" content={data.site.siteMetadata.title} />
+    </Helmet>
+  );
 };
 
 SEO.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
-	image: PropTypes.string,
-	slug: PropTypes.string,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  slug: PropTypes.string,
 };
 
 export default SEO;
@@ -417,17 +408,17 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const IndexPage = () => {
-	return (
-		<Layout>
-			<SEO
-				title="Home"
-				description="This is the homepage for a gatsby website"
-				image="https://placeimg.com/300/300"
-				slug="/"
-			/>
-			<h1>This is the index page</h1>
-		</Layout>
-	);
+  return (
+    <Layout>
+      <SEO
+        title="Home"
+        description="This is the homepage for a gatsby website"
+        image="https://placeimg.com/300/300"
+        slug="/"
+      />
+      <h1>This is the index page</h1>
+    </Layout>
+  );
 };
 
 export default IndexPage;
@@ -453,69 +444,66 @@ import Helmet from "react-helmet";
 import { useStaticQuery, graphql } from "gatsby";
 
 const SEO = ({ title, description, image, slug, children }) => {
-	const data = useStaticQuery(graphql`
-		query {
-			site {
-				siteMetadata {
-					title
-					description
-					siteUrl
-				}
-			}
-			favicon: file(name: { eq: "favicon" }) {
-				publicURL
-			}
-			social: file(name: { eq: "timsmith-social" }) {
-				publicURL
-			}
-		}
-	`);
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
+          siteUrl
+        }
+      }
+      favicon: file(name: { eq: "favicon" }) {
+        publicURL
+      }
+      social: file(name: { eq: "timsmith-social" }) {
+        publicURL
+      }
+    }
+  `);
 
-	return (
-		<Helmet
-			htmlAttributes={{ lang: `en` }}
-			titleTemplate={`%s | ${data.site.siteMetadata.title}`}
-		>
-			<title>{title}</title>
-			<meta
-				name="description"
-				content={description || data.site.siteMetadata.description}
-			/>
-			<link
-				rel="canonical"
-				href={`${data.site.siteMetadata.siteUrl}${slug}`}
-			/>
-			<link rel="shortcut icon" href={data.favicon.publicURL} />
-			<meta name="twitter:card" content="summary_large_image" />
-			<meta name="twitter:site" content="@iam_timsmith" />
-			<meta name="og:title" content={title} />
-			<meta
-				name="og:description"
-				content={description || data.site.siteMetadata.description}
-			/>
-			<meta
-				name="og:image"
-				content={`${data.site.siteMetadata.siteUrl}${
-					image || data.social.publicURL
-				}`}
-			/>
-			<meta name="og:type" content="website" />
-			<meta
-				name="og:url"
-				content={`${data.site.siteMetadata.siteUrl}/${slug}`}
-			/>
-			<meta name="og:site_name" content={data.site.siteMetadata.title} />
-			{children}
-		</Helmet>
-	);
+  return (
+    <Helmet
+      htmlAttributes={{ lang: `en` }}
+      titleTemplate={`%s | ${data.site.siteMetadata.title}`}
+    >
+      <title>{title}</title>
+      <meta
+        name="description"
+        content={description || data.site.siteMetadata.description}
+      />
+      <link rel="canonical" href={`${data.site.siteMetadata.siteUrl}${slug}`} />
+      <link rel="shortcut icon" href={data.favicon.publicURL} />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:site" content="@iam_timsmith" />
+      <meta name="og:title" content={title} />
+      <meta
+        name="og:description"
+        content={description || data.site.siteMetadata.description}
+      />
+      <meta
+        name="og:image"
+        content={`${data.site.siteMetadata.siteUrl}${
+          image || data.social.publicURL
+        }`}
+      />
+      <meta name="og:type" content="website" />
+      <meta
+        name="og:url"
+        content={`${data.site.siteMetadata.siteUrl}/${slug}`}
+      />
+      <meta name="og:site_name" content={data.site.siteMetadata.title} />
+      {children}
+    </Helmet>
+  );
 };
 
 SEO.propTypes = {
-	title: PropTypes.string,
-	description: PropTypes.string,
-	image: PropTypes.string,
-	slug: PropTypes.string,
-	children: PropTypes.node,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  image: PropTypes.string,
+  slug: PropTypes.string,
+  children: PropTypes.node,
 };
 
 export default SEO;
@@ -530,34 +518,29 @@ import Layout from "../components/layout";
 import SEO from "../components/seo";
 
 const BlogPost = () => {
-	const title = "This is the blog post";
-	const description = "This is the content for the blog post.";
-	const image = "https://placeimg.com/300/300";
-	const slug = "/this-is-the-blog-post";
+  const title = "This is the blog post";
+  const description = "This is the content for the blog post.";
+  const image = "https://placeimg.com/300/300";
+  const slug = "/this-is-the-blog-post";
 
-	return (
-		<Layout>
-			<SEO
-				title={title}
-				description={description}
-				image={image}
-				slug={slug}
-			>
-				<script type="application/ld+json">
-					{`{
+  return (
+    <Layout>
+      <SEO title={title} description={description} image={image} slug={slug}>
+        <script type="application/ld+json">
+          {`{
 						'@context': 'https://schema.org',
 						'@type': 'LiveBlogPosting',
 						'@id': 'https://mysite.com${slug}',
 						'headline': ${title},
 						'description': ${description}
 					}`}
-				</script>
-			</SEO>
-			<img src={image} alt={title} />
-			<h1>{title}</h1>
-			<p>{description}</p>
-		</Layout>
-	);
+        </script>
+      </SEO>
+      <img src={image} alt={title} />
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </Layout>
+  );
 };
 
 export default BlogPost;
