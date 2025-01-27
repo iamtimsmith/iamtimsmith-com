@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { FC, HTMLAttributes } from "react";
-import style from "./EmbedCode.module.css";
+import style from "./styles.module.css";
 
 interface EmbedProps extends HTMLAttributes<HTMLDivElement> {}
 

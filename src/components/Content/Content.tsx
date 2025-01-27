@@ -4,6 +4,7 @@ import { CodeBlock } from "../CodeBlock";
 import { EmailSignup } from "../EmailSignup";
 import { Embed } from "../Embed";
 import { Gif } from "../Gif";
+import { Image } from "../Image";
 import { Link } from "../Link";
 
 export interface ContentProps extends HTMLAttributes<HTMLDivElement> {
@@ -18,6 +19,7 @@ export const Content: FC<ContentProps> = ({ children, ...props }) => (
       Embed,
       Gif,
       a: Link,
+      img: Image,
       pre: (props) => {
         const data = (props.children as any).props;
         return <CodeBlock {...data} />;
