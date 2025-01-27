@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { getContentBySlug } from "../../helpers/getContentBySlug";
-import { Mdx } from "./Mdx";
+import { Content } from "./Content";
 
 const post = getContentBySlug("posts/first-post");
 
-const Component = <Mdx content={post.content} data-testid="mdx" />;
+const Component = <Content children={post.content} data-testid="mdx" />;
 
 describe("<Mdx />", () => {
   it("should render", () => {

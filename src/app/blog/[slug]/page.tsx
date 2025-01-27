@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Author } from "../../../components/Author";
-import { Mdx } from "../../../components/Mdx";
+import { Content } from "../../../components/Content";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getMetadata } from "../../../helpers/getMetadata";
 import { PageProps } from "../../../types";
@@ -24,7 +24,7 @@ const PostPage: FC<PostPageProps> = async ({
   return (
     <main {...props}>
       <h1>{post.frontmatter.title}</h1>
-      <Mdx content={post.content} />
+      <Content>{post.content}</Content>
       <Author />
     </main>
   );
