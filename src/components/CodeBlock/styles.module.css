@@ -1,6 +1,6 @@
 .codeBlock {
   margin: 1.5rem 0;
-  border-radius: var(--border--rounded);
+  border-radius: var(--border-rounded);
 }
 
 .codeBlock pre {

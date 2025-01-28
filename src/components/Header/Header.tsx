@@ -1,6 +1,7 @@
 "use client";
 import { FC, HTMLAttributes, useState } from "react";
 import { mainNav, siteName } from "../../constants";
+import { Container } from "../Container";
 import { Link } from "../Link";
 import { ThemeButton } from "../ThemeButton";
 import styles from "./styles.module.css";
@@ -11,23 +12,26 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
   const [searchValue, setSearchValue] = useState("");
 
   return (
-    <header className={styles.header} {...props}>
-      <Link className={styles.headerLogo} href="/">
-        {siteName}
-      </Link>
-      <div className={styles.headerItems}>
-        <nav aria-label="Main navigation">
-          <ul className={styles.headerNav}>
-            {mainNav.map((item: { url: string; title: string }, i: number) => (
-              <li className={styles.headerNavItem} key={`navItem_${i}`}>
-                <Link href={item.url}>{item?.title}</Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <ThemeButton />
+    <Container variant="wide">
+      <header className={styles.header} {...props}>
+        <Link className={styles.headerLogo} href="/">
+          {siteName}
+        </Link>
+        <div className={styles.headerItems}>
+          <nav aria-label="Main navigation">
+            <ul className={styles.headerNav}>
+              {mainNav.map(
+                (item: { url: string; title: string }, i: number) => (
+                  <li className={styles.headerNavItem} key={`navItem_${i}`}>
+                    <Link href={item.url}>{item?.title}</Link>
+                  </li>
+                )
+              )}
+            </ul>
+          </nav>
+          <ThemeButton />
 
-        {/* <Modal
+          {/* <Modal
           trigger={
             <button className={styles.headerButton} aria-label="Search">
               <SearchIcon />
@@ -54,7 +58,8 @@ export const Header: FC<HeaderProps> = ({ className, ...props }) => {
             </button>
           </form>
         </Modal> */}
-      </div>
-    </header>
+        </div>
+      </header>
+    </Container>
   );
 };

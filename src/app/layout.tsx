@@ -28,11 +28,9 @@ export default function RootLayout({
       <body>
         <ThemeProvider>
           {process.env.NODE_ENV === "development" && <EnvironmentBar />}
-          <Container>
-            <Header />
-            {children}
-            <Footer />
-          </Container>
+          <Header />
+          <Container>{children}</Container>
+          <Footer />
           <SocialNav />
         </ThemeProvider>
       </body>

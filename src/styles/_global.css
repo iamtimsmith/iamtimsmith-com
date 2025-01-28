@@ -14,7 +14,7 @@ html {
 body {
   background: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-family--sans);
+  font-family: var(--font-family-sans);
   line-height: 1.5;
 }
 
@@ -25,7 +25,7 @@ pre,
 code,
 pre *,
 code * {
-  font-family: "Dank Mono", monospace !important;
+  font-family: var(--font-family-mono) !important;
   font-variant-ligatures: normal;
   font-size: 0.85rem !important;
 }
@@ -74,22 +74,22 @@ h6 {
 
 h1 {
   font-weight: 900;
-  font-size: var(--font-size--4x);
+  font-size: var(--font-size-4x);
 }
 h2 {
-  font-size: var(--font-size--3x);
+  font-size: var(--font-size-3x);
 }
 h3 {
-  font-size: var(--font-size--2x);
+  font-size: var(--font-size-2x);
 }
 h4 {
-  font-size: var(--font-size--xl);
+  font-size: var(--font-size-xl);
 }
 h5 {
-  font-size: var(--font-size--lg);
+  font-size: var(--font-size-lg);
 }
 h6 {
-  font-size: var(--font-size--md);
+  font-size: var(--font-size-md);
 }
 
 p {
@@ -180,8 +180,8 @@ blockquote {
   margin-right: 2rem;
   padding: 0 0 0 1.5rem;
   border-left: 0.25rem solid var(--color-caption);
-  border-radius: var(--border--rounded);
-  font-size: var(--font-size--lg);
+  border-radius: var(--border-rounded);
+  font-size: var(--font-size-lg);
   font-style: italic;
   margin-bottom: 2rem;
 }
@@ -236,7 +236,7 @@ form button {
   padding: 0.5rem;
   background: var(--color-button-accent);
   border: 1.5px solid var(--color-button-accent);
-  border-radius: var(--border--rounded);
+  border-radius: var(--border-rounded);
   color: var(--color-text);
   cursor: pointer;
   font-size: 1rem;

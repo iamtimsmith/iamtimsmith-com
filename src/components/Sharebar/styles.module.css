@@ -21,7 +21,7 @@
 
 .sharebarLabel {
   display: none;
-  font-size: var(--font-size--sm);
+  font-size: var(--font-size-sm);
   background: var(--color-bg);
   width: 100%;
   text-align: center;
@@ -35,7 +35,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size--xl);
+  font-size: var(--font-size-xl);
   color: var(--color-grey--50);
   background: none;
 }

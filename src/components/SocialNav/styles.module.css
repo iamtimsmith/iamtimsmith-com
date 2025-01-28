@@ -48,7 +48,7 @@
 }
 
 .SocialMenu a {
-  font-size: var(--font-size--xl);
+  font-size: var(--font-size-xl);
   background: none;
   border: none;
   margin: 0.65rem 1rem;

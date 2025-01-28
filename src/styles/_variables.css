@@ -39,25 +39,25 @@
   --color-email: #838485;
   --color-icon: #ffffff;
 
-  --font-family--sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
+  --font-family-sans: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-family--serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
+  --font-family-serif: "Merriweather", "Georgia", Cambria, "Times New Roman",
     Times, serif;
-  --font-family--mono: Hack, "Fira Code", Consolas, Menlo, Monaco, "Andale Mono",
+  --font-family-mono: Hack, "Fira Code", Consolas, Menlo, Monaco, "Andale Mono",
     "Lucida Console", "Lucida Sans Typewriter", "DejaVu Sans Mono",
     "Bitstream Vera Sans Mono", "Liberation Mono", "Nimbus Mono L",
     "Courier New", Courier, monospace;
 
-  --font-size--xs: 0.7rem;
-  --font-size--sm: 0.8rem;
-  --font-size--md: 1rem;
-  --font-size--lg: 1.25rem;
-  --font-size--xl: 1.5rem;
-  --font-size--2x: 1.75rem;
-  --font-size--3x: 2rem;
-  --font-size--4x: 2.5rem;
-  --font-size--5x: 3rem;
+  --font-size-xs: 0.7rem;
+  --font-size-sm: 0.8rem;
+  --font-size-md: 1rem;
+  --font-size-lg: 1.25rem;
+  --font-size-xl: 1.5rem;
+  --font-size-2x: 1.75rem;
+  --font-size-3x: 2rem;
+  --font-size-4x: 2.5rem;
+  --font-size-5x: 3rem;
 
-  --border--rounded: 0.25rem;
+  --border-rounded: 0.25rem;
 }

@@ -5,11 +5,11 @@
   background: var(--color-bg-light);
   color: var(--color-text);
   text-align: center;
-  border-radius: var(--border--rounded);
+  border-radius: var(--border-rounded);
 }
 
 .emailSignupTitle {
-  font-size: var(--font-size--xl);
+  font-size: var(--font-size-xl);
   font-weight: 900;
   margin: 0 0 1rem;
   line-height: 1.2;
@@ -19,24 +19,24 @@
   width: 300px;
   max-width: 100%;
   margin: 0.5rem 0;
-  border-radius: var(--border--rounded) 0 0 var(--border--rounded);
+  border-radius: var(--border-rounded) 0 0 var(--border-rounded);
 }
 
 .emailSignupButton {
-  border-radius: 0 var(--border--rounded) var(--border--rounded) 0;
+  border-radius: 0 var(--border-rounded) var(--border-rounded) 0;
 }
 
 .emailSignupError {
-  font-size: var(--font-size--sm);
+  font-size: var(--font-size-sm);
   color: var(--color-error);
 }
 
 .emailSignupSuccess {
-  font-size: var(--font-size--sm);
+  font-size: var(--font-size-sm);
 }
 
 .devText {
-  font-size: var(--font-size--sm);
+  font-size: var(--font-size-sm);
   color: var(--color-error);
   margin: 1rem 0 -1rem;
 }
