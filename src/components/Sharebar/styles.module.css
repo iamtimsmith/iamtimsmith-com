@@ -1,0 +1,113 @@
+.sharebar {
+  position: fixed;
+  bottom: -50px;
+  left: 0;
+  right: 0;
+  transition: bottom 0.5s;
+}
+
+.show {
+  bottom: 0;
+}
+
+.sharebarNav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 100%;
+  background: var(--color-grey--50);
+}
+
+.sharebarLabel {
+  display: none;
+  font-size: var(--font-size--sm);
+  background: var(--color-bg);
+  width: 100%;
+  text-align: center;
+}
+
+.sharebarButton {
+  height: 50px;
+  width: auto;
+  flex: 1 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--font-size--xl);
+  color: var(--color-grey--50);
+  background: none;
+}
+
+.sharebarButton:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+  transition: opacity 0.25s;
+}
+
+.facebook:after {
+  background: var(--color-facebook);
+}
+
+.twitter:after {
+  background: var(--color-twitter);
+}
+
+.linkedin:after {
+  background: var(--color-linkedin);
+}
+
+.pinterest:after {
+  background: var(--color-pinterest);
+}
+
+.email:after {
+  background: var(--color-email);
+}
+
+.sharebarButton:hover:after {
+  opacity: 0.75;
+}
+
+.sharebarButton svg {
+  position: relative;
+  z-index: 2;
+}
+
+@media screen and (min-width: 850px) {
+  .sharebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: -50px;
+    right: auto;
+    transition: left 0.5s;
+  }
+  .show {
+    left: 0;
+  }
+
+  .sharebarNav {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sharebarLabel {
+    display: block;
+  }
+
+  .sharebarButton {
+    width: 50px;
+    flex: 0 0 50px;
+  }
+}

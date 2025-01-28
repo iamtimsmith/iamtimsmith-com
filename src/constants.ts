@@ -1,7 +1,10 @@
 import {
   DevIcon,
+  EmailIcon,
+  FacebookIcon,
   GithubIcon,
   LinkedinIcon,
+  PinterestIcon,
   TwitterIcon,
 } from "./components/Icons";
 
@@ -81,4 +84,15 @@ export const socialNav = [
     title: "Twitter",
     url: "https://www.twitter.com",
   },
+];
+
+/**
+ * SHARING CONFIG
+ */
+export const sharingSites = [
+  { name: "Facebook", icon: FacebookIcon },
+  { name: "Twitter", icon: TwitterIcon },
+  { name: "Linkedin", icon: LinkedinIcon },
+  { name: "Pinterest", icon: PinterestIcon },
+  { name: "Email", icon: EmailIcon },
 ];
