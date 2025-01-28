@@ -1,10 +1,10 @@
 import { FC } from "react";
+import { PageProps } from "../../../../.next/types/app/blog/[slug]/page";
 import { Author } from "../../../components/Author";
 import { Content } from "../../../components/Content";
 import { Sharebar } from "../../../components/Sharebar";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getMetadata } from "../../../helpers/getMetadata";
-import { PageProps } from "../../../types";
 
 export const generateMetadata = ({ params }) =>
   getMetadata(`posts/${params.slug}`);
