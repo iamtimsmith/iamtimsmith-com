@@ -1,7 +1,9 @@
 import { FC } from "react";
 import { Author } from "../../../components/Author";
+import { Container } from "../../../components/Container";
 import { Content } from "../../../components/Content";
 import { Sharebar } from "../../../components/Sharebar";
+import { SummaryGrid } from "../../../components/SummaryGrid";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getMetadata } from "../../../helpers/getMetadata";
 import { PageProps } from "../../../types";
@@ -25,9 +27,12 @@ const PostPage: FC<PostPageProps> = async ({
 
   return (
     <main {...props}>
-      <h1>{post.frontmatter.title}</h1>
-      <Content>{post.content}</Content>
-      <Author />
+      <Container>
+        <h1>{post.frontmatter.title}</h1>
+        <Content>{post.content}</Content>
+        <Author />
+      </Container>
+      <SummaryGrid />
       <Sharebar
         title={post.frontmatter.title}
         excerpt={post.frontmatter.excerpt}

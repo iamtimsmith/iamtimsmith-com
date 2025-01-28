@@ -1,5 +1,4 @@
 import { ThemeProvider } from "next-themes";
-import { Container } from "../components/Container";
 import { EnvironmentBar } from "../components/EnvironmentBar";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
@@ -29,7 +28,7 @@ export default function RootLayout({
         <ThemeProvider>
           {process.env.NODE_ENV === "development" && <EnvironmentBar />}
           <Header />
-          <Container>{children}</Container>
+          {children}
           <Footer />
           <SocialNav />
         </ThemeProvider>

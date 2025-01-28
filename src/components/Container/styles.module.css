@@ -13,6 +13,6 @@
 
 @media screen and (min-width: 400px) {
   .container {
-    --padding: 0 2rem;
+    --padding: 0 3.5rem;
   }
 }
