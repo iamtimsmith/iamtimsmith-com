@@ -7,6 +7,7 @@ import { PageProps } from "../types";
 export const generateMetadata = () => getMetadata("not-found");
 
 interface NotFoundPageProps extends PageProps {
+  params: Promise<{ slug: string }>;
   className?: string;
 }
 

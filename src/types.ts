@@ -1,3 +1,7 @@
+export type PageProps = {
+  searchParams: URLSearchParams;
+};
+
 export type SubscribeResponse = Promise<{
   error?: string;
   success?: string;

@@ -1,8 +1,8 @@
 import { FC } from "react";
-import { PageProps } from "../../../../../.next/types/app/blog/page/[num]/page";
 import { Summary } from "../../../../components/Summary";
 import { getContentBySlug } from "../../../../helpers/getContentBySlug";
 import { getLatestPosts } from "../../../../helpers/getLatestPosts";
+import { PageProps } from "../../../../types";
 
 export const generateMetadata = async () => {
   const page = await getContentBySlug("home");
@@ -11,10 +11,12 @@ export const generateMetadata = async () => {
   };
 };
 
-interface PaginatedPageProps extends PageProps {}
+interface PaginatedPageProps extends PageProps {
+  params: Promise<{ num: string }>;
+}
 
-const PaginatedPage: FC<PaginatedPageProps> = ({ params }) => {
-  const pageNum = parseInt(params.num);
+const PaginatedPage: FC<PaginatedPageProps> = async ({ params }) => {
+  const pageNum = parseInt((await params).num);
 
   const posts = getLatestPosts(-1);
 
