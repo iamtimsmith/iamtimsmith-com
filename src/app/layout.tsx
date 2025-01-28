@@ -3,6 +3,7 @@ import { Container } from "../components/Container";
 import { EnvironmentBar } from "../components/EnvironmentBar";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
+import { SocialNav } from "../components/SocialNav";
 import { favicon, siteDescription, siteName } from "../constants";
 import "../styles/style.css";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
             {children}
             <Footer />
           </Container>
+          <SocialNav />
         </ThemeProvider>
       </body>
     </html>
