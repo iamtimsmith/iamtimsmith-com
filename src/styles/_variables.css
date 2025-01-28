@@ -1,4 +1,5 @@
 :root {
+  --grey-0: #ffffff;
   --color-grey--50: #fdfdfe;
   --color-grey--100: #eef2f6;
   --color-grey--200: #dbe2ed;
@@ -9,6 +10,7 @@
   --color-grey--700: #3e4c59;
   --color-grey--800: #323f4b;
   --color-grey--900: #1f2933;
+  --grey-1000: #111;
 
   --color-teal--50: #defcfa;
   --color-teal--100: #beefec;

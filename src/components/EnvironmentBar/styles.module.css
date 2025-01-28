@@ -1,15 +1,27 @@
 .environmentBar {
-  position: sticky;
-  top: 0;
+  position: fixed;
+  bottom: 0;
   left: 0;
   right: 0;
+  z-index: 10;
+  transition: bottom 0.3s;
+}
+
+.container {
+  position: relative;
+  top: 1rem;
   color: #fff;
-  font-size: 0.75rem;
-  font-family: "Dank Mono", monospace;
+  font-size: 0.625rem;
+  font-family: var(--font-family-mono);
   padding: 0.1rem 1rem;
   text-transform: capitalize;
   background: var(--color-error);
   display: flex;
+  transition: top 0.3s;
+}
+
+.environmentBar:hover .container {
+  top: 0;
 }
 
 .adminButton {
@@ -24,10 +36,16 @@
   background: var(--color-grey--800);
 }
 
-.environmentBarEnv {
+.env {
   font-style: italic;
 }
 
 .environmentBar p {
   margin: 0 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .environmentBar {
+    height: auto;
+  }
 }

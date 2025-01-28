@@ -11,15 +11,17 @@ export const EnvironmentBar = ({ content, ...props }: EnvironmentBarProps) => {
 
   return (
     <div className={styles.environmentBar} {...props}>
-      <p>
-        Environment:{" "}
-        <span className={styles.environmentBarEnv}>{process.env.NODE_ENV}</span>
-      </p>
-      {content && (
+      <div className={styles.container}>
         <p>
-          Length: {wordCount} {wordCount === 1 ? "word" : "words"}
+          Environment:{" "}
+          <span className={styles.env}>{process.env.NODE_ENV}</span>
         </p>
-      )}
+        {content && (
+          <p>
+            Length: {wordCount} {wordCount === 1 ? "word" : "words"}
+          </p>
+        )}
+      </div>
     </div>
   );
 };
