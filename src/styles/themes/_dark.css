@@ -1,8 +1,11 @@
 [data-theme="dark"] {
+  --bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  /* --bg-image: url("https://www.transparenttextures.com/patterns/white-diamond.png"); */
   --color-bg: var(--color-grey--900);
   --color-fg: var(--color-grey--800);
   --color-bg-light: var(--color-fg);
-  --color-text: var(--color-grey--50);
+  --color-heading: var(--color-grey--50);
+  --color-text: var(--color-grey--100);
   --color-caption: var(--color-grey--300);
   --color-accent: var(--color-teal--400);
   --color-link-accent: var(--color-teal--600);

@@ -1,8 +1,10 @@
 :root {
+  --bg-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
   --color-bg: var(--color-grey--50);
   --color-fg: var(--color-grey--100);
   --color-bg-light: var(--color-fg);
-  --color-text: var(--color-grey--900);
+  --color-heading: var(--color-grey--900);
+  --color-text: var(--color-grey--700);
   --color-caption: var(--color-grey--400);
   --color-accent: var(--color-teal--700);
   --color-link-accent: var(--color-teal--200);
