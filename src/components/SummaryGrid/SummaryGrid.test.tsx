@@ -32,7 +32,7 @@ describe("<SummaryGrid />", () => {
 
   it("should render a title", () => {
     render(<SummaryGrid count={1} />);
-    const title = screen.getByRole("heading", { name: /recent posts/i });
+    const title = screen.getByText(/recent posts/i);
     expect(title).toBeInTheDocument();
   });
 

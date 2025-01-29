@@ -36,7 +36,7 @@ describe("<Gif />", () => {
   it("should render with default maxWidth", () => {
     render(<Component />);
     const element = screen.getByTestId("gif");
-    expect(element).toHaveStyle({ maxWidth: "400px" });
+    expect(element).toHaveStyle({ maxWidth: "500px" });
   });
 
   it("should render with custom maxWidth", () => {

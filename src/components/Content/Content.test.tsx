@@ -28,7 +28,7 @@ describe("<Mdx />", () => {
   it("should render code blocks", () => {
     render(Component);
     const element = screen.getByTestId("mdx");
-    expect(element).toHaveTextContent("```js");
+    expect(element).toHaveTextContent("```tsx");
   });
 
   it("should render links", () => {

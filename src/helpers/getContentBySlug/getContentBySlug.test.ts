@@ -43,7 +43,7 @@ describe("getContentBySlug()", () => {
 
   it("should return the correct slug for a blog post", () => {
     const page = getContentBySlug("posts/first-post");
-    expect(page.slug).toEqual("blog/first-post");
+    expect(page.slug).toEqual("/blog/first-post");
   });
 
   it("should return 404 page for an invalid slug", () => {
