@@ -54,11 +54,11 @@
   --font-size-xs: 0.7rem;
   --font-size-sm: 0.8rem;
   --font-size-md: 1rem;
-  --font-size-lg: 1.25rem;
-  --font-size-xl: 1.5rem;
-  --font-size-2x: 1.75rem;
-  --font-size-3x: 2rem;
-  --font-size-4x: 2.5rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --font-size-2x: 2.5rem;
+  --font-size-3x: 3.25rem;
+  --font-size-4x: 5rem;
   --font-size-5x: 3rem;
 
   --border-rounded: 0.25rem;

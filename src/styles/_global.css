@@ -16,6 +16,18 @@ body {
   color: var(--color-text);
   font-family: var(--font-family-sans);
   line-height: 1.5;
+  position: relative;
+}
+
+body:after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  background: var(--color-bg);
+  background-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
+  z-index: -1;
 }
 
 /**

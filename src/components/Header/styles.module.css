@@ -77,6 +77,6 @@
     justify-content: space-between;
   }
   .headerLogo {
-    font-size: var(--font-size-3x);
+    font-size: var(--font-size-xl);
   }
 }

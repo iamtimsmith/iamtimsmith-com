@@ -1,6 +1,7 @@
 :root {
   --color-bg: var(--color-grey--50);
-  --color-bg-light: var(--color-grey--100);
+  --color-fg: var(--color-grey--100);
+  --color-bg-light: var(--color-fg);
   --color-text: var(--color-grey--900);
   --color-caption: var(--color-grey--400);
   --color-accent: var(--color-teal--700);
