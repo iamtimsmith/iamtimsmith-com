@@ -4,6 +4,18 @@
   margin: 0 0 0.5rem;
 }
 
+.tags.sm .tag {
+  font-size: var(--font-size-sm);
+}
+
+.tags.md .tag {
+  font-size: var(--font-size-md);
+}
+
+.tags.lg .tag {
+  font-size: var(--font-size-lg);
+}
+
 .tag {
   display: inline-block;
   text-transform: uppercase;

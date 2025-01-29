@@ -4,6 +4,7 @@ import { Container } from "../../../components/Container";
 import { Content } from "../../../components/Content";
 import { Sharebar } from "../../../components/Sharebar";
 import { SummaryGrid } from "../../../components/SummaryGrid";
+import { Tags } from "../../../components/Tags";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getMetadata } from "../../../helpers/getMetadata";
 import { PageProps } from "../../../types";
@@ -29,6 +30,7 @@ const PostPage: FC<PostPageProps> = async ({
     <main {...props}>
       <Container>
         <h1>{post.frontmatter.title}</h1>
+        <Tags tags={post.frontmatter.tags} size="md" />
         <Content>{post.content}</Content>
         <Author />
       </Container>

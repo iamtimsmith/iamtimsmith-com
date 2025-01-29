@@ -38,14 +38,10 @@ export const SummaryGrid: FC<SummaryGridProps> = ({
       </h2>
       <ul className={styles.grid} aria-labelledby="recent-posts">
         {posts.map(({ frontmatter, slug }) => (
-          <li key={slug}>
+          <li className={styles.item} key={slug}>
             <article className={styles.summary}>
               {frontmatter.tags && <Tags tags={frontmatter.tags} />}
-              <Link
-                className={styles.summaryTitle}
-                href={slug}
-                title={frontmatter.title}
-              >
+              <Link className={styles.summaryTitle} href={slug}>
                 {frontmatter.title}
               </Link>
               <p className={styles.summaryExcerpt}>{frontmatter.excerpt}</p>

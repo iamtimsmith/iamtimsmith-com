@@ -1,7 +1,0 @@
-.codeBlock {
-  display: block;
-  max-width: var(--max-width-sm);
-  margin: 1.5rem auto !important;
-  border-radius: var(--border-rounded);
-  background: var(--color-grey--800) !important;
-}

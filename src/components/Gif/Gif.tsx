@@ -13,7 +13,7 @@ export const Gif: FC<GifProps> = ({
   style,
   src,
   caption,
-  maxWidth = 400,
+  maxWidth = 500,
   ...props
 }) => (
   <figure

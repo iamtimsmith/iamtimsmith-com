@@ -25,22 +25,10 @@ body:after {
   display: block;
   position: absolute;
   inset: 0;
-  opacity: 0.3;
+  opacity: var(--bg-opacity, 0.3);
   background: var(--color-bg);
   background-image: var(--bg-image);
   z-index: -1;
-}
-
-/**
- * CODE BLOCKS
-**/
-pre,
-code,
-pre *,
-code * {
-  font-family: var(--font-family-mono) !important;
-  font-variant-ligatures: normal;
-  font-size: 0.85rem !important;
 }
 
 /**
@@ -56,6 +44,7 @@ h6 {
   line-height: 1.2;
   letter-spacing: -0.025em;
   color: var(--color-heading);
+  font-weight: 900;
 }
 
 h1 > a,
@@ -77,16 +66,7 @@ h6 > strong {
   color: var(--color-accent);
 }
 
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-weight: 700;
-}
-
 h1 {
-  font-weight: 900;
   font-size: var(--font-size-4x);
 }
 h2 {
@@ -192,7 +172,7 @@ blockquote {
   padding: 0 0 0 1.5rem;
   border-left: 0.25rem solid var(--color-caption);
   border-radius: var(--border-rounded);
-  font-size: var(--font-size-md);
+  font-size: var(--font-size-lg);
   font-style: italic;
   margin-bottom: 2rem;
 }
@@ -257,11 +237,6 @@ form a:hover,
 form button:hover {
   background: var(--color-button-accent-hover);
   border-color: var(--color-button-accent-hover);
-}
-
-code {
-  background: var(--color-grey--800);
-  padding: 0.25rem 0.125rem;
 }
 
 /**

@@ -1,11 +1,13 @@
 .emailSignup {
   display: block;
-  margin: 1.5rem 0;
+  max-width: var(--container-sm);
+  margin: 1.5rem auto;
   padding: 2rem;
-  background: var(--color-bg-light);
+  background: var(--color-fg);
   color: var(--color-text);
   text-align: center;
   border-radius: var(--border-rounded);
+  box-shadow: var(--box-shadow);
 }
 
 .emailSignupTitle {

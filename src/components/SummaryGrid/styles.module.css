@@ -14,7 +14,6 @@ a.titleLink {
   background: none;
   display: inline-flex;
   align-items: center;
-  transition: color 0.3s;
 }
 
 a.titleLink:after {
@@ -22,14 +21,11 @@ a.titleLink:after {
   margin-left: 1rem;
   font-weight: 400;
   font-size: var(--font-size-2x);
-  transition: transform 0.3s;
-}
-
-a.titleLink:hover {
-  color: var(--color-accent);
+  transition: color 0.3s, transform 0.3s;
 }
 
 a.titleLink:hover:after {
+  color: var(--color-accent);
   transform: translateX(0.5rem);
 }
 
@@ -40,6 +36,9 @@ a.titleLink:hover:after {
   list-style: none;
   margin: 2rem 0 0;
   padding: 0;
+}
+
+.item:after {
 }
 
 .summary {
@@ -61,10 +60,27 @@ a.titleLink:hover:after {
   display: block;
   position: absolute;
   inset: 0;
+  background: var(--color-text);
+  opacity: 0;
+  border-radius: var(--border-rounded);
+  transition: opacity 0.3s, transform 0.3s, left 0.3s;
 }
 
 .summaryTitle:hover {
   color: var(--color-accent);
+}
+
+.summaryTitle:hover:after {
+  opacity: 0.05;
+  transform: rotate(-2.5deg) scale(1.025);
+  left: -1.5rem;
+  bottom: -1rem;
+}
+
+.item:nth-child(odd) .summaryTitle:hover:after {
+  transform: rotate(2.5deg) scale(1.025);
+  left: -0.5rem;
+  bottom: -1rem;
 }
 
 @media screen and (min-width: 768px) {

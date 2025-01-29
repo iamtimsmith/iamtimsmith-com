@@ -1,16 +1,26 @@
 [data-theme="dark"] {
   --bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-  /* --bg-image: url("https://www.transparenttextures.com/patterns/white-diamond.png"); */
   --color-bg: var(--color-grey--900);
   --color-fg: var(--color-grey--800);
   --color-bg-light: var(--color-fg);
   --color-heading: var(--color-grey--50);
   --color-text: var(--color-grey--100);
-  --color-caption: var(--color-grey--300);
+  --color-caption: var(--color-teal--100);
   --color-accent: var(--color-teal--400);
   --color-link-accent: var(--color-teal--600);
   --color-button-accent: var(--color-teal--700);
   --color-button-accent-hover: var(--color-teal--600);
   --color-border: var(--color-grey--700);
   --color-error: #f15a79;
+
+  --code-bg: var(--grey-1000);
+  --code-fg: var(--color-grey--100);
+  --code-selection: var(--color-teal--100);
+  --code-1: var(--color-grey--400); /* grey */
+  --code-2: #c678de; /* purple */
+  --code-3: #e5c17c; /* yellow */
+  --code-4: #98c379; /* green */
+  --code-5: #e06c75; /* light red */
+  --code-6: #61afef; /* light blue */
+  --code-7: #d19a66; /* orange */
 }

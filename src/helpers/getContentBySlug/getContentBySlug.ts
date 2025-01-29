@@ -11,7 +11,7 @@ export const getContentBySlug = (slug = "") => {
     return {
       frontmatter: frontmatter.data,
       content: frontmatter.content,
-      slug: slug.replace("posts/", "blog/"),
+      slug: slug.replace("posts/", "/blog/"),
     };
   } catch (error) {
     // Handle 404 error
