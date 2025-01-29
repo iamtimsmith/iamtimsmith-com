@@ -1,5 +1,7 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC } from "react";
+import { Container } from "../components/Container";
+import { Content } from "../components/Content";
+import { SummaryGrid } from "../components/SummaryGrid";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getMetadata } from "../helpers/getMetadata";
 import { PageProps } from "../types";
@@ -21,7 +23,10 @@ const NotFoundPage: FC<NotFoundPageProps> = async ({
 
   return (
     <main {...props}>
-      <MDXRemote source={post.content} />
+      <Container>
+        <Content>{post.content}</Content>
+      </Container>
+      <SummaryGrid count={3} />
     </main>
   );
 };

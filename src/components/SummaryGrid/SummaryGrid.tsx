@@ -2,8 +2,8 @@ import clsx from "clsx";
 import { FC, HTMLAttributes } from "react";
 import { getLatestPosts } from "../../helpers/getLatestPosts";
 import { Container } from "../Container";
+import { Grid } from "../Grid";
 import { Link } from "../Link";
-import { Tags } from "../Tags";
 import styles from "./styles.module.css";
 
 export interface SummaryGridProps extends HTMLAttributes<HTMLDivElement> {
@@ -36,19 +36,14 @@ export const SummaryGrid: FC<SummaryGridProps> = ({
           {title}
         </Link>
       </h2>
-      <ul className={styles.grid} aria-labelledby="recent-posts">
-        {posts.map(({ frontmatter, slug }) => (
-          <li className={styles.item} key={slug}>
-            <article className={styles.summary}>
-              {frontmatter.tags && <Tags tags={frontmatter.tags} />}
-              <Link className={styles.summaryTitle} href={slug}>
-                {frontmatter.title}
-              </Link>
-              <p className={styles.summaryExcerpt}>{frontmatter.excerpt}</p>
-            </article>
-          </li>
-        ))}
-      </ul>
+      <Grid
+        items={posts.map(({ frontmatter, slug }) => ({
+          title: frontmatter.title,
+          description: frontmatter.excerpt,
+          meta: frontmatter.tags,
+          slug,
+        }))}
+      />
     </Container>
   );
 };
