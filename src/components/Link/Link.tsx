@@ -25,14 +25,14 @@ export const Link = ({
   if (isInternal) {
     return (
       <NextLink className={className} href={href} title={title} {...props}>
-        {children}
+        <span>{children}</span>
       </NextLink>
     );
   }
 
   return (
     <a className={className} href={href} title={title} {...props}>
-      {children}
+      <span>{children}</span>
     </a>
   );
 };

@@ -95,26 +95,49 @@ p {
  * LINKS
 **/
 a {
+  display: inline-block;
   text-decoration: none;
-  color: var(--color-text);
+  color: var(--color-accent);
   text-decoration: none;
   cursor: pointer;
-  background: linear-gradient(
-    transparent 0%,
-    transparent calc(50% - 7px),
-    var(--color-link-accent) calc(50% - 7px),
-    var(--color-link-accent) 100%
-  );
-  background-size: 100% 200%;
-  background-position: 0px 0px;
   word-break: break-word;
-  transition: background-position 0.3s;
+  background-color: transparent;
+  transition: background-color 0.3s, transform 0.3s;
 }
 
-a:hover,
-a:focus {
-  background-position: 0px 100%;
+a span {
+  display: inline-block;
+  transform: rotate(0deg);
+  transition: transform 0.3s;
 }
+
+a:hover {
+  transform: rotate(2.5deg);
+  background-color: color-mix(in srgb, var(--color-text), transparent 90%);
+}
+
+a:hover span {
+  transform: rotate(-2.5deg);
+}
+
+/* a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  inset: 0;
+  background: var(--color-text);
+  opacity: 0;
+  border-radius: var(--border-rounded);
+  transform: rotate(0) scale(0.95);
+  transition: opacity 0.3s, transform 0.3s, left 0.3s;
+} */
+
+/* a:hover:after {
+  opacity: 0.05;
+  transform: rotate(-2.5deg) scale(1);
+  left: -1.5rem;
+  bottom: -1rem;
+} */
 
 /**
  * LISTS
