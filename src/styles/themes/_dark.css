@@ -5,17 +5,20 @@
   --color-bg-light: var(--color-fg);
   --color-heading: var(--color-grey--50);
   --color-text: var(--color-grey--100);
-  --color-caption: var(--color-teal--100);
-  --color-accent: var(--color-teal--400);
-  --color-link-accent: var(--color-teal--600);
-  --color-button-accent: var(--color-teal--700);
-  --color-button-accent-hover: var(--color-teal--600);
+  --color-caption: var(--color-grey--300);
+  --color-accent: var(--purple-200);
+
+  --button-bg: var(--color-accent);
+  --button-fg: var(--color-bg);
+  --color-link-accent: var(--purple-600);
+  --color-button-accent: var(--purple-700);
+  --color-button-accent-hover: var(--purple-600);
   --color-border: var(--color-grey--700);
   --color-error: #f15a79;
 
   --code-bg: var(--grey-1000);
   --code-fg: var(--color-grey--100);
-  --code-selection: var(--color-teal--100);
+  --code-selection: var(--purple-100);
   --code-1: var(--color-grey--400); /* grey */
   --code-2: #c678de; /* purple */
   --code-3: #e5c17c; /* yellow */

@@ -21,7 +21,6 @@
 }
 
 .footerSocialLink:hover {
-  color: var(--color-accent);
   background: none;
   transform: none;
   opacity: 1;

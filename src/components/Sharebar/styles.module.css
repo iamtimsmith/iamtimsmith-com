@@ -38,6 +38,14 @@
   font-size: var(--font-size-xl);
   color: var(--color-grey--50);
   background: none;
+  transform: none;
+}
+
+.sharebarButton:hover,
+.sharebarButton span,
+.sharebarButton:hover span {
+  background: none;
+  transform: none;
 }
 
 .sharebarButton:after {

@@ -7,6 +7,11 @@
   border: none;
   cursor: pointer;
   color: var(--color-text);
+  transition: color 0.3s;
+}
+
+.themeButton:hover {
+  color: var(--color-accent);
 }
 
 .themeButtonPlaceholder {

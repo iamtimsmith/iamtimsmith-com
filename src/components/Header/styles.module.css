@@ -23,7 +23,6 @@
 
 .headerLogo:hover {
   background: none;
-  color: var(--color-accent);
 }
 
 .headerLogo,

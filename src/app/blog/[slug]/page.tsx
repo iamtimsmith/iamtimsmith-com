@@ -34,7 +34,7 @@ const PostPage: FC<PostPageProps> = async ({
         <Content>{post.content}</Content>
         <Author />
       </Container>
-      <SummaryGrid />
+      <SummaryGrid title="More posts you might like" />
       <Sharebar
         title={post.frontmatter.title}
         excerpt={post.frontmatter.excerpt}

@@ -25,7 +25,7 @@ body:after {
   display: block;
   position: absolute;
   inset: 0;
-  opacity: var(--bg-opacity, 0.3);
+  opacity: var(--bg-opacity, 0.4);
   background: var(--color-bg);
   background-image: var(--bg-image);
   z-index: -1;
@@ -229,18 +229,20 @@ form input[type="email"] {
 form a,
 form button {
   padding: 0.5rem;
-  background: var(--color-button-accent);
-  border: 1.5px solid var(--color-button-accent);
+  background: var(--button-bg);
+  border: 1.5px solid var(--button-bg);
   border-radius: var(--border-rounded);
-  color: var(--color-text);
+  color: var(--button-fg);
   cursor: pointer;
   font-size: 1rem;
   transition: background 0.3s, border-color 0.3s;
 }
 form a:hover,
 form button:hover {
-  background: var(--color-button-accent-hover);
-  border-color: var(--color-button-accent-hover);
+  --button-hover: color-mix(in srgb, var(--button-bg), var(--color-bg) 15%);
+
+  background: var(--button-hover);
+  border-color: var(--button-hover);
 }
 
 /**

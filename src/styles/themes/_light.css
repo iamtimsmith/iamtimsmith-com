@@ -6,16 +6,19 @@
   --color-heading: var(--color-grey--900);
   --color-text: var(--color-grey--700);
   --color-caption: var(--color-grey--400);
-  --color-accent: var(--color-teal--700);
-  --color-link-accent: var(--color-teal--200);
-  --color-button-accent: var(--color-teal--300);
-  --color-button-accent-hover: var(--color-teal--400);
-  --color-border: var(--color-grey--200);
+  --color-accent: var(--purple-400);
+
+  --button-bg: var(--color-accent);
+  --button-fg: var(--color-bg);
+  --color-link-accent: var(--purple-200);
+  --color-button-accent: var(--purple-300);
+  --color-button-accent-hover: var(--purple-400);
+  --color-border: var(--color-grey--300);
   --color-error: #a50c2d;
 
   --code-bg: var(--color-grey--100);
   --code-fg: var(--color-grey--900);
-  --code-selection: var(--color-teal--100);
+  --code-selection: var(--purple-100);
   --code-1: var(--color-grey--400); /* grey */
   --code-2: #a627a4; /* purple */
   --code-3: #c18401; /* yellow */
