@@ -19,8 +19,10 @@ const TagsPage: FC<TagsPageProps> = ({ params, searchParams, ...props }) => {
 
   return (
     <main {...props}>
-      <Container variant="wide">
+      <Container>
         <h1>Tags</h1>
+      </Container>
+      <Container variant="wide">
         <Grid
           items={tags.map((tag) => ({
             title: tag.title,

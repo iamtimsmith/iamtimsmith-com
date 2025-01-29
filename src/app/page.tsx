@@ -2,8 +2,10 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC } from "react";
 import { Author } from "../components/Author";
 import { Container } from "../components/Container";
-import { SummaryGrid } from "../components/SummaryGrid";
+import { Grid } from "../components/Grid";
+import { Heading } from "../components/Heading";
 import { getContentBySlug } from "../helpers/getContentBySlug";
+import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
 import { PageProps } from "../types";
 
@@ -15,6 +17,7 @@ export interface HomePageProps extends PageProps {
 
 const HomePage: FC<HomePageProps> = ({ className, searchParams, ...props }) => {
   const page = getContentBySlug("home");
+  const posts = getLatestPosts();
 
   return (
     <main {...props}>
@@ -22,7 +25,18 @@ const HomePage: FC<HomePageProps> = ({ className, searchParams, ...props }) => {
         <MDXRemote source={page.content} />
         <Author />
       </Container>
-      <SummaryGrid titleHref="/blog" />
+      <Container variant="wide">
+        <Heading href="/blog">Recent Posts</Heading>
+        <Grid
+          items={posts.map(({ frontmatter, slug }) => ({
+            title: frontmatter.title,
+            description: frontmatter.excerpt,
+            meta: frontmatter.tags,
+            slug,
+          }))}
+        />
+      </Container>
+      {/* <SummaryGrid titleHref="/blog" /> */}
     </main>
   );
 };

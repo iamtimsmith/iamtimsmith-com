@@ -1,0 +1,21 @@
+.heading a {
+  background: none;
+}
+
+.heading a:hover span {
+  translate: rotate(calc(var(--link-rotation) * -1));
+}
+
+.heading > a span:after {
+  content: "→";
+  display: inline-block;
+  margin-left: 1rem;
+  font-weight: 400;
+  font-size: var(--font-size-2x);
+  transition: color 0.3s, transform 0.3s;
+}
+
+.heading > a:hover span:after {
+  color: var(--color-accent);
+  transform: translateX(0.5rem);
+}

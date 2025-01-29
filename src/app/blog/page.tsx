@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Container } from "../../components/Container";
-import { SummaryGrid } from "../../components/SummaryGrid";
+import { Grid } from "../../components/Grid";
 import { getLatestPosts } from "../../helpers/getLatestPosts";
 import { PageProps } from "../../types";
 
@@ -19,14 +19,24 @@ const BlogPage: FC<BlogPageProps> = async ({
   searchParams,
   ...props
 }) => {
-  const posts = await getLatestPosts();
+  // This will need to change once pagination is implemented
+  const posts = getLatestPosts(-1);
 
   return (
     <main {...props}>
-      <Container variant="wide">
+      <Container>
         <h1>Blog</h1>
       </Container>
-      <SummaryGrid title="" />
+      <Container variant="wide">
+        <Grid
+          items={posts.map(({ frontmatter, slug }) => ({
+            title: frontmatter.title,
+            description: frontmatter.excerpt,
+            meta: frontmatter.tags,
+            slug,
+          }))}
+        />
+      </Container>
     </main>
   );
 };
