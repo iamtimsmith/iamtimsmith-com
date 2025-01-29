@@ -52,6 +52,8 @@ a.titleLink:hover:after {
   font-weight: 900;
   line-height: 1.3;
   margin-bottom: 0.8rem;
+  color: var(--color-text);
+  transform: none;
   transition: color 0.3s;
 }
 
@@ -68,17 +70,23 @@ a.titleLink:hover:after {
 
 .summaryTitle:hover {
   color: var(--color-accent);
+  background: none;
+  transform: none;
+}
+
+.summaryTitle:hover span {
+  transform: none;
 }
 
 .summaryTitle:hover:after {
   opacity: 0.05;
-  transform: rotate(-2.5deg) scale(1.025);
+  transform: rotate(calc(var(--link-rotation) * -1)) scale(1.025);
   left: -1.5rem;
   bottom: -1rem;
 }
 
 .item:nth-child(odd) .summaryTitle:hover:after {
-  transform: rotate(2.5deg) scale(1.025);
+  transform: rotate(var(--link-rotation)) scale(1.025);
   left: -0.5rem;
   bottom: -1rem;
 }

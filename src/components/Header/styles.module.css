@@ -18,12 +18,42 @@
   font-weight: bold;
   color: var(--color-text);
   background: none;
+  transition: color 0.3s;
+}
+
+.headerLogo:hover {
+  background: none;
+  color: var(--color-accent);
+}
+
+.headerLogo,
+.headerLogo:hover,
+.headerLogo span,
+.headerLogo:hover span {
+  transform: none;
 }
 
 .headerNavItem {
   list-style: none;
   padding: 0.55rem;
   margin: 0;
+}
+
+.headerNavItem a {
+  color: var(--color-text);
+  background: none;
+  transition: color 0.3s;
+}
+
+.headerNavItem a:hover {
+  color: var(--color-accent);
+  background: none;
+}
+.headerNavItem a,
+.headerNavItem a:hover,
+.headerNavItem a span,
+.headerNavItem a:hover span {
+  transform: none;
 }
 
 .headerButton {

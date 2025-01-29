@@ -51,13 +51,14 @@
   font-size: var(--font-size-xl);
   background: none;
   border: none;
-  margin: 0.65rem 1rem;
+  margin: 0.125rem 1rem;
   color: var(--color-text);
   opacity: 0.5;
   cursor: pointer;
 }
 .SocialMenu a:hover {
   color: var(--color-accent);
+  background: none;
   opacity: 1;
 }
 

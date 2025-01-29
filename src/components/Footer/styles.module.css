@@ -10,13 +10,24 @@
 }
 
 .footerSocialLink {
+  color: var(--color-text);
   background: none;
   margin: 0.55rem;
-  font-size: 1.5rem;
+  font-size: var(--font-size-xl);
   opacity: 0.5;
+  background: none;
+  transform: none;
   transition: color 0.3s, opacity 0.3s;
 }
+
 .footerSocialLink:hover {
   color: var(--color-accent);
+  background: none;
+  transform: none;
   opacity: 1;
+}
+
+.footerSocialLink span,
+.footerSocialLink:hover span {
+  transform: none;
 }

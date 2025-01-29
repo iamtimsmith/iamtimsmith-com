@@ -63,6 +63,7 @@
   --border-rounded: 0.375rem;
   --box-shadow: 0 5px 20px
     color-mix(in srgb, var(--color-code-bg), transparent 90%);
+  --link-rotation: 2deg;
 
   --container-sm: 750px;
   --container-md: 1064px;

@@ -112,32 +112,13 @@ a span {
 }
 
 a:hover {
-  transform: rotate(2.5deg);
+  transform: rotate(calc(var(--link-rotation) * -1));
   background-color: color-mix(in srgb, var(--color-text), transparent 90%);
 }
 
 a:hover span {
-  transform: rotate(-2.5deg);
+  transform: rotate(var(--link-rotation));
 }
-
-/* a:after {
-  content: "";
-  display: block;
-  position: absolute;
-  inset: 0;
-  background: var(--color-text);
-  opacity: 0;
-  border-radius: var(--border-rounded);
-  transform: rotate(0) scale(0.95);
-  transition: opacity 0.3s, transform 0.3s, left 0.3s;
-} */
-
-/* a:hover:after {
-  opacity: 0.05;
-  transform: rotate(-2.5deg) scale(1);
-  left: -1.5rem;
-  bottom: -1rem;
-} */
 
 /**
  * LISTS
