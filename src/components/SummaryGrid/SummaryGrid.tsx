@@ -8,11 +8,15 @@ import styles from "./styles.module.css";
 
 export interface SummaryGridProps extends HTMLAttributes<HTMLDivElement> {
   count?: number;
+  title?: string;
+  titleHref?: string;
 }
 
 export const SummaryGrid: FC<SummaryGridProps> = ({
   className,
   count,
+  title = "Recent Posts",
+  titleHref,
   ...props
 }) => {
   const posts = getLatestPosts(count);
@@ -23,8 +27,14 @@ export const SummaryGrid: FC<SummaryGridProps> = ({
       variant="wide"
       {...props}
     >
-      <h2 className={styles.title} id="recent-posts">
-        Recent Posts
+      <h2 className={styles.title} id="recent-posts" role="heading">
+        <Link
+          className={styles.titleLink}
+          href={titleHref}
+          aria-label="Link to blog page"
+        >
+          {title}
+        </Link>
       </h2>
       <ul className={styles.grid} aria-labelledby="recent-posts">
         {posts.map(({ frontmatter, slug }) => (

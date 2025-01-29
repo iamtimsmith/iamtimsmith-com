@@ -62,4 +62,6 @@
   --font-size-5x: 3rem;
 
   --border-rounded: 0.25rem;
+
+  --max-width-sm: 800px;
 }

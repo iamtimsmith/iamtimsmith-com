@@ -10,6 +10,29 @@
   margin-bottom: 0;
 }
 
+a.titleLink {
+  background: none;
+  display: inline-flex;
+  align-items: center;
+  transition: color 0.3s;
+}
+
+a.titleLink:after {
+  content: "→";
+  margin-left: 1rem;
+  font-weight: 400;
+  font-size: var(--font-size-2x);
+  transition: transform 0.3s;
+}
+
+a.titleLink:hover {
+  color: var(--color-accent);
+}
+
+a.titleLink:hover:after {
+  transform: translateX(0.5rem);
+}
+
 .grid {
   display: grid;
   grid-template-columns: 1fr;

@@ -22,7 +22,7 @@ const HomePage: FC<HomePageProps> = ({ className, searchParams, ...props }) => {
         <MDXRemote source={page.content} />
         <Author />
       </Container>
-      <SummaryGrid />
+      <SummaryGrid titleHref="/blog" />
     </main>
   );
 };

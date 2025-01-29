@@ -1,5 +1,6 @@
 import { FC } from "react";
-import { Summary } from "../../components/Summary";
+import { Container } from "../../components/Container";
+import { SummaryGrid } from "../../components/SummaryGrid";
 import { getLatestPosts } from "../../helpers/getLatestPosts";
 import { PageProps } from "../../types";
 
@@ -22,18 +23,10 @@ const BlogPage: FC<BlogPageProps> = async ({
 
   return (
     <main {...props}>
-      <h1>Blog</h1>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Summary
-              title={post.frontmatter.title}
-              excerpt={post.frontmatter.excerpt}
-              url={post.slug}
-            />
-          </li>
-        ))}
-      </ul>
+      <Container variant="wide">
+        <h1>Blog</h1>
+      </Container>
+      <SummaryGrid title="" />
     </main>
   );
 };
