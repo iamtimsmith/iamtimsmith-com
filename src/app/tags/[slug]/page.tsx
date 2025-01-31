@@ -19,14 +19,15 @@ const TagPage: FC<TagPageProps> = async ({ params }) => {
   const { slug } = await params;
   // const tag = getContentBySlug(`tags/react`);
   const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
+  const title = slug.charAt(0).toUpperCase() + slug.slice(1);
 
   // console.log(tag);
 
   return (
     <main>
       <Container>
-        <h1>{slug}</h1>
-        {/* <p>{tag.frontmatter.excerpt}</p> */}
+        <h1>{title}</h1>
+        <p>A list of all the posts tagged with {slug}</p>
       </Container>
       <Container variant="wide">
         <Grid
