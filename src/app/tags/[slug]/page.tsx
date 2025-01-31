@@ -15,7 +15,7 @@ export interface TagPageProps {
 
 const TagPage: FC<TagPageProps> = async ({ params }) => {
   const { slug } = await params;
-  const tag = getContentBySlug(`tags/${slug}`);
+  const tag = await getContentBySlug(`tags/${slug}`);
 
   console.log(tag);
   return (
