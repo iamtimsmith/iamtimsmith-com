@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { getLatestPosts } from "../../../helpers/getLatestPosts";
 
 // export const generateMetadata = ({ params }) =>
 //   getMetadata(`tags/${params.slug}`);
@@ -15,6 +16,7 @@ export interface TagPageProps {
 const TagPage: FC<TagPageProps> = async ({ params }) => {
   const { slug } = await params;
   // const tag = getContentBySlug(`tags/react`);
+  const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
 
   // console.log(tag);
   return (
@@ -22,7 +24,6 @@ const TagPage: FC<TagPageProps> = async ({ params }) => {
       <h1>{slug}</h1>
     </main>
   );
-  // const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
 
   // return (
   //   <main>
