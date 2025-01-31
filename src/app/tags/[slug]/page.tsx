@@ -19,7 +19,7 @@ const TagPage: FC<TagPageProps> = async ({ params }) => {
   // console.log(tag);
   return (
     <main>
-      <h1>POSTS BY TAG</h1>
+      <h1>{slug}</h1>
     </main>
   );
   // const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
