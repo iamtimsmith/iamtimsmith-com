@@ -13,13 +13,13 @@ export interface TagPageProps {
 }
 
 const TagPage: FC<TagPageProps> = async ({ params }) => {
+  const { slug } = await params;
+  // const tag = getContentBySlug(`tags/${slug}`);
   return (
     <main>
       <h1>POSTS BY TAG</h1>
     </main>
   );
-  // const { slug } = await params;
-  // const tag = getContentBySlug(`tags/${slug}`);
   // const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
 
   // return (
