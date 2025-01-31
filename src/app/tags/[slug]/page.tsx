@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { getContentBySlug } from "../../../helpers/getContentBySlug";
 
 // export const generateMetadata = ({ params }) =>
 //   getMetadata(`tags/${params.slug}`);
@@ -14,7 +15,9 @@ export interface TagPageProps {
 
 const TagPage: FC<TagPageProps> = async ({ params }) => {
   const { slug } = await params;
-  // const tag = getContentBySlug(`tags/${slug}`);
+  const tag = getContentBySlug(`tags/${slug}`);
+
+  console.log(tag);
   return (
     <main>
       <h1>POSTS BY TAG</h1>
