@@ -4,8 +4,8 @@ import { Grid } from "../../components/Grid";
 import { getAllTags } from "../../helpers/getAllTags";
 
 export const metadata = {
-  title: "Blog",
-  description: "Read the latest posts from the blog.",
+  title: "Tags",
+  description: "View all of the tags assigned to blog posts.",
 };
 
 export interface TagsPageProps {
