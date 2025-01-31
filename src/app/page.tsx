@@ -11,6 +11,7 @@ import { getMetadata } from "../helpers/getMetadata";
 export const generateMetadata = () => getMetadata("home");
 
 export interface HomePageProps {
+  params: Promise<{ slug: string }>;
   searchParams: URLSearchParams;
 }
 
