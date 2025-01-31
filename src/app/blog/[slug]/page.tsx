@@ -2,10 +2,12 @@ import { FC } from "react";
 import { Author } from "../../../components/Author";
 import { Container } from "../../../components/Container";
 import { Content } from "../../../components/Content";
+import { Grid } from "../../../components/Grid";
+import { Heading } from "../../../components/Heading";
 import { Sharebar } from "../../../components/Sharebar";
-import { SummaryGrid } from "../../../components/SummaryGrid";
 import { Tags } from "../../../components/Tags";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
+import { getLatestPosts } from "../../../helpers/getLatestPosts";
 import { getMetadata } from "../../../helpers/getMetadata";
 import { PageProps } from "../../../types";
 
@@ -13,18 +15,19 @@ export const generateMetadata = ({ params }) =>
   getMetadata(`posts/${params.slug}`);
 
 export interface PostPageProps extends PageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
   className?: string;
 }
 
-const PostPage: FC<PostPageProps> = async ({
+const PostPage: FC<PostPageProps> = ({
   className,
   params,
   searchParams,
   ...props
 }) => {
-  const slug = (await params).slug;
+  const slug = params.slug;
   const post = getContentBySlug(`posts/${slug}`);
+  const posts = getLatestPosts();
 
   return (
     <main {...props}>
@@ -34,7 +37,17 @@ const PostPage: FC<PostPageProps> = async ({
         <Content>{post.content}</Content>
         <Author />
       </Container>
-      <SummaryGrid title="More posts you might like" />
+      <Container variant="wide">
+        <Heading href="/blog">Recent Posts</Heading>
+        <Grid
+          items={posts.map(({ frontmatter, slug }) => ({
+            title: frontmatter.title,
+            description: frontmatter.excerpt,
+            meta: frontmatter.tags,
+            slug,
+          }))}
+        />
+      </Container>
       <Sharebar
         title={post.frontmatter.title}
         excerpt={post.frontmatter.excerpt}

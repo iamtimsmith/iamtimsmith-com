@@ -4,11 +4,10 @@ import { getContentBySlug } from "../../helpers/getContentBySlug";
 import { getMetadata } from "../../helpers/getMetadata";
 import { PageProps } from "../../types";
 
-export const generateMetadata = ({ params, searchParams }) =>
-  getMetadata(params.slug);
+export const generateMetadata = ({ params }) => getMetadata(params.slug);
 
 interface DynamicPageProps extends PageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
   className?: string;
 }
 
@@ -18,7 +17,7 @@ const DynamicPage: FC<DynamicPageProps> = async ({
   searchParams,
   ...props
 }) => {
-  const slug = (await params).slug;
+  const slug = params.slug;
 
   if (slug === "favicon.ico") return;
 

@@ -1,32 +1,45 @@
 import { FC } from "react";
 import { Container } from "../components/Container";
 import { Content } from "../components/Content";
-import { SummaryGrid } from "../components/SummaryGrid";
+import { Grid } from "../components/Grid";
+import { Heading } from "../components/Heading";
 import { getContentBySlug } from "../helpers/getContentBySlug";
+import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
 import { PageProps } from "../types";
 
 export const generateMetadata = () => getMetadata("not-found");
 
 interface NotFoundPageProps extends PageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
   className?: string;
 }
 
-const NotFoundPage: FC<NotFoundPageProps> = async ({
+const NotFoundPage: FC<NotFoundPageProps> = ({
   className,
   params,
   searchParams,
   ...props
 }) => {
-  const post = await getContentBySlug("not-found");
+  const post = getContentBySlug("not-found");
+  const posts = getLatestPosts();
 
   return (
     <main {...props}>
       <Container>
         <Content>{post.content}</Content>
       </Container>
-      <SummaryGrid count={3} />
+      <Container variant="wide">
+        <Heading href="/blog">Recent Posts</Heading>
+        <Grid
+          items={posts.map(({ frontmatter, slug }) => ({
+            title: frontmatter.title,
+            description: frontmatter.excerpt,
+            meta: frontmatter.tags,
+            slug,
+          }))}
+        />
+      </Container>
     </main>
   );
 };

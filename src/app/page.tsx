@@ -36,7 +36,6 @@ const HomePage: FC<HomePageProps> = ({ className, searchParams, ...props }) => {
           }))}
         />
       </Container>
-      {/* <SummaryGrid titleHref="/blog" /> */}
     </main>
   );
 };

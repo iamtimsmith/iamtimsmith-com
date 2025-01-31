@@ -10,15 +10,11 @@ export const metadata = {
 };
 
 export interface BlogPageProps extends PageProps {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
   className?: string;
 }
 
-const BlogPage: FC<BlogPageProps> = async ({
-  params,
-  searchParams,
-  ...props
-}) => {
+const BlogPage: FC<BlogPageProps> = ({ params, searchParams, ...props }) => {
   // This will need to change once pagination is implemented
   const posts = getLatestPosts(-1);
 
