@@ -1,7 +1,10 @@
 import { FC } from "react";
-import { getMetadata } from "../helpers/getMetadata";
 
-export const generateMetadata = () => getMetadata("home");
+// export const generateMetadata = () => getMetadata("home");
+
+export const metadata = {
+  title: "Home",
+};
 
 export interface HomePageProps {
   params: Promise<{ slug: string }>;
@@ -10,10 +13,10 @@ export interface HomePageProps {
 
 const HomePage: FC<HomePageProps> = () => {
   return (
-    <main>
+    <div>
       <h1>Site Under Maintenance!</h1>
       <p>Please pardon the mess!</p>
-    </main>
+    </div>
   );
   // const page = getContentBySlug("home");
   // const posts = getLatestPosts();
@@ -39,6 +42,6 @@ const HomePage: FC<HomePageProps> = () => {
   // );
 };
 
-export const revalidate = 60; // Revalidate this page every 60 seconds
+// export const revalidate = 60; // Revalidate this page every 60 seconds
 
 export default HomePage;
