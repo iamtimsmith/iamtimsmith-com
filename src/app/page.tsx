@@ -4,13 +4,32 @@ import { Container } from "../components/Container";
 import { Content } from "../components/Content";
 import { Grid } from "../components/Grid";
 import { Heading } from "../components/Heading";
+import { siteName } from "../constants";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 
 // export const generateMetadata = () => getMetadata("home");
 
 export const metadata = {
-  title: "Home",
+  title: `Home | ${siteName}`,
+  description:
+    "Tim Smith is a software engineer trying to make the web a better place.",
+  openGraph: {
+    title: `Home | ${siteName}`,
+    description:
+      "Tim Smith is a software engineer trying to make the web a better place.",
+    url: "https://timsmith.dev",
+    siteName: siteName,
+    type: "website",
+    images: [
+      {
+        url: "https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109224/iamtimsmith/timsmith_fyh0hq.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Tim Smith's website",
+      },
+    ],
+  },
 };
 
 export interface HomePageProps {

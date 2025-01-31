@@ -1,10 +1,11 @@
 import { FC } from "react";
 import { Content } from "../../components/Content";
 import { getContentBySlug } from "../../helpers/getContentBySlug";
-import { getLatestPosts } from "../../helpers/getLatestPosts";
 import { getMetadata } from "../../helpers/getMetadata";
 
-export const generateMetadata = ({ params }) => getMetadata(params.slug);
+// export const generateMetadata = ({ params }) => getMetadata(params.slug);
+
+export const metadata = ({ params }) => getMetadata(params.slug);
 
 interface DynamicPageProps {
   params: Promise<{ slug: string }>;
@@ -27,11 +28,3 @@ const DynamicPage: FC<DynamicPageProps> = async ({ params }) => {
 };
 
 export default DynamicPage;
-
-export const generateStaticParams = async () => {
-  const posts = getLatestPosts(-1);
-
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-};
