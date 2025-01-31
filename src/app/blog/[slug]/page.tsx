@@ -9,18 +9,16 @@ import { Tags } from "../../../components/Tags";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getLatestPosts } from "../../../helpers/getLatestPosts";
 import { getMetadata } from "../../../helpers/getMetadata";
-import { PageProps } from "../../../types";
 
 export const generateMetadata = ({ params }) =>
   getMetadata(`posts/${params.slug}`);
 
-export interface PostPageProps extends PageProps {
+export interface PostPageProps {
   params: Promise<{ slug: string }>;
-  className?: string;
+  searchParams: URLSearchParams;
 }
 
 const PostPage: FC<PostPageProps> = async ({
-  className,
   params,
   searchParams,
   ...props
@@ -30,7 +28,7 @@ const PostPage: FC<PostPageProps> = async ({
   const posts = getLatestPosts();
 
   return (
-    <main {...props}>
+    <main>
       <Container>
         <h1>{post.frontmatter.title}</h1>
         <Tags tags={post.frontmatter.tags} size="md" />

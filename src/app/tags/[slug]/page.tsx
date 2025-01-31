@@ -1,4 +1,4 @@
-import { FC, HTMLAttributes } from "react";
+import { FC } from "react";
 import { Container } from "../../../components/Container";
 import { Grid } from "../../../components/Grid";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
@@ -8,23 +8,18 @@ import { getMetadata } from "../../../helpers/getMetadata";
 export const generateMetadata = ({ params }) =>
   getMetadata(`tags/${params.slug}`);
 
-export interface TagPageProps extends HTMLAttributes<HTMLDivElement> {
+export interface TagPageProps {
   params: Promise<{ slug: string }>;
   searchParams: URLSearchParams;
 }
 
-const TagPage: FC<TagPageProps> = async ({
-  className,
-  params,
-  searchParams,
-  ...props
-}) => {
+const TagPage: FC<TagPageProps> = async ({ params }) => {
   const { slug } = await params;
   const tag = getContentBySlug(`tags/${slug}`);
   const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
 
   return (
-    <main {...props}>
+    <main>
       <Container>
         <h1>{tag.frontmatter.title}</h1>
         <p>{tag.frontmatter.excerpt}</p>

@@ -6,26 +6,19 @@ import { Heading } from "../components/Heading";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
-import { PageProps } from "../types";
 
 export const generateMetadata = () => getMetadata("not-found");
 
-interface NotFoundPageProps extends PageProps {
-  params: { slug: string };
-  className?: string;
+interface NotFoundPageProps {
+  searchParams: URLSearchParams;
 }
 
-const NotFoundPage: FC<NotFoundPageProps> = async ({
-  className,
-  params,
-  searchParams,
-  ...props
-}) => {
+const NotFoundPage: FC<NotFoundPageProps> = async () => {
   const post = getContentBySlug("not-found");
   const posts = getLatestPosts();
 
   return (
-    <main {...props}>
+    <main>
       <Container>
         <Content>{post.content}</Content>
       </Container>

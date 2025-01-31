@@ -7,24 +7,19 @@ import { Heading } from "../components/Heading";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
-import { PageProps } from "../types";
 
 export const generateMetadata = () => getMetadata("home");
 
-export interface HomePageProps extends PageProps {
-  className?: string;
+export interface HomePageProps {
+  searchParams: URLSearchParams;
 }
 
-const HomePage: FC<HomePageProps> = async ({
-  className,
-  searchParams,
-  ...props
-}) => {
+const HomePage: FC<HomePageProps> = async () => {
   const page = getContentBySlug("home");
   const posts = getLatestPosts();
 
   return (
-    <main {...props}>
+    <main>
       <Container>
         <MDXRemote source={page.content} />
         <Author />
