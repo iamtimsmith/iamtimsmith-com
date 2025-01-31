@@ -4,6 +4,9 @@ import { notFound } from "next/navigation";
 
 export const getContentBySlug = (slug = "") => {
   if (slug.includes(".ico.mdx")) return;
+
+  console.log("GETTING HERE");
+
   try {
     const file = readFileSync(`content/${slug}.mdx`);
     const frontmatter = matter(file);
