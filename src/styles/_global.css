@@ -67,22 +67,37 @@ h6 > strong {
 }
 
 h1 {
-  font-size: var(--font-size-4x);
-}
-h2 {
   font-size: var(--font-size-3x);
 }
-h3 {
+h2 {
   font-size: var(--font-size-2x);
 }
-h4 {
+h3 {
   font-size: var(--font-size-xl);
+}
+h4 {
+  font-size: var(--font-size-lg);
 }
 h5 {
   font-size: var(--font-size-lg);
 }
 h6 {
   font-size: var(--font-size-md);
+}
+
+@media screen and (min-width: 1024px) {
+  h1 {
+    font-size: var(--font-size-4x);
+  }
+  h2 {
+    font-size: var(--font-size-3x);
+  }
+  h3 {
+    font-size: var(--font-size-2x);
+  }
+  h4 {
+    font-size: var(--font-size-xl);
+  }
 }
 
 p {
@@ -223,7 +238,7 @@ form input[type="email"] {
   border: 1px solid var(--color-border);
   background: var(--color-grey--50);
   color: var(--color-grey--900);
-  font-size: 1rem;
+  font-size: var(--font-size-md);
 }
 
 form a,
@@ -234,7 +249,7 @@ form button {
   border-radius: var(--border-rounded);
   color: var(--button-fg);
   cursor: pointer;
-  font-size: 1rem;
+  font-size: var(--font-size-md);
   transition: background 0.3s, border-color 0.3s;
 }
 form a:hover,
