@@ -1,4 +1,6 @@
 import { FC } from "react";
+import { Container } from "../../../components/Container";
+import { Grid } from "../../../components/Grid";
 import { getLatestPosts } from "../../../helpers/getLatestPosts";
 
 // export const generateMetadata = ({ params }) =>
@@ -19,29 +21,24 @@ const TagPage: FC<TagPageProps> = async ({ params }) => {
   const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
 
   // console.log(tag);
+
   return (
     <main>
-      <h1>{slug}</h1>
+      <Container>
+        <h1>{slug}</h1>
+        {/* <p>{tag.frontmatter.excerpt}</p> */}
+      </Container>
+      <Container variant="wide">
+        <Grid
+          items={posts.map(({ frontmatter, slug }) => ({
+            title: frontmatter.title,
+            description: frontmatter.excerpt,
+            meta: frontmatter.tags,
+            slug,
+          }))}
+        />
+      </Container>
     </main>
   );
-
-  // return (
-  //   <main>
-  //     <Container>
-  //       <h1>{tag.frontmatter.title}</h1>
-  //       <p>{tag.frontmatter.excerpt}</p>
-  //     </Container>
-  //     <Container variant="wide">
-  //       <Grid
-  //         items={posts.map(({ frontmatter, slug }) => ({
-  //           title: frontmatter.title,
-  //           description: frontmatter.excerpt,
-  //           meta: frontmatter.tags,
-  //           slug,
-  //         }))}
-  //       />
-  //     </Container>
-  //   </main>
-  // );
 };
 export default TagPage;
