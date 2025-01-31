@@ -1,0 +1,1 @@
+export { getContentBySlug } from "./getContentBySlug";

@@ -2,14 +2,14 @@
 title: Creating Custom Gutenberg Blocks with React and WordPress - Part 2
 date: 2019-10-20T05:00:00.000Z
 excerpt: >-
-    I'll explain how to use JSX when building out custom Gutenberg blocks with
-    react and WordPress.
+  I'll explain how to use JSX when building out custom Gutenberg blocks with
+  react and WordPress.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/custom-gutenberg-blocks-with-react-and-wordpress-part-2_cbavue.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/custom-gutenberg-blocks-with-react-and-wordpress-part-2_cbavue.jpg
 tags:
-    - react
-    - wordpress
+  - react
+  - wordpress
 ---
 
 In the [last post about custom Gutenberg blocks with React and WordPress](/blog/custom-gutenberg-blocks-with-react-and-wordpress-part-1), I talked about registering custom blocks in WordPress as well as why you may want to use Gutenberg with custom blocks. While you can use plain old React to create your custom blocks, it is easier to read your code using a tool like JSX.
@@ -20,10 +20,10 @@ In this post I'll explain how and why you should use Gulp to improve your workfl
 
 In a nutshell, Gulp is a build tool which allows you to use to coolest new stuff without sacrficing compatibility. I'm not going to talk a ton about what Gulp is, but if you're curious you [learn more about it in this blog post](/gulp-basics-modern-frontend-workflow). For the purposes of this article, I will be keeping it VERY simple. It will basically be the absolute bare minimum you will need to build custom blocks.
 
-<gif
-	src="https://media.giphy.com/media/5vUTS3pfJAwAv2yUNM/giphy.mp4"
-	caption="NPH after doing the bare minimum."
-	width={300}
+<Gif
+  src="https://media.giphy.com/media/5vUTS3pfJAwAv2yUNM/giphy.mp4"
+  caption="NPH after doing the bare minimum."
+  width={300}
 />
 
 ## Setting Up Gulp and a gulpfile
@@ -51,7 +51,7 @@ $ touch gulpfile.js && open $_
 
 Now that you have initialized a project, installed the Gulp library into your project, and created the configuraton file, you're ready to start setting up your project for custom Gutenberg block development!
 
-<email_signup />
+<EmailSignup />
 
 ## Concatenating blocks files
 
@@ -77,9 +77,9 @@ After you have imported your libraries, you can write a custom task to handle Ja
 ```javascript
 // gulpfile.js
 task("blocks", function () {
-	return src("./blocks/**/*.js")
-		.pipe(concat("blocks.js"))
-		.pipe(dest("dist/js"));
+  return src("./blocks/**/*.js")
+    .pipe(concat("blocks.js"))
+    .pipe(dest("dist/js"));
 });
 ```
 
@@ -99,12 +99,12 @@ In order to make this work, I will create a new variable outside of the task whi
 ```javascript
 // gulpfile.js
 const block = {
-	header: `(function (wp) {
+  header: `(function (wp) {
     const { registerBlockType } = wp.blocks;
     const {RichText} = wp.editor;
     const {components, editor, blocks, element, i18n} = wp;
   `,
-	footer: `})(window.wp);`,
+  footer: `})(window.wp);`,
 };
 ```
 
@@ -115,11 +115,11 @@ Now it's time to wrap the existing concatenation in this function so all of the 
 ```javascript
 // gulpfile.js
 task("blocks", function () {
-	return src("./blocks/**/*.js")
-		.pipe(concat("blocks.js"))
-		.pipe(concat.header(block.header))
-		.pipe(concat.footer(block.footer))
-		.pipe(dest("dist/js"));
+  return src("./blocks/**/*.js")
+    .pipe(concat("blocks.js"))
+    .pipe(concat.header(block.header))
+    .pipe(concat.footer(block.footer))
+    .pipe(dest("dist/js"));
 });
 ```
 
@@ -145,16 +145,16 @@ The only import needed at the top is `gulp-babel`. The rest will be used in a `p
 ```javascript
 // gulpfile.js
 task("blocks", function () {
-	return src("./blocks/**/*.js")
-		.pipe(concat("blocks.js"))
-		.pipe(concat.header(block.header))
-		.pipe(concat.footer(block.footer))
-		.pipe(
-			babel({
-				presets: ["@babel/preset-react"],
-			})
-		)
-		.pipe(dest("dist/js"));
+  return src("./blocks/**/*.js")
+    .pipe(concat("blocks.js"))
+    .pipe(concat.header(block.header))
+    .pipe(concat.footer(block.footer))
+    .pipe(
+      babel({
+        presets: ["@babel/preset-react"],
+      })
+    )
+    .pipe(dest("dist/js"));
 });
 ```
 
@@ -169,29 +169,29 @@ const concat = require("gulp-concat-util");
 const babel = require("gulp-babel");
 
 const block = {
-	header: `(function (wp) {
+  header: `(function (wp) {
     const { registerBlockType } = wp.blocks;
     const {RichText} = wp.editor;
     const {components, editor, blocks, element, i18n} = wp;
   `,
-	footer: `})(window.wp);`,
+  footer: `})(window.wp);`,
 };
 
 task("blocks", function () {
-	return src("./blocks/**/*.js")
-		.pipe(concat("blocks.js"))
-		.pipe(concat.header(block.header))
-		.pipe(concat.footer(block.footer))
-		.pipe(
-			babel({
-				presets: ["@babel/preset-react"],
-			})
-		)
-		.pipe(dest("dist/js"));
+  return src("./blocks/**/*.js")
+    .pipe(concat("blocks.js"))
+    .pipe(concat.header(block.header))
+    .pipe(concat.footer(block.footer))
+    .pipe(
+      babel({
+        presets: ["@babel/preset-react"],
+      })
+    )
+    .pipe(dest("dist/js"));
 });
 
 task("watch", function () {
-	watch("./blocks/**/*.js", series("blocks"));
+  watch("./blocks/**/*.js", series("blocks"));
 });
 
 task("default", series("blocks"));

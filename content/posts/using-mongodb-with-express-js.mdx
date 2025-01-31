@@ -2,14 +2,14 @@
 title: Using MongoDB with an Express.js Application
 date: 2020-02-13T05:00:00.000Z
 excerpt: >-
-    MongoDB is a nosql database that is growing in popularity. In this post, I'll
-    show you how you can use it in your next Express application.
+  MongoDB is a nosql database that is growing in popularity. In this post, I'll
+  show you how you can use it in your next Express application.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-mongodb-with-express-js_ml3don.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109221/iamtimsmith/using-mongodb-with-express-js_ml3don.jpg
 tags:
-    - express
-    - mongodb
+  - express
+  - mongodb
 ---
 
 MongoDB is a nosql database that is growing in popularity. In this post, I'll show you how you can use it in your next Express application. The MERN stack (MongoDB, Express, React, Node), MEAN stack (MongoDB, Express, Angular, Node), and MEVN stack (MongoDB, Express, Vue, Node) all use MongoDB as a database since it's so easy to read information. Let's get right into it!
@@ -20,10 +20,10 @@ SQL is a type of database that has been around for a long time and allows tables
 
 Like SQL, it can be used locally or from a remote platform. When using it locally, it will store the data in a specified location, but won't work until you run `mongod` in the terminal. In recent years, platforms such as [mLab](https://mlab.com/) and [MongoDB Atlas](https://www.mongodb.com/cloud/atlas). In this tutorial, I'll be using mLab although it doesn't matter which one you choose as long as you have the connection url.
 
-<gif
-	src="https://media.giphy.com/media/XHGAZo1d0vlSsWXEZP/giphy.mp4"
-	caption="Whatever you think is best"
-	width={300}
+<Gif
+  src="https://media.giphy.com/media/XHGAZo1d0vlSsWXEZP/giphy.mp4"
+  caption="Whatever you think is best"
+  width={300}
 />
 
 ## Adding new packages to the Express Application
@@ -74,7 +74,7 @@ require("dotenv").config();
 const port = 4000;
 // Use the MONGO_URI from .env or use local mongodb
 const db =
-	process.env.MONGO_URI || "mongodb://localhost:27017/express-tutorial";
+  process.env.MONGO_URI || "mongodb://localhost:27017/express-tutorial";
 
 app.set("view engine", "pug");
 
@@ -82,7 +82,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", require("./routes"));
 
 app.listen(port, () => {
-	console.log(`Success! Your application is running on port ${port}.`);
+  console.log(`Success! Your application is running on port ${port}.`);
 });
 
 // Connect the Express application to MongoDB
@@ -91,13 +91,13 @@ mongoose.connect(db, { useNewUrlParser: true });
 
 The code above adds the mongoose package to the file, gets the connection string for the database, and connects to MongoDB using the url assigned to `db`. We're done right? Well.....
 
-<gif
-	src="https://media.giphy.com/media/s3d5ugcxFDApG/giphy.mp4"
-	width={250}
-	caption="Dwight is not impressed."
+<Gif
+  src="https://media.giphy.com/media/s3d5ugcxFDApG/giphy.mp4"
+  width={250}
+  caption="Dwight is not impressed."
 />
 
-<email_signup />
+<EmailSignup />
 
 ## Setting up Models with Mongoose
 
@@ -116,12 +116,12 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const postSchema = new Schema({
-	title: String,
-	author: String,
-	slug: { type: String, unique: true },
-	body: String,
-	comments: [{ body: String, date: Date }],
-	date: { type: Date, default: Date.now },
+  title: String,
+  author: String,
+  slug: { type: String, unique: true },
+  body: String,
+  comments: [{ body: String, date: Date }],
+  date: { type: Date, default: Date.now },
 });
 
 const Post = mongoose.model("Post", postSchema);

@@ -1,0 +1,69 @@
+.SocialMenuContainer {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  height: 350px;
+  min-height: 300px;
+  width: 80px;
+}
+
+.SocialMenu {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-4) var(--spacing-0);
+  overflow: visible;
+  transition: 0.3s;
+}
+.SocialMenu:after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 40px;
+  height: 300px;
+  width: 1px;
+  background: var(--color-text);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.SocialMenu * {
+  transition: color 0.3s, opacity 0.3s;
+}
+
+.SocialMenu menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.SocialMenu li,
+.SocialMenu a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.SocialMenu a {
+  font-size: var(--font-size-xl);
+  background: none;
+  border: none;
+  margin: 0.125rem 1rem;
+  color: var(--color-text);
+  opacity: 0.5;
+  cursor: pointer;
+}
+.SocialMenu a:hover {
+  color: var(--color-accent);
+  background: none;
+  opacity: 1;
+}
+
+@media screen and (min-width: 850px) {
+  .SocialMenuContainer {
+    display: block;
+  }
+}

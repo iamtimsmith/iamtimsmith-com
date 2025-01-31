@@ -2,14 +2,14 @@
 title: Let's build a search bar in React!
 date: 2018-09-11T05:00:00.000Z
 excerpt: >-
-    We are going to build a task app that also filters the list based on a search
-    query in real time. Sound complicated? It's not as complicated as you may
-    think, so let's dig in!
+  We are going to build a task app that also filters the list based on a search
+  query in real time. Sound complicated? It's not as complicated as you may
+  think, so let's dig in!
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109215/iamtimsmith/lets-build-a-search-bar-in-react_gdqdte.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109215/iamtimsmith/lets-build-a-search-bar-in-react_gdqdte.jpg
 tags:
-    - react
+  - react
 ---
 
 I know, I know...another task app...
@@ -53,22 +53,22 @@ Next we need to open our `index.html` file for editing and put the code below in
 <!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
-		<title>Search To-Do App</title>
-	</head>
-	<body>
-		<div id="app"></div>
-		<script src="./app.js"></script>
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Search To-Do App</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script src="./app.js"></script>
+  </body>
 </html>
 ```
 
 ![Add packages to our project](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109209/iamtimsmith/packages_snpdip.jpg "Add packages to our project")![Add packages to our project]()
 
-<email_signup />
+<EmailSignup />
 
 ## Add packages to our project
 
@@ -85,12 +85,12 @@ yarn add react react-dom parcel babel-preset-env babel-preset-react bulma
 
 NPM and Yarn are package managers that allow you to add prewritten code into your project. This can speed up development time astronomically. Below you'll find a quick description of what each of these packages do.
 
--   React: A library to speed up development (seems obvious for a React tutorial, right?) [Link](https://reactjs.org/)
--   React-DOM: A library which allows React to interact with the DOM in a browser.[Link](https://reactjs.org/docs/react-dom.html)
--   Parcel: A bundling library which requires no config. [Link](https://parceljs.org/)
--   Babel-preset-env: A library which tells Parcel how to transform ES6 to work with many different browsers. [Link](https://babeljs.io/docs/en/babel-preset-env.html)
--   Babel-preset-react: A library which tells Parcel how to handle JSX. [Link](https://babeljs.io/docs/en/babel-preset-react)
--   Bulma: A CSS framework that uses flexbox and is easy to use. [Link](https://bulma.io/)
+- React: A library to speed up development (seems obvious for a React tutorial, right?) [Link](https://reactjs.org/)
+- React-DOM: A library which allows React to interact with the DOM in a browser.[Link](https://reactjs.org/docs/react-dom.html)
+- Parcel: A bundling library which requires no config. [Link](https://parceljs.org/)
+- Babel-preset-env: A library which tells Parcel how to transform ES6 to work with many different browsers. [Link](https://babeljs.io/docs/en/babel-preset-env.html)
+- Babel-preset-react: A library which tells Parcel how to handle JSX. [Link](https://babeljs.io/docs/en/babel-preset-react)
+- Bulma: A CSS framework that uses flexbox and is easy to use. [Link](https://bulma.io/)
 
 ## Set up package.json and .babelrc
 
@@ -201,29 +201,29 @@ This will be pretty simple. First we need to add the code to render an input box
 ```javascript
 // app.js
 <div className="content">
-	<div className="container">
-		<section className="section">
-			<ul>
-				{this.state.list.map((item) => (
-					<li key={item}>{item}</li>
-				))}
-			</ul>
-		</section>
-		<hr />
-		<section className="section">
-			<form className="form" id="addItemForm">
-				<input
-					type="text"
-					className="input"
-					id="addInput"
-					placeholder="Something that needs ot be done..."
-				/>
-				<button className="button is-info" onClick={this.addItem}>
-					Add Item
-				</button>
-			</form>
-		</section>
-	</div>
+  <div className="container">
+    <section className="section">
+      <ul>
+        {this.state.list.map((item) => (
+          <li key={item}>{item}</li>
+        ))}
+      </ul>
+    </section>
+    <hr />
+    <section className="section">
+      <form className="form" id="addItemForm">
+        <input
+          type="text"
+          className="input"
+          id="addInput"
+          placeholder="Something that needs ot be done..."
+        />
+        <button className="button is-info" onClick={this.addItem}>
+          Add Item
+        </button>
+      </form>
+    </section>
+  </div>
 </div>
 ```
 
@@ -272,15 +272,15 @@ And we can add an onClick trigger to our button, so our button should look like 
 ```javascript
 // app.js
 <button className="button is-info" onClick={this.addItem}>
-	Add Item
+  Add Item
 </button>
 ```
 
 We can test our application by using `yarn start` or `npm run start` and going to `localhost:1234` in our browser. Our app now allows us to add an item to the list! Pretty cool!
 
-<gif
-	src="https://media.giphy.com/media/vohOR29F78sGk/giphy.mp4"
-	caption="Users still need to be able to delete items."
+<Gif
+  src="https://media.giphy.com/media/vohOR29F78sGk/giphy.mp4"
+  caption="Users still need to be able to delete items."
 />
 
 ## Adding a Delete button
@@ -350,9 +350,9 @@ Next we are going to turn our list into a component with it's own state and meth
 ```javascript
 // app.js
 class List extends React.Component {
-	render() {
-		return <div>...</div>;
-	}
+  render() {
+    return <div>...</div>;
+  }
 }
 ```
 
@@ -361,12 +361,12 @@ The code we want to render is just our list, so go back up to our App component 
 ```javascript
 // app.js
 <ul>
-	{this.state.list.map((item) => (
-		<li key={item}>
-			{item} &nbsp;
-			<span className="delete" onClick={() => this.removeItem(item)} />
-		</li>
-	))}
+  {this.state.list.map((item) => (
+    <li key={item}>
+      {item} &nbsp;
+      <span className="delete" onClick={() => this.removeItem(item)} />
+    </li>
+  ))}
 </ul>
 ```
 
@@ -413,12 +413,12 @@ First, we'll add state to our List component and give it an array called filtere
 ```javascript
 // app.js
 class List extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			filtered: [],
-		};
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      filtered: [],
+    };
+  }
 }
 ```
 
@@ -449,10 +449,10 @@ componentWillReceiveProps(nextProps) {
 
 Now if we change the `.map()` function we're using for our list to map over the `filtered` list instead of the `items` list being passed in through props, we should see the same thing on the front end.
 
-<gif
-	src="https://media.tenor.com/videos/1c0f33f884ddedac7cacd0d5def58234/mp4"
-	caption="&#x22;Whoop-dee-doo, Basil. What does it all mean?&#x22; - Austin Powers"
-	width={550}
+<Gif
+  src="https://media.tenor.com/videos/1c0f33f884ddedac7cacd0d5def58234/mp4"
+  caption="&#x22;Whoop-dee-doo, Basil. What does it all mean?&#x22; - Austin Powers"
+  width={550}
 />
 
 What's the big deal? The big deal is that now we have a list we can manipulate without altering the original list. All we have to do is modify our `filter` state and the items being displayed will also reflect that, but we haven't lost the original list by doing this.
@@ -464,23 +464,23 @@ It seems to me that a good place to start with a search bar is...well...the sear
 ```javascript
 // app.js
 <div>
-	<input type="text" className="input" placeholder="Search..." />
-	<ul>...</ul>
+  <input type="text" className="input" placeholder="Search..." />
+  <ul>...</ul>
 </div>
 ```
 
 Cool! Now we have a search bar. If only it actually worked...
 
-<email_signup />
+<EmailSignup />
 
 ## Make the search bar search
 
 We have a nice looking search bar, but it doesn't really do anything other than look pretty. Maybe this is good enough, but I think there is more to life than just being really, really, ridiculously goodlooking. Let's add the "brains".
 
-<gif
-	src="https://media.tenor.com/videos/481c9d9f53f8551e2c68598f847fd9a7/mp4"
-	caption="&#x22;Did you ever thing that maybe there's more to life than being really, really, really ridiculously good looking?&#x22; - Derek Zoolander"
-	width={500}
+<Gif
+  src="https://media.tenor.com/videos/481c9d9f53f8551e2c68598f847fd9a7/mp4"
+  caption="&#x22;Did you ever thing that maybe there's more to life than being really, really, really ridiculously good looking?&#x22; - Derek Zoolander"
+  width={500}
 />
 
 To start, we'll add a method called `handleChange` after our lifecycle methods. We will be passing in `e` as an argument which will stand for event. Inside of the method, we'll create two variables which will hold the original task list being passed in as props as well as the filtered list before it's passed into state.
@@ -539,10 +539,10 @@ Finally, we can add an event handler to the input item to call the method whenev
 ```javascript
 // app.js
 <input
-	type="text"
-	className="input"
-	onChange={this.handleChange}
-	placeholder="Search..."
+  type="text"
+  className="input"
+  onChange={this.handleChange}
+  placeholder="Search..."
 />
 ```
 

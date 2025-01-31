@@ -2,14 +2,14 @@
 title: this.state - How to Use State in React js
 date: 2019-01-31T05:00:00.000Z
 excerpt: >-
-    If you're anything like me, the concept of state was confusing at first. In
-    this tutorial, we'll learn how to use state and props in a react js
-    application.
+  If you're anything like me, the concept of state was confusing at first. In
+  this tutorial, we'll learn how to use state and props in a react js
+  application.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/this-state-how-to-use-state-in-react_frmrl7.png
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109217/iamtimsmith/this-state-how-to-use-state-in-react_frmrl7.png
 tags:
-    - react
+  - react
 ---
 
 If you're anything like me, the concept of state was confusing at first. In this tutorial, we'll learn how to use state and props in a react js application.
@@ -87,10 +87,10 @@ In the Pizza component above, you can see that we have a state which includes a 
 
 I know what you're thinking. _Super Cool, Tim. Now what?_
 
-<gif
-	src="https://media.giphy.com/media/20KLYSIhq35V4EpVlC/giphy.mp4"
-	caption="&#x22;What now?&#x22; - David Rose"
-	width={300}
+<Gif
+  src="https://media.giphy.com/media/20KLYSIhq35V4EpVlC/giphy.mp4"
+  caption="&#x22;What now?&#x22; - David Rose"
+  width={300}
 />
 
 I'm glad you asked. That brings us to the next section:
@@ -113,9 +113,9 @@ The code above would be output in the browser like this:
 <p>Pepperoni</p>
 ```
 
-<gif
-	src="https://media.giphy.com/media/d2Z9QYzA2aidiWn6/giphy.mp4"
-	caption="Awesome!"
+<Gif
+  src="https://media.giphy.com/media/d2Z9QYzA2aidiWn6/giphy.mp4"
+  caption="Awesome!"
 />
 
 ## How do we change the state?
@@ -167,12 +167,12 @@ If we assume this function will be fired when a button is clicked, then each tim
 
 This allows users to modify data on a page in real time, which is awesome. We can also pass our state into a child component as props. This brings us to our next topic which is changing parent state from a child component.
 
-<gif
-	src="https://media.giphy.com/media/3owzW5c1tPq63MPmWk/giphy.mp4"
-	caption="Modifying data on a page in real-time can sound complicated"
+<Gif
+  src="https://media.giphy.com/media/3owzW5c1tPq63MPmWk/giphy.mp4"
+  caption="Modifying data on a page in real-time can sound complicated"
 />
 
-<email_signup />
+<EmailSignup />
 
 ## Changing Parent State from Child Component
 
@@ -186,7 +186,7 @@ Here is the code for our newly created `Button` component:
 // app.js
 
 const Button = ({ action, label }) => (
-	<button onClick={() => action()}>{label}</button>
+  <button onClick={() => action()}>{label}</button>
 );
 ```
 
@@ -233,38 +233,38 @@ We need to remember to bind `this` to our function in the constructor as well. R
 import React, { Component } from "react";
 
 class Example extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			isHungry: true,
-			topping: "Pepperoni",
-			slices: 8,
-		};
-		this.eatSlice = this.eatSlice.bind(this);
-		this.buySlice = this.buySlice.bind(this);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      isHungry: true,
+      topping: "Pepperoni",
+      slices: 8,
+    };
+    this.eatSlice = this.eatSlice.bind(this);
+    this.buySlice = this.buySlice.bind(this);
+  }
 
-	eatSlice() {
-		const totalSlices = this.state.slices - 1;
-		this.setState({
-			slices: totalSlices,
-		});
-	}
+  eatSlice() {
+    const totalSlices = this.state.slices - 1;
+    this.setState({
+      slices: totalSlices,
+    });
+  }
 
-	buySlice() {
-		const totalSlices = this.state.slices + 1;
-		this.setState({
-			slices: totalSlices,
-		});
-	}
+  buySlice() {
+    const totalSlices = this.state.slices + 1;
+    this.setState({
+      slices: totalSlices,
+    });
+  }
 
-	render() {
-		return (
-			<div>
-				<Button action={this.eatSlice} label="Eat a slice" />
-			</div>
-		);
-	}
+  render() {
+    return (
+      <div>
+        <Button action={this.eatSlice} label="Eat a slice" />
+      </div>
+    );
+  }
 }
 ```
 
@@ -297,7 +297,7 @@ Working with state is an essential skill to have in react js. It makes our lives
 In this post, we talked about what state is, how to create state, how to change state, and how to manipulate state from a child component. This should be enough information for us to control the data within our components in most cases. Now go forth and build cool stuff!
 
 <embed
-	html="<iframe
+  html="<iframe
   height='600'
   style='width: 100%;'
   scrolling='no'

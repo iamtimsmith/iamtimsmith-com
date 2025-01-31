@@ -4,7 +4,7 @@ date: 2021-05-28T05:00:00.000Z
 excerpt: Sample description
 published: false
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/deck_zrvpji.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/deck_zrvpji.jpg
 ---
 
 ![Stranger Things](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/deck_zrvpji.jpg "Stranger Things")
@@ -21,5 +21,61 @@ This is pretty cool!
 
 ##### This is a heading
 
+- [This is an external link](https://www.google.com)
+- [This is an internal link](/blog)
+
+This is a paragraph with **bold**, _italic_, and `code` text.
+
+```tsx
+// This is a tsx code block
+import NextLink from "next/link";
+import { HTMLAttributes } from "react";
+
+interface LinkProps extends HTMLAttributes<HTMLAnchorElement> {
+  href?: string;
+}
+
+export const Link = ({
+  className,
+  href,
+  title,
+  children,
+  ...props
+}: LinkProps) => {
+  const isInternal = !href?.includes("://");
+
+  if (!href) {
+    return (
+      <span className={className} {...props}>
+        {children}
+      </span>
+    );
+  }
+
+  if (isInternal) {
+    return (
+      <NextLink className={className} href={href} title={title} {...props}>
+        {children}
+      </NextLink>
+    );
+  }
+
+  return (
+    <a className={className} href={href} title={title} {...props}>
+      {children}
+    </a>
+  );
+};
+```
+
+<Gif
+  src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExemQzaWt0c3RkYmNsOGk1bzM3ZnJzazl1NXdwcGxmNzlkNm0yYjlxMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T9JPznkGDAxYC8m7yC/giphy.mp4"
+  caption="Dustin and Steve pretending to fight with lightsabers."
+/>
+
+<EmailSignup />
+
 > This is a blog quote for style purposes. It has
 > All kinds of cool stuff in it!
+
+<Embed children="<h1>Hello there</h1>" />

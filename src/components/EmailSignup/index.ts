@@ -1,1 +1,1 @@
-export { EmailSignup, EmailSignupSchema } from "./EmailSignup";
+export { EmailSignup } from "./EmailSignup";

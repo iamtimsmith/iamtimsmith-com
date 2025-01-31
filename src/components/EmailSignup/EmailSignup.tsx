@@ -1,37 +1,33 @@
 "use client";
-import { FormEvent, useRef, useState } from "react";
-import { Template } from "tinacms";
+import { FC, FormEvent, HTMLAttributes, useState } from "react";
+import { subscribe } from "../../helpers/subscribe";
+import { validateEmail } from "../../helpers/validateEmail";
 import styles from "./styles.module.css";
 
-export const EmailSignup = () => {
-  const inputRef = useRef<HTMLInputElement>(null);
+type EmailSignupProps = HTMLAttributes<HTMLFormElement>;
+
+export const EmailSignup: FC<EmailSignupProps> = ({
+  className,
+  onSubmit,
+  ...props
+}) => {
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState({ error: "", success: "" });
+  const isValidEmail = validateEmail(email);
 
   const subscribeUser = async (e: FormEvent) => {
     e.preventDefault();
-
-    const res = await (
-      await fetch("/api/newsletter", {
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: inputRef.current?.value,
-        }),
-        method: "POST",
-      })
-    ).json();
-
-    if (res.error) {
-      setMessage({ error: res.error, success: "" });
-    }
-    if (res.success) {
-      setMessage({ error: "", success: res.success });
-    }
+    // Make sure email is valid
+    if (!isValidEmail) return;
+    // Make fetch request to subscribe user or spoof in dev
+    const { error, success } = await subscribe(email);
+    // Handle error and success messages
+    if (error) setMessage({ error, success: "" });
+    if (success) setMessage({ error: "", success });
   };
 
   return (
-    <form className={styles.emailSignup} onSubmit={subscribeUser}>
+    <form className={styles.emailSignup} onSubmit={subscribeUser} {...props}>
       <p className={styles.emailSignupTitle}>Sign up for my mailing list!</p>
       {(message.success && <p>{message.success}</p>) || (
         <>
@@ -40,19 +36,20 @@ export const EmailSignup = () => {
             blog posts about development, career, and more.
           </p>
           <input
-            type="email"
             className={styles.emailSignupInput}
-            id="email-input"
             name="email"
+            type="email"
+            id="email-input"
             placeholder="kevin.malone@dundermifflin.com"
-            ref={inputRef}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             aria-label="Email Address"
             required
           />
           <button
             className={styles.emailSignupButton}
             type="submit"
-            value=""
+            value="Subscribe"
             name="subscribe"
           >
             Subscribe
@@ -62,18 +59,9 @@ export const EmailSignup = () => {
           )}
         </>
       )}
+      {process.env.NODE_ENV === "development" && (
+        <p className={styles.devText}>Responses will not be saved.</p>
+      )}
     </form>
   );
-};
-
-export const EmailSignupSchema: Template = {
-  name: "email_signup",
-  label: "Email Signup",
-  fields: [
-    {
-      name: "title",
-      label: "Title",
-      type: "string",
-    },
-  ],
 };

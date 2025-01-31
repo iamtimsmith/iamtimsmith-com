@@ -1,16 +1,30 @@
 .themeButton {
-	font-size: 1.2rem;
-	padding: 0.25rem 0.55rem;
-	display: flex;
-	align-items: center;
-	background: none;
-	border: none;
-	cursor: pointer;
-	color: var(--color-text);
+  font-size: 1.2rem;
+  padding: 0.25rem 0.55rem;
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--color-text);
+  transition: color 0.3s;
+}
+
+.themeButton:hover {
+  color: var(--color-accent);
 }
 
 .themeButtonPlaceholder {
-	display: block;
-	width: 1em;
-	height: 1em;
+  display: block;
+  width: 1em;
+  height: 1em;
+}
+
+:global([data-theme="unicorn"]) .sun,
+:global([data-theme="light"]) .sun {
+  display: none;
+}
+
+:global([data-theme="dark"]) .moon {
+  display: none;
 }

@@ -2,14 +2,14 @@
 title: Creating a Basic Server with Express.js
 date: 2020-02-12T05:00:00.000Z
 excerpt: >-
-    I'm going to show you how to create an Express.js server. We will go over
-    starting the server, setting up simple routes, and outputting various types of
-    data.
+  I'm going to show you how to create an Express.js server. We will go over
+  starting the server, setting up simple routes, and outputting various types of
+  data.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109210/iamtimsmith/creating-a-basic-server-with-express-js_w8abev.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109210/iamtimsmith/creating-a-basic-server-with-express-js_w8abev.jpg
 tags:
-    - express
+  - express
 ---
 
 In this post, I’m going to show you how to create a basic Express.js server for your web applications. We will go over starting the server, setting up simple routes, and outputting various types of data.
@@ -72,7 +72,7 @@ const app = express();
 const port = 4000;
 
 app.listen(port, () => {
-	console.log(`Success! Your application is running on port ${port}.`);
+  console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -80,7 +80,7 @@ Let’s take a closer look at what’s going on here. Line 1 imports the express
 
 Once those variables are set, you can create the server by using app.listen(). First, pass in the port at which you want the server to run. This can be any value as long as it’s an integer. After the port, can provide a callback. In this case, I’ve used the callback to log a message to the console indicating the server is running. This isn’t required, but I like having the message to indicate that the terminal is working as expected.
 
-<email_signup />
+<EmailSignup />
 
 ## Setting up routes in express
 
@@ -97,7 +97,7 @@ const port = 4000;
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.listen(port, () => {
-	console.log(`Success! Your application is running on port ${port}.`);
+  console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -118,15 +118,15 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Set up home route
 app.get("/", (req, res) => {
-	res.send("This is the homepage");
+  res.send("This is the homepage");
 });
 // Set up second page
 app.get("/second", (req, res) => {
-	res.send("This is the second page");
+  res.send("This is the second page");
 });
 
 app.listen(port, () => {
-	console.log(`Success! Your application is running on port ${port}.`);
+  console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -138,9 +138,9 @@ For now, the server file doesn’t look bad. As your application grows, you will
 
 When building an application using Express.js, I prefer to stick with an MVC architecture. If you’re unfamiliar with this, it stands for model-view-controller. It is an architectural pattern that has been around for a long time and there’s lots of information. To put this into the most basic, oversimplified terms possible:
 
--   Model – The data in our application
--   View – The stuff that the user sees
--   Controller – What the routes should do
+- Model – The data in our application
+- View – The stuff that the user sees
+- Controller – What the routes should do
 
 I will be using this sort of structure in this tutorial, although we won’t have any models. Those can set up using various tools, known as ORMs, to connect databases. For this project, I will use a controller to simplify routing and pug for the views. First, let’s set up a controller.
 
@@ -154,12 +154,12 @@ Now you can open BasicController.js. This file will begin with a module.exports 
 ```javascript
 // controllers/BasicController.js
 module.exports = {
-	home: (req, res) => {
-		res.send("This is the home page");
-	},
-	second: (req, res) => {
-		res.send("This is the second page");
-	},
+  home: (req, res) => {
+    res.send("This is the home page");
+  },
+  second: (req, res) => {
+    res.send("This is the second page");
+  },
 };
 ```
 
@@ -203,7 +203,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", require("./routes"));
 
 app.listen(port, () => {
-	console.log(`Success! Your application is running on port ${port}.`);
+  console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -211,7 +211,7 @@ The line of code you added above says, “use this middleware, use the prefix of
 
 Now if you run node server.js, you’ll see the same output as before because the servers work the same way. In my opinion, handling routes this way is much more legible and scalable.
 
-<email_signup />
+<EmailSignup />
 
 ## Adding views with pug
 
@@ -233,7 +233,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", require("./routes"));
 
 app.listen(port, () => {
-	console.log(`Success! Your application is running on port ${port}.`);
+  console.log(`Success! Your application is running on port ${port}.`);
 });
 ```
 
@@ -273,12 +273,12 @@ The final step to adding views is to update the methods you created in the Basic
 ```javascript
 // controllers/BasicController.js
 module.exports = {
-	home: (req, res) => {
-		res.render("home");
-	},
-	second: (req, res) => {
-		res.render("second");
-	},
+  home: (req, res) => {
+    res.render("home");
+  },
+  second: (req, res) => {
+    res.render("second");
+  },
 };
 ```
 
@@ -288,7 +288,7 @@ Congratulations! You now have a working express application complete with routin
 
 This is the first in a series of posts about setting up a project with Express.
 
--   Creating a Basic Server with Express.js
--   [Using MongoDB with an Express.js project](/posts/using-mongodb-with-express-js)
+- Creating a Basic Server with Express.js
+- [Using MongoDB with an Express.js project](/posts/using-mongodb-with-express-js)
 
 Have thoughts or questions? You can reach me on Twitter at [@iam_timsmith](https://twitter.com/iam_timsmith "Twitt").

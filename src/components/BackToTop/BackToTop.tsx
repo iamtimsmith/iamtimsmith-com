@@ -1,8 +1,11 @@
+"use client";
 import clsx from "clsx";
-import { useEffect, useState } from "react";
+import { FC, HTMLAttributes, useEffect, useState } from "react";
 import style from "./styles.module.css";
 
-export const BackToTop = () => {
+type BackToTopProps = HTMLAttributes<HTMLButtonElement>;
+
+export const BackToTop: FC<BackToTopProps> = ({ className, ...props }) => {
   const [show, setShow] = useState(false);
 
   const handleShow = () => setShow(window.scrollY > 50);
@@ -17,7 +20,8 @@ export const BackToTop = () => {
     <button
       className={clsx([style.backToTop, show && style.show])}
       onClick={handleClick}
-      aria-label="Go back to the top of the page"
+      aria-label="Go back to the top of the page."
+      {...props}
     >
       ↑
     </button>

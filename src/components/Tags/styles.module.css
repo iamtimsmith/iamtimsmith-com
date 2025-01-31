@@ -1,7 +1,38 @@
 .tags {
-  margin: 2rem 0 0;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+
+.tags.sm .tag {
+  font-size: var(--font-size-sm);
+}
+
+.tags.md .tag {
+  font-size: var(--font-size-md);
+}
+
+.tags.lg .tag {
+  font-size: var(--font-size-lg);
 }
 
 .tag {
-  margin: 0 0.375rem;
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.tag:not(:last-child):after {
+  content: ",";
+  margin-right: 0.5rem;
+}
+
+.tag a {
+  background: none;
+  transition: color 0.3s;
+}
+
+.tag a:hover {
+  color: var(--color-accent);
 }

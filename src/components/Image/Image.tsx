@@ -1,40 +1,23 @@
-import { CldImage } from "next-cloudinary";
-import { slugify } from "../../utils/slugify";
-import styles from "./styles.module.css";
+import NextImage from "next/image";
+import { HTMLAttributes } from "react";
+import style from "./styles.module.css";
 
-export interface ImageProps {
-  url?: string;
+export interface ImageProps extends HTMLAttributes<HTMLSpanElement> {
+  src: string;
   alt?: string;
-  caption?: string;
-  width?: number;
-  height?: number;
 }
 
-export const Image = ({
-  url,
-  caption,
-  alt = "",
-  width = 600,
-  height = 400,
-}: ImageProps) => {
-  const id = caption ? slugify(caption) : undefined;
-
+export const Image = ({ src, alt = "", ...props }: ImageProps) => {
   return (
-    <span className={styles.image} role="figure" aria-labelledby={id}>
-      {url && (
-        <CldImage
-          className={styles.imageImg}
-          src={url}
-          alt={alt}
-          width={width}
-          height={height}
-        />
-      )}
-      {caption && (
-        <span id={id} className={styles.imageCaption}>
-          {caption}
-        </span>
-      )}
+    <span className={style.image} role="figure" {...props}>
+      <NextImage
+        className={style.imageImg}
+        src={src}
+        alt={alt}
+        width={600}
+        height={400}
+      />
+      {alt && <span className={style.imageCaption}>{alt}</span>}
     </span>
   );
 };

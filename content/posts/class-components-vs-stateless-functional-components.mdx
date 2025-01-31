@@ -2,14 +2,14 @@
 title: "React: Class Components vs. Stateless Functional Components"
 date: 2018-08-22T05:00:00.000Z
 excerpt: >-
-    In this article, I'll explain the differences between class components and
-    stateless functional components as well as when and why to use the different
-    types.
+  In this article, I'll explain the differences between class components and
+  stateless functional components as well as when and why to use the different
+  types.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109222/iamtimsmith/class-components-vs-stateless-functional-components_wdyhqg.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109222/iamtimsmith/class-components-vs-stateless-functional-components_wdyhqg.jpg
 tags:
-    - react
+  - react
 ---
 
 When I first began to learn React, I didn't even realize there was a difference between class components and stateless functional components. I thought they were just different ways to write the same thing.
@@ -25,19 +25,19 @@ These things can be useful when we are storing or maniplating data within our co
 ```javascript
 // helloworld.js
 class HelloWorld extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			greeting: "Hello World",
-		};
-	}
-	render() {
-		return (
-			<div>
-				<p>{this.state.greeting}</p>
-			</div>
-		);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      greeting: "Hello World",
+    };
+  }
+  render() {
+    return (
+      <div>
+        <p>{this.state.greeting}</p>
+      </div>
+    );
+  }
 }
 ```
 
@@ -47,7 +47,7 @@ I know, I know. "Stateless Functional Component" sounds like something big and s
 
 There are two ways to create a stateless functional component. Both are similar and do the same thing, it's just a matter of conciseness. I will be using [ES6 arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) to create the components. If you haven't used them, I highly recommend you check ES6 out.
 
-<email_signup />
+<EmailSignup />
 
 ### The first way: Put it in a variable
 
@@ -56,9 +56,9 @@ If we are putting all of our components in a single file, then this should be ho
 ```javascript
 // helloworld.js
 const HelloWorld = (props) => (
-	<div>
-		<p>{props.greeting}</p>
-	</div>
+  <div>
+    <p>{props.greeting}</p>
+  </div>
 );
 export default HelloWorld;
 
@@ -73,9 +73,9 @@ When we have a stateless functional component in a file by itself, we don't need
 ```javascript
 // helloworld.js
 export default (props) => (
-	<div>
-		<p>{props.greeting}</p>
-	</div>
+  <div>
+    <p>{props.greeting}</p>
+  </div>
 );
 
 // Example use

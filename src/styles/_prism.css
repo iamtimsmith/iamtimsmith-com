@@ -1,0 +1,107 @@
+pre,
+code,
+pre *,
+code * {
+  font-family: var(--font-family-mono) !important;
+  font-variant-ligatures: normal;
+  font-size: var(--font-size-sm) !important;
+}
+
+pre,
+pre[class*="language-"] {
+  color: var(--code-fg);
+  background: var(--code-bg);
+  border: none;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  tab-size: 4;
+  hyphens: none;
+  text-shadow: none !important;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: 1rem;
+  overflow: auto;
+  display: block;
+  max-width: var(--container-sm);
+  margin: 1.5rem auto;
+  border-radius: var(--border-rounded);
+  overflow: auto;
+}
+
+/* Inline code */
+:not(pre) > code {
+  background: var(--code-bg);
+  color: var(--code-fg);
+  padding: 0.125rem 0.25rem;
+  border-radius: var(--border-radius);
+  white-space: normal;
+}
+
+.token.tag,
+.token.tag .punctuation,
+.token.operator {
+  color: var(--code-5);
+}
+
+.token.comment,
+.token.prolog,
+.token.cdata {
+  color: var(--code-1);
+}
+
+.token.delimiter,
+.token.keyword,
+.token.selector,
+.token.important,
+.token.atrule,
+.token.entity,
+.token.symbol,
+.token.url {
+  color: var(--code-2);
+}
+
+.token.attr-name,
+.token.doctype,
+.token.builtin,
+.token.class-name,
+code.language-css .token.id,
+code.language-css .token.selector > .token.class,
+code.language-css .token.selector > .token.attribute,
+code.language-css .token.selector > .token.pseudo-class,
+code.language-css .token.selector > .token.pseudo-element {
+  color: var(--code-3);
+}
+
+.token.boolean,
+.token.number,
+.token.constant,
+.token.variable,
+.token.string,
+.token.char,
+.token.attr-value,
+.token.attr-value .punctuation {
+  color: var(--code-4);
+}
+
+.token.maybe-class-name {
+  color: var(--code-6);
+}
+
+.token.method,
+.token.property-access,
+.token.property {
+  color: var(--code-7);
+}
+
+.token.punctuation,
+.token.attr-value .punctuation:first-child,
+code.language-css .token.property,
+code.language-css .token.property + .token.punctuation {
+  color: var(--code-fg);
+}

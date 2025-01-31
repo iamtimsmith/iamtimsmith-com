@@ -1,35 +1,29 @@
+import clsx from "clsx";
 import { useTheme } from "next-themes";
+import { FC, HTMLAttributes } from "react";
+import { toggleTheme } from "../../helpers/toggleTheme";
 import { MoonIcon, SunIcon } from "../Icons";
 import styles from "./styles.module.css";
-import { useEffect, useState } from "react";
 
-export const ThemeButton = () => {
-	const { theme, setTheme } = useTheme();
-	const [icon, setIcon] = useState(<SunIcon />);
+interface ThemeButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
-	const toggleTheme = () => {
-		switch (theme) {
-			case "system":
-			case "light":
-				setTheme("dark");
-				setIcon(<SunIcon />);
-				break;
-			case "dark":
-				setTheme("light");
-				setIcon(<MoonIcon />);
-				break;
-			default:
-				break;
-		}
-	};
+export const ThemeButton: FC<ThemeButtonProps> = ({ className, ...props }) => {
+  const { theme, setTheme } = useTheme();
 
-	useEffect(() => {
-		setIcon(theme === "light" ? <MoonIcon /> : <SunIcon />);
-	}, []);
+  const handleThemeChange = () => {
+    const newTheme = toggleTheme(theme);
+    setTheme(newTheme);
+  };
 
-	return (
-		<button className={styles.themeButton} onClick={() => toggleTheme()}>
-			{icon}
-		</button>
-	);
+  return (
+    <button
+      className={clsx([styles.themeButton])}
+      onClick={handleThemeChange}
+      aria-label="Toggle website theme"
+      {...props}
+    >
+      <MoonIcon className={styles.moon} />
+      <SunIcon className={styles.sun} />
+    </button>
+  );
 };

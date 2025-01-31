@@ -1,22 +1,32 @@
 .footer {
-	padding: 3rem 0;
+  padding: 3rem 0;
 }
 
 .footerSocials {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  list-style: none;
 }
 
 .footerSocialLink {
-	background: none;
-	margin: 0.55rem;
-	font-size: 1.5rem;
-	opacity: 0.5;
-	transition: color 0.3s, opacity 0.3s;
+  color: var(--color-text);
+  background: none;
+  margin: 0.55rem;
+  font-size: var(--font-size-xl);
+  opacity: 0.5;
+  background: none;
+  transform: none;
+  transition: color 0.3s, opacity 0.3s;
 }
+
 .footerSocialLink:hover {
-	color: var(--color-accent);
-	opacity: 1;
+  background: none;
+  transform: none;
+  opacity: 1;
+}
+
+.footerSocialLink span,
+.footerSocialLink:hover span {
+  transform: none;
 }

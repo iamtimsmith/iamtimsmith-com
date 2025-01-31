@@ -5,6 +5,7 @@
   right: 0;
   transition: bottom 0.5s;
 }
+
 .show {
   bottom: 0;
 }
@@ -20,7 +21,7 @@
 
 .sharebarLabel {
   display: none;
-  font-size: var(--font-size--sm);
+  font-size: var(--font-size-sm);
   background: var(--color-bg);
   width: 100%;
   text-align: center;
@@ -34,10 +35,19 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size--xl);
+  font-size: var(--font-size-xl);
   color: var(--color-grey--50);
   background: none;
+  transform: none;
 }
+
+.sharebarButton:hover,
+.sharebarButton span,
+.sharebarButton:hover span {
+  background: none;
+  transform: none;
+}
+
 .sharebarButton:after {
   content: "";
   display: block;
@@ -49,21 +59,27 @@
   z-index: 1;
   transition: opacity 0.25s;
 }
-.Facebook:after {
+
+.facebook:after {
   background: var(--color-facebook);
 }
-.Twitter:after {
+
+.twitter:after {
   background: var(--color-twitter);
 }
-.Linkedin:after {
+
+.linkedin:after {
   background: var(--color-linkedin);
 }
-.Pinterest:after {
+
+.pinterest:after {
   background: var(--color-pinterest);
 }
-.Email:after {
+
+.email:after {
   background: var(--color-email);
 }
+
 .sharebarButton:hover:after {
   opacity: 0.75;
 }

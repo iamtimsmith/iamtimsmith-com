@@ -1,37 +1,28 @@
+"use client";
 import clsx from "clsx";
-import { ReactNode, useEffect, useState } from "react";
-import { getSharingUrl, Site } from "../../utils/sharing";
-import {
-  EmailIcon,
-  FacebookIcon,
-  LinkedinIcon,
-  PinterestIcon,
-  TwitterIcon,
-} from "../Icons";
-import styles from "./styles.module.css";
+import { FC, HTMLAttributes, useEffect, useState } from "react";
+import { sharingSites } from "../../constants";
+import { getSharingUrl } from "../../helpers/getSharingUrl";
+import { SharingSites } from "../../types";
+import style from "./styles.module.css";
 
-interface SharebarProps {
-  post: {
-    title: string;
-    excerpt: string;
-    featuredImage: string;
-    _sys: {
-      filename: string;
-    };
-  };
+interface SharebarProps extends HTMLAttributes<HTMLDivElement> {
+  title: string;
+  excerpt: string;
+  featuredImage: string;
+  slug: string;
 }
 
-const sites: { name: Site; icon: ReactNode }[] = [
-  { name: "Facebook", icon: <FacebookIcon /> },
-  { name: "Twitter", icon: <TwitterIcon /> },
-  { name: "Linkedin", icon: <LinkedinIcon /> },
-  { name: "Pinterest", icon: <PinterestIcon /> },
-  { name: "Email", icon: <EmailIcon /> },
-];
-
-export const Sharebar = ({ post }: SharebarProps) => {
+export const Sharebar: FC<SharebarProps> = ({
+  className,
+  title,
+  excerpt,
+  featuredImage,
+  slug,
+  ...props
+}) => {
   const [show, setShow] = useState(false);
-  const url = `https://www.iamtimsmith.com/blog/${post._sys.filename}`;
+  const url = `https://www.iamtimsmith.com/${slug}`;
 
   const handleScroll = () =>
     setShow(
@@ -44,18 +35,24 @@ export const Sharebar = ({ post }: SharebarProps) => {
   }, []);
 
   return (
-    <aside className={clsx([styles.sharebar, show && styles.show])}>
-      <nav className={styles.sharebarNav}>
-        <span className={styles.sharebarLabel}>Share:</span>
-        {sites.map((site) => (
+    <aside
+      className={clsx([style.sharebar, show && style.show, className])}
+      {...props}
+    >
+      <nav className={style.sharebarNav}>
+        <span className={style.sharebarLabel}>Share:</span>
+        {sharingSites.map((site) => (
           <a
-            className={clsx([styles.sharebarButton, styles[site.name]])}
+            className={clsx([
+              style.sharebarButton,
+              style[site.name.toLowerCase()],
+            ])}
             href={getSharingUrl(
-              site.name,
+              site.name as SharingSites,
               url,
-              post.title,
-              post.excerpt,
-              post.featuredImage
+              title,
+              excerpt,
+              featuredImage
             )}
             aria-label={`Share to ${site.name}`}
             title={`Share to ${site.name}`}
@@ -63,7 +60,7 @@ export const Sharebar = ({ post }: SharebarProps) => {
             rel="noopenner nofollow"
             key={site.name}
           >
-            {site.icon}
+            <site.icon />
           </a>
         ))}
       </nav>

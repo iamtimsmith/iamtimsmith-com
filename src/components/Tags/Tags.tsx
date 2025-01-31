@@ -1,20 +1,30 @@
-import { tinaField } from "tinacms/dist/react";
-import { Post } from "../../../tina/__generated__/types";
+import clsx from "clsx";
+import { FC, HTMLAttributes } from "react";
 import { Link } from "../Link";
 import styles from "./styles.module.css";
 
-interface TagsProps {
-  tags: string[];
-  post?: Post;
+export interface TagsProps extends HTMLAttributes<HTMLUListElement> {
+  tags?: Array<string>;
+  size?: "sm" | "md" | "lg";
 }
 
-export const Tags = ({ tags, post }: TagsProps) => (
-  <p className={styles.tags} data-tina-field={tinaField(post, "tags")}>
-    Tags:{" "}
-    {tags?.map((tag) => (
-      <Link className={styles.tag} url={`/tags/${tag}`} key={tag}>
-        #{tag}
-      </Link>
-    ))}
-  </p>
-);
+export const Tags: FC<TagsProps> = ({
+  className,
+  tags = [],
+  size,
+  ...props
+}) => {
+  return (
+    <ul
+      className={clsx([styles.tags, styles[size], className])}
+      aria-label="Tags"
+      {...props}
+    >
+      {tags.map((tag) => (
+        <li key={tag} className={styles.tag}>
+          <Link>{tag}</Link>
+        </li>
+      ))}
+    </ul>
+  );
+};

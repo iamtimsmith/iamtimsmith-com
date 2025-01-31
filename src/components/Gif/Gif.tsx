@@ -1,38 +1,27 @@
 import clsx from "clsx";
+import { FC, HTMLAttributes } from "react";
 import styles from "./styles.module.css";
-import { Template } from "tinacms";
 
-export interface GifProps {
-	src: string;
-	caption?: string;
-	maxWidth?: number;
+interface GifProps extends HTMLAttributes<HTMLDivElement> {
+  src: string;
+  caption: string;
+  maxWidth?: number;
 }
 
-export const Gif = ({ src, caption, maxWidth = 400 }: GifProps | any) => (
-	<figure className={styles.gif} style={{ maxWidth }}>
-		<video src={src} playsInline autoPlay muted loop />
-		{caption && <figcaption>{caption}</figcaption>}
-	</figure>
+export const Gif: FC<GifProps> = ({
+  className,
+  style,
+  src,
+  caption,
+  maxWidth = 500,
+  ...props
+}) => (
+  <figure
+    className={clsx([styles.Gif, className])}
+    style={{ ...style, maxWidth }}
+    {...props}
+  >
+    <video src={src} playsInline autoPlay muted loop />
+    {caption && <figcaption>{caption}</figcaption>}
+  </figure>
 );
-
-export const GifSchema: Template = {
-	name: "gif",
-	label: "Gif",
-	fields: [
-		{
-			name: "src",
-			label: "Source",
-			type: "string",
-		},
-		{
-			name: "caption",
-			label: "Caption",
-			type: "string",
-		},
-		{
-			name: "width",
-			label: "Width",
-			type: "number",
-		},
-	],
-};

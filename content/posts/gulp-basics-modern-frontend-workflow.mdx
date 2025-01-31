@@ -2,13 +2,13 @@
 title: Gulp Basics - A Modern Frontend Workflow
 date: 2019-11-02T05:00:00.000Z
 excerpt: >-
-    Today I'll be teaching you some basics of a build tool called Gulp, what Gulp
-    is used for, and how to use it when setting up a front-end for your project.
+  Today I'll be teaching you some basics of a build tool called Gulp, what Gulp
+  is used for, and how to use it when setting up a front-end for your project.
 published: true
 featuredImage: >-
-    https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109222/iamtimsmith/gulp-basics-modern-frontend-workflow_tqssxr.jpg
+  https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109222/iamtimsmith/gulp-basics-modern-frontend-workflow_tqssxr.jpg
 tags:
-    - workflow
+  - workflow
 ---
 
 With front-end tools evolving as rapidly as they do, it can be hard to know how to use things while maintaining compatibility with various browsers. Fortunately, there is a handy JavaScript library called Gulp which can make your life easier when building front-ends with just about any tool you choose.
@@ -70,7 +70,7 @@ const { dest, series, src, task, watch } = require("gulp");
 
 /* Task to do something */
 task("sample", function (done) {
-	src("path/to/file").pipe(doSomething()).pipe(dest("path/to/new/dest"));
+  src("path/to/file").pipe(doSomething()).pipe(dest("path/to/new/dest"));
 });
 
 /* What to do when the command "gulp" is run */
@@ -126,8 +126,8 @@ const sass = require("gulp-sass");
 // ...
 
 task("sass", function (done) {
-	src("scss/**/*.scss").pipe(sass()).pipe(dest("dist/css"));
-	done();
+  src("scss/**/*.scss").pipe(sass()).pipe(dest("dist/css"));
+  done();
 });
 ```
 
@@ -152,11 +152,11 @@ const cssnano = require("gulp-cssnano");
 // ...
 
 task("minify-css", function (done) {
-	src("dist/css/style.css")
-		.pipe(cssnano())
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(dest("dist/css"));
-	done();
+  src("dist/css/style.css")
+    .pipe(cssnano())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest("dist/css"));
+  done();
 });
 ```
 
@@ -178,16 +178,16 @@ const autoprefixer = require("gulp-autoprefixer");
 // ...
 
 task("minify-css", function (done) {
-	src("dist/css/style.css")
-		.pipe(
-			autoprefixer({
-				overrideBrowserslist: ["> 1%", "last 2 versions", "ie >= 11"],
-			})
-		)
-		.pipe(cssnano())
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(dest("dist/css"));
-	done();
+  src("dist/css/style.css")
+    .pipe(
+      autoprefixer({
+        overrideBrowserslist: ["> 1%", "last 2 versions", "ie >= 11"],
+      })
+    )
+    .pipe(cssnano())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest("dist/css"));
+  done();
 });
 ```
 
@@ -195,12 +195,12 @@ Let's take a look at this code. You may notice that I went ahead and reused the 
 
 This is amazing for someone like me who hates having to support IE 11, but that's a discussion for another time…
 
-<gif
-	src="https://media.giphy.com/media/MrFNWzMrSgVFK/giphy.mp4"
-	caption="R.I.P. Internet Explorer 11"
+<Gif
+  src="https://media.giphy.com/media/MrFNWzMrSgVFK/giphy.mp4"
+  caption="R.I.P. Internet Explorer 11"
 />
 
-<email_signup />
+<EmailSignup />
 
 ## Using Babel for JavaScript
 
@@ -266,9 +266,9 @@ What this addition to the javascript task does is combines all of the JS files i
 
 The last thing I will talk about today is minifying JavaScript. I don't always do this since it can cause problems in the JS code sometimes, but just in case you want to and you're curious I'll drop so knowledge.
 
-<gif
-	src="https://media.giphy.com/media/lRRjGTRlFwmQYFmmpU/giphy.mp4"
-	caption="&#x22;Knowing is half the battle&#x22; - G.I. Joe"
+<Gif
+  src="https://media.giphy.com/media/lRRjGTRlFwmQYFmmpU/giphy.mp4"
+  caption="&#x22;Knowing is half the battle&#x22; - G.I. Joe"
 />
 
 To minify your Javascript code, you can use a plugin called gulp-uglify. If I'm being honest, this one is my favorite plugin name, but I digress. The following command will add the library as a dependency:
@@ -283,10 +283,10 @@ Below is a task which handles the minification of JavaScript after it's imported
 ```javascript
 // gulpfile.js
 task("uglify", function () {
-	return src("dist/scripts.js")
-		.pipe(uglify())
-		.pipe(rename({ suffix: ".min" }))
-		.pipe(dest("dist"));
+  return src("dist/scripts.js")
+    .pipe(uglify())
+    .pipe(rename({ suffix: ".min" }))
+    .pipe(dest("dist"));
 });
 ```
 
@@ -297,9 +297,9 @@ One final special task I want to talk about is the “Watch” task. It is simil
 ```javascript
 // gulpfile.js
 task("watch", function (done) {
-	watch("scss/**/*.scss", series("styles", "minify"));
-	watch("js/**/*.js", series("javascript"));
-	done();
+  watch("scss/**/*.scss", series("styles", "minify"));
+  watch("js/**/*.js", series("javascript"));
+  done();
 });
 ```
 

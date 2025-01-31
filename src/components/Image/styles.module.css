@@ -4,11 +4,12 @@
 }
 
 .imageImg {
-  max-width: 100%;
   height: auto;
   display: block;
   margin: 0.25rem auto;
-  border-radius: var(--border--rounded);
+  /* border: 0.063rem solid var(--color-border); */
+  box-shadow: var(--box-shadow);
+  border-radius: var(--border-rounded);
 }
 
 .imageCaption {

@@ -1,27 +1,30 @@
-import { tinaField } from "tinacms/dist/react";
-import { GlobalFooter } from "../../../tina/__generated__/types";
-import { getIcon } from "../../utils/getIcon";
+import clsx from "clsx";
+import { FC, HTMLAttributes } from "react";
+import { socialNav } from "../../constants";
 import { Link } from "../Link";
-import style from "./styles.module.css";
+import styles from "./styles.module.css";
 
-export const Footer = ({ socialNav }: GlobalFooter) => (
-  <footer className={style.footer}>
-    <nav>
-      <ul className={style.footerSocials}>
-        {socialNav &&
-          socialNav?.map((social, i: number) => (
-            <li key={`socialNav_${i}`}>
-              <Link
-                className={style.footerSocialLink}
-                url={social.url || ""}
-                aria-label={social.title || ""}
-                data-tina-field={tinaField(social)}
-              >
-                {getIcon(social?.icon || "")}
-              </Link>
-            </li>
-          ))}
-      </ul>
-    </nav>
-  </footer>
-);
+export interface FooterProps extends HTMLAttributes<HTMLDivElement> {}
+
+export const Footer: FC<FooterProps> = ({ className, ...props }) => {
+  return (
+    <footer className={clsx([styles.footer, className])} {...props}>
+      <nav aria-label="Social links">
+        <ul className={styles.footerSocials}>
+          {socialNav &&
+            socialNav?.map(({ icon: Icon, ...social }) => (
+              <li key={social.title}>
+                <Link
+                  className={styles.footerSocialLink}
+                  href={social.url || ""}
+                  aria-label={social.title || ""}
+                >
+                  <Icon />
+                </Link>
+              </li>
+            ))}
+        </ul>
+      </nav>
+    </footer>
+  );
+};

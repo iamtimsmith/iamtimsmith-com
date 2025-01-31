@@ -1,1 +1,1 @@
-export { Gif, GifSchema } from "./Gif";
+export { Gif } from "./Gif";

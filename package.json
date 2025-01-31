@@ -4,37 +4,46 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "tinacms dev -c \"next dev -p 1125\"",
-    "build": "tinacms build && next build",
+    "dev": "next dev -p 1125",
+    "build": "next build",
     "postbuild": "next-sitemap --config sitemap.config.js",
-    "start": "tinacms build && next start",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "next start",
+    "test": "jest --watchAll"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all"
+  ],
   "dependencies": {
-    "@tinacms/auth": "^1.0.3",
-    "@tinacms/cli": "^1.5.19",
-    "cors": "^2.8.5",
-    "next": "^13.2.4",
-    "next-cloudinary": "^4.16.2",
-    "next-seo": "^6.1.0",
+    "clsx": "^2.1.1",
+    "gray-matter": "^4.0.3",
+    "next": "^14.2.5",
+    "next-cloudinary": "^6.6.2",
+    "next-mdx-remote": "^5.0.0",
+    "next-seo": "^6.6.0",
     "next-sitemap": "^4.2.3",
-    "next-themes": "^0.2.1",
-    "next-tinacms-cloudinary": "^4.3.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-syntax-highlighter": "^15.5.0",
-    "tinacms": "^1.5.10"
+    "next-themes": "^0.3.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-syntax-highlighter": "^15.5.0"
   },
   "devDependencies": {
-    "@types/cors": "^2.8.13",
-    "@types/node": "^18.15.0",
-    "@types/react": "^18.0.28",
-    "@types/react-syntax-highlighter": "^15.5.7",
-    "prettier-plugin-organize-imports": "^3.2.3",
-    "typescript": "^4.9.5"
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.2.0",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^20.14.11",
+    "@types/react": "^18.3.3",
+    "@types/react-syntax-highlighter": "^15.5.13",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier-plugin-organize-imports": "^4.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.3"
   },
   "prettier": {
     "plugins": [
