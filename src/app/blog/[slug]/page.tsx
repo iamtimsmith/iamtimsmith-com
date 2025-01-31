@@ -15,17 +15,17 @@ export const generateMetadata = ({ params }) =>
   getMetadata(`posts/${params.slug}`);
 
 export interface PostPageProps extends PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   className?: string;
 }
 
-const PostPage: FC<PostPageProps> = ({
+const PostPage: FC<PostPageProps> = async ({
   className,
   params,
   searchParams,
   ...props
 }) => {
-  const slug = params.slug;
+  const { slug } = await params;
   const post = getContentBySlug(`posts/${slug}`);
   const posts = getLatestPosts();
 

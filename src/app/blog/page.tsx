@@ -10,7 +10,7 @@ export const metadata = {
 };
 
 export interface BlogPageProps extends PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   className?: string;
 }
 

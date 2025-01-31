@@ -7,7 +7,7 @@ import { PageProps } from "../../types";
 export const generateMetadata = ({ params }) => getMetadata(params.slug);
 
 interface DynamicPageProps extends PageProps {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
   className?: string;
 }
 
@@ -17,7 +17,7 @@ const DynamicPage: FC<DynamicPageProps> = async ({
   searchParams,
   ...props
 }) => {
-  const slug = params.slug;
+  const { slug } = await params;
 
   if (slug === "favicon.ico") return;
 

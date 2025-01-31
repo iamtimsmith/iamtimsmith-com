@@ -15,7 +15,11 @@ export interface HomePageProps extends PageProps {
   className?: string;
 }
 
-const HomePage: FC<HomePageProps> = ({ className, searchParams, ...props }) => {
+const HomePage: FC<HomePageProps> = async ({
+  className,
+  searchParams,
+  ...props
+}) => {
   const page = getContentBySlug("home");
   const posts = getLatestPosts();
 

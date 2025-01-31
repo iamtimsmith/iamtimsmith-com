@@ -14,7 +14,11 @@ export interface TagsPageProps extends PageProps {
   className?: string;
 }
 
-const TagsPage: FC<TagsPageProps> = ({ params, searchParams, ...props }) => {
+const TagsPage: FC<TagsPageProps> = async ({
+  params,
+  searchParams,
+  ...props
+}) => {
   const tags = getAllTags();
 
   return (

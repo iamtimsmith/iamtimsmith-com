@@ -15,7 +15,7 @@ interface NotFoundPageProps extends PageProps {
   className?: string;
 }
 
-const NotFoundPage: FC<NotFoundPageProps> = ({
+const NotFoundPage: FC<NotFoundPageProps> = async ({
   className,
   params,
   searchParams,
