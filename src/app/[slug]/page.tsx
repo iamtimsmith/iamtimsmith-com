@@ -3,9 +3,9 @@ import { Content } from "../../components/Content";
 import { getContentBySlug } from "../../helpers/getContentBySlug";
 import { getMetadata } from "../../helpers/getMetadata";
 
-// export const generateMetadata = ({ params }) => getMetadata(params.slug);
-
-export const metadata = ({ params }) => getMetadata(params.slug);
+export const generateMetadata = ({ params }) => {
+  if (params.slug.includes(/\.ico/i)) getMetadata(params.slug);
+};
 
 interface DynamicPageProps {
   params: Promise<{ slug: string }>;
