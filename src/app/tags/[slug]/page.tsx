@@ -3,10 +3,13 @@ import { Container } from "../../../components/Container";
 import { Grid } from "../../../components/Grid";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getLatestPosts } from "../../../helpers/getLatestPosts";
-import { getMetadata } from "../../../helpers/getMetadata";
 
-export const generateMetadata = ({ params }) =>
-  getMetadata(`tags/${params.slug}`);
+// export const generateMetadata = ({ params }) =>
+//   getMetadata(`tags/${params.slug}`);
+
+export const metadata = {
+  title: "Tags",
+};
 
 export interface TagPageProps {
   params: Promise<{ slug: string }>;
