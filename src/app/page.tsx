@@ -1,4 +1,5 @@
 import { FC } from "react";
+import { Container } from "../components/Container";
 
 // export const generateMetadata = () => getMetadata("home");
 
@@ -13,10 +14,10 @@ export interface HomePageProps {
 
 const HomePage: FC<HomePageProps> = () => {
   return (
-    <div>
+    <Container>
       <h1>Site Under Maintenance!</h1>
       <p>Please pardon the mess!</p>
-    </div>
+    </Container>
   );
   // const page = getContentBySlug("home");
   // const posts = getLatestPosts();
