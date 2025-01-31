@@ -1,6 +1,7 @@
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { FC } from "react";
+import { Content } from "../../components/Content";
 import { getContentBySlug } from "../../helpers/getContentBySlug";
+import { getLatestPosts } from "../../helpers/getLatestPosts";
 import { getMetadata } from "../../helpers/getMetadata";
 
 export const generateMetadata = ({ params }) => getMetadata(params.slug);
@@ -20,9 +21,17 @@ const DynamicPage: FC<DynamicPageProps> = async ({ params }) => {
   return (
     <main>
       <h1>{post.frontmatter.title}</h1>
-      <MDXRemote source={post.content} />
+      <Content>{post.content}</Content>
     </main>
   );
 };
 
 export default DynamicPage;
+
+export const generateStaticParams = async () => {
+  const posts = getLatestPosts(-1);
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+};
