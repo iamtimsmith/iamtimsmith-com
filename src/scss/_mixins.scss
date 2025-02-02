@@ -1,0 +1,49 @@
+@mixin button($primaryColor: $black, $secondaryColor: $light) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background: transparent;
+  border: rem(2px) solid $primaryColor;
+  color: $primaryColor;
+  cursor: pointer;
+  display: block;
+  padding: rem(10px) rem(15px);
+  transition: all 0.25s;
+
+  &:hover {
+    background: $primaryColor;
+    color: $secondaryColor;
+  }
+}
+
+@mixin container($margin: 0) {
+  margin: $margin auto;
+  padding: 0 rem(10px);
+  width: 100%;
+
+  @include breakpoint($desktop) {
+    max-width: rem(960px);
+  }
+
+  @include breakpoint($widescreen) {
+    max-width: rem(1152px);
+  }
+
+  @include breakpoint($fullhd) {
+    max-width: rem(1344px);
+  }
+}
+
+@mixin cover($p: absolute, $t: 0, $r: 0, $b: 0, $l: 0) {
+  position: $p;
+  top: $t;
+  bottom: $b;
+  left: $l;
+  right: $r;
+}
+
+@mixin responsive {
+  content: '';
+  display: block;
+  padding-bottom: 100%;
+}

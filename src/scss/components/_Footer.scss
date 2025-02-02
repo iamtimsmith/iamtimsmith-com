@@ -1,0 +1,45 @@
+.footer {
+  background: $black;
+  padding: rem(60px) rem(15px) rem(30px);
+
+  &__container {
+    @include container;
+  }
+
+  &__social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    margin-bottom: rem(40px);
+
+    &-link {
+      color: white;
+      font-size: rem(30px);
+      margin: 0 rem(15px);
+      transition: color 0.3s;
+
+      &:hover {
+        color: rgba(white, 0.5);
+      }
+    }
+  }
+
+  &__menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+
+    &-link {
+      color: white;
+      margin: 0 rem(15px);
+      text-decoration: none;
+      transition: color 0.3s;
+
+      &:hover {
+        color: rgba(white, 0.5);
+      }
+    }
+  }
+}
