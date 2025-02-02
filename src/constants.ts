@@ -1,4 +1,5 @@
 import {
+  CloudinaryIcon,
   DevIcon,
   EmailIcon,
   FacebookIcon,
@@ -26,7 +27,7 @@ export const siteName = "Tim Smith";
 export const siteDescription =
   "Tim Smith is a software engineer working with Node, React, and more!";
 export const favicon =
-  "https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109225/iamtimsmith/favicon_snggon.ico";
+  "https://res.cloudinary.com/dcrgbfjfu/image/upload/v1738505719/iamtimsmith/timsmith-purple_eajqb4.png";
 export const postsPerPage = 6;
 
 /**
@@ -95,4 +96,15 @@ export const sharingSites = [
   { name: "Linkedin", icon: LinkedinIcon },
   { name: "Pinterest", icon: PinterestIcon },
   { name: "Email", icon: EmailIcon },
+];
+
+/**
+ * ENVIRNOMENT BAR CONFIG
+ */
+export const envSites = [
+  {
+    icon: CloudinaryIcon,
+    title: "Cloudinary",
+    url: "https://console.cloudinary.com/console/c-3e303a1313826632110436fcbd4a8a/media_library/folders/bf66456f24094f0e225a84af72ae8cdfd9?view_mode=mosaic",
+  },
 ];

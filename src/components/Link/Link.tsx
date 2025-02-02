@@ -3,12 +3,14 @@ import { HTMLAttributes } from "react";
 
 interface LinkProps extends HTMLAttributes<HTMLAnchorElement> {
   href?: string;
+  target?: "_blank" | "_self" | "_parent" | "_top";
 }
 
 export const Link = ({
   className,
   href,
   title,
+  target,
   children,
   ...props
 }: LinkProps) => {
@@ -31,7 +33,13 @@ export const Link = ({
   }
 
   return (
-    <a className={className} href={href} title={title} {...props}>
+    <a
+      className={className}
+      href={href}
+      title={title}
+      target={target}
+      {...props}
+    >
       <span>{children}</span>
     </a>
   );
