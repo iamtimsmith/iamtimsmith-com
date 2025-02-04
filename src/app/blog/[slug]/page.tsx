@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Author } from "../../../components/Author";
 import { Container } from "../../../components/Container";
 import { Content } from "../../../components/Content";
@@ -18,11 +17,7 @@ export interface PostPageProps {
   searchParams: URLSearchParams;
 }
 
-const PostPage: FC<PostPageProps> = async ({
-  params,
-  searchParams,
-  ...props
-}) => {
+const PostPage = async ({ params }: PostPageProps) => {
   const { slug } = await params;
   const post = getContentBySlug(`posts/${slug}`);
   const posts = getLatestPosts();

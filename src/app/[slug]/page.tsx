@@ -1,10 +1,10 @@
-import { FC } from "react";
+import { Container } from "../../components/Container";
 import { Content } from "../../components/Content";
 import { getContentBySlug } from "../../helpers/getContentBySlug";
 import { getMetadata } from "../../helpers/getMetadata";
 
 export const generateMetadata = ({ params }) => {
-  if (params.slug.includes(/\.ico/i)) getMetadata(params.slug);
+  if (params.slug.match(/\.ico/i)) getMetadata(params.slug);
 };
 
 interface DynamicPageProps {
@@ -12,7 +12,7 @@ interface DynamicPageProps {
   searchParams: URLSearchParams;
 }
 
-const DynamicPage: FC<DynamicPageProps> = async ({ params }) => {
+const DynamicPage = async ({ params }: DynamicPageProps) => {
   const { slug } = await params;
 
   if (slug === "favicon.ico") return;
@@ -21,8 +21,10 @@ const DynamicPage: FC<DynamicPageProps> = async ({ params }) => {
 
   return (
     <main>
-      <h1>{post.frontmatter.title}</h1>
-      <Content>{post.content}</Content>
+      <Container>
+        <h1>{post.frontmatter.title}</h1>
+        <Content>{post.content}</Content>
+      </Container>
     </main>
   );
 };
