@@ -15,11 +15,11 @@ export const getContentBySlug = (slug = "") => {
       slug: slug.replace("posts/", "/blog/"),
     };
   } catch (error) {
-    return notFound();
     // Handle 404 error
     if (error.code === "ENOENT") {
       return notFound();
     }
+    console.log(error);
     throw error;
   }
 };

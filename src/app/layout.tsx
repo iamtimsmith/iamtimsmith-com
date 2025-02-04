@@ -1,4 +1,5 @@
 import { ThemeProvider } from "next-themes";
+import { FC, ReactNode } from "react";
 import { EnvironmentBar } from "../components/EnvironmentBar";
 import { Footer } from "../components/Footer";
 import { Header } from "../components/Header";
@@ -17,22 +18,22 @@ export const metadata = {
   },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="en" suppressHydrationWarning>
-      <body>
-        <ThemeProvider>
-          {process.env.NODE_ENV === "development" && <EnvironmentBar />}
-          <Header />
-          {children}
-          <Footer />
-          <SocialNav />
-        </ThemeProvider>
-      </body>
-    </html>
-  );
+interface RootLayoutProps {
+  children: ReactNode;
 }
+
+const RootLayoutProps: FC<RootLayoutProps> = ({ children }) => (
+  <html lang="en" suppressHydrationWarning>
+    <body>
+      <ThemeProvider>
+        {process.env.NODE_ENV === "development" && <EnvironmentBar />}
+        <Header />
+        {children}
+        <Footer />
+        <SocialNav />
+      </ThemeProvider>
+    </body>
+  </html>
+);
+
+export default RootLayoutProps;

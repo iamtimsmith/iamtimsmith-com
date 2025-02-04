@@ -9,6 +9,10 @@ export const metadata = {
 
 const TagsPage = async () => {
   const tags = getAllTags();
+  const getTagCount = ({ count }) => {
+    const label = count === 1 ? "post" : "posts";
+    return `${count} ${label}`;
+  };
 
   return (
     <main>
@@ -19,7 +23,7 @@ const TagsPage = async () => {
         <Grid
           items={tags.map((tag) => ({
             title: tag.title,
-            meta: [`${tag.count} posts`],
+            meta: [getTagCount(tag)],
             description: tag.description,
             slug: tag.slug,
           }))}

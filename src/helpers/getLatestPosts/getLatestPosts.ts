@@ -36,6 +36,7 @@ export const getLatestPosts = (
   );
   // Filter the posts by the filter object.
   if (filter) {
+    console.log("FILTER", filter);
     return publishedPosts.filter((post) => {
       if (!post.frontmatter[filter.key]) return false;
       if (Array.isArray(post.frontmatter[filter.key])) {
@@ -43,6 +44,7 @@ export const getLatestPosts = (
       }
     });
   }
+
   // Limit the number of posts and return them.
   if (limit < 0) return publishedPosts;
   return publishedPosts.slice(0, limit);
