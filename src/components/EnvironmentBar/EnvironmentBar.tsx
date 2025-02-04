@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { HTMLAttributes } from "react";
 import { envSites } from "../../constants";
 import { getWordCount } from "../../helpers/getWordCount";
@@ -9,6 +10,7 @@ interface EnvironmentBarProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export const EnvironmentBar = ({ content, ...props }: EnvironmentBarProps) => {
+  const nodeEnv = process.env.NODE_ENV;
   const wordCount = getWordCount(content);
 
   return (
@@ -16,11 +18,14 @@ export const EnvironmentBar = ({ content, ...props }: EnvironmentBarProps) => {
       <div className={styles.container}>
         <p>
           Environment:{" "}
-          <span className={styles.env}>{process.env.NODE_ENV}</span>
+          <span className={clsx([styles.data, styles.env])}>{nodeEnv}</span>
         </p>
         {content && (
           <p>
-            Length: {wordCount} {wordCount === 1 ? "word" : "words"}
+            Length:{" "}
+            <span className={styles.data}>
+              {wordCount} {wordCount === 1 ? "word" : "words"}
+            </span>
           </p>
         )}
         <ul className={styles.sites}>

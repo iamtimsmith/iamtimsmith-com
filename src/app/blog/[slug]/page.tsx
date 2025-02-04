@@ -24,7 +24,7 @@ const PostPage = async ({ params }: PostPageProps) => {
   const posts = getLatestPosts();
 
   return (
-    <Layout>
+    <Layout content={post.content}>
       <Container>
         <h1>{post.frontmatter.title}</h1>
         <Tags tags={post.frontmatter.tags} size="md" />
