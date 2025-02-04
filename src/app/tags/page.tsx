@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Container } from "../../components/Container";
 import { Grid } from "../../components/Grid";
 import { getAllTags } from "../../helpers/getAllTags";
@@ -8,11 +7,7 @@ export const metadata = {
   description: "View all of the tags assigned to blog posts.",
 };
 
-export interface TagsPageProps {
-  searchParams: URLSearchParams;
-}
-
-const TagsPage: FC<TagsPageProps> = async () => {
+const TagsPage = async () => {
   const tags = getAllTags();
 
   return (

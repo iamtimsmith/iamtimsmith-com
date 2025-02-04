@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Container } from "../../../components/Container";
 import { Grid } from "../../../components/Grid";
 import { getLatestPosts } from "../../../helpers/getLatestPosts";
@@ -15,13 +14,10 @@ export interface TagPageProps {
   searchParams: URLSearchParams;
 }
 
-const TagPage: FC<TagPageProps> = async ({ params }) => {
+const TagPage = async ({ params }: TagPageProps) => {
   const { slug } = await params;
-  // const tag = getContentBySlug(`tags/react`);
   const posts = getLatestPosts(-1, { key: "tags", value: slug }) || [];
   const title = slug.charAt(0).toUpperCase() + slug.slice(1);
-
-  // console.log(tag);
 
   return (
     <main>
@@ -42,4 +38,5 @@ const TagPage: FC<TagPageProps> = async ({ params }) => {
     </main>
   );
 };
+
 export default TagPage;

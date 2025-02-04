@@ -1,4 +1,3 @@
-import { FC } from "react";
 import { Container } from "../components/Container";
 import { Content } from "../components/Content";
 import { Grid } from "../components/Grid";
@@ -9,11 +8,7 @@ import { getMetadata } from "../helpers/getMetadata";
 
 export const generateMetadata = () => getMetadata("not-found");
 
-interface NotFoundPageProps {
-  searchParams: URLSearchParams;
-}
-
-const NotFoundPage: FC<NotFoundPageProps> = async () => {
+const NotFoundPage = async () => {
   const post = getContentBySlug("not-found");
   const posts = getLatestPosts();
 
