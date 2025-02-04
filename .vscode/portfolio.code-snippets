@@ -1,0 +1,21 @@
+{
+  "Create a new blog post": {
+    "scope": "markdown",
+    "prefix": "create:post",
+    "body": [
+      "---",
+      "title: $1",
+      "date: $CURRENT_YEAR-$CURRENT_MONTH-$CURRENT_DATE",
+      "excerpt: >-",
+      "  $2",
+      "featuredImage: $3",
+      "published: false",
+      "tags:",
+      "  - $4",
+      "---",
+      "",
+      "$0"
+    ],
+    "description": "Create a new blog post with front matter"
+  }
+}

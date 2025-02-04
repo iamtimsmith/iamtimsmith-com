@@ -3,6 +3,7 @@ import { Container } from "../../../components/Container";
 import { Content } from "../../../components/Content";
 import { Grid } from "../../../components/Grid";
 import { Heading } from "../../../components/Heading";
+import { Layout } from "../../../components/Layout";
 import { Sharebar } from "../../../components/Sharebar";
 import { Tags } from "../../../components/Tags";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
@@ -23,7 +24,7 @@ const PostPage = async ({ params }: PostPageProps) => {
   const posts = getLatestPosts();
 
   return (
-    <main>
+    <Layout>
       <Container>
         <h1>{post.frontmatter.title}</h1>
         <Tags tags={post.frontmatter.tags} size="md" />
@@ -47,7 +48,7 @@ const PostPage = async ({ params }: PostPageProps) => {
         featuredImage={post.frontmatter.featuredImage}
         slug={post.slug}
       />
-    </main>
+    </Layout>
   );
 };
 

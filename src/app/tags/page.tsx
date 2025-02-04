@@ -1,5 +1,6 @@
 import { Container } from "../../components/Container";
 import { Grid } from "../../components/Grid";
+import { Layout } from "../../components/Layout";
 import { getAllTags } from "../../helpers/getAllTags";
 
 export const metadata = {
@@ -15,7 +16,7 @@ const TagsPage = async () => {
   };
 
   return (
-    <main>
+    <Layout>
       <Container>
         <h1>Tags</h1>
       </Container>
@@ -29,7 +30,7 @@ const TagsPage = async () => {
           }))}
         />
       </Container>
-    </main>
+    </Layout>
   );
 };
 

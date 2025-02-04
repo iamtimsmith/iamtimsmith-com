@@ -1,5 +1,6 @@
 import { Container } from "../../components/Container";
 import { Content } from "../../components/Content";
+import { Layout } from "../../components/Layout";
 import { getContentBySlug } from "../../helpers/getContentBySlug";
 import { getMetadata } from "../../helpers/getMetadata";
 
@@ -20,12 +21,12 @@ const DynamicPage = async ({ params }: DynamicPageProps) => {
   const post = getContentBySlug(slug);
 
   return (
-    <main>
+    <Layout>
       <Container>
         <h1>{post.frontmatter.title}</h1>
         <Content>{post.content}</Content>
       </Container>
-    </main>
+    </Layout>
   );
 };
 

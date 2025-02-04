@@ -1,5 +1,6 @@
 import { Container } from "../../../components/Container";
 import { Grid } from "../../../components/Grid";
+import { Layout } from "../../../components/Layout";
 import { getLatestPosts } from "../../../helpers/getLatestPosts";
 
 // export const generateMetadata = ({ params }) =>
@@ -20,7 +21,7 @@ const TagPage = async ({ params }: TagPageProps) => {
   const title = slug.charAt(0).toUpperCase() + slug.slice(1);
 
   return (
-    <main>
+    <Layout>
       <Container>
         <h1>{title}</h1>
         <p>A list of all the posts tagged with {slug}</p>
@@ -35,7 +36,7 @@ const TagPage = async ({ params }: TagPageProps) => {
           }))}
         />
       </Container>
-    </main>
+    </Layout>
   );
 };
 

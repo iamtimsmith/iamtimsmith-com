@@ -3,6 +3,7 @@ import { Container } from "../components/Container";
 import { Content } from "../components/Content";
 import { Grid } from "../components/Grid";
 import { Heading } from "../components/Heading";
+import { Layout } from "../components/Layout";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
@@ -36,7 +37,7 @@ const HomePage = () => {
   const posts = getLatestPosts();
 
   return (
-    <main>
+    <Layout>
       <Container>
         <Content>{page.content}</Content>
         <Author />
@@ -52,7 +53,7 @@ const HomePage = () => {
           }))}
         />
       </Container>
-    </main>
+    </Layout>
   );
 };
 

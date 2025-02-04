@@ -1,6 +1,7 @@
 import { FC } from "react";
 import { Container } from "../../components/Container";
 import { Grid } from "../../components/Grid";
+import { Layout } from "../../components/Layout";
 import { getLatestPosts } from "../../helpers/getLatestPosts";
 
 export const metadata = {
@@ -17,7 +18,7 @@ const BlogPage: FC<BlogPageProps> = () => {
   const posts = getLatestPosts(-1);
 
   return (
-    <main>
+    <Layout>
       <Container>
         <h1>Blog</h1>
       </Container>
@@ -31,7 +32,7 @@ const BlogPage: FC<BlogPageProps> = () => {
           }))}
         />
       </Container>
-    </main>
+    </Layout>
   );
 };
 
