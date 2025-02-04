@@ -19,13 +19,43 @@ In this article, I will discuss some of the specific users to keep in mind when 
 
 ## How do we use the web?
 
+Surfing the web has become ubiquitous in our society and many of us have been doing it since we were young. It's become an intuitive and almost second nature experience to open a browser, load a website, and consume content.
+
+Because it's become such a mundane part of existence, I have never spent much time thinking about how I'm even interacting with the device. If someone asked what senses you use when you visit a webpage, what would you say? The most obvious one for most people would be sight, but there are other senses which may be less obvious.
+
 ### Using three senses while on a website
 
-### What if one of those three senses are missing?
+On any given website, we will likely be using a combination of 3 different senses as we interact: vision, hearing, and touch. The way in which we use these senses depends on the website being visited, the content to consume, and the conditions under which we're visiting the site. Below, I have listed a few ways that each of these senses are used when visiting a webpage:
+
+- **Vision:** Used when reading text, looking at an image, or watching a video
+- **Hearing:** Used when a noise plays, a video has sound, or music is playing
+- **Touch:** Used when a phone responds with a vibrate
+
+The majority of users to a website will be able to mix and match these senses for an immersive experience. There is, however, a minority of users who may not be able to use all 3 senses.
+
+### What if any of those three senses are missing?
+
+So now the question is, what happens when one or more of those senses aren't available when using a site that was intended to be used with all 3? If proper precautions are not taken when the page is being built, the page could become unusable for a visitor.
+
+I think most developers would agree that the more people who can use our stuff, the better it can be. To begin working toward everyone being able to use your site, it's important to know why those senses are unavailable and plan accordingly. This is where [accessibility](/tags/accessibility) comes into play.
 
 ## Disabilities which affect user experience
 
-### Vision
+Although I'm sure you've guessed that there are disabilities related to vision, hearing, and touch which may hinder someone's ability to use your site, there are actually a few others to consider as well. I will be discussing 4 separate disabilities which can be affected and considerations we can take as engineers to make their experience on our products just as enjoyable as those without disabilities.
+
+### Visually impaired users
+
+When we think of visually impaired people, we tend to think about people who are legally or completely blind. While users who fall into these categories should be considered when building a webpage, visual impairment is not limited to these two buckets.
+
+Before we begin talking about ways to address accessibility concerns, let's go over the primary types of visual impairment to consider.
+
+The first group to consider when implementing accessibility into a webpage are users with Myopia (nearsightedness) and Hyperopia (farsightedness). While many of these users will wear glasses to assist them in viewing your webpage, there are still measures which can be taken to ensure a more positive experience such as keeping font sizes at a minimum of `15-16px`.
+
+Although we already mentioned users with blindness, it's worth discussing in greater detail who they are and how they interact with a webpage. Users with this disability typically don't have any vision at all. To make technology easier to use for those without eyesight, screen readers such as [JAWS](https://www.freedomscientific.com/products/software/jaws/), [NVDA](https://www.nvaccess.org), [Windows Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1), or [Apple VoieOver](https://www.apple.com/accessibility/vision/) can be used to navigate and consume information.
+
+Color blindness is not generally thought of as a disability, even though it can dramatically affect the way in which a user interacts with UI elements. For instance, if a website has instructions that are color based such as "Click the green button", that will be a difficult user interface to navigate.
+
+![UIs which depend on color can be difficult to navigate if a user is colorblind, as shown in these examples](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1738709076/iamtimsmith/colorblind-buttons_pekt72.png)
 
 ### Hearing
 

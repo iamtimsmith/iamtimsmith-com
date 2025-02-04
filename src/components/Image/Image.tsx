@@ -1,4 +1,5 @@
-import NextImage from "next/image";
+"use client";
+import { CldImage } from "next-cloudinary";
 import { HTMLAttributes } from "react";
 import style from "./styles.module.css";
 
@@ -10,7 +11,7 @@ export interface ImageProps extends HTMLAttributes<HTMLSpanElement> {
 export const Image = ({ src, alt = "", ...props }: ImageProps) => {
   return (
     <span className={style.image} role="figure" {...props}>
-      <NextImage
+      <CldImage
         className={style.imageImg}
         src={src}
         alt={alt}

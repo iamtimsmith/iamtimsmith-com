@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { HTMLAttributes } from "react";
 import { envSites } from "../../constants";
 import { getWordCount } from "../../helpers/getWordCount";
@@ -17,8 +16,7 @@ export const EnvironmentBar = ({ content, ...props }: EnvironmentBarProps) => {
     <div className={styles.environmentBar} {...props}>
       <div className={styles.container}>
         <p>
-          Environment:{" "}
-          <span className={clsx([styles.data, styles.env])}>{nodeEnv}</span>
+          Environment: <span className={styles.data}>{nodeEnv}</span>
         </p>
         {content && (
           <p>

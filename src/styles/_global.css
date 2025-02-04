@@ -106,6 +106,14 @@ p {
   padding: 0;
 }
 
+strong {
+  font-weight: 700;
+}
+
+em {
+  font-style: italic;
+}
+
 /**
  * LINKS
 **/

@@ -24,9 +24,6 @@
 
 .data {
   color: var(--color-error);
-}
-
-.env {
   font-style: italic;
 }
 
