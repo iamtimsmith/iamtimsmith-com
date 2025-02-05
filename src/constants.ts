@@ -12,12 +12,9 @@ import {
 /**
  * ENVIRNONMENT VARIABLES
  */
-export const mailchimpApiKey =
-  process.env.MAILCHIMP_API_KEY || "MAILCHIMP_API_KEY";
-export const mailchimpAudienceId =
-  process.env.MAILCHIMP_AUDIENCE_ID || "MAILCHIMP_AUDIENCE_ID";
-export const mailchimpServer =
-  process.env.MAILCHIMP_API_SERVER || "MAILCHIMP_API_SERVER";
+export const mailchimpApiKey = process.env.MAILCHIMP_API_KEY;
+export const mailchimpAudienceId = process.env.MAILCHIMP_AUDIENCE_ID;
+export const mailchimpServer = process.env.MAILCHIMP_API_SERVER;
 export const mailchimpApiUrl = `https://${mailchimpServer}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members`;
 export const baseUrl =
   process.env.NEXT_PUBLIC_WEBSITE_URL || "https://www.iamtimsmith.com";

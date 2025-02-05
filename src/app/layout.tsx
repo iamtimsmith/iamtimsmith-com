@@ -1,3 +1,4 @@
+import { GoogleAnalytics } from "@next/third-parties/google";
 import { ThemeProvider } from "next-themes";
 import { FC, ReactNode } from "react";
 import { siteDescription, siteName } from "../constants";
@@ -19,6 +20,7 @@ const RootLayoutProps: FC<RootLayoutProps> = ({ children }) => (
   <html lang="en" suppressHydrationWarning>
     <body>
       <ThemeProvider>{children}</ThemeProvider>
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
     </body>
   </html>
 );
