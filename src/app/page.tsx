@@ -58,6 +58,6 @@ const HomePage = () => {
   );
 };
 
-export const revalidate = 60; // Revalidate this page every 60 seconds
+// export const revalidate = 60; // Revalidate this page every 60 seconds
 
 export default HomePage;
