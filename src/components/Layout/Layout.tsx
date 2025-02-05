@@ -1,4 +1,5 @@
 import { FC, HTMLAttributes } from "react";
+import { CustomizeProvider } from "../../contexts/CustomizeContext";
 import { BackToTop } from "../BackToTop";
 import { EnvironmentBar } from "../EnvironmentBar";
 import { Footer } from "../Footer";
@@ -8,19 +9,18 @@ export interface LayoutProps extends HTMLAttributes<HTMLDivElement> {
   content?: string;
 }
 
-export const Layout: FC<LayoutProps> = ({ children, content, ...props }) => {
-  return (
-    <div {...props}>
-      <Header />
+export const Layout: FC<LayoutProps> = ({ children, content, ...props }) => (
+  <div {...props}>
+    <Header />
+    <CustomizeProvider>
       <main>
         {children}
         <BackToTop />
       </main>
-      <Footer />
-      {/* <SocialNav /> */}
-      {process.env.NODE_ENV === "development" && (
-        <EnvironmentBar content={content} />
-      )}
-    </div>
-  );
-};
+    </CustomizeProvider>
+    <Footer />
+    {process.env.NODE_ENV === "development" && (
+      <EnvironmentBar content={content} />
+    )}
+  </div>
+);
