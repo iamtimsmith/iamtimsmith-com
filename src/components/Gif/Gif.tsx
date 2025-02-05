@@ -21,14 +21,7 @@ export const Gif: FC<GifProps> = ({
     style={{ ...style, maxWidth }}
     {...props}
   >
-    <video
-      src={src}
-      aria-label="This is a test label"
-      playsInline
-      autoPlay
-      muted
-      loop
-    />
+    <video src={src} playsInline autoPlay muted loop />
     {caption && <figcaption>{caption}</figcaption>}
   </figure>
 );
