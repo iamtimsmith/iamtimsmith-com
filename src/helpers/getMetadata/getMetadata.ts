@@ -3,17 +3,31 @@ import { siteName } from "../../constants";
 import { getContentBySlug } from "../getContentBySlug";
 
 export const getMetadata = (slug: string): Metadata => {
-  const post = getContentBySlug(slug);
-  const title =
-    slug === "home"
-      ? `${post.frontmatter.title} | ${siteName}`
-      : post.frontmatter.title;
+  console.log("URL", process.env.NEXT_PUBLIC_WEBSITE_URL);
+  const {
+    frontmatter: { title: postTitle, excerpt, featuredImage },
+  } = getContentBySlug(slug);
+
+  // Format the title
+  const title = slug === "home" ? `${postTitle} | ${siteName}` : postTitle;
 
   return {
     title,
-    description: post.frontmatter.excerpt,
+    description: excerpt,
     openGraph: {
-      images: [post.frontmatter.featuredImage],
+      title,
+      description: excerpt,
+      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/${slug}`,
+      siteName,
+      type: "website",
+      images: [
+        {
+          url: featuredImage,
+          width: 1200,
+          height: 630,
+          alt: postTitle,
+        },
+      ],
     },
   };
 };

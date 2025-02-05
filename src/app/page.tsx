@@ -10,28 +10,6 @@ import { getMetadata } from "../helpers/getMetadata";
 
 export const generateMetadata = () => getMetadata("home");
 
-// export const metadata = {
-//   title: `Home | ${siteName}`,
-//   description:
-//     "Tim Smith is a software engineer trying to make the web a better place.",
-//   openGraph: {
-//     title: `Home | ${siteName}`,
-//     description:
-//       "Tim Smith is a software engineer trying to make the web a better place.",
-//     url: "https://timsmith.dev",
-//     siteName: siteName,
-//     type: "website",
-//     images: [
-//       {
-//         url: "https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109224/iamtimsmith/timsmith_fyh0hq.jpg",
-//         width: 1200,
-//         height: 630,
-//         alt: "Tim Smith's website",
-//       },
-//     ],
-//   },
-// };
-
 const HomePage = () => {
   const page = getContentBySlug("home");
   const posts = getLatestPosts();
