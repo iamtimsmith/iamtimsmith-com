@@ -11,4 +11,6 @@
   font-style: italic;
   font-size: var(--font-size-sm);
   text-align: center;
+  height: 0;
+  overflow: hidden;
 }
