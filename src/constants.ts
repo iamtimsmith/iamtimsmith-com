@@ -19,6 +19,8 @@ export const mailchimpAudienceId =
 export const mailchimpServer =
   process.env.MAILCHIMP_API_SERVER || "MAILCHIMP_API_SERVER";
 export const mailchimpApiUrl = `https://${mailchimpServer}.api.mailchimp.com/3.0/lists/${mailchimpAudienceId}/members`;
+export const baseUrl =
+  process.env.NEXT_PUBLIC_WEBSITE_URL || "https://www.iamtimsmith.com";
 
 /**
  * SITE CONFIG

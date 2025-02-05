@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import { siteName } from "../../constants";
+import { baseUrl, siteName } from "../../constants";
 import { getContentBySlug } from "../getContentBySlug";
 
 export const getMetadata = (slug: string): Metadata => {
@@ -17,7 +17,7 @@ export const getMetadata = (slug: string): Metadata => {
     openGraph: {
       title,
       description: excerpt,
-      url: `${process.env.NEXT_PUBLIC_WEBSITE_URL}/${slug}`,
+      url: `${baseUrl}/${slug}`,
       siteName,
       type: "website",
       images: [
