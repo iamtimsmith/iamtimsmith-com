@@ -2,6 +2,7 @@
   "Create a new blog post": {
     "scope": "markdown",
     "prefix": "create:post",
+    "description": "Create a new blog post with front matter",
     "body": [
       "---",
       "title: $1",
@@ -15,7 +16,12 @@
       "---",
       "",
       "$0"
-    ],
-    "description": "Create a new blog post with front matter"
+    ]
+  },
+  "Insert a gif": {
+    "scope": "markdown",
+    "prefix": "insert:gif",
+    "description": "Insert a gif",
+    "body": ["<Gif src=\"$1\" caption=\"$2\" />"]
   }
 }
