@@ -25,6 +25,7 @@ const TagsPage = async () => {
           items={tags.map((tag) => ({
             title: tag.title,
             meta: [getTagCount(tag)],
+            isPublished: true,
             description: tag.description,
             slug: tag.slug,
           }))}

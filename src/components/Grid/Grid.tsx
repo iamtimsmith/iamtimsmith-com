@@ -8,6 +8,7 @@ export interface GridProps extends HTMLAttributes<HTMLUListElement> {
   items?: {
     title: string;
     description?: string;
+    isPublished?: boolean;
     meta?: string[];
     slug?: string;
   }[];
@@ -20,10 +21,17 @@ export const Grid: FC<GridProps> = ({
   ...props
 }) => (
   <ul className={clsx([styles.grid, className])} {...props}>
-    {items.map(({ title, description, meta, slug }) => (
+    {items.map(({ title, description, isPublished, meta, slug }) => (
       <li className={styles.item} key={slug}>
         <article className={styles.summary}>
-          {meta && <Tags tags={meta.map((tag) => tag)} />}
+          {meta && (
+            <Tags
+              tags={[
+                ...(!isPublished ? ["Unpublished"] : []),
+                ...meta.map((tag) => tag),
+              ]}
+            />
+          )}
           <Link className={styles.summaryTitle} href={slug}>
             {title}
           </Link>

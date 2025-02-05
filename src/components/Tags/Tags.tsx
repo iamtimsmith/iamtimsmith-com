@@ -21,7 +21,13 @@ export const Tags: FC<TagsProps> = ({
       {...props}
     >
       {tags.map((tag) => (
-        <li key={tag} className={styles.tag}>
+        <li
+          key={tag}
+          className={clsx([
+            styles.tag,
+            tag.match(/unpublished/i) && styles.draft,
+          ])}
+        >
           <Link>{tag}</Link>
         </li>
       ))}

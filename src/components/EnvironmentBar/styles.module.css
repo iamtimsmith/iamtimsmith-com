@@ -23,7 +23,7 @@
 }
 
 .data {
-  color: var(--color-error);
+  color: var(--color-red--300);
   font-style: italic;
 }
 

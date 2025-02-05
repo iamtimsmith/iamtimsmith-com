@@ -26,6 +26,7 @@ const BlogPage: FC<BlogPageProps> = () => {
         <Grid
           items={posts.map(({ frontmatter, slug }) => ({
             title: frontmatter.title,
+            isPublished: frontmatter.published,
             description: frontmatter.excerpt,
             meta: frontmatter.tags,
             slug,

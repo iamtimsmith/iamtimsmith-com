@@ -48,6 +48,7 @@ const HomePage = () => {
           items={posts.map(({ frontmatter, slug }) => ({
             title: frontmatter.title,
             description: frontmatter.excerpt,
+            isPublished: frontmatter.published,
             meta: frontmatter.tags,
             slug,
           }))}

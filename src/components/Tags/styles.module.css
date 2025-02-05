@@ -36,3 +36,7 @@
 .tag a:hover {
   color: var(--color-accent);
 }
+
+.tag.draft {
+  color: var(--color-red--300);
+}
