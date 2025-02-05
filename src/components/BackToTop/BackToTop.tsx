@@ -1,7 +1,7 @@
 "use client";
 import clsx from "clsx";
 import { FC, HTMLAttributes, useEffect, useState } from "react";
-import style from "./styles.module.css";
+import styles from "./styles.module.css";
 
 type BackToTopProps = HTMLAttributes<HTMLButtonElement>;
 
@@ -18,12 +18,13 @@ export const BackToTop: FC<BackToTopProps> = ({ className, ...props }) => {
 
   return (
     <button
-      className={clsx([style.backToTop, show && style.show])}
+      className={clsx([styles.backToTop, show && styles.show])}
       onClick={handleClick}
       aria-label="Go back to the top of the page."
+      aria-hidden={!show}
       {...props}
     >
-      ↑
+      <span className={styles.icon}>↑</span> Back to top
     </button>
   );
 };

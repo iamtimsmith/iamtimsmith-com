@@ -3,9 +3,9 @@ import { baseUrl, siteName } from "../../constants";
 import { getContentBySlug } from "../getContentBySlug";
 
 export const getMetadata = (slug: string): Metadata => {
-  console.log("URL", process.env.NEXT_PUBLIC_WEBSITE_URL);
   const {
     frontmatter: { title: postTitle, excerpt, featuredImage },
+    slug: postSlug,
   } = getContentBySlug(slug);
 
   // Format the title
@@ -17,7 +17,7 @@ export const getMetadata = (slug: string): Metadata => {
     openGraph: {
       title,
       description: excerpt,
-      url: `${baseUrl}/${slug}`,
+      url: `${baseUrl}/${postSlug}`,
       siteName,
       type: "website",
       images: [
