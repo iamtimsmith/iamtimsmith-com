@@ -1,3 +1,4 @@
+import { notFound } from "next/navigation";
 import { Author } from "../../../components/Author";
 import { Container } from "../../../components/Container";
 import { Content } from "../../../components/Content";
@@ -9,6 +10,7 @@ import { Tags } from "../../../components/Tags";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getLatestPosts } from "../../../helpers/getLatestPosts";
 import { getMetadata } from "../../../helpers/getMetadata";
+import styles from "./styles.module.css";
 
 export const generateMetadata = ({ params }) =>
   getMetadata(`posts/${params.slug}`);
@@ -20,7 +22,12 @@ export interface PostPageProps {
 
 const PostPage = async ({ params }: PostPageProps) => {
   const { slug } = await params;
+  const isDev = process.env.NODE_ENV === "development";
   const post = getContentBySlug(`posts/${slug}`);
+
+  // If not in dev mode and post is not published, return 404
+  if (!isDev && !post.frontmatter.published) return notFound();
+
   const posts = getLatestPosts();
 
   return (
@@ -32,7 +39,9 @@ const PostPage = async ({ params }: PostPageProps) => {
         <Author />
       </Container>
       <Container variant="wide">
-        <Heading href="/blog">Recent Posts</Heading>
+        <Heading className={styles.heading} href="/blog">
+          Recent Posts
+        </Heading>
         <Grid
           items={posts.map(({ frontmatter, slug }) => ({
             title: frontmatter.title,

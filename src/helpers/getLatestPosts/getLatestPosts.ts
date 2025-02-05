@@ -5,7 +5,7 @@ import { getContentBySlug } from "../getContentBySlug/getContentBySlug";
 
 export const getLatestPosts = (
   limit = postsPerPage,
-  filter?: { key: string; value: string }
+  filter?: { key: string; value: any }
 ) => {
   // Determine the environment
   const isDev = process.env.NODE_ENV === "development";
@@ -35,15 +35,16 @@ export const getLatestPosts = (
     new Date(a.frontmatter.date) > new Date(b.frontmatter.date) ? -1 : 1
   );
   // Filter the posts by the filter object.
-  if (filter) {
-    console.log("FILTER", filter);
+  if (filter)
     return publishedPosts.filter((post) => {
+      // If the filter key is not in the post, return false.
       if (!post.frontmatter[filter.key]) return false;
-      if (Array.isArray(post.frontmatter[filter.key])) {
+      // If the filter value is an array, check if the post's frontmatter value includes the filter value.
+      if (Array.isArray(post.frontmatter[filter.key]))
         return post.frontmatter[filter.key].includes(filter.value);
-      }
+      // Otherwise, return true if the post's frontmatter value is equal to the filter value.
+      return post.frontmatter[filter.key] === filter.value;
     });
-  }
 
   // Limit the number of posts and return them.
   if (limit < 0) return publishedPosts;
