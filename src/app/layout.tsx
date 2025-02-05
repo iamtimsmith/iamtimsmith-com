@@ -1,6 +1,6 @@
 import { ThemeProvider } from "next-themes";
 import { FC, ReactNode } from "react";
-import { favicon, siteDescription, siteName } from "../constants";
+import { siteDescription, siteName } from "../constants";
 import "../styles/style.css";
 
 export const metadata = {
@@ -9,9 +9,6 @@ export const metadata = {
     default: siteName,
   },
   description: siteDescription,
-  icons: {
-    icon: favicon,
-  },
 };
 
 interface RootLayoutProps {
