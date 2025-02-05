@@ -11,6 +11,8 @@
   --button-bg: var(--accent);
   --button-fg: var(--page-bg);
   --border: var(--grey-300);
+  --nav-bg: var(--grey-300);
+  --nav-fg: var(--grey-700);
   --shadow: var(--shadow-size) var(--grey-100);
 
   --code-bg: var(--grey-100);

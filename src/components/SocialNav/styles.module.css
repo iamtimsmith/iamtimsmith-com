@@ -29,7 +29,7 @@
   left: 2.5rem;
   height: 18.75rem;
   width: 0.0625rem;
-  background: var(--inactive);
+  background: var(--nav-bg);
   z-index: -1;
 }
 
@@ -51,12 +51,12 @@
   background: none;
   border: none;
   margin: 0.125rem 1rem;
-  color: var(--inactive);
+  color: var(--nav-bg);
   cursor: pointer;
-  transition: color var(--timing);
+  transition: color var(--timing), transform var(--timing);
 }
 .SocialMenu a:hover {
-  color: var(--active);
+  color: var(--nav-fg);
   background: none;
   opacity: 1;
 }
