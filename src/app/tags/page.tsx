@@ -35,6 +35,4 @@ const TagsPage = async () => {
   );
 };
 
-export const revalidate = 60; // Revalidate this page every 60 seconds
-
 export default TagsPage;
