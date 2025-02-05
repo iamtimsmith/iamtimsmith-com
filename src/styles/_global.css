@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 16px;
+  font-size: var(--font-size-base);
   overflow-x: hidden;
   overflow-y: scroll;
   -webkit-font-smoothing: antialiased;
@@ -250,6 +250,23 @@ form button:hover {
 
   background: var(--button-hover);
   border-color: var(--button-hover);
+}
+
+input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 0.5rem 0 0;
+  border: 0.063rem solid var(--caption);
+  border-radius: calc(var(--border-rounded) / 2);
+}
+
+input[type="checkbox"]:checked:after {
+  content: "";
+  display: block;
+  width: 0.625rem;
+  height: 0.625rem;
+  margin: 0.125rem;
+  background: var(--accent);
 }
 
 /**

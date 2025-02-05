@@ -28,6 +28,7 @@ export const siteDescription =
 export const favicon =
   "https://res.cloudinary.com/dcrgbfjfu/image/upload/v1738505719/iamtimsmith/timsmith-purple_eajqb4.png";
 export const postsPerPage = 6;
+export const showCustomizer = false;
 
 /**
  * AUTHOR CONFIG

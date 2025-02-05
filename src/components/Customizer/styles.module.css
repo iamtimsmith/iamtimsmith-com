@@ -1,67 +1,22 @@
-.popoverContainer {
-  position: relative;
-}
-
 .customizer {
   position: fixed;
-  bottom: 0;
-  left: 0;
+  bottom: 0.5rem;
+  left: 0.5rem;
   z-index: 1000;
 }
 
-.trigger {
+.button {
   position: relative;
+  top: 5px;
   background: none;
   border: none;
   font-size: var(--font-size-xl);
   cursor: pointer;
 }
 
-.popover {
-  position: absolute;
-  background: var(--page-fg);
-  max-height: none;
-  border-radius: 0.25rem;
-  border: 0.063rem solid var(--border);
-  margin: 0;
-  z-index: 1000;
-  min-width: 0;
-  cursor: default;
-  width: 100vw;
-}
-
-.menu {
-  padding: 0.25rem 0;
-}
-
-.bottomLeft {
-  top: 100%;
-  right: auto;
-  left: 0;
-}
-
-.bottomRight {
-  bottom: 0.625rem;
-  right: auto;
-  left: 100%;
-}
-
-.bottom {
-  transform: translate(-50%, 0);
-}
-
-.top {
-  transform: translate(-50%, -100%);
-}
-
-.topLeft {
-  bottom: 100%;
-  right: auto;
-  left: 0;
-}
-
-.topRight {
-  bottom: 100%;
-  right: auto;
-  left: 100%;
+.field {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
 }
