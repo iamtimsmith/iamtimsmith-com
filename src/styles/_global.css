@@ -228,8 +228,8 @@ form input[type="text"],
 form input[type="email"] {
   padding: calc(0.5rem + 1px);
   border: 1px solid var(--color-border);
-  background: var(--color-grey--50);
-  color: var(--color-grey--900);
+  background: var(--grey-50);
+  color: var(--grey-900);
   font-size: var(--font-size-md);
 }
 

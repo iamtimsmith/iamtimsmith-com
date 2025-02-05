@@ -16,7 +16,7 @@
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  background: var(--color-grey--50);
+  background: var(--grey-50);
 }
 
 .sharebarLabel {
@@ -36,7 +36,7 @@
   align-items: center;
   justify-content: center;
   font-size: var(--font-size-xl);
-  color: var(--color-grey--50);
+  color: var(--grey-50);
   background: none;
   transform: none;
 }
