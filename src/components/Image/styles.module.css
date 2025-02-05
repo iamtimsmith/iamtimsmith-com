@@ -7,8 +7,9 @@
   height: auto;
   display: block;
   margin: 0.25rem auto;
-  /* border: 0.063rem solid var(--color-border); */
-  box-shadow: var(--box-shadow);
+  /* border: 0.063rem solid
+    color-mix(in srgb, var(--color-border), transparent 85%); */
+  box-shadow: var(--shadow-size) var(--shadow-color);
   border-radius: var(--border-rounded);
 }
 
@@ -16,6 +17,6 @@
   display: block;
   color: var(--color-caption);
   font-style: italic;
-  font-size: 0.875rem;
+  font-size: var(--font-size-sm);
   text-align: center;
 }

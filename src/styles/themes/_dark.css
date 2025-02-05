@@ -15,6 +15,7 @@
   --color-button-accent-hover: var(--purple-600);
   --color-border: var(--color-grey--700);
   --color-error: #f15a79;
+  --shadow-color: var(--grey-1000);
 
   --code-bg: var(--grey-1000);
   --code-fg: var(--color-grey--100);

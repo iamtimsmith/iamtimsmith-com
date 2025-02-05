@@ -34,7 +34,7 @@ const PostPage = async ({ params }: PostPageProps) => {
     <Layout content={post.content}>
       <Container>
         <h1>{post.frontmatter.title}</h1>
-        <Tags tags={post.frontmatter.tags} size="md" />
+        <Tags tags={post.frontmatter.tags} />
         <Content>{post.content}</Content>
         <Author />
       </Container>

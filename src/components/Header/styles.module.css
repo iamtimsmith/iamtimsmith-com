@@ -1,7 +1,7 @@
 .header {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   padding: 1.5rem 0;
 }
@@ -94,17 +94,11 @@
   color: var(--color-grey--900);
 }
 
-@media (--small-viewport) {
-  .header {
-    background: red !important;
-  }
-}
-
 @media screen and (min-width: 460px) {
   .header {
     flex-wrap: nowrap;
-    justify-content: space-between;
   }
+
   .headerLogo {
     font-size: var(--font-size-xl);
   }
