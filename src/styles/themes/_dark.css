@@ -1,21 +1,17 @@
 [data-theme="dark"] {
   --bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
-  --color-bg: var(--grey-900);
-  --color-fg: var(--grey-800);
-  --color-bg-light: var(--color-fg);
-  --color-heading: var(--grey-50);
-  --color-text: var(--grey-100);
-  --color-caption: var(--grey-300);
-  --color-accent: var(--purple-200);
+  --page-bg: var(--grey-900);
+  --page-fg: var(--grey-800);
+  --heading: var(--grey-50);
+  --text: var(--grey-100);
+  --caption: var(--grey-300);
+  --accent: var(--purple-200);
+  --tertiary: #f15a79;
 
-  --button-bg: var(--color-accent);
-  --button-fg: var(--color-bg);
-  --color-link-accent: var(--purple-600);
-  --color-button-accent: var(--purple-700);
-  --color-button-accent-hover: var(--purple-600);
-  --color-border: var(--grey-700);
-  --color-error: #f15a79;
-  --shadow-color: var(--grey-1000);
+  --button-bg: var(--accent);
+  --button-fg: var(--page-bg);
+  --border: var(--grey-700);
+  --shadow: var(--shadow-size) var(--grey-1000);
 
   --code-bg: var(--grey-1000);
   --code-fg: var(--grey-100);

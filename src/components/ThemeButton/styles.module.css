@@ -6,12 +6,12 @@
   background: none;
   border: none;
   cursor: pointer;
-  color: var(--color-text);
+  color: var(--text);
   transition: color 0.3s;
 }
 
 .themeButton:hover {
-  color: var(--color-accent);
+  color: var(--accent);
 }
 
 .themeButtonPlaceholder {

@@ -34,7 +34,7 @@
 }
 
 .tag a:hover {
-  color: var(--color-accent);
+  color: var(--accent);
 }
 
 .tag.draft {

@@ -12,8 +12,8 @@ html {
 }
 
 body {
-  background: var(--color-bg);
-  color: var(--color-text);
+  background: var(--page-bg);
+  color: var(--text);
   font-family: var(--font-family-sans);
   font-size: var(--font-size-md);
   line-height: 1.5;
@@ -26,7 +26,7 @@ body:after {
   position: absolute;
   inset: 0;
   opacity: var(--bg-opacity, 0.4);
-  background: var(--color-bg);
+  background: var(--page-bg);
   background-image: var(--bg-image);
   z-index: -1;
 }
@@ -43,7 +43,7 @@ h6 {
   margin: 1rem 0;
   line-height: 1.2;
   letter-spacing: -0.025em;
-  color: var(--color-heading);
+  color: var(--heading);
   font-weight: 900;
 }
 
@@ -63,7 +63,7 @@ h3 > strong,
 h4 > strong,
 h5 > strong,
 h6 > strong {
-  color: var(--color-accent);
+  color: var(--accent);
 }
 
 h1 {
@@ -105,7 +105,7 @@ em {
 a {
   display: inline-block;
   text-decoration: none;
-  color: var(--color-accent);
+  color: var(--accent);
   text-decoration: none;
   cursor: pointer;
   word-break: break-word;
@@ -121,7 +121,7 @@ a span {
 
 a:hover {
   transform: rotate(calc(var(--link-rotation) * -1));
-  background-color: color-mix(in srgb, var(--color-text), transparent 90%);
+  background-color: color-mix(in srgb, var(--text), transparent 90%);
 }
 
 a:hover span {
@@ -178,11 +178,11 @@ main > ul {
 **/
 
 blockquote {
-  color: var(--color-caption);
+  color: var(--caption);
   margin-left: 0;
   margin-right: 2rem;
   padding: 0 0 0 1.5rem;
-  border-left: 0.25rem solid var(--color-caption);
+  border-left: 0.25rem solid var(--caption);
   font-size: var(--font-size-lg);
   font-style: italic;
   margin-bottom: 2rem;
@@ -227,7 +227,7 @@ td {
 form input[type="text"],
 form input[type="email"] {
   padding: calc(0.5rem + 1px);
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--border);
   background: var(--grey-50);
   color: var(--grey-900);
   font-size: var(--font-size-md);
@@ -246,7 +246,7 @@ form button {
 }
 form a:hover,
 form button:hover {
-  --button-hover: color-mix(in srgb, var(--button-bg), var(--color-bg) 15%);
+  --button-hover: color-mix(in srgb, var(--button-bg), var(--page-bg) 15%);
 
   background: var(--button-hover);
   border-color: var(--button-hover);

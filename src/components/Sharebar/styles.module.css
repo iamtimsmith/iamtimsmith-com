@@ -22,7 +22,7 @@
 .sharebarLabel {
   display: none;
   font-size: var(--font-size-sm);
-  background: var(--color-bg);
+  background: var(--page-bg);
   width: 100%;
   text-align: center;
 }

@@ -57,7 +57,7 @@
 }
 
 .site a:hover > span {
-  color: var(--color-error);
+  color: var(--tertiary);
   transition: transform 0.3s, color 0.3s;
 }
 

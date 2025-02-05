@@ -16,7 +16,7 @@
 .headerLogo {
   font-size: var(--font-size-lg);
   font-weight: bold;
-  color: var(--color-text);
+  color: var(--text);
   background: none;
   transition: color 0.3s;
 }
@@ -39,13 +39,13 @@
 }
 
 .headerNavItem a {
-  color: var(--color-text);
+  color: var(--text);
   background: none;
   transition: color 0.3s;
 }
 
 .headerNavItem a:hover {
-  color: var(--color-accent);
+  color: var(--accent);
   background: none;
 }
 .headerNavItem a,

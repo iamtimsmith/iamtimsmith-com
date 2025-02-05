@@ -16,6 +16,6 @@
 }
 
 .heading > a:hover span:after {
-  color: var(--color-accent);
+  color: var(--accent);
   transform: translateX(0.5rem);
 }

@@ -1,21 +1,17 @@
 :root {
   --bg-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
-  --color-bg: var(--grey-50);
-  --color-fg: var(--grey-100);
-  --color-bg-light: var(--color-fg);
-  --color-heading: var(--grey-900);
-  --color-text: var(--grey-700);
-  --color-caption: var(--grey-400);
-  --color-accent: var(--purple-400);
+  --page-bg: var(--grey-50);
+  --page-fg: var(--grey-100);
+  --heading: var(--grey-900);
+  --text: var(--grey-700);
+  --caption: var(--grey-400);
+  --accent: var(--purple-400);
+  --tertiary: #a50c2d;
 
-  --button-bg: var(--color-accent);
-  --button-fg: var(--color-bg);
-  --color-link-accent: var(--purple-200);
-  --color-button-accent: var(--purple-300);
-  --color-button-accent-hover: var(--purple-400);
-  --color-border: var(--grey-300);
-  --color-error: #a50c2d;
-  --shadow-color: var(--grey-100);
+  --button-bg: var(--accent);
+  --button-fg: var(--page-bg);
+  --border: var(--grey-300);
+  --shadow: var(--shadow-size) var(--grey-100);
 
   --code-bg: var(--grey-100);
   --code-fg: var(--grey-900);

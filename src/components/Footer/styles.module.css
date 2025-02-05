@@ -10,7 +10,7 @@
 }
 
 .footerSocialLink {
-  color: var(--color-text);
+  color: var(--text);
   background: none;
   margin: 0.55rem;
   font-size: var(--font-size-xl);
