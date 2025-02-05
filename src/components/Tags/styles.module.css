@@ -30,7 +30,7 @@
 
 .tag a {
   background: none;
-  transition: color 0.3s;
+  transition: color var(--timing);
 }
 
 .tag a:hover {

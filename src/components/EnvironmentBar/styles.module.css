@@ -19,7 +19,7 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-  transition: top 0.3s;
+  transition: top var(--timing);
 }
 
 .data {
@@ -58,7 +58,7 @@
 
 .site a:hover > span {
   color: var(--tertiary);
-  transition: transform 0.3s, color 0.3s;
+  transition: transform var(--timing), color var(--timing);
 }
 
 .site svg {

@@ -110,13 +110,13 @@ a {
   cursor: pointer;
   word-break: break-word;
   background-color: transparent;
-  transition: background-color 0.3s, transform 0.3s;
+  transition: background-color var(--timing), transform var(--timing);
 }
 
 a span {
   display: inline-block;
   transform: rotate(0deg);
-  transition: transform 0.3s;
+  transition: transform var(--timing);
 }
 
 a:hover {
@@ -242,7 +242,7 @@ form button {
   color: var(--button-fg);
   cursor: pointer;
   font-size: var(--font-size-md);
-  transition: background 0.3s, border-color 0.3s;
+  transition: background var(--timing), border-color var(--timing);
 }
 form a:hover,
 form button:hover {

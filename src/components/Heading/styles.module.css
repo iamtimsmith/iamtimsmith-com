@@ -12,7 +12,7 @@
   margin-left: 1rem;
   font-weight: 400;
   font-size: var(--font-size-2x);
-  transition: color 0.3s, transform 0.3s;
+  transition: color var(--timing), transform var(--timing);
 }
 
 .heading > a:hover span:after {

@@ -17,7 +17,7 @@
   opacity: 0.5;
   background: none;
   transform: none;
-  transition: color 0.3s, opacity 0.3s;
+  transition: color var(--timing), opacity var(--timing);
 }
 
 .footerSocialLink:hover {

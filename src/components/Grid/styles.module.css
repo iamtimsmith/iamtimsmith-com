@@ -27,7 +27,7 @@ a.titleLink:after {
   margin-left: 1rem;
   font-weight: 400;
   font-size: var(--font-size-2x);
-  transition: color 0.3s, transform 0.3s;
+  transition: color var(--timing), transform var(--timing);
 }
 
 a.titleLink:hover:after {
@@ -60,7 +60,7 @@ a.titleLink:hover:after {
   margin-bottom: 0.8rem;
   color: var(--text);
   transform: none;
-  transition: color 0.3s;
+  transition: color var(--timing);
 }
 
 .summaryTitle:after {
@@ -71,7 +71,7 @@ a.titleLink:hover:after {
   background: var(--text);
   opacity: 0;
   border-radius: var(--border-rounded);
-  transition: opacity 0.3s, transform 0.3s, left 0.3s;
+  transition: opacity var(--timing), transform var(--timing), left var(--timing);
 }
 
 .summaryTitle:hover {

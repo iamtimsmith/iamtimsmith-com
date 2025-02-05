@@ -18,7 +18,7 @@
   font-weight: bold;
   color: var(--text);
   background: none;
-  transition: color 0.3s;
+  transition: color var(--timing);
 }
 
 .headerLogo:hover {
@@ -41,7 +41,7 @@
 .headerNavItem a {
   color: var(--text);
   background: none;
-  transition: color 0.3s;
+  transition: color var(--timing);
 }
 
 .headerNavItem a:hover {
@@ -86,7 +86,7 @@
   background: var(--grey-50);
   color: var(--grey-500);
   font-size: 1.75rem;
-  transition: color 0.3s;
+  transition: color var(--timing);
 }
 
 .searchButton:hover {
