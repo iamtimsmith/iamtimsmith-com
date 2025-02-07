@@ -1,5 +1,6 @@
 import { FC, HTMLAttributes } from "react";
 import { useCustomizeContext } from "../../contexts/CustomizeContext";
+import { Theme } from "../../types";
 import { Button } from "../Button";
 import { AccessibilityIcon } from "../Icons";
 import { Popover } from "../Popover";
@@ -12,7 +13,9 @@ export const Customizer: FC<CustomizerProps> = ({ className, ...props }) => {
     increaseTextSize,
     decreaseTextSize,
     resetTextSize,
+    setTheme,
     showGifs,
+    theme,
     toggleGifs,
   } = useCustomizeContext();
 
@@ -20,20 +23,36 @@ export const Customizer: FC<CustomizerProps> = ({ className, ...props }) => {
     <Popover
       className={styles.customizer}
       position="bottomRight"
-      maxWidth="12rem"
+      maxWidth="15rem"
       trigger={
-        <button
+        <Button
           className={styles.button}
+          size="lg"
+          variant="text"
           aria-label="Open the accessibility settings"
         >
           <AccessibilityIcon />
-        </button>
+        </Button>
       }
       {...props}
     >
       <p>Customize your reading experience</p>
-      <fieldset className={styles.field}>
-        <legend>Adjust text size</legend>
+      <div className={styles.field}>
+        <label htmlFor="theme" aria-hidden>
+          Theme
+        </label>
+        <select
+          id="theme"
+          value={theme}
+          aria-label="Select theme"
+          onChange={(e) => setTheme(e.target.value as Theme)}
+        >
+          <option value="dark">Dark</option>
+          <option value="light">Light</option>
+        </select>
+      </div>
+      {/* <fieldset className={styles.field}>
+        <legend aria-hidden>Adjust text size</legend>
         <Button
           size="sm"
           onClick={increaseTextSize}
@@ -58,7 +77,7 @@ export const Customizer: FC<CustomizerProps> = ({ className, ...props }) => {
         >
           Reset
         </Button>
-      </fieldset>
+      </fieldset> */}
       <label className={styles.field}>
         <input type="checkbox" checked={showGifs} onChange={toggleGifs} /> Show
         Gifs

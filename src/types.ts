@@ -13,3 +13,5 @@ export type SharingSites =
   | "Linkedin"
   | "Pinterest"
   | "Twitter";
+
+export type Theme = "light" | "dark" | "red";

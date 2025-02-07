@@ -270,6 +270,15 @@ input[type="checkbox"]:checked:after {
   background: var(--accent);
 }
 
+select {
+  padding: 0.1rem;
+  width: 100%;
+  border: 1px solid var(--border);
+  background: var(--page-bg);
+  color: var(--text);
+  font-size: var(--font-size-sm);
+}
+
 /**
  * IMAGES
 **/

@@ -26,20 +26,20 @@
   padding: 0.25rem 0;
 }
 
+.bottom {
+  transform: translate(-50%, 0);
+}
+
 .bottomLeft {
-  top: 100%;
-  right: auto;
-  left: 0;
+  top: calc(100% + 10px);
+  left: auto;
+  right: 0;
 }
 
 .bottomRight {
   bottom: 0;
   right: auto;
   left: calc(100% + var(--gap));
-}
-
-.bottom {
-  transform: translate(-50%, 0);
 }
 
 .top {

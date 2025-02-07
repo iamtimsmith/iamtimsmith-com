@@ -23,7 +23,7 @@ export const Grid: FC<GridProps> = ({
   <ul className={clsx([styles.grid, className])} {...props}>
     {items.map(({ title, description, isPublished, meta, slug }) => (
       <li className={styles.item} key={slug}>
-        <article className={styles.summary}>
+        <article className={styles.summary} aria-label={title}>
           {meta && (
             <Tags
               tags={[

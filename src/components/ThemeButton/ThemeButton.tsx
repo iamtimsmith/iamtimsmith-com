@@ -1,6 +1,6 @@
 import clsx from "clsx";
-import { useTheme } from "next-themes";
 import { FC, HTMLAttributes } from "react";
+import { useCustomizeContext } from "../../contexts/CustomizeContext";
 import { toggleTheme } from "../../helpers/toggleTheme";
 import { MoonIcon, SunIcon } from "../Icons";
 import styles from "./styles.module.css";
@@ -8,7 +8,7 @@ import styles from "./styles.module.css";
 interface ThemeButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
 export const ThemeButton: FC<ThemeButtonProps> = ({ className, ...props }) => {
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme } = useCustomizeContext();
 
   const handleThemeChange = () => {
     const newTheme = toggleTheme(theme);

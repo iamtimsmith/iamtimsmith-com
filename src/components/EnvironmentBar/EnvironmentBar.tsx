@@ -1,3 +1,5 @@
+"use client";
+import Cookies from "js-cookie";
 import { HTMLAttributes } from "react";
 import { envSites } from "../../constants";
 import { getWordCount } from "../../helpers/getWordCount";
@@ -11,6 +13,8 @@ interface EnvironmentBarProps extends HTMLAttributes<HTMLDivElement> {
 export const EnvironmentBar = ({ content, ...props }: EnvironmentBarProps) => {
   const nodeEnv = process.env.NODE_ENV;
   const wordCount = getWordCount(content);
+
+  const clearSettings = () => Cookies.remove("settings");
 
   return (
     <div className={styles.environmentBar} {...props}>
@@ -35,6 +39,9 @@ export const EnvironmentBar = ({ content, ...props }: EnvironmentBarProps) => {
             </li>
           ))}
         </ul>
+        <button className={styles.button} onClick={clearSettings}>
+          Clear Settings
+        </button>
       </div>
     </div>
   );

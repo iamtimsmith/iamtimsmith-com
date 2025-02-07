@@ -1,69 +1,90 @@
 "use client";
-import { createContext, FC, useContext, useEffect, useState } from "react";
+import Cookies from "js-cookie";
+import {
+  createContext,
+  FC,
+  PropsWithChildren,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import { Customizer } from "../../components/Customizer";
-import { showCustomizer } from "../../constants";
+import { fontSizes, showCustomizer } from "../../constants";
+import { Theme } from "../../types";
 
 export interface CustomizeContextType {
   increaseTextSize: () => void;
   decreaseTextSize: () => void;
   resetTextSize: () => void;
+  setTheme: (newTheme: Theme) => void;
   showGifs: boolean;
+  theme: Theme;
   toggleGifs: () => void;
+}
+
+interface CustomizeProviderProps extends PropsWithChildren {
+  showGifs: boolean;
+  textSize: number;
+  theme: Theme;
 }
 
 export const CustomizeContext = createContext<CustomizeContextType>(null!);
 
-export const CustomizeProvider: FC<any> = ({ children }) => {
-  const [isLoaded, setIsLoaded] = useState(false);
-  const minSize = 16;
-  const maxSize = 24;
-  const textSize = 16;
+export const CustomizeProvider: FC<CustomizeProviderProps> = ({
+  children,
+  showGifs,
+  textSize,
+  theme,
+}) => {
   const [settings, setSettings] = useState({
-    showGifs: false,
+    showGifs,
     textSize,
+    theme,
   });
 
   const increaseTextSize = () => {
-    if (settings.textSize < maxSize)
+    if (settings.textSize < fontSizes.max) {
+      Cookies.set(
+        "settings",
+        JSON.stringify({ ...settings, textSize: settings.textSize + 1 })
+      );
       setSettings((prev) => ({ ...prev, textSize: prev.textSize + 1 }));
+    }
   };
 
   const decreaseTextSize = () => {
-    if (settings.textSize > minSize)
+    if (settings.textSize > fontSizes.min)
       setSettings((prev) => ({ ...prev, textSize: prev.textSize - 1 }));
   };
 
-  const resetTextSize = () => setSettings((prev) => ({ ...prev, textSize }));
+  const resetTextSize = () => {
+    setSettings((prev) => ({ ...prev, textSize: fontSizes.default }));
+    Cookies.set(
+      "settings",
+      JSON.stringify({ ...settings, textSize: fontSizes.default })
+    );
+  };
 
-  const toggleGifs = () =>
-    setSettings((prev) => ({ ...prev, showGifs: !prev.showGifs }));
+  const toggleGifs = () => {
+    const newValue = !settings.showGifs;
+    setSettings((prev) => ({ ...prev, showGifs: newValue }));
+    Cookies.set(
+      "settings",
+      JSON.stringify({ ...settings, showGifs: newValue })
+    );
+  };
 
-  // Use effect to retrieve the state from localstorage
+  const setTheme = (newTheme: Theme) => {
+    setSettings((prev) => ({ ...prev, theme: newTheme }));
+    Cookies.set("settings", JSON.stringify({ ...settings, theme: newTheme }));
+  };
+
+  // Use effect to update data on the root element
   useEffect(() => {
-    const storedSettings = localStorage.getItem("accessibilitySettings");
-    if (storedSettings) {
-      setSettings(JSON.parse(storedSettings));
-    } else {
-      setSettings({ showGifs: true, textSize });
-    }
-    setIsLoaded(true);
-  }, []);
-
-  // Use effect to store the state in localstorage
-  useEffect(() => {
-    if (!isLoaded) return;
-    const storedSettings = localStorage.getItem("accessibilitySettings");
-    const newSettings = JSON.stringify(settings);
-    console.log("UPDATING LOCALSTORAGE", isLoaded);
-    if (storedSettings !== newSettings)
-      localStorage.setItem("accessibilitySettings", newSettings);
-  }, [settings]);
-
-  // Use effect to set the font size on the root element
-  useEffect(() => {
-    const root = document.querySelector("html");
+    const root = document.documentElement;
     root.style.setProperty("--font-size-base", `${settings.textSize}px`);
-  }, [settings.textSize]);
+    root.dataset.theme = settings.theme;
+  }, [settings]);
 
   return (
     <CustomizeContext.Provider
@@ -71,6 +92,8 @@ export const CustomizeProvider: FC<any> = ({ children }) => {
         increaseTextSize,
         decreaseTextSize,
         resetTextSize,
+        setTheme,
+        theme,
         toggleGifs,
         ...settings,
       }}

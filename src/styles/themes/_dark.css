@@ -1,4 +1,5 @@
 [data-theme="dark"] {
+  color-scheme: dark;
   --bg-image: url("https://www.transparenttextures.com/patterns/asfalt-light.png");
   --page-bg: var(--grey-900);
   --page-fg: var(--grey-800);
