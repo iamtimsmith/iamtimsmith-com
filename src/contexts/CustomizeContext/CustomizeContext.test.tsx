@@ -8,18 +8,18 @@ import {
 } from "./CustomizeContext";
 
 const ComponentWithHook = () => {
-  const { state } = useContext(CustomizeContext);
-  return <div>Hook:{state}</div>;
+  const { showGifs } = useContext(CustomizeContext);
+  return <div>Hook:{showGifs.toString()}</div>;
 };
 
 const ComponentWithCustomHook = () => {
-  const { state } = useCustomizeContext();
-  return <div>Custom Hook:{state}</div>;
+  const { showGifs } = useCustomizeContext();
+  return <div>Custom Hook:{showGifs.toString()}</div>;
 };
 
 const ComponentWithConsumer = () => (
   <CustomizeContext.Consumer>
-    {({ state }) => <div>Consumer:{state}</div>}
+    {({ showGifs }) => <div>Consumer:{showGifs.toString()}</div>}
   </CustomizeContext.Consumer>
 );
 

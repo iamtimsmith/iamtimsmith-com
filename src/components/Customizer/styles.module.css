@@ -12,6 +12,11 @@
   border: none;
   font-size: var(--font-size-xl);
   cursor: pointer;
+  transition: color var(--timing);
+}
+
+.button:hover {
+  color: var(--accent);
 }
 
 .field {

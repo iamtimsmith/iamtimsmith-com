@@ -2,12 +2,6 @@ import { render, screen } from "@testing-library/react";
 
 import { Dialog } from "./Dialog";
 
-beforeAll(() => {
-  HTMLDialogElement.prototype.show = jest.fn();
-  HTMLDialogElement.prototype.showModal = jest.fn();
-  HTMLDialogElement.prototype.close = jest.fn();
-});
-
 describe("<Dialog/>", () => {
   it("should render", () => {
     render(<Dialog open onClose={jest.fn()} />);

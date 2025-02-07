@@ -12,20 +12,22 @@ export interface ContentProps extends HTMLAttributes<HTMLDivElement> {
   children: string;
 }
 
-export const Content: FC<ContentProps> = ({ children, ...props }) => (
-  <MDXRemote
-    source={children}
-    components={{
-      EmailSignup,
-      Embed,
-      Gif,
-      a: Link,
-      img: Image,
-      pre: ({ children: { props } }: any) => <CodeBlock {...props} />,
-      em: (props) => <InlineText variant="italic" {...props} />,
-      strong: (props) => <InlineText variant="bold" {...props} />,
-      code: (props) => <InlineText variant="code" {...props} />,
-    }}
-    {...props}
-  />
-);
+export const Content: FC<ContentProps> = ({ children, ...props }) => {
+  return (
+    <MDXRemote
+      source={children}
+      components={{
+        EmailSignup,
+        Embed,
+        Gif,
+        a: Link,
+        img: Image,
+        pre: ({ children: { props } }: any) => <CodeBlock {...props} />,
+        em: (props) => <InlineText variant="italic" {...props} />,
+        strong: (props) => <InlineText variant="bold" {...props} />,
+        code: (props) => <InlineText variant="code" {...props} />,
+      }}
+      {...props}
+    />
+  );
+};

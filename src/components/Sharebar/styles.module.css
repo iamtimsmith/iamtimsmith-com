@@ -1,6 +1,10 @@
 .sharebar {
+  --sharebar-label-size: 16px;
+  --sharebar-button-size: 50px;
+  --sharebar-icon-size: 30px;
+
   position: fixed;
-  bottom: -50px;
+  bottom: calc(-1 * var(--sharebar-button-size));
   left: 0;
   right: 0;
   transition: bottom 0.5s;
@@ -16,26 +20,25 @@
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  background: var(--grey-50);
 }
 
 .sharebarLabel {
   display: none;
-  font-size: var(--font-size-sm);
+  font-size: var(--sharebar-label-size);
   background: var(--page-bg);
   width: 100%;
   text-align: center;
 }
 
 .sharebarButton {
-  height: 50px;
+  height: var(--sharebar-button-size);
   width: auto;
   flex: 1 0;
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: var(--font-size-xl);
+  font-size: var(--sharebar-icon-size);
   color: var(--grey-50);
   background: none;
   transform: none;
@@ -96,7 +99,7 @@
     justify-content: center;
     top: 0;
     bottom: 0;
-    left: -50px;
+    left: calc(-1 * var(--sharebar-button-size));
     right: auto;
     transition: left 0.5s;
   }
@@ -115,7 +118,7 @@
   }
 
   .sharebarButton {
-    width: 50px;
-    flex: 0 0 50px;
+    width: var(--sharebar-button-size);
+    flex: 0 0 var(--sharebar-button-size);
   }
 }

@@ -1,8 +1,8 @@
 import clsx from "clsx";
-import React, {
+import {
   FC,
+  HTMLAttributes,
   ReactElement,
-  ReactNode,
   cloneElement,
   useEffect,
 } from "react";
@@ -22,9 +22,7 @@ import styles from "./styles.module.css";
  *
  * In order for a cancel button to work, it must have a `data-cancel` attribute.
  **/
-interface PopoverProps {
-  className?: string;
-  children?: ReactNode;
+interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
   position?:
     | "topLeft"
     | "topRight"
@@ -34,9 +32,8 @@ interface PopoverProps {
     | "bottomRight"
     | "bottom";
   trigger: ReactElement;
-  maxWidth?: number;
+  maxWidth?: number | string;
   variant?: "default" | "menu";
-  "data-testid"?: string;
 }
 
 export const Popover: FC<PopoverProps> = ({
@@ -74,23 +71,7 @@ export const Popover: FC<PopoverProps> = ({
     if (cancelButton) {
       cancelButton.addEventListener("click", handleClose);
     }
-
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [popoverRef.current]);
-
-  const mapChildrenWithProps = () => {
-    // Check if children is a ReactElement
-    if (React.isValidElement(children)) {
-      // Create a copy of the ReactElement and attach handleClose function to it
-      return cloneElement(children as ReactElement, {
-        handleClose,
-      });
-    }
-    // If not just return the children - means its a primitive type
-    else {
-      return children;
-    }
-  };
 
   return (
     <div
@@ -105,9 +86,8 @@ export const Popover: FC<PopoverProps> = ({
         open={isVisible}
         onClose={handleClose}
         onClick={(e) => e.stopPropagation()}
-        {...props}
       >
-        {mapChildrenWithProps()}
+        {children}
       </Dialog>
     </div>
   );

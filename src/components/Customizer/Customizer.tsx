@@ -8,24 +8,32 @@ import styles from "./styles.module.css";
 export interface CustomizerProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const Customizer: FC<CustomizerProps> = ({ className, ...props }) => {
-  const { increaseTextSize, decreaseTextSize, resetTextSize } =
-    useCustomizeContext();
+  const {
+    increaseTextSize,
+    decreaseTextSize,
+    resetTextSize,
+    showGifs,
+    toggleGifs,
+  } = useCustomizeContext();
 
   return (
     <Popover
       className={styles.customizer}
       position="bottomRight"
+      maxWidth="12rem"
       trigger={
         <button
           className={styles.button}
-          aria-label="Open the settings panel to customize your reading experience"
+          aria-label="Open the accessibility settings"
         >
           <AccessibilityIcon />
         </button>
       }
+      {...props}
     >
       <p>Customize your reading experience</p>
-      <div className={styles.field}>
+      <fieldset className={styles.field}>
+        <legend>Adjust text size</legend>
         <Button
           size="sm"
           onClick={increaseTextSize}
@@ -50,9 +58,10 @@ export const Customizer: FC<CustomizerProps> = ({ className, ...props }) => {
         >
           Reset
         </Button>
-      </div>
+      </fieldset>
       <label className={styles.field}>
-        <input type="checkbox" /> Test
+        <input type="checkbox" checked={showGifs} onChange={toggleGifs} /> Show
+        Gifs
       </label>
     </Popover>
   );
