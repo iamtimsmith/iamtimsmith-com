@@ -6,6 +6,15 @@
   font-weight: 700;
 }
 
+h1 .bold,
+h2 .bold,
+h3 .bold,
+h4 .bold,
+h5 .bold {
+  color: var(--accent);
+  font-weight: 900;
+}
+
 .code {
   font-family: var(--font-family-mono);
   font-size: var(--font-size-sm);

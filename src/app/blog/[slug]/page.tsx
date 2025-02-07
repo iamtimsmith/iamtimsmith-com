@@ -34,7 +34,12 @@ const PostPage = async ({ params }: PostPageProps) => {
     <Layout content={post.content}>
       <Container>
         <h1>{post.frontmatter.title}</h1>
-        <Tags tags={post.frontmatter.tags} />
+        <Tags
+          tags={[
+            ...(!post.frontmatter.published ? ["Unpublished"] : []),
+            ...post.frontmatter.tags.map((tag) => tag),
+          ]}
+        />
         <Content>{post.content}</Content>
         <Author />
       </Container>
