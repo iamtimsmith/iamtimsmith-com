@@ -5,7 +5,6 @@ import { Content } from "../../../components/Content";
 import { Grid } from "../../../components/Grid";
 import { Heading } from "../../../components/Heading";
 import { Layout } from "../../../components/Layout";
-import { Sharebar } from "../../../components/Sharebar";
 import { Tags } from "../../../components/Tags";
 import { getContentBySlug } from "../../../helpers/getContentBySlug";
 import { getLatestPosts } from "../../../helpers/getLatestPosts";
@@ -57,12 +56,12 @@ const PostPage = async ({ params }: PostPageProps) => {
           }))}
         />
       </Container>
-      <Sharebar
+      {/* <Sharebar
         title={post.frontmatter.title}
         excerpt={post.frontmatter.excerpt}
         featuredImage={post.frontmatter.featuredImage}
         slug={post.slug}
-      />
+      /> */}
     </Layout>
   );
 };

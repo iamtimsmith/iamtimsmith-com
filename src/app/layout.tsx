@@ -23,7 +23,7 @@ const defaultSettings = {
   theme: "dark",
 };
 
-const RootLayoutProps: FC<RootLayoutProps> = async ({ children }) => {
+const RootLayoutProps: FC<RootLayoutProps> = ({ children }) => {
   const storedValue = cookies().get("settings")?.value;
   const settings = storedValue ? JSON.parse(storedValue) : defaultSettings;
   const style = {
