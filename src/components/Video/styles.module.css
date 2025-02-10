@@ -1,0 +1,19 @@
+.video {
+  margin: 1.5rem auto;
+  max-width: var(--container-sm);
+}
+
+.video video {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  border-radius: var(--border-rounded);
+}
+
+.video figcaption {
+  color: var(--caption);
+  font-style: italic;
+  font-size: var(--font-size-sm);
+  text-align: center;
+  overflow: hidden;
+}

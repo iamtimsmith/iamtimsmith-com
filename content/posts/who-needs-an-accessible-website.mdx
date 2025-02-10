@@ -13,14 +13,14 @@ tags:
 
 Have you ever tried using a website while blindfolded? For many people, it would be near impossible to do, even with the most accessible of websites. There are people who use the web every single day with a variety of disabilities which can impact their user experience, yet too few frontend developers concern themselves with such experiences.
 
-In some cases, I believe this lack of concern stems from a lack of knowledge on coding for accessible experiences. In other cases, developers may not even be aware of their users with disabilities or know that those users may be struggling to use the website. In my opinion, the worst offenders are the developers who cut accesibility from their code because it isn't seen as a _sexy new feature_, although I'm sure there are many users who would disagree.
+In some cases, I believe this lack of concern stems from a lack of knowledge on coding for accessible experiences. In other cases, developers may not even be aware of their users with disabilities or know that those users may be struggling to use the website. The worst offenders, in my opinion, are the developers who cut accessibility from their code because it isn't seen as a _sexy new feature_, although I'm sure there are many users who would disagree.
 
 <Gif
   src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdXozMXJiZWIwa2ZmZHV1OXN0OWZraGNnNWlianBuYjdwNnprZXh6dCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cdlr2QaQ4o4lEtiXkW/giphy.mp4"
   caption="Tim Robinson saying 'You sure about that?'"
 />
 
-In this article, I will discuss some of the specific users to keep in mind when designing and building an accessible website. In addition, I will demonstrate ways in which a poorly designed UI or UX can lead to difficulty when using the web.
+In this article, I will discuss some specific users to keep in mind when designing and building an accessible website. In addition, I will demonstrate ways in which a poorly designed UI or UX can lead to difficulty when using the web.
 
 ## How do we use the web?
 
@@ -34,7 +34,7 @@ On any given website, we will likely be using a combination of 3 different sense
 
 - **Vision:** Used when reading text, looking at an image, or watching a video
 - **Hearing:** Used when a noise plays, a video has sound, or music is playing
-- **Touch:** Used when a phone responds with a vibrate
+- **Touch:** Used when a phone responds with a vibration
 
 The majority of users to a website will be able to mix and match these senses for an immersive experience. There is, however, a minority of users who may not be able to use all 3 senses.
 
@@ -44,6 +44,8 @@ So now the question is, what happens when one or more of those senses aren't ava
 
 I think most developers would agree that the more people who can use our stuff, the better it can be. To begin working toward everyone being able to use your site, it's important to know why those senses are unavailable and plan accordingly. This is where [accessibility](/tags/accessibility) comes into play.
 
+<EmailSignup />
+
 ## Disabilities which affect user experience
 
 Although I'm sure you've guessed that there are disabilities related to vision, hearing, and touch which may hinder someone's ability to use your site, there are actually a few others to consider as well. I will be discussing 4 separate disabilities which can be affected and considerations we can take as engineers to make their experience on our products just as enjoyable as those without disabilities.
@@ -52,19 +54,103 @@ Although I'm sure you've guessed that there are disabilities related to vision, 
 
 When we think of visually impaired people, we tend to think about people who are legally or completely blind. While users who fall into these categories should be considered when building a webpage, visual impairment is not limited to these two buckets.
 
-Before we begin talking about ways to address accessibility concerns, let's go over the primary types of visual impairment to consider.
+While talking about ways to address accessibility concerns, let's go over the primary types of visual impairment to consider.
+
+#### Nearsightedness and farsightedness
 
 The first group to consider when implementing accessibility into a webpage are users with Myopia (nearsightedness) and Hyperopia (farsightedness). While many of these users will wear glasses to assist them in viewing your webpage, there are still measures which can be taken to ensure a more positive experience such as keeping font sizes at a minimum of `15-16px`.
 
-Although we already mentioned users with blindness, it's worth discussing in greater detail who they are and how they interact with a webpage. Users with this disability typically don't have any vision at all. To make technology easier to use for those without eyesight, screen readers such as [JAWS](https://www.freedomscientific.com/products/software/jaws/), [NVDA](https://www.nvaccess.org), [Windows Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1), or [Apple VoieOver](https://www.apple.com/accessibility/vision/) can be used to navigate and consume information.
+#### Blindness
+
+Although we already mentioned users with blindness, it's worth discussing in greater detail who they are and how they interact with a webpage. Users with this disability typically don't have any vision at all. To make technology easier to use for those without eyesight, screen readers such as [JAWS](https://www.freedomscientific.com/products/software/jaws/), [NVDA](https://www.nvaccess.org), [Windows Narrator](https://support.microsoft.com/en-us/windows/complete-guide-to-narrator-e4397a0d-ef4f-b386-d8ae-c172f109bdb1), or [Apple VoiceOver](https://www.apple.com/accessibility/vision/) can be used to navigate and consume information.
+
+#### Color blindness
 
 Color blindness is not generally thought of as a disability, even though it can dramatically affect the way in which a user interacts with UI elements. For instance, if a website has instructions that are color based such as "Click the green button", that will be a difficult user interface to navigate.
 
-![UIs which depend on color can be difficult to navigate if a user is colorblind, as shown in these examples](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1738709076/iamtimsmith/colorblind-buttons_pekt72.png)
+![UIs which depend on color can be difficult to navigate if a user is colorblind, as shown in these examples](https://res.cloudinary.com/dcrgbfjfu/image/upload/v1738709076/iamtimsmith/Blog%20-%20Who%20needs%20an%20accessible%20website/colorblind-buttons_pekt72.png)
 
-### Hearing
+In addition, there should be an adequate contrast between background and foreground colors to ensure maximum readability. If you're unsure about the contrast on your website, you can use a tool like [the WebAIM contrast checker](https://webaim.org/resources/contrastchecker/) to determine if the level of contrast on your site meets accessibility standards.
 
-### Motor
+#### Limited vision
+
+The final group of users with visual impairments to consider are those with limited vision. This is often caused by cataracts, glaucoma, macular degeneration, and more. Fortunately, if you've taken the precautions already mentioned for visually impaired users, there shouldn't be any additional work necessary for colors and sizes.
+
+#### Anyone having difficulty seeing
+
+To help illustrate why implementing accessibility into a website is important for everyone, we can even broaden the scope of the users we're building for. Not all users have visual impairments, but anyone (visually impaired or not) could be browsing a website while in direct sunlight which can make it difficult to read. Ensuring there is sufficient contrast and the font size is large enough can even help those trying to use the web under temporarily difficult conditions.
+
+#### How to make your site more accessible for visually impaired users
+
+As discussed above, there are multiple steps which can be taken to allow the maximum number of users to interact with your website if they have visual impairments.
+
+- Make sure the contrast between your foreground and background colors meet accessibility standards
+- Don't assign value to colors alone
+- Keep font sizes large enough that they are easily readable
+
+### Hearing impaired users
+
+There are also a significant number of internet surfers who are deaf or hard of hearing. While these users may be able to interact with the site visually, there are still steps we can take to ensure maximum usability on the site.
+
+Before going over solutions to improve the user experience for those with hearing impairments, let's look at who could fall into this category.
+
+#### Deaf
+
+A user who is completely deaf will not be able to hear any audio on your website. This could include notification bells, music, or audio from various media sources.
+
+#### Hard of hearing
+
+Users who are hard of hearing have some sort of hearing loss which makes it difficult to hear or understand everything, particularly at lower volumes. While these users _may_ be able to hear sounds on your website, they can also benefit from the steps taken to accommodate the deaf users.
+
+#### Anyone in a loud environment
+
+If you've ever been at a loud restaurant or concert and try to watch a video or listen to something, you know how difficult it can be to get all the information being presented. Anyone in this situation will also be able to use the web more easily if precautions are taken for those with an auditory impairment.
+
+To illustrate how information can be misconstrued if a video is not properly captioned, I will direct your attention to a meme from the mid 2000s.
+
+<Gif
+  src="https://media.tenor.com/zEohFS_CPugAAAPo/red-sauce-on-pasta-this-is-sparta.mp4"
+  caption="Red sauce on pasta meme"
+  maxWidth={800}
+/>
+
+#### How to make your site more accessible for audibly impaired users
+
+The solutions for those with hearing impairments are the same, regardless of the level or reason for impairment.
+
+- When using a sound, also provide text for the user to read (captions for videos and audio transcriptions)
+- Avoid adding music to spoken word, where possible, as this can make the spoken word more difficult to understand
+
+### Users with motor impairments
+
+There are varying levels and reasons for motor impairments, but it's important to build in accommodations for each level of impairment.
+
+#### Loss or damaged limbs
+
+A user who is missing limbs or is limited in the use of their limbs may find it difficult to use and navigate on your website.
+
+#### Loss of fine motor skills
+
+Some users may have the use of all of their limbs, but lack the dexterity to use them for minute functions such as clicking on small buttons or links. Users who fall into this category could include those with Parkinson's disease or Rheumatism (arthritis).
+
+#### Anyone on a bumpy car or train ride
+
+Trying to accurately press a button or link can be difficult when the device being used is moving all over the place. While temporary, this also qualifies as a motor impairment and users in this circumstance will also find it easier to use your website if accommodations are made.
+
+#### How to make your site more accessible for users with motor impairments
+
+Improvements to your website for those with motor impairments will come in the form of support for different input technologies and UI element sizes.
+
+If I were to ask you to click the buttons in the demo below, you may not have any trouble doing so since both buttons are stationary. This gets more difficult if the targets begin moving. To simulate motion in the demo, simply check the "Show motion" checkbox. Though it is a contrived example, it demonstrates how the buttons could move if the device being used is moving around quite a bit for the user.
+
+<Embed src="https://codepen.io/iamtimsmith/full/mydbZJx" height={350} />
+
+After enabling motion, try to click the small button and then try to click the large button. I'm willing to bet that, of the two, the larger button is easier to click. This is because the target for the user to click is larger, so it doesn't require as much finesse to do.
+
+So how do we make our websites more accessible for those with motor impairments?
+
+- Make sure navigation and interaction is possible with a keyboard alone for those who cannot use a mouse
+- Keep targets large if possible to reduce difficulty in interacting with various elements
 
 ### Cognitive
 

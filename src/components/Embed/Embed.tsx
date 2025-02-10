@@ -1,17 +1,26 @@
-import clsx from "clsx";
+"use client";
 import { FC, HTMLAttributes } from "react";
 import style from "./styles.module.css";
 
-interface EmbedProps extends HTMLAttributes<HTMLDivElement> {}
+interface EmbedProps extends HTMLAttributes<HTMLIFrameElement> {
+  src: string;
+  height?: number;
+  width?: number;
+}
 
 export const Embed: FC<EmbedProps> = ({
   className,
-  children,
+  src,
+  height = 400,
+  width = 600,
   ...props
 }: EmbedProps) => (
-  <div
-    className={clsx([style.embed, className])}
-    dangerouslySetInnerHTML={{ __html: children as string }}
+  <iframe
+    src={src}
+    className={style.embed}
+    height={height}
+    width={width}
+    allowFullScreen
     {...props}
   />
 );

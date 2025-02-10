@@ -7,6 +7,7 @@ import { Gif } from "../Gif";
 import { Image } from "../Image";
 import { InlineText } from "../InlineText";
 import { Link } from "../Link";
+import { Video } from "../Video";
 
 export interface ContentProps extends HTMLAttributes<HTMLDivElement> {
   children: string;
@@ -20,6 +21,7 @@ export const Content: FC<ContentProps> = ({ children, ...props }) => {
         EmailSignup,
         Embed,
         Gif,
+        Video,
         a: Link,
         img: Image,
         pre: ({ children: { props } }: any) => <CodeBlock {...props} />,
