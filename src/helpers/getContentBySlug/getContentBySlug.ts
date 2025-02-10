@@ -15,6 +15,7 @@ export const getContentBySlug = (slug = "") => {
       slug: slug.replace("posts/", "/blog/"),
     };
   } catch (error) {
+    console.log(error);
     return notFound();
     // Handle 404 error
     if (error.code === "ENOENT") {
