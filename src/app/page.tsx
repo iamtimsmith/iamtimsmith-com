@@ -1,4 +1,3 @@
-import { Layout } from "../components/Layout";
 import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
@@ -10,7 +9,7 @@ const HomePage = () => {
   const posts = getLatestPosts();
 
   return (
-    <Layout>
+    <div>
       <h1>Home</h1>
       {/* <Container>
         <Content>{page.content}</Content>
@@ -28,7 +27,7 @@ const HomePage = () => {
           }))}
         />
       </Container> */}
-    </Layout>
+    </div>
   );
 };
 
