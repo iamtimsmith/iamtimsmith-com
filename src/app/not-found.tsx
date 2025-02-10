@@ -4,12 +4,15 @@ import { Heading } from "../components/Heading";
 import { InlineText } from "../components/InlineText";
 import { Layout } from "../components/Layout";
 import { Link } from "../components/Link";
+import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
 
-export const generateMetadata = () => getMetadata("not-found");
+export const generateMetadata = () => getMetadata("pages/not-found");
 
 const NotFoundPage = async () => {
+  const page = getContentBySlug("pages/not-found");
+  console.log(page);
   const posts = getLatestPosts();
 
   return (
