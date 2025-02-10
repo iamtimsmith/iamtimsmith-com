@@ -5,13 +5,13 @@ import { Grid } from "../components/Grid";
 import { Heading } from "../components/Heading";
 import { Layout } from "../components/Layout";
 import { getContentBySlug } from "../helpers/getContentBySlug";
-import { getLatestPosts } from "../helpers/getLatestPosts";
+import { getMetadata } from "../helpers/getMetadata";
 
-// export const generateMetadata = () => getMetadata("home");
+export const generateMetadata = () => getMetadata("home");
 
 const HomePage = () => {
   const page = getContentBySlug("home");
-  const posts = getLatestPosts();
+  const posts = [];
 
   return (
     <Layout>
