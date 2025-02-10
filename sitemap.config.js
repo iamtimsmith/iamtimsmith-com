@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.NEXT_PUBLIC_WEBSITE_URL || "http://localhost:1125",
+  siteUrl: process.env.NEXT_PUBLIC_WEBSITE_URL || "https://www.iamtimsmith.com",
   generateRobotsTxt: true,
   // ...other options
 };

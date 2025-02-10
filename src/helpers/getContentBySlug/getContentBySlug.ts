@@ -1,15 +1,17 @@
 import { readFileSync } from "fs";
 import matter from "gray-matter";
 import { notFound } from "next/navigation";
+import path from "path";
 
 export const getContentBySlug = (slug = "") => {
   console.log("GET CONTENT BY SLUG", slug);
   if (slug.includes(".ico.mdx")) return;
 
   try {
-    console.log("GET CONTENT BY SLUG", "START TRY");
-    const file = readFileSync(`content/${slug}.mdx`);
-    console.log("GET CONTENT BY SLUG FILE", file);
+    if (slug.includes("home")) {
+      console.log("GET CONTENT BY SLUG", "START TRY", path.join(process.cwd()));
+    }
+    const file = readFileSync(path.join(process.cwd(), `content/${slug}.mdx`));
     const frontmatter = matter(file);
 
     return {

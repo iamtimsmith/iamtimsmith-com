@@ -1,16 +1,21 @@
-// export const generateMetadata = () => getMetadata("home");
-
+import { Author } from "../components/Author";
+import { Container } from "../components/Container";
+import { Content } from "../components/Content";
+import { Grid } from "../components/Grid";
+import { Heading } from "../components/Heading";
 import { getContentBySlug } from "../helpers/getContentBySlug";
+import { getLatestPosts } from "../helpers/getLatestPosts";
+import { getMetadata } from "../helpers/getMetadata";
+
+export const generateMetadata = () => getMetadata("home");
 
 const HomePage = () => {
   const page = getContentBySlug("pages/home");
-  console.log(page);
-  // const posts = getLatestPosts();
+  const posts = getLatestPosts();
 
   return (
     <div>
-      <h1>Home</h1>
-      {/* <Container>
+      <Container>
         <Content>{page.content}</Content>
         <Author />
       </Container>
@@ -25,7 +30,7 @@ const HomePage = () => {
             slug,
           }))}
         />
-      </Container> */}
+      </Container>
     </div>
   );
 };
