@@ -3,7 +3,7 @@
 import { getContentBySlug } from "../helpers/getContentBySlug";
 
 const HomePage = () => {
-  const page = getContentBySlug("home");
+  const page = getContentBySlug("pages/home");
   console.log(page);
   // const posts = getLatestPosts();
 

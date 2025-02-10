@@ -15,7 +15,7 @@ export const getContentBySlug = (slug = "") => {
     return {
       frontmatter: frontmatter.data,
       content: frontmatter.content,
-      slug: slug.replace("posts/", "/blog/"),
+      slug: slug.replace("posts/", "/blog/").replace("pages/", "/"),
     };
   } catch (error) {
     console.log("GET CONTENT BY SLUG FILE ERROR", slug, error);
