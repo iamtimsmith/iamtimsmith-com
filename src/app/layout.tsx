@@ -1,11 +1,8 @@
 import { GoogleAnalytics } from "@next/third-parties/google";
 import { cookies } from "next/headers";
 import { CSSProperties, FC, ReactNode } from "react";
-import { siteDescription, siteName } from "../constants";
-import {
-  CustomizeProvider,
-  defaultSettings,
-} from "../contexts/CustomizeContext";
+import { defaultSettings, siteDescription, siteName } from "../constants";
+import { CustomizeProvider } from "../contexts/CustomizeContext";
 import "../styles/style.css";
 
 export const metadata = {

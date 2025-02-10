@@ -1,10 +1,10 @@
 import { render, screen } from "@testing-library/react";
 import { useContext } from "react";
 
+import { defaultSettings } from "../../constants";
 import {
   CustomizeContext,
   CustomizeProvider,
-  defaultSettings,
   useCustomizeContext,
 } from "./CustomizeContext";
 

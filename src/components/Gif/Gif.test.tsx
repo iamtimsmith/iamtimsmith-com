@@ -1,8 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import {
-  CustomizeProvider,
-  defaultSettings,
-} from "../../contexts/CustomizeContext";
+import { defaultSettings } from "../../constants";
+import { CustomizeProvider } from "../../contexts/CustomizeContext";
 import { Gif } from "./Gif";
 
 const giphyUrl = "https://media.giphy.com/media/1234/giphy.mp4";

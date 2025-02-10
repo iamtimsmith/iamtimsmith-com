@@ -1,9 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import { siteName } from "../../constants";
-import {
-  CustomizeProvider,
-  defaultSettings,
-} from "../../contexts/CustomizeContext";
+import { defaultSettings, siteName } from "../../constants";
+import { CustomizeProvider } from "../../contexts/CustomizeContext";
 import { Header } from "./Header";
 
 const wrapper = ({ children }) => (

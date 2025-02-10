@@ -1,5 +1,1 @@
-export {
-  CustomizeProvider,
-  defaultSettings,
-  useCustomizeContext,
-} from "./CustomizeContext";
+export { CustomizeProvider, useCustomizeContext } from "./CustomizeContext";

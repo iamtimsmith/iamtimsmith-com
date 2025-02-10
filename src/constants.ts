@@ -8,6 +8,7 @@ import {
   PinterestIcon,
   TwitterIcon,
 } from "./components/Icons";
+import { Theme } from "./types";
 
 /**
  * ENVIRNONMENT VARIABLES
@@ -30,6 +31,11 @@ export const favicon =
 export const postsPerPage = 6;
 export const showCustomizer = false;
 export const fontSizes = { min: 16, max: 24, default: 16 };
+export const defaultSettings = {
+  showGifs: true,
+  textSize: 16,
+  theme: "dark" as Theme,
+};
 
 /**
  * AUTHOR CONFIG

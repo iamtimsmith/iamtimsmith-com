@@ -1,8 +1,6 @@
 import { act, render, screen } from "@testing-library/react";
-import {
-  CustomizeProvider,
-  defaultSettings,
-} from "../../contexts/CustomizeContext";
+import { defaultSettings } from "../../constants";
+import { CustomizeProvider } from "../../contexts/CustomizeContext";
 import { ThemeButton } from "./ThemeButton";
 
 jest.mock("../../helpers/toggleTheme", () => ({
