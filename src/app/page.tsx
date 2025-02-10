@@ -7,7 +7,7 @@ import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
 
-export const generateMetadata = () => getMetadata("home");
+export const generateMetadata = () => getMetadata("pages/home");
 
 const HomePage = () => {
   const page = getContentBySlug("pages/home");
