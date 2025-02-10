@@ -2,7 +2,10 @@ import { GoogleAnalytics } from "@next/third-parties/google";
 import { cookies } from "next/headers";
 import { CSSProperties, FC, ReactNode } from "react";
 import { siteDescription, siteName } from "../constants";
-import { CustomizeProvider } from "../contexts/CustomizeContext";
+import {
+  CustomizeProvider,
+  defaultSettings,
+} from "../contexts/CustomizeContext";
 import "../styles/style.css";
 
 export const metadata = {
@@ -16,12 +19,6 @@ export const metadata = {
 interface RootLayoutProps {
   children: ReactNode;
 }
-
-const defaultSettings = {
-  showGifs: true,
-  textSize: 16,
-  theme: "dark",
-};
 
 const RootLayoutProps: FC<RootLayoutProps> = ({ children }) => {
   const storedValue = cookies().get("settings")?.value;

@@ -1,10 +1,17 @@
 import { render, screen } from "@testing-library/react";
-import { CustomizeProvider as wrapper } from "../../contexts/CustomizeContext";
+import {
+  CustomizeProvider,
+  defaultSettings,
+} from "../../contexts/CustomizeContext";
 import { Gif } from "./Gif";
 
 const giphyUrl = "https://media.giphy.com/media/1234/giphy.mp4";
 const Component = (props) => (
   <Gif src={giphyUrl} data-testid="gif" {...props} />
+);
+
+const wrapper = ({ children }) => (
+  <CustomizeProvider {...defaultSettings}>{children}</CustomizeProvider>
 );
 
 describe("<Gif />", () => {

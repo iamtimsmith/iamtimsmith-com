@@ -4,8 +4,13 @@ import { useContext } from "react";
 import {
   CustomizeContext,
   CustomizeProvider,
+  defaultSettings,
   useCustomizeContext,
 } from "./CustomizeContext";
+
+const wrapper = ({ children }) => (
+  <CustomizeProvider {...defaultSettings}>{children}</CustomizeProvider>
+);
 
 const ComponentWithHook = () => {
   const { showGifs } = useContext(CustomizeContext);
@@ -25,21 +30,21 @@ const ComponentWithConsumer = () => (
 
 describe("CustomizeContext Context", () => {
   it("should be available using the useContext hook", async () => {
-    render(<ComponentWithHook />, { wrapper: CustomizeProvider });
+    render(<ComponentWithHook />, { wrapper });
 
     const elementViaHook = await screen.findByText(/hook:true/i);
     expect(elementViaHook).toBeInTheDocument();
   });
 
   it("should be available using the useCustomizeContextContext hook", async () => {
-    render(<ComponentWithCustomHook />, { wrapper: CustomizeProvider });
+    render(<ComponentWithCustomHook />, { wrapper });
 
     const elementViaHook = await screen.findByText(/custom hook:true/i);
     expect(elementViaHook).toBeInTheDocument();
   });
 
   it("should be available using CustomizeContextContext.Consumer", async () => {
-    render(<ComponentWithConsumer />, { wrapper: CustomizeProvider });
+    render(<ComponentWithConsumer />, { wrapper });
 
     const elementViaConsumer = await screen.findByText(/consumer:true/i);
     expect(elementViaConsumer).toBeInTheDocument();

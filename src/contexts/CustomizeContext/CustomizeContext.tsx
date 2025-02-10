@@ -28,6 +28,12 @@ interface CustomizeProviderProps extends PropsWithChildren {
   theme: Theme;
 }
 
+export const defaultSettings = {
+  showGifs: true,
+  textSize: 16,
+  theme: "dark" as Theme,
+};
+
 export const CustomizeContext = createContext<CustomizeContextType>(null!);
 
 export const CustomizeProvider: FC<CustomizeProviderProps> = ({

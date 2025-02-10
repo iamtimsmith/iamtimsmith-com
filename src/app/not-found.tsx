@@ -12,7 +12,6 @@ export const generateMetadata = () => getMetadata("pages/not-found");
 
 const NotFoundPage = async () => {
   const page = getContentBySlug("pages/not-found");
-  console.log(page);
   const posts = getLatestPosts();
 
   return (

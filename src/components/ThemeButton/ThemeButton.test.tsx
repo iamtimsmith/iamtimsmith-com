@@ -1,27 +1,35 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
+import {
+  CustomizeProvider,
+  defaultSettings,
+} from "../../contexts/CustomizeContext";
 import { ThemeButton } from "./ThemeButton";
 
 jest.mock("../../helpers/toggleTheme", () => ({
   toggleTheme: jest.fn(),
 }));
 
+const wrapper = ({ children }) => (
+  <CustomizeProvider {...defaultSettings}>{children}</CustomizeProvider>
+);
+
 describe("<ThemeButton />", () => {
   it("should render", () => {
-    render(<ThemeButton data-testid="themeButton" />);
+    render(<ThemeButton data-testid="themeButton" />, { wrapper });
     const element = screen.getByTestId("themeButton");
     expect(element).toBeInTheDocument();
   });
 
   it("should display an icon", () => {
-    render(<ThemeButton data-testid="themeButton" />);
+    render(<ThemeButton data-testid="themeButton" />, { wrapper });
     const element = screen.getByTestId("themeButton");
     expect(element).toContainHTML("svg");
   });
 
   it("should call toggleTheme when clicked", () => {
-    render(<ThemeButton data-testid="themeButton" />);
+    render(<ThemeButton data-testid="themeButton" />, { wrapper });
     const element = screen.getByTestId("themeButton");
-    element.click();
+    act(() => element.click());
     expect(require("../../helpers/toggleTheme").toggleTheme).toHaveBeenCalled();
   });
 });

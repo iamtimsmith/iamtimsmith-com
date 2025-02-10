@@ -4,8 +4,8 @@ import { getMetadata } from "./getMetadata";
 
 describe("getMetadata()", () => {
   it("should return the correct metadata for the homepage", () => {
-    const page = getContentBySlug("home");
-    const metadata = getMetadata("home");
+    const page = getContentBySlug("pages/home");
+    const metadata = getMetadata("pages/home");
     const title = `${page.frontmatter.title} | ${siteName}`;
 
     expect(metadata).toEqual({
@@ -14,7 +14,7 @@ describe("getMetadata()", () => {
       openGraph: {
         title,
         description: page.frontmatter.excerpt,
-        url: `${baseUrl}/${page.slug}`,
+        url: `${baseUrl}${page.slug}`,
         siteName,
         type: "website",
         images: [
@@ -40,7 +40,7 @@ describe("getMetadata()", () => {
       openGraph: {
         title: post.frontmatter.title,
         description: post.frontmatter.excerpt,
-        url: `${baseUrl}/${post.slug}`,
+        url: `${baseUrl}${post.slug}`,
         siteName,
         type: "website",
         images: [
