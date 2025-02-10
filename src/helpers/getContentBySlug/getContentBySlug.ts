@@ -19,7 +19,7 @@ export const getContentBySlug = (slug = "") => {
     };
   } catch (error) {
     console.log("GET CONTENT BY SLUG FILE ERROR", error);
-    return notFound();
+    // return notFound();
     // Handle 404 error
     if (error.code === "ENOENT") {
       return notFound();
