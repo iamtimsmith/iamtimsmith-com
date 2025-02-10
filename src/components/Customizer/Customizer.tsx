@@ -1,3 +1,4 @@
+"use client";
 import { FC, HTMLAttributes } from "react";
 import { useCustomizeContext } from "../../contexts/CustomizeContext";
 import { Theme } from "../../types";
