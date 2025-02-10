@@ -1,7 +1,10 @@
 // export const generateMetadata = () => getMetadata("home");
 
+import { getContentBySlug } from "../helpers/getContentBySlug";
+
 const HomePage = () => {
-  // const page = getContentBySlug("home");
+  const page = getContentBySlug("home");
+  console.log(page);
   // const posts = getLatestPosts();
 
   return (
