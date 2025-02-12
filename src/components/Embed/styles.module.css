@@ -1,7 +1,8 @@
 .embed {
   display: block;
   margin: 1.5rem auto;
-  max-width: var(--container-sm);
+  width: var(--container-sm);
+  max-width: 100%;
   frame-border: 0;
   border-radius: var(--border-rounded);
 }

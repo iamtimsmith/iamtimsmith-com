@@ -192,6 +192,47 @@ Below are some examples of temporary cognitive impairments to account for:
 
 While there aren't any steps to take directly for these conditions, implementing code for the previous cognitive impairments should improve the user experience for these users as well.
 
+## Simple steps to take to improve accessibility
+
+There are a few things you can do immediately to improve the accessibility of your site. Below you will find information about those improvements.
+
+<table>
+  <thead>
+    <tr>
+      <th>Problem</th>
+      <th>Solution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        No information about buttons in screen screen reader (play, pause, etc)
+      </td>
+      <td>
+        Add `aria-labels` to buttons or links which lack useful or descriptive
+        text
+      </td>
+    </tr>
+    <tr>
+      <td>Poor heading structure in the data</td>
+      <td>
+        Ensure headings are being properly utilized to make documents easy to
+        understand (h3 should not be a direct descendant of an h1)
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Modals, alerts, or other UI elements may not get focus which makes it
+        difficult to interact with them
+      </td>
+      <td>
+        Try to avoid UI elements which cover the screen. If necessary, make sure
+        they get focus and can be used with only a keyboard
+      </td>
+    </tr>
+  </tbody>
+</table>
+
 ## Conclusion
 
 You never know who is going to visit your website or what challenges they may face in using your site, so implementing methods for maximum usability is imperative. The first step to improving the accessibility on your site is to understand those who may be using the tools you're building.

@@ -203,23 +203,28 @@ blockquote > ol {
 **/
 table {
   width: 100%;
-  margin-bottom: var(--spacing-8);
+  margin-bottom: 2rem;
   border-collapse: collapse;
   border-spacing: 0.25rem;
 }
 
 thead tr th {
-  border-bottom: 2px solid var(--color-grey-200);
+  border-bottom: 0.125rem solid var(--caption);
+  font-weight: 900;
 }
 
 tr {
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 0.0625rem solid var(--color-grey-100);
 }
 
 th,
 td {
   text-align: left;
-  padding: var(--spacing-2) var(--spacing-0);
+  padding: 0.5rem 1rem;
+}
+
+tbody tr:nth-child(odd) {
+  background: var(--page-fg);
 }
 
 /**
@@ -227,8 +232,8 @@ td {
 **/
 form input[type="text"],
 form input[type="email"] {
-  padding: calc(0.5rem + 1px);
-  border: 1px solid var(--border);
+  padding: calc(0.5rem + 0.0625rem);
+  border: 0.0625rem solid var(--border);
   background: var(--grey-50);
   color: var(--grey-900);
   font-size: var(--font-size-md);
@@ -238,7 +243,7 @@ form a,
 form button {
   padding: 0.5rem;
   background: var(--button-bg);
-  border: 1.5px solid var(--button-bg);
+  border: 0.0938rem solid var(--button-bg);
   border-radius: var(--border-rounded);
   color: var(--button-fg);
   cursor: pointer;
@@ -273,7 +278,7 @@ input[type="checkbox"]:checked:after {
 select {
   padding: 0.1rem;
   width: 100%;
-  border: 1px solid var(--border);
+  border: 0.0625rem solid var(--border);
   background: var(--page-bg);
   color: var(--text);
   font-size: var(--font-size-sm);
