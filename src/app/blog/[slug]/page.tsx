@@ -12,7 +12,7 @@ import { getMetadata } from "../../../helpers/getMetadata";
 import styles from "./styles.module.css";
 
 export const generateMetadata = ({ params }) =>
-  getMetadata(`posts/${params.slug}`);
+  getMetadata(`blog/${params.slug}`);
 
 export interface PostPageProps {
   params: Promise<{ slug: string }>;
@@ -22,7 +22,7 @@ export interface PostPageProps {
 const PostPage = async ({ params }: PostPageProps) => {
   const { slug } = await params;
   const isDev = process.env.NODE_ENV === "development";
-  const post = getContentBySlug(`posts/${slug}`);
+  const post = getContentBySlug(`blog/${slug}`);
 
   // If not in dev mode and post is not published, return 404
   if (!isDev && !post.frontmatter.published) return notFound();

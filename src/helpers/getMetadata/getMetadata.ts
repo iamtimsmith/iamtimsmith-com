@@ -9,9 +9,7 @@ export const getMetadata = (slug: string): Metadata => {
   } = getContentBySlug(slug);
 
   // Format the title
-  const title = slug.match(/pages\/home/i)
-    ? `${postTitle} | ${siteName}`
-    : postTitle;
+  const title = slug.match(/home/i) ? `${postTitle} | ${siteName}` : postTitle;
 
   return {
     title,

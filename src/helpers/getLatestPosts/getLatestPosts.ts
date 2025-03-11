@@ -10,13 +10,13 @@ export const getLatestPosts = (
   // Determine the environment
   const isDev = process.env.NODE_ENV === "development";
   // Collect all of the MDX files in the pages directory, using fs.readdirSync.
-  const files = fs.readdirSync(path.join(process.cwd(), "content/posts"));
+  const files = fs.readdirSync(path.join(process.cwd(), "content/blog"));
   const mdxFiles = files.filter((file) => file.endsWith(".mdx"));
 
   // Load the frontmatter and transform content for each post.
   const posts = mdxFiles.map((file) => {
     // Get the post by from the slug
-    const post = getContentBySlug(`posts/${file.replace(".mdx", "")}`);
+    const post = getContentBySlug(`blog/${file.replace(".mdx", "")}`);
     // Convert the date to a string
     post.frontmatter.date = new Date(
       post.frontmatter.date
