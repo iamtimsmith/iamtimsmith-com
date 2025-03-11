@@ -8,10 +8,10 @@ import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
 
-export const generateMetadata = () => getMetadata("pages/home");
+export const generateMetadata = () => getMetadata("home");
 
 const HomePage = () => {
-  const page = getContentBySlug("pages/home");
+  const page = getContentBySlug("home");
   const posts = getLatestPosts();
 
   return (

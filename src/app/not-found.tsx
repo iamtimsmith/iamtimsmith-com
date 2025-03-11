@@ -8,10 +8,10 @@ import { getContentBySlug } from "../helpers/getContentBySlug";
 import { getLatestPosts } from "../helpers/getLatestPosts";
 import { getMetadata } from "../helpers/getMetadata";
 
-export const generateMetadata = () => getMetadata("pages/not-found");
+export const generateMetadata = () => getMetadata("not-found");
 
 const NotFoundPage = async () => {
-  const page = getContentBySlug("pages/not-found");
+  const page = getContentBySlug("not-found");
   const posts = getLatestPosts();
 
   return (

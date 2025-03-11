@@ -5,7 +5,7 @@ import { getContentBySlug } from "../../helpers/getContentBySlug";
 import { getMetadata } from "../../helpers/getMetadata";
 
 export const generateMetadata = ({ params }) => {
-  if (!params.slug.match(/\.ico/i)) getMetadata(`pages/${params.slug}`);
+  if (!params.slug.match(/\.ico/i)) getMetadata(params.slug);
 };
 
 interface DynamicPageProps {
@@ -18,7 +18,7 @@ const DynamicPage = async ({ params }: DynamicPageProps) => {
 
   if (slug === "favicon.ico") return;
 
-  const post = getContentBySlug(`pages/${slug}`);
+  const post = getContentBySlug(slug);
 
   return (
     <Layout>
