@@ -5,7 +5,7 @@ const IndexPage = async () => {
   const { data } = await client.queries.postConnection();
 
   return (
-    <div>
+    <>
       <h1>Blog</h1>
       <ul>
         {data.postConnection.edges.map(({ node }) => (
@@ -17,7 +17,7 @@ const IndexPage = async () => {
           </li>
         ))}
       </ul>
-    </div>
+    </>
   );
 };
 

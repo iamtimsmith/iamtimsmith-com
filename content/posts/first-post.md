@@ -1,7 +1,7 @@
 ---
 title: First Post dasfsa
-date: 2021-05-28T05:00:00.000Z
-excerpt: Sample description
+publishedOn: 2021-05-28T05:00:00.000Z
+description: Sample description
 published: false
 featuredImage: >-
   https://res.cloudinary.com/dcrgbfjfu/image/upload/v1644109219/iamtimsmith/deck_zrvpji.jpg
@@ -70,14 +70,14 @@ export const Link = ({
 };
 ```
 
-<Gif
+<!-- <Gif
   src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExemQzaWt0c3RkYmNsOGk1bzM3ZnJzazl1NXdwcGxmNzlkNm0yYjlxMyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/T9JPznkGDAxYC8m7yC/giphy.mp4"
   caption="Dustin and Steve pretending to fight with lightsabers."
-/>
+/> -->
 
-<EmailSignup />
+<!-- <EmailSignup /> -->
 
 > This is a blog quote for style purposes. It has
 > All kinds of cool stuff in it!
 
-<Embed children="<h1>Hello there</h1>" />
+<!-- <Embed children="<h1>Hello there</h1>" /> -->
