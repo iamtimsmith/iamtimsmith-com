@@ -1,1 +1,0 @@
-export { InlineText } from "./InlineText";

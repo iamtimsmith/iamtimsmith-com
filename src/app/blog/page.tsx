@@ -1,40 +1,24 @@
-import { FC } from "react";
-import { Container } from "../../components/Container";
-import { Grid } from "../../components/Grid";
-import { Layout } from "../../components/Layout";
-import { getLatestPosts } from "../../helpers/getLatestPosts";
+import Link from "next/link";
+import client from "../../../tina/__generated__/client";
 
-export const metadata = {
-  title: "Blog",
-  description: "Read the latest posts from the blog.",
-};
-
-export interface BlogPageProps {
-  searchParams: URLSearchParams;
-}
-
-const BlogPage: FC<BlogPageProps> = () => {
-  // This will need to change once pagination is implemented
-  const posts = getLatestPosts(-1);
+const IndexPage = async () => {
+  const { data } = await client.queries.postConnection();
 
   return (
-    <Layout>
-      <Container>
-        <h1>Blog</h1>
-      </Container>
-      <Container variant="wide">
-        <Grid
-          items={posts.map(({ frontmatter, slug }) => ({
-            title: frontmatter.title,
-            isPublished: frontmatter.published,
-            description: frontmatter.excerpt,
-            meta: frontmatter.tags,
-            slug,
-          }))}
-        />
-      </Container>
-    </Layout>
+    <div>
+      <h1>Blog</h1>
+      <ul>
+        {data.postConnection.edges.map(({ node }) => (
+          <li key={node._sys.filename}>
+            <Link href={`/blog/${node._sys.filename}`}>
+              <h2>{node.title}</h2>
+              <p>{node.description}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default BlogPage;
+export default IndexPage;

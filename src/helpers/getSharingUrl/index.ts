@@ -1,1 +1,0 @@
-export { getSharingUrl } from "./getSharingUrl";

@@ -1,39 +1,24 @@
-import { Author } from "../components/Author";
-import { Container } from "../components/Container";
-import { Content } from "../components/Content";
-import { Grid } from "../components/Grid";
-import { Heading } from "../components/Heading";
-import { Layout } from "../components/Layout";
-import { getContentBySlug } from "../helpers/getContentBySlug";
-import { getLatestPosts } from "../helpers/getLatestPosts";
-import { getMetadata } from "../helpers/getMetadata";
+import Link from "next/link";
+import client from "../../tina/__generated__/client";
 
-export const generateMetadata = () => getMetadata("home");
-
-const HomePage = () => {
-  const page = getContentBySlug("home");
-  const posts = getLatestPosts();
+const IndexPage = async () => {
+  const { data } = await client.queries.postConnection();
 
   return (
-    <Layout>
-      <Container>
-        <Content>{page.content}</Content>
-        <Author />
-      </Container>
-      <Container variant="wide">
-        <Heading href="/blog">Recent Posts</Heading>
-        <Grid
-          items={posts.map(({ frontmatter, slug }) => ({
-            title: frontmatter.title,
-            description: frontmatter.excerpt,
-            isPublished: frontmatter.published,
-            meta: frontmatter.tags,
-            slug,
-          }))}
-        />
-      </Container>
-    </Layout>
+    <div>
+      <h1>Hello World</h1>
+      <ul>
+        {data.postConnection.edges.map(({ node }) => (
+          <li key={node._sys.filename}>
+            <Link href={`/blog/${node._sys.filename}`}>
+              <h2>{node.title}</h2>
+              <p>{node.description}</p>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 };
 
-export default HomePage;
+export default IndexPage;
